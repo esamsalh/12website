@@ -1,0 +1,74 @@
+[
+  {
+    "id": "text-tools",
+    "slug": "text-tools",
+    "name_ar": "أدوات النصوص والكتابة",
+    "name_en": "Text & Word Tools",
+    "name_fr": "Outils de texte et de mots",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "code-tools",
+    "slug": "code-tools",
+    "name_ar": "أدوات المطورين",
+    "name_en": "Code Tools",
+    "name_fr": "Outils de codage",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "image-tools",
+    "slug": "image-tools",
+    "name_ar": "أدوات الصور والتصميم",
+    "name_en": "Image & Graphics Tools",
+    "name_fr": "Outils d'image et de graphisme",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "calculator-tools",
+    "slug": "calculator-tools",
+    "name_ar": "المحولات الرياضية",
+    "name_en": "Calculator Tools",
+    "name_fr": "Outils de calcul",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "pdf-tools",
+    "slug": "pdf-tools",
+    "name_ar": "أدوات ملفات PDF والمستندات",
+    "name_en": "PDF Tools",
+    "name_fr": "Outils PDF",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "zip-tools",
+    "slug": "zip-tools",
+    "name_ar": "أدوات ضغط وفك الملفات ZIP & RAR",
+    "name_en": "ZIP & Compression Tools",
+    "name_fr": "Outils ZIP et compression",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "seo-tools",
+    "slug": "seo-tools",
+    "name_ar": "أدوات SEO",
+    "name_en": "SEO Tools",
+    "name_fr": "Outils SEO",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "misc-tools",
+    "slug": "misc-tools",
+    "name_ar": "أدوات متنوعة",
+    "name_en": "Miscellaneous Tools",
+    "name_fr": "Outils divers",
+    "created_at": "2024-01-01 00:00:00"
+  },
+  {
+    "id": "share-tools",
+    "slug": "share-tools",
+    "name_ar": "سوشيال ميديا",
+    "name_en": "Sharing Tools",
+    "name_fr": "Outils de partage",
+    "created_at": "2024-01-01 00:00:00"
+  }
+]

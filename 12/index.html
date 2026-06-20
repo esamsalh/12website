@@ -1,0 +1,1693 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolRar - كل أدوات الويب التي تحتاجها | مجانية وسريعة وموثوقة</title>
+  <meta name="description" content="منصة ToolRar المجانية تقدم مجموعة متنوعة من أدوات الويب: أدوات النصوص، أدوات المطورين، أدوات الصور، أدوات PDF، أدوات SEO والمزيد. سريعة وآمنة 100%.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ToolRar",
+    "url": "https://toolrar.com",
+    "description": "منصة ToolRar المجانية تقدم مجموعة متنوعة من أدوات الويب: أدوات النصوص، أدوات المطورين، أدوات الصور، أدوات PDF، أدوات SEO والمزيد",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "50000",
+      "reviewCount": "50000"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "سارة أحمد" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "أدوات ToolRar رائعة جداً! لقد ساعدتني في توفير الكثير من الوقت في عملي اليومي. أنصح بها بشدة."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "محمد علي" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "ToolRar يوفر مجموعة واسعة من الأدوات التي تحتاجها في حياتك اليومية. سهلة الاستخدام وفعالة جداً."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "فاطمة حسن" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "أنا استخدم ToolRar منذ فترة طويلة وأنا سعيد جداً بالنتائج. الأدوات متقدمة وتوفر حلولاً مثالية."
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="admin/assets/css/fonts-cairo.css">
+  <style>
+
+
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background: #ffffff;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    /* ===== DARK MODE ===== */
+    .dark body { background: #080C1A; color: #e2e8f0; }
+    .dark .header { background: #080C1A; }
+    .dark .hero { background: #080C1A; }
+    .dark .categories-section { background: #0F172A; }
+    .dark .category-card { background: #1E293B; border-color: rgba(55,65,81,0.5); }
+    .dark .category-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); }
+    .dark .tool-item:hover { background: rgba(55,65,81,0.5); }
+    .dark .tool-item span { color: #d1d5db; }
+    .dark .cat-title { color: #ffffff; }
+    .dark .cat-desc { color: #9ca3af; }
+    .dark .stats-bg { background: rgba(99,102,241,0.15); }
+    .dark .stats-blur1 { background: rgba(99,102,241,0.1); }
+    .dark .stats-blur2 { background: rgba(59,130,246,0.1); }
+    .dark .stats-blur3 { background: rgba(16,185,129,0.08); }
+    .dark .stat-card { background: rgba(30,41,59,0.8); border-color: rgba(55,65,81,0.5); }
+    .dark .stat-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+    .dark .stat-label { color: #ffffff; }
+    .dark .stat-sub { color: #9ca3af; }
+    .dark .trust-section { background: #0F172A; }
+    .dark .trust-badge { background: #1E293B; border-color: rgba(55,65,81,0.5); }
+    .dark .trust-badge-desc { color: #e5e7eb; }
+    .dark .testimonials-section { background: #1E293B; }
+    .dark .testimonial-card { background: #0F172A; border-color: rgba(55,65,81,0.5); }
+    .dark .testimonial-card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
+    .dark .testimonial-text { color: #d1d5db; }
+    .dark .testimonial-name { color: #ffffff; }
+    .dark .testimonial-role { color: #9ca3af; }
+    .dark .security-banner { background: linear-gradient(to left, #1E3A8A, #080C1A); }
+    .dark .footer { background: #080C1A; }
+    .dark .search-input { background: #1E293B; color: #e5e7eb; border-color: #374151; }
+    .dark .search-input::placeholder { color: #6b7280; }
+    .dark .testimonials-title { color: #ffffff; }
+    .dark .testimonials-sub { color: #9ca3af; }
+    .dark .trust-title { color: #9ca3af; }
+    .dark .footer-link:hover { color: #ffffff; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    @media(min-width:640px) { .container { padding: 0 1.5rem; } }
+    @media(min-width:1024px) { .container { padding: 0 2rem; } }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #0F172A;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background-color 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: #6366F1;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+    }
+    .logo-icon svg { width: 20px; height: 20px; color: #fff; }
+    .logo-text { color: #fff; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; }
+
+    /* Desktop Nav */
+    .desktop-nav { display: none; align-items: center; flex: 1; }
+    .nav-links-center { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+    .nav-controls { display: flex; align-items: center; }
+    @media(min-width:1024px) { .desktop-nav { display: flex; } }
+    .nav-link {
+      color: #fff; text-decoration: none;
+      padding: 8px 10px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease; display: flex; align-items: center; gap: 4px;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+    }
+    .nav-link:hover { color: #d1d5db; }
+
+    /* Dropdowns */
+    .dropdown-wrap { position: relative; }
+    .dropdown-menu {
+      position: absolute; top: 100%; margin-top: 4px;
+      background: #1E293B; border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden; z-index: 50;
+      opacity: 0; transform: translateY(-8px); visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+    .dark .dropdown-menu { background: #162032; }
+    .dropdown-wrap:hover .dropdown-menu,
+    .dropdown-wrap.open .dropdown-menu {
+      opacity: 1; transform: translateY(0); visibility: visible;
+    }
+    .dropdown-chevron { transition: transform 0.2s ease; }
+    .dropdown-wrap:hover .dropdown-chevron,
+    .dropdown-wrap.open .dropdown-chevron { transform: rotate(180deg); }
+
+    .cat-dropdown { right: 0; width: 224px; }
+    .lang-dropdown { left: 0; width: 176px; }
+    .lang-item {
+      width: 100%; display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s ease; cursor: pointer;
+      border: none; background: none; font-family: inherit; text-align: right;
+    }
+    .lang-item:hover { background: rgba(255,255,255,0.1); }
+    .lang-item.active { color: #6366F1; background: rgba(255,255,255,0.05); }
+    .lang-item:not(.active) { color: #d1d5db; }
+    .lang-flag { font-size: 1.125rem; }
+    .lang-check { margin-right: auto; width: 16px; height: 16px; color: #6366F1; }
+
+    .cat-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; font-size: 0.875rem; font-weight: 500;
+      color: #d1d5db; text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .cat-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .cat-item-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cat-item-icon svg { width: 14px; height: 14px; color: #fff; }
+
+    .dark-toggle {
+      display: flex; align-items: center; gap: 6px;
+      color: #fff; padding: 8px 10px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease; cursor: pointer;
+      background: none; border: none; font-family: inherit;
+    }
+    .dark-toggle:hover { color: #6366F1; }
+    .dark-toggle svg { width: 16px; height: 16px; }
+
+    /* Mobile controls */
+    .mobile-controls { display: flex; align-items: center; gap: 4px; }
+    @media(min-width:1024px) { .mobile-controls { display: none; } }
+    .mobile-btn {
+      color: #fff; padding: 8px; background: none; border: none; cursor: pointer;
+    }
+    .mobile-btn svg { width: 20px; height: 20px; }
+    .mobile-btn.hamburger svg { width: 24px; height: 24px; }
+
+    .mobile-lang-dropdown { left: 0; width: 160px; }
+    .mobile-lang-item {
+      width: 100%; display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s ease; cursor: pointer;
+      border: none; background: none; font-family: inherit; text-align: right; color: #d1d5db;
+    }
+    .mobile-lang-item:hover { background: rgba(255,255,255,0.1); }
+    .mobile-lang-item.active { color: #6366F1; background: rgba(255,255,255,0.05); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; color: #fff; text-decoration: none;
+      padding: 10px 12px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: #d1d5db; }
+
+    /* ===== HERO CREATIVE ===== */
+    @keyframes morphBlob {
+      0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1) rotate(0deg); }
+      25% { border-radius: 30% 60% 70% 40% / 50% 60% 40% 50%; transform: scale(1.08) rotate(5deg); }
+      50% { border-radius: 50% 50% 50% 50% / 40% 50% 60% 50%; transform: scale(0.95) rotate(0deg); }
+      75% { border-radius: 40% 30% 60% 70% / 60% 40% 50% 50%; transform: scale(1.05) rotate(-5deg); }
+      100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1) rotate(0deg); }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-120px) translateX(30px) scale(0.5); opacity: 0; }
+    }
+    @keyframes floatParticle2 {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-100px) translateX(-20px) scale(0.4); opacity: 0; }
+    }
+    @keyframes heroShine {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes heroPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.15), 0 0 40px rgba(99,102,241,0.05); }
+      50% { box-shadow: 0 0 30px rgba(99,102,241,0.3), 0 0 60px rgba(99,102,241,0.1); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes h2Shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .hero {
+      background: #0F172A;
+      position: relative; overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+    /* Morphing blob layer */
+    .hero-blob {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle at 30% 40%, rgba(99,102,241,0.15), rgba(59,130,246,0.08), transparent 70%);
+      animation: morphBlob 12s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    @media(min-width:640px) { .hero-blob { width: 700px; height: 700px; } }
+    @media(min-width:1024px) { .hero-blob { width: 900px; height: 900px; } }
+    /* Second blob layer */
+    .hero-blob-2 {
+      position: absolute; top: 60%; left: 40%; transform: translate(-50%, -50%);
+      width: 350px; height: 350px;
+      background: radial-gradient(circle at 70% 60%, rgba(16,185,129,0.1), rgba(99,102,241,0.06), transparent 60%);
+      animation: morphBlob 15s ease-in-out infinite reverse;
+      pointer-events: none; z-index: 0;
+    }
+    @media(min-width:640px) { .hero-blob-2 { width: 500px; height: 500px; } }
+    /* Floating particles */
+    .hero-particle {
+      position: absolute; border-radius: 50%; pointer-events: none; z-index: 1;
+      background: rgba(99,102,241,0.3);
+    }
+    .hero-particle:nth-child(1) { width: 4px; height: 4px; top: 20%; right: 15%; animation: floatParticle 6s ease-in-out infinite; animation-delay: 0s; }
+    .hero-particle:nth-child(2) { width: 6px; height: 6px; top: 30%; right: 25%; animation: floatParticle 8s ease-in-out infinite; animation-delay: 1s; background: rgba(59,130,246,0.3); }
+    .hero-particle:nth-child(3) { width: 3px; height: 3px; top: 40%; left: 20%; animation: floatParticle2 7s ease-in-out infinite; animation-delay: 2s; background: rgba(16,185,129,0.3); }
+    .hero-particle:nth-child(4) { width: 5px; height: 5px; top: 60%; left: 30%; animation: floatParticle 9s ease-in-out infinite; animation-delay: 0.5s; background: rgba(99,102,241,0.2); }
+    .hero-particle:nth-child(5) { width: 4px; height: 4px; top: 50%; right: 35%; animation: floatParticle2 7s ease-in-out infinite; animation-delay: 3s; background: rgba(59,130,246,0.25); }
+    .hero-particle:nth-child(6) { width: 7px; height: 7px; top: 70%; right: 10%; animation: floatParticle 10s ease-in-out infinite; animation-delay: 1.5s; background: rgba(99,102,241,0.15); }
+
+    .hero-content {
+      animation: fadeInUp 0.8s ease-out;
+      position: relative; z-index: 10; text-align: center;
+      padding: 48px 1rem;
+    }
+    .hero-content {
+      position: relative; z-index: 10; text-align: center;
+      padding: 48px 1rem;
+    }
+    @media(min-width:640px) { .hero-content { padding: 64px 1.5rem; } }
+    @media(min-width:768px) { .hero-content { padding: 80px 1.5rem; } }
+    @media(min-width:1024px) { .hero-content { padding: 112px 2rem; } }
+
+    /* Decorative circles */
+    .hero-deco-right {
+      position: absolute; top: -80px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.25), rgba(99,102,241,0.1));
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-deco-right { top: -100px; right: -60px; width: 280px; height: 280px; } }
+    @media(min-width:768px) { .hero-deco-right { width: 350px; height: 350px; } }
+
+    .hero-deco-right-inner {
+      width: 140px; height: 140px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.2), rgba(99,102,241,0.05));
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-deco-right-inner { width: 200px; height: 200px; } }
+    @media(min-width:768px) { .hero-deco-right-inner { width: 240px; height: 240px; } }
+
+    .hero-card {
+      width: 80px; height: 96px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    @media(min-width:640px) { .hero-card { width: 96px; height: 112px; gap: 8px; border-radius: 16px; } }
+    @media(min-width:768px) { .hero-card { width: 112px; height: 128px; border-radius: 16px; } }
+
+    .hero-card-logo {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: #6366F1; display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-card-logo { width: 36px; height: 36px; } }
+    @media(min-width:768px) { .hero-card-logo { width: 40px; height: 40px; } }
+    .hero-card-logo span { color: #fff; font-weight: 700; font-size: 0.875rem; }
+    @media(min-width:640px) { .hero-card-logo span { font-size: 1rem; } }
+    @media(min-width:768px) { .hero-card-logo span { font-size: 1.125rem; } }
+
+    .hero-card-line { height: 2px; border-radius: 9999px; background: rgba(255,255,255,0.2); }
+    @media(min-width:640px) { .hero-card-line { height: 4px; } }
+
+    .hero-card-pen {
+      position: absolute; bottom: -6px; left: -8px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #6366F1; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+    }
+    @media(min-width:640px) { .hero-card-pen { bottom: -8px; left: -16px; width: 28px; height: 28px; } }
+    @media(min-width:768px) { .hero-card-pen { width: 32px; height: 32px; } }
+    .hero-card-pen svg { width: 12px; height: 12px; color: #fff; }
+    @media(min-width:640px) { .hero-card-pen svg { width: 14px; height: 14px; } }
+    @media(min-width:768px) { .hero-card-pen svg { width: 16px; height: 16px; } }
+
+    .hero-deco-left {
+      position: absolute; bottom: -50px; left: -40px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle at top right, rgba(99,102,241,0.25), rgba(99,102,241,0.1));
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-deco-left { bottom: -80px; left: -60px; width: 250px; height: 250px; } }
+    @media(min-width:768px) { .hero-deco-left { width: 320px; height: 320px; } }
+
+    .hero-deco-left-inner {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle at top right, rgba(99,102,241,0.2), rgba(99,102,241,0.05));
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-deco-left-inner { width: 160px; height: 160px; } }
+    @media(min-width:768px) { .hero-deco-left-inner { width: 200px; height: 200px; } }
+
+    .hero-img-card {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    @media(min-width:640px) { .hero-img-card { width: 88px; height: 88px; border-radius: 16px; } }
+    @media(min-width:768px) { .hero-img-card { width: 112px; height: 112px; border-radius: 16px; } }
+
+    .hero-img-inner {
+      width: 40px; height: 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .hero-img-inner { width: 52px; height: 40px; } }
+    @media(min-width:768px) { .hero-img-inner { width: 64px; height: 48px; } }
+    .hero-img-inner svg { width: 20px; height: 20px; color: rgba(255,255,255,0.7); }
+    @media(min-width:640px) { .hero-img-inner svg { width: 24px; height: 24px; } }
+    @media(min-width:768px) { .hero-img-inner svg { width: 32px; height: 32px; } }
+
+    /* Blur extras */
+    .hero-blur1 {
+      position: absolute; top: 50%; right: 15%;
+      width: 100px; height: 100px; border-radius: 50%;
+      background: rgba(99,102,241,0.08); filter: blur(40px);
+    }
+    @media(min-width:640px) { .hero-blur1 { width: 150px; height: 150px; } }
+    .hero-blur2 {
+      position: absolute; top: 25%; left: 20%;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(99,102,241,0.08); filter: blur(40px);
+    }
+    @media(min-width:640px) { .hero-blur2 { width: 120px; height: 120px; } }
+
+    /* Hero text */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(99,102,241,0.15);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 9999px; padding: 6px 16px;
+      margin-bottom: 20px;
+      animation: heroPulse 3s ease-in-out infinite;
+    }
+    @media(min-width:640px) { .hero-badge { margin-bottom: 24px; } }
+    .hero-badge span { font-size: 0.75rem; color: #A5B4FC; font-weight: 600; }
+    @media(min-width:640px) { .hero-badge span { font-size: 0.875rem; } }
+    .hero-badge svg { width: 14px; height: 14px; color: #6366F1; }
+    @media(min-width:640px) { .hero-badge svg { width: 16px; height: 16px; } }
+
+    .hero h1 {
+      font-size: 1.5rem; font-weight: 800; color: #fff;
+      margin-bottom: 12px; line-height: 1.25;
+    }
+    @media(min-width:640px) { .hero h1 { font-size: 1.875rem; margin-bottom: 16px; } }
+    @media(min-width:768px) { .hero h1 { font-size: 2.25rem; } }
+    @media(min-width:1024px) { .hero h1 { font-size: 3rem; } }
+    @media(min-width:1280px) { .hero h1 { font-size: 3.75rem; } }
+
+    .hero h2 {
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;
+      background: linear-gradient(90deg, #6366F1, #A5B4FC, #818CF8, #6366F1);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: h2Shimmer 4s linear infinite;
+    }
+    @media(min-width:640px) { .hero h2 { font-size: 1.5rem; margin-bottom: 20px; } }
+    @media(min-width:768px) { .hero h2 { font-size: 1.875rem; } }
+    @media(min-width:1024px) { .hero h2 { font-size: 2.25rem; } }
+
+    .hero-desc {
+      color: #9ca3af; font-size: 0.875rem; max-width: 672px;
+      margin: 0 auto 24px; line-height: 1.625; padding: 0 1rem;
+    }
+    @media(min-width:640px) { .hero-desc { font-size: 1rem; margin-bottom: 32px; } }
+    @media(min-width:768px) { .hero-desc { font-size: 1.125rem; margin-bottom: 32px; } }
+
+    /* Search */
+    .search-wrap {
+      max-width: 576px; margin: 0 auto 32px; padding: 0 1rem; position: relative;
+    }
+    @media(min-width:640px) { .search-wrap { margin-bottom: 40px; } }
+    .search-input {
+      width: 100%; padding: 12px 16px; border-radius: 12px;
+      background: #fff; color: #1e293b; font-size: 0.875rem;
+      border: 1px solid #f3f4f6; direction: rtl;
+      font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .search-input::placeholder { color: #9ca3af; }
+    .search-input:focus { outline: none; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2), 0 0 0 2px rgba(99,102,241,0.5); }
+    @media(min-width:640px) { .search-input { padding: 14px 20px; font-size: 1rem; } }
+
+    .search-btn {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      width: 32px; height: 32px; background: #6366F1; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(99,102,241,0.3); cursor: pointer;
+      border: none; transition: background 0.2s;
+    }
+    .search-btn:hover { background: #5558E6; }
+    @media(min-width:640px) { .search-btn { left: 16px; width: 36px; height: 36px; } }
+    .search-btn svg { width: 14px; height: 14px; color: #fff; }
+    @media(min-width:640px) { .search-btn svg { width: 16px; height: 16px; } }
+
+    /* Feature badges */
+    .feature-badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 1rem;
+    }
+    @media(min-width:640px) { .feature-badges { gap: 12px; } }
+    @media(min-width:768px) { .feature-badges { gap: 16px; } }
+    .feature-badge {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      border-radius: 9999px; padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    @media(min-width:640px) { .feature-badge { gap: 8px; padding: 8px 16px; } }
+    .feature-badge span { font-size: 0.75rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    @media(min-width:640px) { .feature-badge span { font-size: 0.875rem; } }
+    .feature-badge svg { width: 14px; height: 14px; }
+    @media(min-width:640px) { .feature-badge svg { width: 16px; height: 16px; } }
+
+    /* ===== CATEGORIES ===== */
+    .categories-section {
+      background: #F8FAFC; flex: 1;
+      transition: background-color 0.3s ease;
+    }
+    .categories-inner {
+      padding: 40px 1rem;
+    }
+    @media(min-width:640px) { .categories-inner { padding: 48px 1.5rem; } }
+    @media(min-width:768px) { .categories-inner { padding: 64px 1.5rem; } }
+
+    .categories-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    @media(min-width:768px) { .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+    @media(min-width:1024px) { .categories-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .category-card {
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      border: 1px solid rgba(243,244,246,0.8);
+      overflow: hidden; transition: all 0.3s ease;
+    }
+    .category-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+    .cat-header { padding: 16px 16px 12px; transition: background-color 0.3s ease; }
+    @media(min-width:640px) { .cat-header { padding: 20px 20px 16px; } }
+    .cat-header-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    @media(min-width:640px) { .cat-header-row { gap: 12px; margin-bottom: 8px; } }
+
+    .cat-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    @media(min-width:640px) { .cat-icon { width: 44px; height: 44px; border-radius: 12px; } }
+    .cat-icon svg { width: 16px; height: 16px; color: #fff; }
+    @media(min-width:640px) { .cat-icon svg { width: 20px; height: 20px; } }
+
+    .cat-title { font-weight: 700; color: #111827; font-size: 15px; }
+    @media(min-width:640px) { .cat-title { font-size: 17px; } }
+    .cat-desc { color: #6b7280; font-size: 12px; line-height: 1.625; padding-right: 48px; }
+    @media(min-width:640px) { .cat-desc { font-size: 13px; padding-right: 56px; } }
+
+    .cat-tools { padding: 16px 16px 16px; }
+    @media(min-width:640px) { .cat-tools { padding: 20px 20px 20px; } }
+    .cat-tools-top { padding-top: 12px; }
+    @media(min-width:640px) { .cat-tools-top { padding-top: 16px; } }
+
+    .tools-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+      margin-bottom: 16px;
+    }
+    @media(min-width:640px) { .tools-grid { gap: 8px; margin-bottom: 20px; } }
+
+    .tool-item {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      padding: 6px; border-radius: 8px; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    @media(min-width:640px) { .tool-item { padding: 8px; gap: 6px; border-radius: 12px; } }
+    .tool-item:hover { background: #f9fafb; }
+
+    .tool-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s ease;
+    }
+    @media(min-width:640px) { .tool-icon { width: 40px; height: 40px; border-radius: 12px; } }
+    .tool-item:hover .tool-icon { transform: scale(1.05); }
+    .tool-icon svg { width: 14px; height: 14px; }
+    @media(min-width:640px) { .tool-icon svg { width: 18px; height: 18px; } }
+
+    .tool-item span {
+      font-size: 10px; color: #4b5563; text-align: center;
+      line-height: 1.3; font-weight: 500;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    @media(min-width:640px) { .tool-item span { font-size: 11px; } }
+
+    .cat-btn {
+      width: 100%; padding: 8px; border-radius: 12px;
+      font-size: 0.75rem; font-weight: 600; color: #fff;
+      border: none; cursor: pointer; font-family: inherit;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      transition: all 0.2s ease;
+    }
+    @media(min-width:640px) { .cat-btn { padding: 10px; font-size: 0.875rem; gap: 8px; } }
+    .cat-btn:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+    .cat-btn:active { transform: scale(0.98); }
+    .cat-btn svg { width: 14px; height: 14px; }
+    @media(min-width:640px) { .cat-btn svg { width: 16px; height: 16px; } }
+
+    /* ===== STATS ===== */
+    .stats-section { position: relative; padding: 48px 0; overflow: hidden; }
+    @media(min-width:640px) { .stats-section { padding: 64px 0; } }
+
+    .stats-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom left, rgba(99,102,241,0.08), rgba(59,130,246,0.06), rgba(16,185,129,0.05));
+    }
+    .stats-blur1 {
+      position: absolute; top: -50px; right: -30px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(99,102,241,0.05); filter: blur(48px);
+    }
+    .stats-blur2 {
+      position: absolute; bottom: -50px; left: -30px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: rgba(59,130,246,0.05); filter: blur(48px);
+    }
+    .stats-blur3 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(16,185,129,0.05); filter: blur(48px);
+    }
+
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+      position: relative; z-index: 10;
+    }
+    @media(min-width:640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+    @media(min-width:1024px) { .stats-grid { grid-template-columns: repeat(5, 1fr); gap: 24px; } }
+
+    .stat-card {
+      background: rgba(255,255,255,0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      border-radius: 16px; padding: 16px; text-align: center;
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+    @media(min-width:640px) { .stat-card { padding: 20px; } }
+    .stat-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(-4px); }
+
+    .stat-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:640px) { .stat-icon { width: 48px; height: 48px; margin-bottom: 12px; } }
+    .stat-icon svg { width: 20px; height: 20px; }
+    @media(min-width:640px) { .stat-icon svg { width: 24px; height: 24px; } }
+
+    .stat-number { font-size: 1.25rem; font-weight: 800; margin-bottom: 2px; }
+    @media(min-width:640px) { .stat-number { font-size: 1.5rem; } }
+    @media(min-width:768px) { .stat-number { font-size: 1.875rem; margin-bottom: 4px; } }
+    .stat-label { font-size: 0.75rem; font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+    @media(min-width:640px) { .stat-label { font-size: 0.875rem; } }
+    .stat-sub { font-size: 10px; color: #6b7280; }
+    @media(min-width:640px) { .stat-sub { font-size: 11px; } }
+
+    /* ===== TRUST BADGES ===== */
+    .trust-section {
+      background: #f9fafb; padding: 32px 0;
+      transition: background-color 0.3s ease;
+    }
+    @media(min-width:640px) { .trust-section { padding: 40px 0; } }
+    .trust-badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    }
+    @media(min-width:640px) { .trust-badges { gap: 12px; } }
+    @media(min-width:768px) { .trust-badges { gap: 16px; } }
+
+    .trust-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: #fff; border-radius: 8px; padding: 8px 12px;
+      border: 1px solid #f3f4f6; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    @media(min-width:640px) { .trust-badge { gap: 10px; border-radius: 12px; padding: 12px 16px; } }
+    .trust-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+    @media(min-width:640px) { .trust-badge svg { width: 20px; height: 20px; } }
+    .trust-title { font-size: 8px; font-weight: 700; color: #9ca3af; letter-spacing: 0.05em; }
+    @media(min-width:640px) { .trust-title { font-size: 10px; } }
+    .trust-badge-desc { font-size: 10px; font-weight: 600; color: #374151; }
+    @media(min-width:640px) { .trust-badge-desc { font-size: 12px; } }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      background: #fff; padding: 40px 0;
+      transition: background-color 0.3s ease;
+    }
+    @media(min-width:640px) { .testimonials-section { padding: 48px 0; } }
+    @media(min-width:768px) { .testimonials-section { padding: 64px 0; } }
+
+    .testimonials-header { text-align: center; margin-bottom: 32px; }
+    @media(min-width:640px) { .testimonials-header { margin-bottom: 40px; } }
+    .testimonials-title {
+      font-size: 1.25rem; font-weight: 700; color: #111827;
+      margin-bottom: 8px;
+    }
+    @media(min-width:640px) { .testimonials-title { font-size: 1.5rem; margin-bottom: 12px; } }
+    @media(min-width:768px) { .testimonials-title { font-size: 1.875rem; } }
+    .testimonials-stars { display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 6px; }
+    @media(min-width:640px) { .testimonials-stars { margin-bottom: 8px; } }
+    .testimonials-stars svg { width: 16px; height: 16px; color: #F59E0B; }
+    @media(min-width:640px) { .testimonials-stars svg { width: 20px; height: 20px; } }
+    .testimonials-sub { color: #6b7280; font-size: 0.75rem; }
+    @media(min-width:640px) { .testimonials-sub { font-size: 0.875rem; } }
+
+    .testimonials-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    @media(min-width:768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+
+    .testimonial-card {
+      background: #f9fafb; border-radius: 16px; padding: 20px;
+      border: 1px solid #f3f4f6;
+      transition: all 0.3s ease;
+    }
+    @media(min-width:640px) { .testimonial-card { padding: 24px; } }
+    .testimonial-card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+
+    .card-stars { display: flex; align-items: center; gap: 4px; margin-bottom: 12px; }
+    @media(min-width:640px) { .card-stars { margin-bottom: 16px; } }
+    .card-stars svg { width: 14px; height: 14px; color: #F59E0B; }
+    @media(min-width:640px) { .card-stars svg { width: 16px; height: 16px; } }
+
+    .testimonial-text {
+      color: #374151; font-size: 0.75rem; line-height: 1.625;
+      margin-bottom: 16px;
+    }
+    @media(min-width:640px) { .testimonial-text { font-size: 0.875rem; margin-bottom: 20px; } }
+
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+    @media(min-width:640px) { .testimonial-author { gap: 12px; } }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #6366F1; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 0.75rem; flex-shrink: 0;
+    }
+    @media(min-width:640px) { .author-avatar { width: 40px; height: 40px; font-size: 0.875rem; } }
+
+    .author-info { display: flex; flex-direction: column; }
+    .author-name-row { display: flex; align-items: center; gap: 4px; }
+    @media(min-width:640px) { .author-name-row { gap: 6px; } }
+    .testimonial-name { font-weight: 700; font-size: 0.75rem; color: #111827; }
+    @media(min-width:640px) { .testimonial-name { font-size: 0.875rem; } }
+    .author-name-row svg { width: 14px; height: 14px; color: #3B82F6; flex-shrink: 0; }
+    @media(min-width:640px) { .author-name-row svg { width: 16px; height: 16px; } }
+    .testimonial-role { font-size: 10px; color: #6b7280; }
+    @media(min-width:640px) { .testimonial-role { font-size: 12px; } }
+
+    /* ===== SECURITY BANNER ===== */
+    .security-banner {
+      background: linear-gradient(to left, #1E3A8A, #0F172A);
+      padding: 32px 0;
+      transition: background 0.3s ease;
+    }
+    @media(min-width:640px) { .security-banner { padding: 40px 0; } }
+    @media(min-width:768px) { .security-banner { padding: 56px 0; } }
+
+    .security-inner {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    @media(min-width:640px) { .security-inner { flex-direction: row; gap: 24px; } }
+    @media(min-width:768px) { .security-inner { gap: 40px; } }
+
+    .security-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);
+    }
+    @media(min-width:640px) { .security-icon { width: 64px; height: 64px; border-radius: 16px; } }
+    .security-icon svg { width: 28px; height: 28px; color: #fff; }
+    @media(min-width:640px) { .security-icon svg { width: 32px; height: 32px; } }
+
+    .security-text { text-align: center; flex: 1; }
+    @media(min-width:640px) { .security-text { text-align: right; } }
+    .security-text h3 { font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    @media(min-width:640px) { .security-text h3 { font-size: 1.25rem; margin-bottom: 8px; } }
+    @media(min-width:768px) { .security-text h3 { font-size: 1.5rem; } }
+    .security-text p { color: #d1d5db; font-size: 0.75rem; line-height: 1.625; }
+    @media(min-width:640px) { .security-text p { font-size: 0.875rem; } }
+    @media(min-width:768px) { .security-text p { font-size: 1rem; } }
+
+    .security-btn {
+      flex-shrink: 0; border: 1px solid rgba(255,255,255,0.3); color: #fff;
+      border-radius: 12px; padding: 8px 20px; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: none; font-family: inherit;
+      display: flex; align-items: center; gap: 6px;
+      transition: background 0.2s ease; text-decoration: none;
+    }
+    @media(min-width:640px) { .security-btn { padding: 10px 24px; font-size: 0.875rem; gap: 8px; } }
+    .security-btn:hover { background: rgba(255,255,255,0.1); }
+    .security-btn svg { width: 14px; height: 14px; }
+    @media(min-width:640px) { .security-btn svg { width: 16px; height: 16px; } }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0F172A;
+      transition: background-color 0.3s ease;
+    }
+    .footer-inner { padding: 40px 1rem; }
+    @media(min-width:640px) { .footer-inner { padding: 48px 1.5rem; } }
+    @media(min-width:1024px) { .footer-inner { padding: 48px 2rem; } }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 1fr; gap: 32px;
+    }
+    @media(min-width:640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 48px; } }
+
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-desc { color: #9ca3af; font-size: 0.875rem; line-height: 1.625; margin-bottom: 20px; }
+    .footer-social { display: flex; align-items: center; gap: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s ease; text-decoration: none;
+    }
+    .footer-social a:hover { background: #6366F1; }
+    .footer-social a svg { width: 16px; height: 16px; color: #fff; }
+
+    .footer-col-title { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-link {
+      color: #9ca3af; text-decoration: none; font-size: 0.875rem;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 32px; padding-top: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      align-items: center;
+    }
+    @media(min-width:640px) {
+      .footer-bottom { margin-top: 40px; padding-top: 24px; flex-direction: row; justify-content: space-between; }
+    }
+    .footer-bottom p { color: #6b7280; font-size: 0.75rem; margin: 0; }
+    @media(min-width:640px) { .footer-bottom p { font-size: 0.875rem; } }
+    .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .footer-bottom-links a {
+      color: #6b7280; text-decoration: none; font-size: 0.75rem;
+      transition: color 0.2s ease;
+    }
+    @media(min-width:640px) { .footer-bottom-links a { font-size: 0.875rem; } }
+    .footer-bottom-links a:hover { color: #fff; }
+
+    /* ===== STAR SVG ===== */
+    .star-filled { fill: #F59E0B; }
+
+    /* ===== EXTRA RESPONSIVENESS ===== */
+    /* Very small screens (below 360px) */
+    @media(max-width:359px) {
+      .hero h1 { font-size: 1.25rem; }
+      .hero h2 { font-size: 1rem; }
+      .hero-desc { font-size: 0.75rem; }
+      .header-inner { height: 56px; }
+      .logo-text { font-size: 1rem; }
+      .logo-icon { width: 30px; height: 30px; }
+      .logo-icon svg { width: 16px; height: 16px; }
+      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+      .tool-item span { font-size: 9px; }
+      .tool-icon { width: 28px; height: 28px; }
+      .stat-number { font-size: 1rem; }
+      .categories-inner { padding: 24px 0.75rem; }
+      .hero-content { padding: 32px 0.75rem; }
+      .search-input { padding: 10px 14px; font-size: 0.8rem; }
+      .search-btn { width: 28px; height: 28px; }
+      .search-btn svg { width: 12px; height: 12px; }
+      .feature-badge { padding: 4px 8px; }
+      .feature-badge span { font-size: 0.65rem; }
+      .footer-grid { gap: 24px; }
+      .cat-header { padding: 12px 12px 8px; }
+      .cat-tools { padding: 12px; }
+      .cat-title { font-size: 14px; }
+      .cat-desc { font-size: 11px; }
+      .trust-badge { padding: 6px 8px; }
+      .trust-badge-desc { font-size: 9px; }
+      .trust-title { font-size: 7px; }
+      .testimonial-card { padding: 16px; }
+      .testimonial-text { font-size: 0.7rem; }
+      .security-text h3 { font-size: 1rem; }
+      .security-text p { font-size: 0.7rem; }
+      .security-icon { width: 48px; height: 48px; }
+      .security-icon svg { width: 24px; height: 24px; }
+    }
+
+    /* Small phones (360px - 479px) */
+    @media(min-width:360px) and (max-width:479px) {
+      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+      .tool-icon { width: 30px; height: 30px; }
+      .tool-item span { font-size: 9px; }
+    }
+
+    /* Medium phones and small tablets */
+    @media(min-width:480px) and (max-width:639px) {
+      .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    }
+
+    /* Tablet adjustments */
+    @media(min-width:768px) and (max-width:1023px) {
+      .desktop-nav { display: none !important; }
+      .mobile-controls { display: flex !important; }
+    }
+
+    /* Ensure tool items don't overflow on small cards */
+    .tool-item {
+      min-width: 0;
+    }
+    .tool-item span {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Better touch targets for mobile */
+    @media(max-width:1023px) {
+      .nav-link { padding: 10px 12px; }
+      .mobile-menu a { padding: 12px 16px; }
+      .footer-bottom-links a { padding: 4px 0; }
+      .footer-link { display: inline-block; padding: 2px 0; }
+    }
+
+    /* Landscape mobile adjustments */
+    @media(max-width:1023px) and (orientation: landscape) {
+      .hero-content { padding: 32px 1rem; }
+      .categories-inner { padding: 32px 1rem; }
+    }
+
+    /* Ensure images and SVGs scale properly */
+    svg { max-width: 100%; height: auto; }
+    img { max-width: 100%; height: auto; }
+
+    /* Prevent horizontal overflow */
+    body { overflow-x: hidden; }
+    .hero { overflow: hidden; }
+    .stats-section { overflow: hidden; }
+
+    /* Better grid behavior for categories on very wide screens */
+    @media(min-width:1440px) {
+      .categories-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <span class="logo-text">ToolRar</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav">
+          <div class="nav-links-center">
+            <a href="#" class="nav-link">الرئيسية</a>
+            <a href="all-tools.html" class="nav-link">جميع الأدوات</a>
+            <div class="dropdown-wrap" id="catDropdown">
+              <a href="#" class="nav-link" onmouseenter="openCatDD()" onmouseleave="scheduleCloseCatDD()">
+                التصنيفات
+                <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <div class="dropdown-menu cat-dropdown" onmouseenter="cancelCloseCatDD()" onmouseleave="closeCatDD()">
+                <a href="text-tools/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#6366F1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+                  <span>أدوات النصوص والكلمات</span>
+                </a>
+                <a href="Developer/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                  <span>أدوات المطورين</span>
+                </a>
+                <a href="Photo-Editing/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
+                  <span>أدوات الصور والتصميم</span>
+                </a>
+                <a href="Calculators/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#3B82F6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg></div>
+                  <span>أدوات الحاسبة</span>
+                </a>
+                <a href="docs-tools/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#EC4899"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div>
+                  <span>أدوات PDF</span>
+                </a>
+                <a href="zip-tools/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div>
+                  <span>أدوات ZIP والضغط</span>
+                </a>
+                <a href="seo/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#14B8A6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg></div>
+                  <span>أدوات SEO</span>
+                </a>
+                <a href="General/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                  <span>أدوات متنوعة</span>
+                </a>
+                <a href="Social-media/" class="cat-item">
+                  <div class="cat-item-icon" style="background:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+                  <span>أدوات سوشيال ميديا</span>
+                </a>
+              </div>
+            </div>
+            <a href="blog.html" class="nav-link">المدونة</a>
+            <a href="pricing.html" class="nav-link">الأسعار</a>
+            <a href="about.html" class="nav-link">من نحن</a>
+          </div>
+
+          <div class="nav-controls">
+            <div class="dropdown-wrap" id="langDropdown">
+              <button class="nav-link" onclick="toggleLangDD()" onmouseenter="openLangDD()" onmouseleave="scheduleCloseLangDD()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                العربية
+                <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="dropdown-menu lang-dropdown" onmouseenter="cancelCloseLangDD()" onmouseleave="closeLangDD()">
+                <button class="lang-item active">
+                  <span class="lang-flag">🇸🇦</span>
+                  <span>العربية</span>
+                  <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                </button>
+                <button class="lang-item" onclick="closeLangDD()">
+                  <span class="lang-flag">🇬🇧</span>
+                  <span>English</span>
+                </button>
+                <button class="lang-item" onclick="closeLangDD()">
+                  <span class="lang-flag">🇫🇷</span>
+                  <span>Français</span>
+                </button>
+              </div>
+            </div>
+
+            <button class="dark-toggle" id="darkToggle" aria-label="تبديل الوضع الليلي">
+              <svg id="darkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <span id="darkLabel">الوضع الليلي</span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Controls -->
+        <div class="mobile-controls">
+          <!-- Mobile Language -->
+          <div class="dropdown-wrap" id="mobileLangDropdown">
+            <button class="mobile-btn" onclick="toggleMobileLangDD()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </button>
+            <div class="dropdown-menu mobile-lang-dropdown" id="mobileLangMenu">
+              <button class="mobile-lang-item active" onclick="closeMobileLangDD()">🇸🇦 العربية</button>
+              <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇬🇧 English</button>
+              <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇫🇷 Français</button>
+            </div>
+          </div>
+          <button class="mobile-btn" id="mobileDarkToggle" aria-label="تبديل الوضع الليلي">
+            <svg id="mobileDarkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="mobile-btn hamburger" id="hamburgerBtn" aria-label="القائمة">
+            <svg id="hamburgerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">الرئيسية</a>
+        <a href="all-tools.html">جميع الأدوات</a>
+        <a href="#">التصنيفات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="pricing.html">الأسعار</a>
+        <a href="about.html">من نحن</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <!-- Morphing Blobs -->
+    <div class="hero-blob"></div>
+    <div class="hero-blob-2"></div>
+    <!-- Floating Particles -->
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <div class="hero-particle"></div>
+    <!-- Decorative Right Circle -->
+    <div class="hero-deco-right">
+      <div class="hero-deco-right-inner">
+        <div style="position:relative">
+          <div class="hero-card">
+            <div class="hero-card-logo"><span>T</span></div>
+            <div style="display:flex;align-items:center;gap:4px">
+              <div class="hero-card-line" style="width:16px"></div>
+              <div class="hero-card-line" style="width:12px;background:rgba(255,255,255,0.2)"></div>
+            </div>
+            <div class="hero-card-line" style="width:32px;background:rgba(255,255,255,0.2)"></div>
+            <div class="hero-card-line" style="width:24px;background:rgba(255,255,255,0.15)"></div>
+          </div>
+          <div class="hero-card-pen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative Left Circle -->
+    <div class="hero-deco-left">
+      <div class="hero-deco-left-inner">
+        <div class="hero-img-card">
+          <div class="hero-img-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Blur extras -->
+    <div class="hero-blur1"></div>
+    <div class="hero-blur2"></div>
+
+    <div class="container hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+        <span>أكثر من 50 أداة مجانية</span>
+      </div>
+
+      <h1>كل أدوات الويب التي تحتاجها</h1>
+      <h2>مجانية وسريعة وموثوقة</h2>
+      <p class="hero-desc">أدوات متعددة الاستخدامات من أدوات النص إلى أدوات الترميز، وأدوات الملفات، وأدوات الصور، وأدوات التحويل</p>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <input type="text" class="search-input" placeholder="ابحث عن أداة..." dir="rtl">
+        <button class="search-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+
+      <!-- Feature Badges -->
+      <div class="feature-badges">
+        <div class="feature-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>أمان عالي</span>
+        </div>
+        <div class="feature-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span>سهولة الاستخدام</span>
+        </div>
+        <div class="feature-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>سرعة فائقة</span>
+        </div>
+        <div class="feature-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7" rx="1"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span>100% مجانية</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOOL CATEGORIES ===== -->
+  <section class="categories-section">
+    <div class="container categories-inner">
+      <div class="categories-grid" id="categoriesGrid">
+        <!-- Categories will be rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-section">
+    <div class="stats-bg"></div>
+    <div class="stats-blur1"></div>
+    <div class="stats-blur2"></div>
+    <div class="stats-blur3"></div>
+    <div class="container" style="position:relative;z-index:10">
+      <div class="stats-grid" id="statsGrid">
+        <!-- Stats will be rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BADGES ===== -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-badges" id="trustBadges">
+        <!-- Trust badges rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2 class="testimonials-title">ماذا يقولون عن ToolRar؟</h2>
+        <div class="testimonials-stars" id="headerStars"></div>
+        <p class="testimonials-sub">هل تريد معرفة تجربة المستخدمين؟</p>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <!-- Testimonials rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECURITY BANNER ===== -->
+  <section class="security-banner">
+    <div class="container">
+      <div class="security-inner">
+        <div class="security-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="security-text">
+          <h3>ضمان أمان 100% لجميع أدواتك</h3>
+          <p>نحن نستخدم أحدث تقنيات التشفير لحماية بياناتك. يمكنك استخدام أدواتنا بثقة تامة دون أي قلق.</p>
+        </div>
+        <a href="#" class="security-btn">
+          تعرف على المزيد
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <!-- Column 1 -->
+          <div>
+            <div class="footer-logo">
+              <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              </div>
+              <span class="logo-text">ToolRar</span>
+            </div>
+            <p class="footer-desc">أداة ToolRar هي منصة مجانية تقدم مجموعة متنوعة من الأدوات التي تساعدك في مهامك اليومية</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+              <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            </div>
+          </div>
+          <!-- Column 2 -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">روابط سريعة</h4>
+            <ul>
+              <li><a href="index.html" class="footer-link">الرئيسية</a></li>
+              <li><a href="all-tools.html" class="footer-link">جميع الأدوات</a></li>
+              <li><a href="sitemap.html" class="footer-link">التصنيفات</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">أدوات</h4>
+            <ul>
+              <li><a href="text-tools/" class="footer-link">أدوات النصوص والكلمات</a></li>
+              <li><a href="Developer/" class="footer-link">أدوات المطورين</a></li>
+              <li><a href="Photo-Editing/" class="footer-link">أدوات الصور والتصميم</a></li>
+              <li><a href="Calculators/" class="footer-link">أدوات الحاسبة</a></li>
+              <li><a href="docs-tools/" class="footer-link">أدوات PDF</a></li>
+            </ul>
+          </div>
+          <!-- Column 4 -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">معلومات</h4>
+            <ul>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
+              <li><a href="contact.html" class="footer-link">تواصل معنا</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-links">
+            <a href="terms.html">شروط الاستخدام</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="sitemap.html">خريطة الموقع</a>
+          </div>
+          <p>ToolRar &copy; 2024 جميع الحقوق محفوظة</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== DATA =====
+    const toolCategories = [
+      {
+        title: 'أدوات النصوص والكلمات',
+        color: '#6366F1',
+        bgColor: '#F3F4FF',
+        darkBgColor: '#1E1B4B',
+        description: 'أدوات متخصصة في معالجة النصوص وتحريرها بسهولة',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>',
+        tools: [
+          { name: 'عدد الكلمات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>' },
+          { name: 'تحويل نص إلى كلام', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>' },
+          { name: 'محرر النصوص', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>' },
+          { name: 'مُنقِّح HTML', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
+          { name: 'مُنقِّح CSS', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.04 0-.93.76-1.69 1.69-1.69H16c3.31 0 6-2.69 6-6 0-5.5-4.5-9.83-10-9.83Z"/></svg>' },
+          { name: 'مُنقِّح JSON', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 1-2 2v4a2 2 0 0 1-2 2h-1"/></svg>' },
+          { name: 'تحويل الحالة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 16 4-8 4 8"/><path d="M5 13h4"/><path d="M16 8v8"/><path d="M16 8h2.5a2.5 2.5 0 0 1 0 5H16"/></svg>' },
+          { name: 'إزالة التكرار', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>' },
+          { name: 'تنسيق النص', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات المطورين',
+        color: '#10B981',
+        bgColor: '#F0FDF4',
+        darkBgColor: '#052E16',
+        description: 'أدوات تساعد المبرمجين في تطوير وتصحيح الكود',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+        tools: [
+          { name: 'JSON مُنسِّق', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 1-2 2v4a2 2 0 0 1-2 2h-1"/></svg>' },
+          { name: 'HTML/CSS مُنسِّق', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>' },
+          { name: 'JavaScript مُنسِّق', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+          { name: 'UUID مُولِّد', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.779-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>' },
+          { name: 'التعبيرات النمطية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/></svg>' },
+          { name: 'UNIX Timestamp', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' },
+          { name: 'Base64 مُشفِّر', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>' },
+          { name: 'SQL مُنسِّق', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>' },
+          { name: 'كود مُلوَّن', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات الصور والتصميم',
+        color: '#F59E0B',
+        bgColor: '#FFFBEB',
+        darkBgColor: '#422006',
+        description: 'أدوات لمعالجة الصور وتحويلها بسهولة',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>',
+        tools: [
+          { name: 'مُحرر الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>' },
+          { name: 'ضغط الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>' },
+          { name: 'تحويل الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 12 3 18 9 18"/><polyline points="21 12 21 6 15 6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 18"/></svg>' },
+          { name: 'تحويل إلى أيقونة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 4v16"/></svg>' },
+          { name: 'إزالة الخلفية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>' },
+          { name: 'تغيير الحجم', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>' },
+          { name: 'قص الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>' },
+          { name: 'تدوير الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>' },
+          { name: 'تعديل الألوان', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات الحاسبة',
+        color: '#3B82F6',
+        bgColor: '#EFF6FF',
+        darkBgColor: '#172554',
+        description: 'أدوات حسابية متعددة الاستخدامات',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>',
+        tools: [
+          { name: 'حاسبة التاريخ', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' },
+          { name: 'حاسبة الوقت', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="2" x2="14" y2="2"/><line x1="12" y1="14" x2="12" y2="8"/><circle cx="12" cy="14" r="8"/></svg>' },
+          { name: 'حاسبة الحرارة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>' },
+          { name: 'حاسبة البايت', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="4"/><line x1="18" y1="5" x2="18" y2="13"/></svg>' },
+          { name: 'حاسبة المساحة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>' },
+          { name: 'حاسبة السرعة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a10 10 0 0 1 14 0"/><path d="M12 12V6"/><circle cx="12" cy="12" r="2"/></svg>' },
+          { name: 'حاسبة النسبة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>' },
+          { name: 'حاسبة العمر', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>' },
+          { name: 'حاسبة الطول', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات PDF',
+        color: '#EC4899',
+        bgColor: '#FDF2F8',
+        darkBgColor: '#500724',
+        description: 'أدوات متخصصة في معالجة ملفات PDF',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>',
+        tools: [
+          { name: 'دمج PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>' },
+          { name: 'تقسيم PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>' },
+          { name: 'ضغط PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>' },
+          { name: 'PDF إلى صورة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><circle cx="10" cy="13" r="2"/><path d="m20 17-1.5-1.5a2 2 0 0 0-2.8 0L12 19"/></svg>' },
+          { name: 'صورة إلى PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>' },
+          { name: 'حماية PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>' },
+          { name: 'إزالة حماية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>' },
+          { name: 'علامة مائية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16Z"/></svg>' },
+          { name: 'تدوير PDF', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات ZIP والضغط',
+        color: '#10B981',
+        bgColor: '#F0FDF4',
+        darkBgColor: '#052E16',
+        description: 'أدوات لضغط وفك ضغط الملفات بسهولة',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>',
+        tools: [
+          { name: 'استخراج ZIP', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v1"/><path d="M2 10h20l-2.5 9H4.5L2 10Z"/></svg>' },
+          { name: 'إنشاء ZIP', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg>' },
+          { name: 'محول الملفات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M9 15l3-3-3-3"/></svg>' },
+          { name: 'استخراج RAR', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>' },
+          { name: 'محول ويب', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>' },
+          { name: 'ضغط الملفات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>' },
+          { name: 'استخراج 7z', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>' },
+          { name: 'تحويل TAR', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><line x1="10" y1="10" x2="10" y2="12"/><line x1="10" y1="14" x2="10" y2="16"/><line x1="10" y1="18" x2="10" y2="18.01"/></svg>' },
+          { name: 'تحويل GZ', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات SEO',
+        color: '#14B8A6',
+        bgColor: '#F0FDFA',
+        darkBgColor: '#042f2e',
+        description: 'أدوات تساعد في تحسين محركات البحث',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>',
+        tools: [
+          { name: 'فحص الروابط', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>' },
+          { name: 'تحليل الروابط', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>' },
+          { name: 'الكلمات المفتاحية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>' },
+          { name: 'أداة Sitemap', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>' },
+          { name: 'فحص Meta Tags', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><circle cx="11" cy="14" r="2"/><path d="m16 18-2.5-2.5"/></svg>' },
+          { name: 'تحليل المنافسين', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>' },
+          { name: 'فحص السرعة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+          { name: 'روابط مكسورة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m5.16 11.75-1.72 1.71a5 5 0 0 0 7.07 7.07l1.72-1.71"/><line x1="2" y1="2" x2="22" y2="22"/></svg>' },
+          { name: 'تحليل الصفحة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات متنوعة',
+        color: '#F59E0B',
+        bgColor: '#FFFBEB',
+        darkBgColor: '#422006',
+        description: 'أدوات متنوعة تساعد في مهامك اليومية',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+        tools: [
+          { name: 'تحويل العملات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>' },
+          { name: 'تحويل القياسات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>' },
+          { name: 'تحويل الأحجام', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.5c-.29 1.26-1.16 2.51-2.29 3.56C3.57 10.09 3 11.14 3 12.25c0 2.22 1.8 4.05 4 4.05Z"/><path d="M17 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S17.29 6.75 17 5.5c-.29 1.26-1.16 2.51-2.29 3.56C13.57 10.09 13 11.14 13 12.25c0 2.22 1.8 4.05 4 4.05Z"/></svg>' },
+          { name: 'تحويل الطاقة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
+          { name: 'مُولِّد كلمات المرور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.779-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>' },
+          { name: 'تحويل التاريخ', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' },
+          { name: 'تحويل الأوزان', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h20"/><path d="M12 7v14"/><path d="M5 7l-2 6h4L5 7"/><path d="M19 7l-2 6h4l-2-6"/></svg>' },
+          { name: 'مُولِّد الألوان', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.04 0-.93.76-1.69 1.69-1.69H16c3.31 0 6-2.69 6-6 0-5.5-4.5-9.83-10-9.83Z"/></svg>' },
+          { name: 'لغز النص', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>' },
+        ]
+      },
+      {
+        title: 'أدوات سوشيال ميديا',
+        color: '#8B5CF6',
+        bgColor: '#F3F4FF',
+        darkBgColor: '#2E1065',
+        description: 'أدوات تساعد في مشاركة الملفات والمحتوى بسهولة',
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>',
+        tools: [
+          { name: 'مشاركة الملفات', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>' },
+          { name: 'إنشاء رمز QR', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="4" height="4"/><rect x="13" y="7" width="4" height="4"/><rect x="7" y="13" width="4" height="4"/><rect x="13" y="13" width="2" height="2"/><rect x="16" y="16" width="2" height="2"/></svg>' },
+          { name: 'تقصير الروابط', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>' },
+          { name: 'مشاركة النصوص', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>' },
+          { name: 'مشاركة الصور', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>' },
+          { name: 'مشاركة الأكواد', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>' },
+          { name: 'نسخ النص', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>' },
+          { name: 'مشاركة بريد', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>' },
+          { name: 'إنشاء رابط', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>' },
+        ]
+      },
+    ];
+
+    const stats = [
+      { number: '2M+', label: 'مستخدمين نشطين', sublabel: 'من جميع أنحاء العالم', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>', color: '#6366F1' },
+      { number: '99.9%', label: 'متوفر دائماً', sublabel: 'ضمان تشغيل مستمر', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>', color: '#10B981' },
+      { number: '4.9/5', label: 'تقييم المستخدمين', sublabel: 'من أكثر من 50 ألف تقييم', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', color: '#F59E0B' },
+      { number: '100%', label: 'آمن تماماً', sublabel: 'حماية بياناتك الشخصية', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>', color: '#3B82F6' },
+      { number: '24/7', label: 'دعم فني', sublabel: 'متاح على مدار الساعة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>', color: '#EF4444' },
+    ];
+
+    const trustBadges = [
+      { title: 'SSL SECURED', desc: 'SSL 256-bit تشفير', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>', color: '#10B981' },
+      { title: 'GDPR COMPLIANT', desc: 'مطابقة مع GDPR', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>', color: '#3B82F6' },
+      { title: 'ISO 27001', desc: 'شهادة معتمدة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>', color: '#3B82F6' },
+      { title: 'TRUSTED SITE', desc: 'موقع موثوق', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>', color: '#10B981' },
+      { title: '100% CLEAN', desc: 'خالٍ من البرامج الضارة', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>', color: '#EF4444' },
+    ];
+
+    const testimonials = [
+      { text: 'أدوات ToolRar رائعة جداً! لقد ساعدتني في توفير الكثير من الوقت في عملي اليومي. أنصح بها بشدة.', author: 'سارة أحمد', role: 'مصممة جرافيك' },
+      { text: 'ToolRar يوفر مجموعة واسعة من الأدوات التي تحتاجها في حياتك اليومية. سهلة الاستخدام وفعالة جداً.', author: 'محمد علي', role: 'مطور برامج' },
+      { text: 'أنا استخدم ToolRar منذ فترة طويلة وأنا سعيد جداً بالنتائج. الأدوات متقدمة وتوفر حلولاً مثالية.', author: 'فاطمة حسن', role: 'مديرة مشروع' },
+    ];
+
+    // ===== RENDER FUNCTIONS =====
+    function starSVG() {
+      return '<svg viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+    }
+
+    function renderCategories() {
+      const grid = document.getElementById('categoriesGrid');
+      const isDark = document.documentElement.classList.contains('dark');
+      grid.innerHTML = toolCategories.map(cat => {
+        const headerBg = isDark ? cat.darkBgColor : cat.bgColor;
+        const toolsHtml = cat.tools.map(tool => {
+          const iconBg = cat.color + '12';
+          return `<a href="#" class="tool-item">
+            <div class="tool-icon" style="background:${iconBg};color:${cat.color}">
+              ${tool.icon}
+            </div>
+            <span>${tool.name}</span>
+          </a>`;
+        }).join('');
+
+        return `<div class="category-card">
+          <div class="cat-header" style="background:${headerBg}" data-light-bg="${cat.bgColor}" data-dark-bg="${cat.darkBgColor}">
+            <div class="cat-header-row">
+              <div class="cat-icon" style="background:${cat.color}">${cat.icon}</div>
+              <h3 class="cat-title">${cat.title}</h3>
+            </div>
+            <p class="cat-desc">${cat.description}</p>
+          </div>
+          <div class="cat-tools cat-tools-top">
+            <div class="tools-grid">${toolsHtml}</div>
+            <button class="cat-btn" style="background:${cat.color}">
+              عرض جميع الأدوات
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/></svg>
+            </button>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderStats() {
+      const grid = document.getElementById('statsGrid');
+      grid.innerHTML = stats.map(stat => {
+        const iconBg = stat.color + '15';
+        return `<div class="stat-card">
+          <div class="stat-icon" style="background:${iconBg};color:${stat.color}">
+            ${stat.icon}
+          </div>
+          <div class="stat-number" style="color:${stat.color}">${stat.number}</div>
+          <div class="stat-label">${stat.label}</div>
+          <div class="stat-sub">${stat.sublabel}</div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderTrustBadges() {
+      const container = document.getElementById('trustBadges');
+      container.innerHTML = trustBadges.map(badge => {
+        return `<div class="trust-badge">
+          <span style="color:${badge.color};display:flex;align-items:center">${badge.icon}</span>
+          <div>
+            <div class="trust-title">${badge.title}</div>
+            <div class="trust-badge-desc">${badge.desc}</div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderTestimonials() {
+      const grid = document.getElementById('testimonialsGrid');
+      const stars5 = Array(5).fill(starSVG()).join('');
+      grid.innerHTML = testimonials.map(t => {
+        return `<div class="testimonial-card">
+          <div class="card-stars">${stars5}</div>
+          <p class="testimonial-text">${t.text}</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">${t.author.charAt(0)}</div>
+            <div class="author-info">
+              <div class="author-name-row">
+                <span class="testimonial-name">${t.author}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              </div>
+              <span class="testimonial-role">${t.role}</span>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderHeaderStars() {
+      document.getElementById('headerStars').innerHTML = Array(5).fill(starSVG()).join('');
+    }
+
+    // ===== DARK MODE =====
+    let isDark = false;
+
+    function updateDarkUI() {
+      const darkIcon = document.getElementById('darkIcon');
+      const darkLabel = document.getElementById('darkLabel');
+      const mobileDarkIcon = document.getElementById('mobileDarkIcon');
+
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('toolrar-theme', 'dark');
+        // Sun icon
+        darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        darkLabel.textContent = 'الوضع النهاري';
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('toolrar-theme', 'light');
+        // Moon icon
+        darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        darkLabel.textContent = 'الوضع الليلي';
+      }
+
+      // Update category header backgrounds
+      document.querySelectorAll('.cat-header').forEach(el => {
+        const lightBg = el.getAttribute('data-light-bg');
+        const darkBg = el.getAttribute('data-dark-bg');
+        el.style.backgroundColor = isDark ? darkBg : lightBg;
+      });
+    }
+
+    function toggleDark() {
+      isDark = !isDark;
+      updateDarkUI();
+    }
+
+    // ===== DROPDOWNS =====
+    let langCloseTimer, catCloseTimer;
+
+    function openLangDD() { clearTimeout(langCloseTimer); document.getElementById('langDropdown').classList.add('open'); }
+    function scheduleCloseLangDD() { langCloseTimer = setTimeout(closeLangDD, 150); }
+    function closeLangDD() { document.getElementById('langDropdown').classList.remove('open'); }
+    function toggleLangDD() { document.getElementById('langDropdown').classList.toggle('open'); }
+
+    function openCatDD() { clearTimeout(catCloseTimer); document.getElementById('catDropdown').classList.add('open'); }
+    function scheduleCloseCatDD() { catCloseTimer = setTimeout(closeCatDD, 150); }
+    function closeCatDD() { document.getElementById('catDropdown').classList.remove('open'); }
+
+    function toggleMobileLangDD() { document.getElementById('mobileLangDropdown').classList.toggle('open'); }
+    function closeMobileLangDD() { document.getElementById('mobileLangDropdown').classList.remove('open'); }
+
+    // ===== MOBILE MENU =====
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('hamburgerIcon');
+      menu.classList.toggle('open');
+      if (menu.classList.contains('open')) {
+        icon.innerHTML = '<line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/>';
+      } else {
+        icon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+      }
+    }
+
+    // ===== CLICK OUTSIDE =====
+    document.addEventListener('mousedown', function(e) {
+      const langDD = document.getElementById('langDropdown');
+      if (langDD && !langDD.contains(e.target)) { langDD.classList.remove('open'); }
+      const catDD = document.getElementById('catDropdown');
+      if (catDD && !catDD.contains(e.target)) { catDD.classList.remove('open'); }
+      const mobileLangDD = document.getElementById('mobileLangDropdown');
+      if (mobileLangDD && !mobileLangDD.contains(e.target)) { mobileLangDD.classList.remove('open'); }
+    });
+
+    // ===== EVENT LISTENERS =====
+    document.getElementById('darkToggle').addEventListener('click', toggleDark);
+    document.getElementById('mobileDarkToggle').addEventListener('click', toggleDark);
+    document.getElementById('hamburgerBtn').addEventListener('click', toggleMobileMenu);
+
+    // ===== INIT =====
+    (function init() {
+      // Load dark mode preference
+      const saved = localStorage.getItem('toolrar-theme');
+      if (saved === 'dark') {
+        isDark = true;
+      }
+      updateDarkUI();
+
+      // Render dynamic sections
+      renderCategories();
+      renderStats();
+      renderTrustBadges();
+      renderTestimonials();
+      renderHeaderStars();
+    })();
+  </script>
+</body>
+</html>
+

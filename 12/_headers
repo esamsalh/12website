@@ -1,0 +1,3 @@
+/api/*.php
+  X-Robots-Tag: noindex
+  Content-Type: text/plain; charset=utf-8
