@@ -913,6 +913,11 @@ body.dark-mode .tool-yt-downloader,
     justify-content: center;
   }
 }</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
 </head>
 <body>
     <header class="header">
@@ -972,7 +977,7 @@ body.dark-mode .tool-yt-downloader,
             <div class="mobile-menu" id="mobileMenu">
                 <a href="../index.html">الرئيسية</a>
                 <a href="../all-tools.html">جميع الأدوات</a>
-                <a href="#">التصنيفات</a>
+                <a href="../sitemap.html">التصنيفات</a>
                 <a href="../blog.html">المدونة</a>
                 <a href="../pricing.html">الأسعار</a>
                 <a href="../about.html">من نحن</a>
@@ -1318,7 +1323,7 @@ body.dark-mode .tool-yt-downloader,
                         <ul>
                             <li><a href="../index.html" class="footer-link">الرئيسية</a></li>
                             <li><a href="../all-tools.html" class="footer-link">جميع الأدوات</a></li>
-                            <li><a href="#" class="footer-link">التصنيفات</a></li>
+                            <li><a href="../sitemap.html" class="footer-link">التصنيفات</a></li>
                             <li><a href="../blog.html" class="footer-link">المدونة</a></li>
                             <li><a href="../pricing.html" class="footer-link">الأسعار</a></li>
                             <li><a href="../about.html" class="footer-link">من نحن</a></li>
@@ -1488,6 +1493,8 @@ body.dark-mode .tool-yt-downloader,
   ];
 
   async function scrapeVideoUrl(videoId) {
+    var invOut = await tryInvidiousApi(videoId);
+    if (invOut) return invOut;
     var out = await tryPipedApi(videoId);
     if (out) return out;
     var ytUrls = [
@@ -1591,6 +1598,40 @@ body.dark-mode .tool-yt-downloader,
     return null;
   }
 
+  async function tryInvidiousApi(videoId) {
+    for (var ii = 0; ii < invidiousInstances.length; ii++) {
+      var inst = invidiousInstances[ii];
+      try {
+        var r = await fetch(inst + '/api/v1/videos/' + videoId, { signal: AbortSignal.timeout(8000) });
+        if (!r.ok) continue;
+        var d = await r.json();
+        if (!d) continue;
+        var out = [];
+        if (d.adaptiveFormats) {
+          for (var ai = 0; ai < d.adaptiveFormats.length; ai++) {
+            var af = d.adaptiveFormats[ai];
+            if (af.url && af.url.indexOf('googlevideo.com') > -1 && af.qualityLabel && af.type && af.type.indexOf('video') > -1) {
+              out.push({ url: af.url, quality: af.qualityLabel });
+            }
+          }
+        }
+        if (d.formatStreams) {
+          for (var fi = 0; fi < d.formatStreams.length; fi++) {
+            var fs = d.formatStreams[fi];
+            if (fs.url && fs.url.indexOf('googlevideo.com') > -1 && fs.qualityLabel) {
+              out.push({ url: fs.url, quality: fs.qualityLabel });
+            }
+          }
+        }
+        if (out.length > 0) {
+          out.sort(function(a,b) { return (parseInt(b.quality)||0)-(parseInt(a.quality)||0); });
+          return { urls: out };
+        }
+      } catch(e) {}
+    }
+    return null;
+  }
+
   function extractDirectGooglevideoUrls(html) {
     var urls = [];
     var re = /"url"\s*:\s*"(https?:\\\/\\\/[^"]*?googlevideo\.com[^"]*?)"/g;
@@ -1612,6 +1653,12 @@ body.dark-mode .tool-yt-downloader,
     }
     return urls.map(function(u) { return { url: u, quality: '720p' }; });
   }
+
+  var invidiousInstances = [
+    'https://inv.thepixora.com',
+    'https://inv.riverside.rocks',
+    'https://invidious.snopyta.org'
+  ];
 
   var pipedInstances = [
     { base: 'https://pipedapi.kavin.rocks', weight: 1 },
@@ -1764,6 +1811,10 @@ body.dark-mode .tool-yt-downloader,
     if (urls.length === 0) {
       var fresh = await scrapeVideoUrl(vid);
       if (fresh && fresh.urls) urls = fresh.urls;
+    }
+    if (urls.length === 0) {
+      var inv = await tryInvidiousApi(vid);
+      if (inv && inv.urls) urls = inv.urls;
     }
     if (urls.length === 0) {
       var piped = await tryPipedApi(vid);

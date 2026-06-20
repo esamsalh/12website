@@ -209,6 +209,11 @@
     @media(max-width:359px) { .tools-grid-all { grid-template-columns: repeat(2, 1fr); gap: 6px; } .tool-card { padding: 8px 6px; } .tool-card-icon { width: 30px; height: 30px; } .tool-card span { font-size: 10px; } .page-header h1 { font-size: 1.25rem; } }
     body { overflow-x: hidden; }
   </style>
+<link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
 </head>
 <body>
 
@@ -237,9 +242,9 @@
                 <a href="Social-media/" class="cat-item"><div class="cat-item-icon" style="background:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><span>أدوات سوشيال ميديا</span></a>
               </div>
             </div>
-            <a href="#" class="nav-link">المدونة</a>
-            <a href="#" class="nav-link">الأسعار</a>
-            <a href="#" class="nav-link">من نحن</a>
+            <a href="blog.html" class="nav-link">المدونة</a>
+            <a href="pricing.html" class="nav-link">الأسعار</a>
+            <a href="about.html" class="nav-link">من نحن</a>
           </div>
           <div class="nav-controls">
             <div class="dropdown-wrap" id="langDropdown">
@@ -320,10 +325,10 @@
             <ul>
               <li><a href="index.html" class="footer-link">الرئيسية</a></li>
               <li><a href="all-tools.html" class="footer-link">جميع الأدوات</a></li>
-              <li><a href="#" class="footer-link">التصنيفات</a></li>
-              <li><a href="#" class="footer-link">المدونة</a></li>
-              <li><a href="#" class="footer-link">الأسعار</a></li>
-              <li><a href="#" class="footer-link">من نحن</a></li>
+              <li><a href="all-tools.html" class="footer-link">التصنيفات</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -339,18 +344,18 @@
           <div class="footer-col">
             <h4 class="footer-col-title">معلومات</h4>
             <ul>
-              <li><a href="#" class="footer-link">من نحن</a></li>
-              <li><a href="#" class="footer-link">تواصل معنا</a></li>
-              <li><a href="#" class="footer-link">الأسعار</a></li>
-              <li><a href="#" class="footer-link">المدونة</a></li>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
+              <li><a href="contact.html" class="footer-link">تواصل معنا</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
           <div class="footer-bottom-links">
-            <a href="#">شروط الاستخدام</a>
-            <a href="#">سياسة الخصوصية</a>
-            <a href="#">خريطة الموقع</a>
+            <a href="terms.html">شروط الاستخدام</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="sitemap.html">خريطة الموقع</a>
           </div>
           <p>ToolRar &copy; 2024 جميع الحقوق محفوظة</p>
         </div>
@@ -448,7 +453,8 @@
           'مستخرج الإيميلات', 'أداة تنظيف النصوص', 'محول النص إلى Slug',
           'مولد لوريم إيبسوم', 'أداة عكس النصوص', 'تفقيط الأرقام',
           'إزالة الأسطر المتكررة', 'كثافة الكلمات المفتاحية', 'مولد أسماء مستخدمين',
-          'مقارنة النصوص', 'عداد النصوص الإجمالي'
+          'مقارنة النصوص', 'عداد النصوص الإجمالي', 'أداة فحص الانتحال',
+          'تحويل النص إلى صوت', 'أداة تحويل الصوت إلى نص'
         ]
       },
       {
@@ -457,7 +463,10 @@
         desc: 'أدوات للمبرمجين والمطورين',
         tools: [
           'شفرة Base64', 'محول النص إلى Binary', 'محول JSON',
-          'تنسيق الأكواد', 'XML إلى JSON', 'معلومات المتصفح'
+          'تنسيق الأكواد', 'XML إلى JSON', 'معلومات المتصفح',
+          'أداة اختيار الألوان', 'اختبار قوة كلمة المرور', 'مولد كلمات المرور',
+          'محول الألوان', 'حساب وقت القراءة المقدر', 'انشاء رابط واتساب',
+          'تشفير الروابط'
         ]
       },
       {
@@ -510,7 +519,7 @@
           'حاسبة الجذر التربيعي', 'حاسبة المتوسط والوسيط', 'حاسبة الانحراف المعياري',
           'حاسبة اللوغاريتم', 'الكسر إلى عشري', 'العشري إلى كسر',
           'فحص الأرقام الأولية', 'نظرية فيثاغورس', 'حاسبة الأسس والقوى',
-          'حاسبة المضروب'
+          'حاسبة المضروب', 'حاسبة جامعة النجاح الوطنية'
         ]
       },
       {
@@ -532,7 +541,9 @@
         color: '#059669', icon: 'moon_star', iconSvg: null,
         desc: 'حاسبات الزكاة والمواريث',
         tools: [
-          'حاسبة زكاة الذهب', 'حاسبة زكاة المال', 'حاسبة المواريث الإسلامية'
+          'حاسبة زكاة الذهب', 'حاسبة زكاة المال', 'حاسبة المواريث الإسلامية',
+          'السبحة الإلكترونية ومطور الأذكار', 'حاسبة الثلث الأخير من الليل ووقت قيام الليل',
+          'حاسبة زكاة الفطر'
         ]
       },
       {
@@ -542,7 +553,7 @@
         tools: [
           'دمج ملفات PDF', 'تقسيم ملف PDF', 'Word إلى PDF',
           'PDF إلى صور', 'حماية PDF', 'إزالة كلمة المرور',
-          'تدوير الصفحات', 'أرقام الصفحات'
+          'تدوير الصفحات', 'أرقام الصفحات', 'إضافة علامة مائية لملف pdf'
         ]
       },
       {
@@ -632,8 +643,12 @@
       'مولد لوريم إيبسوم': 'edit', 'أداة عكس النصوص': 'repeat', 'تفقيط الأرقام': 'json',
       'إزالة الأسطر المتكررة': 'text', 'كثافة الكلمات المفتاحية': 'search_seo', 'مولد أسماء مستخدمين': 'users',
       'مقارنة النصوص': 'copy', 'عداد النصوص الإجمالي': 'words',
+      'أداة فحص الانتحال': 'search_seo', 'تحويل النص إلى صوت': 'music', 'أداة تحويل الصوت إلى نص': 'music',
       'شفرة Base64': 'lock', 'محول النص إلى Binary': 'code', 'محول JSON': 'json',
       'تنسيق الأكواد': 'star_math', 'XML إلى JSON': 'code', 'معلومات المتصفح': 'globe',
+      'أداة اختيار الألوان': 'palette', 'اختبار قوة كلمة المرور': 'lock', 'مولد كلمات المرور': 'lock',
+      'محول الألوان': 'palette', 'حساب وقت القراءة المقدر': 'book', 'انشاء رابط واتساب': 'link',
+      'تشفير الروابط': 'link',
       'استخراج ألوان الصور': 'palette', 'PNG إلى JPG': 'convert', 'تغيير حجم الصور': 'resize',
       'مولد صور وهمية': 'image', 'ضغط الصور': 'compress', 'تحويل إلى WebP': 'convert',
       'قص الصور': 'crop', 'الصورة إلى Base64': 'lock', 'مستخرج بيانات EXIF': 'image',
@@ -658,7 +673,7 @@
       'حاسبة الجذر التربيعي': 'calc', 'حاسبة المتوسط والوسيط': 'chart', 'حاسبة الانحراف المعياري': 'chart',
       'حاسبة اللوغاريتم': 'calc', 'الكسر إلى عشري': 'number', 'العشري إلى كسر': 'number',
       'فحص الأرقام الأولية': 'search_seo', 'نظرية فيثاغورس': 'star_math', 'حاسبة الأسس والقوى': 'flash',
-      'حاسبة المضروب': 'calc',
+      'حاسبة المضروب': 'calc', 'حاسبة جامعة النجاح الوطنية': 'book',
       'مخطط الماكروز': 'chart', 'محلل FFMI': 'users', 'حاسبة مؤشر BMI': 'heart',
       'حاسبة موعد الولادة': 'heart', 'حاسبة التبويض والخصوبة': 'heart', 'حاسبة معدل BMR': 'heart',
       'حاسبة TDEE': 'flash', 'حاسبة دهون الجسم': 'heart', 'حاسبة الوزن المثالي': 'scale',
@@ -667,9 +682,11 @@
       'مخاطر فرامينغهام': 'heart', 'مقدر مخاطر ASCVD': 'heart', 'حاسبة QRISK3': 'heart',
       'حاسبة رينولدز': 'heart', 'فحص متلازمة الأيض': 'heart',
       'حاسبة زكاة الذهب': 'dollar', 'حاسبة زكاة المال': 'dollar', 'حاسبة المواريث الإسلامية': 'book',
+      'السبحة الإلكترونية ومطور الأذكار': 'moon_star', 'حاسبة الثلث الأخير من الليل ووقت قيام الليل': 'moon_star',
+      'حاسبة زكاة الفطر': 'dollar',
       'دمج ملفات PDF': 'copy', 'تقسيم ملف PDF': 'crop', 'Word إلى PDF': 'convert',
       'PDF إلى صور': 'image', 'حماية PDF': 'lock', 'إزالة كلمة المرور': 'unlock',
-      'تدوير الصفحات': 'rotate', 'أرقام الصفحات': 'number',
+      'تدوير الصفحات': 'rotate', 'أرقام الصفحات': 'number', 'إضافة علامة مائية لملف pdf': 'water',
       'مستخرج RAR أون لاين': 'zip', 'مستخرج ZIP السريع': 'zip', 'فك ضغط 7Z': 'zip',
       'استخراج TAR': 'zip', 'فك ضغط GZ/GZIP': 'zip', 'فاحص محتويات الأرشيف': 'search_seo',
       'مستخرج ZIP المحمية': 'lock', 'أداة الاستخراج الجزئي': 'crop', 'استخراج ISO': 'zip',
@@ -709,6 +726,243 @@
       'فحص توفر يوزر انستغرام': 'check'
     };
 
+    const toolLinks = {
+      // text-tools
+      'محول حالة الأحرف': 'text-tools/converts-uppercase-and-lowercase-letters.html',
+      'عداد الكلمات والحروف': 'text-tools/word-counter.html',
+      'مستخرج الروابط': 'text-tools/link-extractor.html',
+      'مستخرج الإيميلات': 'text-tools/email-extractor.html',
+      'أداة تنظيف النصوص': 'text-tools/text-cleaner.html',
+      'محول النص إلى Slug': 'text-tools/slug-generator.html',
+      'مولد لوريم إيبسوم': 'text-tools/lorem-ipsum.html',
+      'أداة عكس النصوص': 'text-tools/text-reverser.html',
+      'تفقيط الأرقام': 'text-tools/tafqeet.html',
+      'إزالة الأسطر المتكررة': 'text-tools/remove-duplicates.html',
+      'كثافة الكلمات المفتاحية': 'text-tools/keyword-density.html',
+      'مولد أسماء مستخدمين': 'text-tools/username-generator.html',
+      'مقارنة النصوص': 'text-tools/text-comparison.html',
+      'عداد النصوص الإجمالي': 'text-tools/word-counter.html',
+      'أداة فحص الانتحال': 'text-tools/plagiarism-checker.html',
+      'تحويل النص إلى صوت': 'text-tools/text-to-speech.html',
+      'أداة تحويل الصوت إلى نص': 'text-tools/speech-to-text.html',
+      'شفرة Base64': 'text-tools/base64.html',
+      'محول النص إلى Binary': 'text-tools/text-to-binary.html',
+      // Developer
+      'محول JSON': 'Developer/json-to-excel-csv.html',
+      'تنسيق الأكواد': 'Developer/code-formatter.html',
+      'XML إلى JSON': 'Developer/xml-to-json.html',
+      'معلومات المتصفح': 'Developer/browser-info.html',
+      'أداة اختيار الألوان': 'Developer/color-picker.html',
+      'اختبار قوة كلمة المرور': 'Developer/password-strength.html',
+      'مولد كلمات المرور': 'Developer/password-generator.html',
+      'محول الألوان': 'Developer/color-converter.html',
+      'حساب وقت القراءة المقدر': 'Developer/reading-time.html',
+      'انشاء رابط واتساب': 'Developer/whatsapp-link.html',
+      'تشفير الروابط': 'Developer/url-encoder-decoder.html',
+      // Photo-Editing
+      'استخراج ألوان الصور': 'Developer/image-color-extractor.html',
+      'PNG إلى JPG': 'Photo-Editing/png-to-jpg.html',
+      'تغيير حجم الصور': 'Photo-Editing/resize-image.html',
+      'مولد صور وهمية': 'Photo-Editing/placeholder-generator.html',
+      'ضغط الصور': 'Photo-Editing/compress-image.html',
+      'تحويل إلى WebP': 'Photo-Editing/to-webp.html',
+      'قص الصور': 'Photo-Editing/crop-image.html',
+      'الصورة إلى Base64': 'Photo-Editing/image-to-base64.html',
+      'مستخرج بيانات EXIF': 'Photo-Editing/exif-reader.html',
+      'إضافة علامة مائية': 'Photo-Editing/watermark.html',
+      'مولد Favicon': 'Photo-Editing/favicon-generator.html',
+      'مزيل الخلفية بالذكاء الاصطناعي': 'Photo-Editing/background-remover.html',
+      'محسن جودة الصور': 'Photo-Editing/image-enhancer.html',
+      'محول الصور إلى SVG': 'Photo-Editing/image-to-vector.html',
+      'الممحاة السحرية': 'Photo-Editing/object-remover.html',
+      'ضاغط الصور الذكي': 'Photo-Editing/smart-compressor.html',
+      'تغيير مقاسات الصور': 'Social-media/social-image-resizer.html',
+      // Date & Time calculators
+      'حاسبة العمر': 'Calculators/age-calculator.html',
+      'حاسبة فرق التاريخ': 'Calculators/date-and-time/date-difference.html',
+      'الأيام بين تاريخين': 'Calculators/date-and-time/date-difference.html',
+      'إضافة أيام إلى تاريخ': 'Calculators/date-and-time/add-days-to-date.html',
+      'عد تنازلي حتى تاريخ': 'Calculators/date-and-time/countdown.html',
+      'حاسبة أيام العمل': 'Calculators/date-and-time/work-days-calculator.html',
+      'محول المناطق الزمنية': 'Calculators/date-and-time/timezone-converter.html',
+      'محول التاريخ': 'General/date-converter.html',
+      // Finance calculators
+      'حاسبة دفعات القرض': 'Calculators/finance/loan-calculator.html',
+      'حاسبة الفائدة المركبة': 'Calculators/finance/compound-interest-calculator.html',
+      'حاسبة هدف الادخار': 'Calculators/finance/savings-goal-calculator.html',
+      'حاسبة القرض العقاري': 'Calculators/finance/mortgage-calculator.html',
+      'حاسبة التقاعد والادخار': 'Calculators/finance/retirement-calculator.html',
+      'حاسبة ضريبة VAT': 'Calculators/finance/vat-calculator.html',
+      'حاسبة الخصومات': 'Calculators/finance/discount-calculator.html',
+      'حاسبة سداد البطاقة': 'Calculators/finance/credit-card-payoff-calculator.html',
+      'حاسبة القدرة الشرائية': 'Calculators/finance/home-affordability-calculator.html',
+      'جدول استهلاك القرض': 'Calculators/finance/loan-amortization.html',
+      'حاسبة تمويل السيارات': 'Calculators/finance/auto-loan-calculator.html',
+      'حاسبة الرواتب والأجور': 'Calculators/finance/salary-calculator.html',
+      'حاسبة التضخم': 'Calculators/finance/inflation-calculator.html',
+      'حاسبة نقطة التعادل': 'Calculators/finance/break-even-calculator.html',
+      'حاسبة العائد ROI': 'Calculators/finance/roi-calculator.html',
+      'حاسبة القيمة NPV': 'Calculators/finance/npv-calculator.html',
+      'حاسبة معدل IRR': 'Calculators/finance/irr-calculator.html',
+      'حاسبة إهلاك الأصول': 'Calculators/finance/depreciation-calculator.html',
+      'حاسبة رأس المال': 'Calculators/finance/working-capital-calculator.html',
+      'حاسبة EBITDA': 'Calculators/finance/ebitda-calculator.html',
+      'حاسبة نسبة D/E': 'Calculators/finance/de-ratio-calculator.html',
+      'حاسبة توقعات الكاش': 'Calculators/finance/cash-forecast-calculator.html',
+      'حاسبة هوامش الربح': 'Calculators/finance/profit-margin-calculator.html',
+      // Educational calculators
+      'حاسبة المعدل GPA': 'Calculators/educational/gpa-calculator.html',
+      'حاسبة المعدل التراكمي GPA 4': 'Calculators/educational/gpa-4-calculator.html',
+      'حاسبة المعدل 4 من النسبة': 'Calculators/educational/percentage-to-gpa-4.html',
+      'حاسبة درجات المادة': 'Calculators/educational/grade-calculator.html',
+      'حاسبة الدرجة المطلوبة': 'Calculators/educational/hasbh-aldrjh-almtlwbh-aktshf-aldrjh-allazmh-llnjah-almtmyz.html',
+      'حاسبة نسبة الاختبار': 'Calculators/educational/test-percentage-calculator.html',
+      'حاسبة وزن الدرجات': 'Calculators/educational/weighted-grade-calculator.html',
+      'حاسبة جامعة النجاح الوطنية': 'Calculators/educational/najah.html',
+      // Math calculators
+      'الحاسبة القياسية': 'Calculators/math/standard-calculator.html',
+      'حل المعادلات الجبرية': 'Calculators/math/algebra-solver.html',
+      'حاسبة علمية': 'Calculators/math/scientific.html',
+      'رسم الدوال': 'Calculators/math/graphing-calculator.html',
+      'حل المعادلات التربيعية': 'Calculators/math/quadratic-solver.html',
+      'حاسبة الجذر التربيعي': 'Calculators/math/square-root-calculator.html',
+      'حاسبة المتوسط والوسيط': 'Calculators/math/mean-median-mode-calculator.html',
+      'حاسبة الانحراف المعياري': 'Calculators/math/standard-deviation-calculator.html',
+      'حاسبة اللوغاريتم': 'Calculators/math/log-calculator.html',
+      'الكسر إلى عشري': 'Calculators/math/fraction-to-decimal.html',
+      'العشري إلى كسر': 'Calculators/math/decimal-to-fraction.html',
+      'فحص الأرقام الأولية': 'Calculators/math/prime-number-checker.html',
+      'نظرية فيثاغورس': 'Calculators/math/pythagorean-calculator.html',
+      'حاسبة الأسس والقوى': 'Calculators/math/exponent-calculator.html',
+      'حاسبة المضروب': 'Calculators/math/factorial-calculator.html',
+      // Health calculators
+      'مخطط الماكروز': 'Calculators/health-and-fitness/calorie-calculator.html',
+      'محلل FFMI': 'Calculators/health-and-fitness/ffmi-calculator.html',
+      'حاسبة مؤشر BMI': 'Calculators/health-and-fitness/bmi-calculator.html',
+      'حاسبة موعد الولادة': 'Calculators/health-and-fitness/pregnancycalculator.html',
+      'حاسبة التبويض والخصوبة': 'Calculators/health-and-fitness/ovulation-calculator.html',
+      'حاسبة معدل BMR': 'Calculators/health-and-fitness/bmr-calculator.html',
+      'حاسبة TDEE': 'Calculators/health-and-fitness/tdee-calculator.html',
+      'حاسبة دهون الجسم': 'Calculators/health-and-fitness/body-fat-calculator.html',
+      'حاسبة الوزن المثالي': 'Calculators/health-and-fitness/ideal-weight-calculator.html',
+      'حاسبة احتياج الماء': 'Calculators/health-and-fitness/water-intake-calculator.html',
+      'حاسبة الكحول BAC': 'Calculators/health-and-fitness/bac-calculator.html',
+      'حاسبة مساحة BSA': 'Calculators/health-and-fitness/bsa-calculator.html',
+      'حاسبة الوزن AjBW': 'Calculators/health-and-fitness/ajbw-calculator.html',
+      'حاسبة نسبة WHR': 'Calculators/health-and-fitness/whr-calculator.html',
+      'حاسبة نسبة WHtR': 'Calculators/health-and-fitness/whtr-calculator.html',
+      'مخاطر فرامينغهام': 'Calculators/health-and-fitness/framingham-risk-calculator.html',
+      'مقدر مخاطر ASCVD': 'Calculators/health-and-fitness/ascvd-risk-estimator.html',
+      'حاسبة QRISK3': 'Calculators/health-and-fitness/qrisk3-calculator.html',
+      'حاسبة رينولدز': 'Calculators/health-and-fitness/reynolds-risk-score.html',
+      'فحص متلازمة الأيض': 'Calculators/health-and-fitness/metabolic-syndrome-calculator.html',
+      // Islamic calculators
+      'حاسبة زكاة الذهب': 'Calculators/islamic/zakat-gold-calculator.html',
+      'حاسبة زكاة المال': 'Calculators/islamic/zakat-money-calculator.html',
+      'حاسبة المواريث الإسلامية': 'Calculators/islamic/inheritance-calculator.html',
+      'السبحة الإلكترونية ومطور الأذكار': 'Calculators/islamic/digital-tasbeeh-counter.html',
+      'حاسبة الثلث الأخير من الليل ووقت قيام الليل': 'Calculators/islamic/thuluth-night.html',
+      'حاسبة زكاة الفطر': 'Calculators/islamic/zakat-al-fitr.html',
+      // PDF tools
+      'دمج ملفات PDF': 'docs-tools/merge-pdf.html',
+      'تقسيم ملف PDF': 'docs-tools/split-pdf.html',
+      'Word إلى PDF': 'docs-tools/word-to-pdf.html',
+      'PDF إلى صور': 'docs-tools/pdf-to-image.html',
+      'حماية PDF': 'docs-tools/protect-pdf.html',
+      'إزالة كلمة المرور': 'docs-tools/unlock-pdf.html',
+      'تدوير الصفحات': 'docs-tools/rotate-pdf.html',
+      'أرقام الصفحات': 'docs-tools/number-pdf.html',
+      'إضافة علامة مائية لملف pdf': 'docs-tools/pdf_add_watermark.html',
+      // ZIP tools
+      'مستخرج RAR أون لاين': 'zip-tools/extract/rar-extractor.html',
+      'مستخرج ZIP السريع': 'zip-tools/extract/zip-extractor.html',
+      'فك ضغط 7Z': 'zip-tools/extract/7z-extractor.html',
+      'استخراج TAR': 'zip-tools/extract/tar-extractor.html',
+      'فك ضغط GZ/GZIP': 'zip-tools/extract/gz-extractor.html',
+      'فاحص محتويات الأرشيف': 'zip-tools/extract/archive-viewer.html',
+      'مستخرج ZIP المحمية': 'zip-tools/extract/password-zip-extractor.html',
+      'أداة الاستخراج الجزئي': 'zip-tools/extract/partial-extractor.html',
+      'استخراج ISO': 'zip-tools/extract/iso-extractor.html',
+      'منشئ ZIP القياسي': 'zip-tools/compression-generation/zip-maker.html',
+      'ضاغط ZIP المشفر': 'zip-tools/compression-generation/secure-zip-maker.html',
+      'ضاغط مجلدات': 'zip-tools/compression-generation/folder-compressor.html',
+      'ضاغط الصور وتجميعها': 'zip-tools/compression-generation/images-to-zip.html',
+      'ضاغط PDF وتجميعها': 'zip-tools/compression-generation/pdfs-to-zip.html',
+      'ضاغط المستندات والملفات': 'zip-tools/compression-generation/documents-to-zip.html',
+      'ضاغط الفيديو والصوت': 'zip-tools/compression-generation/media-to-zip.html',
+      'منشئ TAR': 'zip-tools/compression-generation/tar-maker.html',
+      'منشئ GZ': 'zip-tools/compression-generation/gz-maker.html',
+      'جالب وضغاط الروابط': 'zip-tools/compression-generation/url-zip.html',
+      'محول RAR إلى ZIP': 'zip-tools/create-compress/rar-to-zip.html',
+      'محول 7Z إلى ZIP': 'zip-tools/create-compress/7z-to-zip.html',
+      'محول TAR إلى ZIP': 'zip-tools/create-compress/tar-to-zip.html',
+      'محول ZIP إلى TAR': 'zip-tools/create-compress/zip-to-tar.html',
+      'CBR إلى ZIP': 'zip-tools/create-compress/cbr-to-zip.html',
+      'CBZ إلى ZIP': 'zip-tools/create-compress/cbz-to-zip.html',
+      'EXE إلى ZIP': 'zip-tools/create-compress/sfx-to-zip.html',
+      'BIN إلى ZIP': 'zip-tools/create-compress/bin-to-zip.html',
+      'مقسم ZIP الكبيرة': 'zip-tools/fix-split/zip-splitter.html',
+      'دمج ZIP مقسمة': 'zip-tools/fix-split/zip-joiner.html',
+      'دمج ZIP منفصلة': 'zip-tools/fix-split/zip-merge.html',
+      'فاحص سلامة ZIP': 'zip-tools/fix-split/zip-validator.html',
+      'إصلاح ZIP المعطوبة': 'zip-tools/fix-split/zip-repair.html',
+      'تنظيف ZIP': 'zip-tools/fix-split/zip-cleaner.html',
+      'حاذف ومعدل الأرشيف': 'zip-tools/fix-split/archive-editor.html',
+      'مقارنة ملفين مضغوطين': 'zip-tools/fix-split/archive-compare.html',
+      'حاسبة نسبة الضغط': 'zip-tools/data-analytics/compression-ratio-calculator.html',
+      'مستعرض ميتا الأرشيف': 'zip-tools/data-analytics/archive-metadata.html',
+      'محلل مساحة المجلدات': 'zip-tools/data-analytics/archive-space-analyzer.html',
+      'ضاغط الكود البرمجي': 'zip-tools/data-analytics/code-zip-minimizer.html',
+      'مولد ZIP وهمية': 'zip-tools/data-analytics/dummy-zip-generator.html',
+      'عداد النصوص في الأرشيف': 'zip-tools/data-analytics/archive-word-counter.html',
+      'فحص تشفير الأرشيف': 'zip-tools/data-analytics/archive-security-scanner.html',
+      // SEO tools
+      'مولد Meta Tags': 'seo/meta-tags-generator.html',
+      'فاحص الـ IP': 'seo/ip-checker.html',
+      'فاحص حجم الصفحة': 'seo/page-size-checker.html',
+      'تحليل الروابط': 'seo/link-analysis.html',
+      'فاحص حالة الموقع': 'seo/website-status.html',
+      'مولد روابط قصيرة': 'seo/short-link.html',
+      'مخطط XML Sitemap': 'seo/xml-sitemap.html',
+      'فحص سرعة الموقع': 'seo/page-speed.html',
+      'فحص الروابط المعطلة': 'seo/broken-links.html',
+      // General tools
+      'مولد QR Code': 'General/qr-generator.html',
+      'قارئ QR Code': 'General/qr-reader.html',
+      'ساعة إيقاف': 'General/stopwatch.html',
+      'مؤقت تنازلي': 'General/countdown-timer.html',
+      'أداة القرعة': 'General/random-picker.html',
+      'سرعة الكتابة': 'General/typing-speed.html',
+      'أسعار الذهب حول العالم': 'General/gold_price/index.html',
+      // Social-media - Downloads
+      'تحميل فيديوهات تيك توك': 'Social-media/tiktok-downloader.html',
+      'تحميل ريلز انستغرام': 'Social-media/instagram-reels-downloader.html',
+      'تحميل قصص انستغرام': 'Social-media/instagram-story-saver.html',
+      'تحويل يوتيوب إلى MP3/MP4': 'Social-media/youtube-converter.html',
+      'تحميل فيديوهات إكس (تويتر)': 'Social-media/twitter-downloader.html',
+      'تحميل فيديوهات فيسبوك': 'Social-media/facebook-downloader.html',
+      'تحميل فيديوهات بنترست': 'Social-media/pinterest-downloader.html',
+      'تحميل مقاطع ثريدز': 'Social-media/threads-downloader.html',
+      'تحميل يوتيوب شورتس': 'Social-media/youtube-shorts-downloader.html',
+      'تحميل صورة غلاف يوتيوب': 'Social-media/youtube-thumbnail-downloader.html',
+      // Social-media - Interaction
+      'اختيار فائز عشوائي (مسابقات)': 'Social-media/comment-picker.html',
+      'إنشاء استطلاعات رأي': 'Social-media/poll-creator.html',
+      'فحص أمان الروابط': 'Social-media/safe-link-checker.html',
+      'عداد مشتركين يوتيوب مباشر': 'Social-media/youtube-live-subscriber.html',
+      'فحص نص إعلانات فيسبوك': 'Social-media/ads-text-overlay.html',
+      'معاينة المنشورات بالوضع الليلي': 'Social-media/dark-mode-previewer.html',
+      'إنشاء صفحة روابط شخصية': 'Social-media/linktree-clone.html',
+      'حاسبة نسبة التفاعل': 'Social-media/engagement-rate-calculator.html',
+      'تقدير أرباح قنوات يوتيوب': 'Social-media/youtube-money-calculator.html',
+      'فحص ملفات السوشيال ميديا': 'Social-media/social-media-audit.html',
+      'كتم صوت الفيديو': 'Social-media/video-mute-tool.html',
+      'قص غلاف يوتيوب': 'Social-media/youtube-banner-crop.html',
+      'استخراج الكلمات المفتاحية ليوتيوب': 'Social-media/youtube-tag-extractor.html',
+      'لوحة مفاتيح الإيموجي': 'Social-media/emoji-keyboard.html',
+      'مولد نصوص بالذكاء الاصطناعي': 'Social-media/ai-caption-generator.html'
+    };
+
     // ===== RENDER =====
     function renderTools() {
       const container = document.getElementById('toolsContainer');
@@ -730,7 +984,7 @@
         cat.tools.forEach(t => {
           const toolIcon = toolIconMap[t] || 'edit';
           const iconBg = cat.color + '12';
-          html += `<a href="#" class="tool-card" data-name="${t}">
+          html += `<a href="${toolLinks[t] || '#'}" class="tool-card" data-name="${t}">
             <div class="tool-card-icon" style="background:${iconBg};color:${cat.color}">${getIcon(toolIcon)}</div>
             <span>${t}</span>
           </a>`;
