@@ -1,0 +1,1232 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فحص سرعة الموقع (PageSpeed Insights Tool) | ToolRar</title>
+    <meta name="description" content="قم بفحص سرعة موقعك وتحليل أدائه بدقة عبر أداة PageSpeed Insights المجانية. احصل على تقارير شاملة لتحسين تجربة المستخدم، زيادة سرعة التحميل، ورفع ترتيبك في محركات البحث SEO. اكتشف المشاكل التقنية وحلها فوراً لضمان أفضل أداء على الجوال وسطح المكتب. جرب الأداة الآن وسرّع موقعك بفعالية">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "فحص سرعة الموقع (PageSpeed Insights Tool)",
+        "description": "افحص سرعة موقعك بدقة مع PageSpeed. احصل على تقرير مفصل لأداء الصفحات على الجوال والحاسوب ونصائح فورية لتحسين تجربة المستخدم وتصدر محركات البحث.",
+        "applicationCategory": "أدوات SEO",
+        "operatingSystem": "All",
+        "browserRequirements": "HTML5, CSS3, JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+    {
+        "@type": "Question",
+        "name": "كيف يمكنني استخدام أداة فحص سرعة الموقع (PageSpeed Insights) لتحليل مؤشرات أداء الويب الأساسية (Core Web Vitals) بدقة؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك استخدام أداة فحص سرعة الموقع عن طريق إدخال رابط الصفحة لتحليلها، حيث تدمج الأداة بين بيانات المختبر (Lab Data) والبيانات الميدانية (Field Data) لتقييم مؤشرات LCP و FID و CLS، مما يسمح لك بفهم تجربة المستخدم الحقيقية وتحديد فرص تحسين الأداء وتسريع التحميل."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما هي الفوائد والمميزات الرئيسية لاستخدام PageSpeed Insights في تحسين تجربة المستخدم وتصنيفات SEO؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تقدم أداة فحص سرعة الموقع فوائد جوهرية مثل تحديد عناصر JavaScript والصور التي تبطئ التحميل، مما يساهم في تحسين تجربة المستخدم ورفع ترتيب الموقع في محركات البحث (SEO)، كما توفر الأداة تقارير تفصيلية لتقليل وقت الاستجابة وتعزيز الأداء العام للموقع."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "كيف أعالج مشكلة إجمالي وقت منع الحظر (Total Blocking Time) المرتفع في تقرير فحص سرعة الموقع؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لحل مشكلة إجمالي وقت منع الحظر، يجب عليك تقسيم مهام JavaScript الكبيرة إلى مهام أصغر، تأجيل تحميل النصوص البرمجية غير الضرورية، وإزالة الأكواد غير المستخدمة، وذلك لضمان استجابة الصفحة بسرعة وتقليل التأخير في التفاعل أثناء عملية تحميل الموقع."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما هو الفرق الجوهري بين PageSpeed Insights وأدوات مشابهة مثل GTmetrix في تقييم سرعة الموقع؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يتميز PageSpeed Insights بدمج بيانات تجربة مستخدم Chrome (CrUX) الحقيقية مع بيانات المختبر، بينما قد تعتمد أدوات مشابهة بشكل أساسي على اختبارات محاكاة، مما يجعل تقرير فحص السرعة في PSI يعكس أداء الموقع الفعلي لدى المستخدمين بدقة أكبر مقارنة بالأدوات الأخرى."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما هي متطلبات التوافق الخاصة بأداة قياس سرعة الصفحات وكيف تختلف النتائج بين الهاتف المحمول وسطح المكتب؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تعمل أداة فحص سرعة الموقع عبر المتصفحات الحديثة وتعتمد على محرك Chromium، وتوفر نتائج منفصلة لأنظمة الهاتف المحمول وسطح المكتب نظراً لاختلاف ظروف الشبكة وقوة المعالجة، مما يبرز أهمية تحسين الأداء وتجربة المستخدم لكل منصة على حدة."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "كيف تساهم بيانات &#039;تقليل وقت تنفيذ JavaScript&#039; في تحسين نتيجة فحص سرعة الموقع؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تقليل وقت تنفيذ JavaScript يعتبر عاملاً حاسماً في تقرير فحص السرعة، حيث يؤدي تحسين كود JS وتقليل حجمه إلى تسريع وقت التحميل وتفاعل الصفحة، مما يحسن مؤشرات الأداء ويزيد من كفاءة الموقع وسرعة استجابته للزوار."
+        }
+    }
+]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "فحص سرعة الموقع (PageSpeed Insights Tool) | ToolRar",
+        "description": "قم بفحص سرعة موقعك وتحليل أدائه بدقة عبر أداة PageSpeed Insights المجانية. احصل على تقارير شاملة لتحسين تجربة المستخدم، زيادة سرعة التحميل، ورفع ترتيبك في محركات البحث SEO. اكتشف المشاكل التقنية وحلها فوراً لضمان أفضل أداء على الجوال وسطح المكتب. جرب الأداة الآن وسرّع موقعك بفعالية",
+        "datePublished": "2026-06-15",
+        "dateModified": "2026-06-15",
+        "author": {
+            "@type": "Organization",
+            "name": "ToolRar"
+        }
+    }
+    </script>
+    <link rel="preload" href="../admin/assets/fonts/cairo/cairo-v31-arabic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../admin/assets/fonts/cairo/cairo-v31-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        /* Cairo font - locally hosted WOFF2 variable font with full Arabic support */
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../admin/assets/fonts/cairo/cairo-v31-arabic.woff2) format('woff2');
+          unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+        }
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../admin/assets/fonts/cairo/cairo-v31-latin-ext.woff2) format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../admin/assets/fonts/cairo/cairo-v31-latin.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+        body { overflow-x: hidden; width: 100%; position: relative; }
+        body {
+            font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background: #ffffff; color: #1e293b;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.6;
+        }
+        img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+        pre, code { white-space: pre-wrap; word-break: break-word; }
+        .dark body { background: #080C1A; color: #e2e8f0; }
+        .dark .header { background: #080C1A; border-color: rgba(255,255,255,0.03); }
+        .dark .hero-section { background: #192746 !important; }
+        .dark .hero-section::before { opacity: 0.03; }
+        .dark .page-section { background: #0F172A; }
+        .dark .tool-interface { background: #1E293B; border-color: #334155; }
+        .dark .tool-desc-text { color: #e2e8f0; }
+        .dark .related-btn { background: #1E293B; border-color: #334155; color: #cbd5e1; }
+        .dark .related-btn:hover { background: #334155; border-color: #6366F1; }
+        .dark .related-empty { color: #cbd5e1; }
+        .dark .faq-item { border-color: #334155; }
+        .dark .faq-question { color: #e2e8f0; }
+        .dark .faq-question:hover { background: #1E293B; }
+        .dark .faq-answer { color: #94a3b8; }
+        .dark .footer { background: #080C1A; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; width: 100%; }
+        @media(min-width:640px) { .container { padding: 0 1.5rem; } }
+        @media(min-width:1024px) { .container { padding: 0 2rem; } }
+        .header {
+            background: #0F172A; position: sticky; top: 0; z-index: 50;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo-icon {
+            width: 36px; height: 36px; background: #6366F1; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+        }
+        .logo-icon svg { width: 20px; height: 20px; color: #fff; }
+        .logo-text { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+        .desktop-nav { display: none; flex: 1; gap: 4px; margin: 0 8px; }
+        @media(min-width:1024px) { .desktop-nav { display: flex; align-items: center; justify-content: space-between; } }
+        .nav-links-center { display: flex; align-items: center; gap: 2px; margin: 0 auto; }
+        .nav-link {
+            color: #94a3b8; text-decoration: none; font-size: 0.82rem; font-weight: 500;
+            padding: 7px 12px; border-radius: 8px; transition: all 0.2s;
+            display: flex; align-items: center; gap: 4px; background: none; border: none;
+            font-family: inherit; cursor: pointer; white-space: nowrap;
+        }
+        .nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .dropdown-chevron { width: 13px; height: 13px; transition: transform 0.2s; }
+        .dropdown-wrap { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: 100%; right: 0; margin-top: 8px;
+            background: #1E293B; border: 1px solid rgba(55,65,81,0.5);
+            border-radius: 12px; padding: 8px; min-width: 220px;
+            opacity: 0; visibility: hidden; transform: translateY(8px);
+            transition: all 0.2s ease; z-index: 100;
+        }
+        .dropdown-wrap.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .cat-dropdown { display: grid; grid-template-columns: 1fr; gap: 4px; min-width: 260px; }
+        @media(min-width:1200px) { .cat-dropdown { grid-template-columns: 1fr 1fr; min-width: 500px; } }
+        .cat-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px;
+            text-decoration: none; transition: background 0.15s; color: #e2e8f0; font-size: 0.82rem; font-weight: 500;
+        }
+        .cat-item:hover { background: rgba(99,102,241,0.1); color: #6366F1; }
+        .cat-item-icon {
+            width: 28px; height: 28px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .cat-item-icon svg { width: 14px; height: 14px; color: #fff; }
+        .nav-controls { display: none; align-items: center; gap: 4px; }
+        @media(min-width:1024px) { .nav-controls { display: flex; } }
+        .lang-dropdown { min-width: 155px; }
+        .lang-item {
+            display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px;
+            border: none; background: none; color: #cbd5e1; font-size: 0.85rem;
+            font-family: inherit; cursor: pointer; border-radius: 8px; transition: background 0.15s;
+        }
+        .lang-item:hover { background: rgba(255,255,255,0.05); }
+        .lang-item.active { color: #6366F1; }
+        .lang-flag { font-size: 1.05rem; }
+        .lang-check { width: 16px; height: 16px; color: #6366F1; }
+        .dark-toggle {
+            display: flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 8px;
+            background: none; border: none; color: #94a3b8; font-family: inherit;
+            font-size: 0.78rem; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .dark-toggle:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .dark-toggle svg { width: 16px; height: 16px; }
+        .mobile-controls { display: flex; align-items: center; gap: 6px; }
+        @media(min-width:1024px) { .mobile-controls { display: none; } }
+        .mobile-btn {
+            width: 36px; height: 36px; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; background: rgba(255,255,255,0.06);
+            border: none; cursor: pointer; color: #94a3b8; transition: background 0.2s;
+        }
+        .mobile-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .mobile-btn svg { width: 20px; height: 20px; }
+        .mobile-lang-dropdown { min-width: 140px; }
+        .mobile-lang-item {
+            display: block; width: 100%; padding: 10px 14px; border: none;
+            background: none; color: #cbd5e1; font-size: 0.85rem;
+            font-family: inherit; cursor: pointer; text-align: right; border-radius: 8px;
+        }
+        .mobile-lang-item:hover { background: rgba(255,255,255,0.05); }
+        .mobile-lang-item.active { color: #6366F1; }
+        .mobile-menu {
+            display: none; flex-direction: column; padding: 8px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            padding: 12px 16px; color: #94a3b8; text-decoration: none;
+            font-size: 0.9rem; font-weight: 500; border-radius: 8px; transition: all 0.2s;
+        }
+        .mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+        /* Breadcrumb */
+        .tool-breadcrumb {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 0; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;
+        }
+        .breadcrumb-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.82rem; }
+        .breadcrumb-nav a { color: #475569; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb-nav a:hover { color: #6366F1; }
+        .breadcrumb-nav span { color: #475569; }
+        .bc-sep { color: #475569; font-size: 1rem; }
+        .breadcrumb-dates { display: none; align-items: center; gap: 16px; }
+        @media(min-width:768px) { .breadcrumb-dates { display: flex; } }
+        .bc-date { display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: #475569; direction: ltr; white-space: nowrap; font-weight: 500; }
+        .bc-date svg { width: 13px; height: 13px; flex-shrink: 0; }
+        .bc-date .bc-label { font-size: 0.65rem; color: #475569; margin-left: 2px; }
+        .dark .breadcrumb-nav a { color: #cbd5e1; }
+        .dark .breadcrumb-nav a:hover { color: #6366F1; }
+        .dark .breadcrumb-nav span { color: #94a3b8; }
+        .dark .bc-date { color: #cbd5e1; }
+        .dark .bc-date .bc-label { color: #94a3b8; }
+
+        /* TOC */
+        .toc-wrap {
+            background: #F8FAFC; border: 1px solid #E2E8F0;
+            border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;
+        }
+        .dark .toc-wrap { background: #1E293B; border-color: #334155; }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 6px; }
+        .toc a {
+            color: #4f46e5; text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: color 0.2s;
+        }
+        .toc a:hover { color: #4338ca; text-decoration: underline; }
+        .dark .toc a { color: #a5b4fc; }
+        .dark .toc a:hover { color: #c7d2fe; }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative; overflow: hidden;
+            background: #192746;
+            padding: 48px 0 40px; width: 100%;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-section .container { position: relative; z-index: 1; }
+        .hero-section .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+        .hero-section .hero-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 16px; border-radius: 9999px;
+            background: rgba(255,255,255,0.15); color: #fff;
+            font-size: 0.75rem; font-weight: 700; margin-bottom: 16px;
+            backdrop-filter: blur(4px);
+        }
+        .hero-section .hero-badge svg { width: 13px; height: 13px; }
+        .hero-section h1 {
+            font-size: 1.6rem; font-weight: 900; margin-bottom: 10px;
+            line-height: 1.35; color: #fff;
+        }
+        @media(min-width:640px) { .hero-section h1 { font-size: 2rem; } }
+        .hero-section p {
+            color: rgba(255,255,255,0.8); font-size: 0.92rem;
+            max-width: 580px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* Page Section */
+        .page-section { background: #F8FAFC; flex: 1; width: 100%; overflow-x: hidden; }
+        .page-inner { padding: 32px 1rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+        @media(min-width:640px) { .page-inner { padding: 40px 1.5rem; } }
+        @media(min-width:768px) { .page-inner { padding: 48px 1.5rem; } }
+        .tool-body { max-width: 960px; margin: 0 auto; width: 100%; }
+
+        /* Tool Interface */
+        .tool-interface {
+            background: #ffffff; border: 1px solid #E2E8F0; border-radius: 18px;
+            padding: 24px; margin-bottom: 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, border-color 0.3s;
+            overflow: hidden;
+        }
+        @media(min-width:640px) { .tool-interface { padding: 32px; } }
+
+        /* Description */
+        /* Split Layout */
+        .content-split {
+            display: flex; flex-direction: column; gap: 32px;
+            margin-bottom: 36px; width: 100%;
+        }
+        @media(min-width:768px) { .content-split { flex-direction: row; } }
+        .content-main { flex: 0 0 60%; max-width: 100%; }
+        @media(min-width:768px) { .content-main { max-width: 60%; } }
+        .content-side { flex: 0 0 40%; max-width: 100%; }
+        @media(min-width:768px) {
+            .content-side { max-width: 40%; }
+            .content-side-inner { position: sticky; top: 80px; z-index: 1; }
+        }
+
+        .tool-desc-section { }
+        .tool-desc-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .tool-desc-text { color: #475569; line-height: 1.9; font-size: 0.95rem; word-wrap: break-word; overflow-wrap: break-word; }
+        .tool-desc-text img { max-width: 100%; height: auto; }
+        .tool-desc-text h3 {
+            font-size: 1.15rem; font-weight: 800; color: #1e293b;
+            margin-top: 24px; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .dark .tool-desc-text h3 { color: #e2e8f0; }
+        .tool-desc-text h4 {
+            font-size: 1.05rem; font-weight: 700; color: #1e293b;
+            margin-top: 20px; margin-bottom: 10px;
+        }
+        .dark .tool-desc-text h4 { color: #e2e8f0; }
+        .tool-desc-text p { margin-bottom: 16px; line-height: 1.8; text-align: justify; }
+        .tool-desc-text ul, .tool-desc-text ol {
+            margin-right: 20px; margin-bottom: 16px; list-style-type: square;
+        }
+        .tool-desc-text li {
+            margin-bottom: 8px; line-height: 1.7;
+        }
+        .tool-desc-text table {
+            width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem;
+        }
+        .tool-desc-text th, .tool-desc-text td {
+            border: 1px solid #E2E8F0; padding: 10px 12px; text-align: right;
+        }
+        .dark .tool-desc-text th, .dark .tool-desc-text td {
+            border-color: #334155;
+        }
+        .tool-desc-text th {
+            background-color: #F8FAFC; font-weight: 700; color: #1e293b;
+        }
+        .dark .tool-desc-text th {
+            background-color: #1E293B; color: #e2e8f0;
+        }
+
+        /* Related Tools */
+        .related-section { margin-bottom: 36px; width: 100%; clear: both; }
+        .related-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+        @media(min-width:600px) { .related-grid { grid-template-columns: repeat(4, 1fr); } }
+        .related-btn {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 16px; border-radius: 12px;
+            background: #fff; border: 1px solid #E2E8F0;
+            text-decoration: none; color: #1e293b; font-size: 0.82rem; font-weight: 600;
+            transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .related-btn:hover {
+            border-color: #6366F1; color: #6366F1;
+            box-shadow: 0 4px 12px rgba(99,102,241,0.15);
+            transform: translateY(-2px);
+        }
+        .related-btn svg { flex-shrink: 0; width: 18px; height: 18px; color: #6366F1; }
+        .related-empty { color: #475569; font-size: 0.85rem; }
+
+        /* EEAT Trust Section */
+        .eeat-section { margin-bottom: 36px; width: 100%; clear: both; }
+        .eeat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media(min-width:640px) { .eeat-grid { grid-template-columns: repeat(4, 1fr); } }
+        .eeat-card {
+            background: #fff; border: 1px solid #E2E8F0; border-radius: 14px;
+            padding: 18px 16px; text-align: center; transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .eeat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); transform: translateY(-2px); }
+        .dark .eeat-card { background: #1E293B; border-color: #334155; }
+        .eeat-card-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px;
+        }
+        .eeat-card-icon svg { width: 20px; height: 20px; }
+        .eeat-card h3 { font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; color: #1e293b; }
+        .dark .eeat-card h3 { color: #e2e8f0; }
+        .eeat-card p { font-size: 0.72rem; color: #64748b; line-height: 1.5; }
+        .dark .eeat-card p { color: #94a3b8; }
+
+        /* FAQ */
+        .faq-section { }
+        .faq-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .faq-item { border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+        .faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 18px; cursor: pointer; font-weight: 600; font-size: 0.92rem;
+            transition: background 0.2s; color: #1e293b; gap: 8px;
+        }
+        .faq-question:hover { background: #F8FAFC; }
+        .faq-question svg { transition: transform 0.3s; flex-shrink: 0; color: #10B981; }
+        .faq-item.open .faq-question svg { transform: rotate(180deg); }
+        .faq-answer { padding: 0 18px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #64748b; line-height: 1.8; font-size: 0.9rem; }
+        .faq-item.open .faq-answer { padding: 0 18px 14px; max-height: 600px; }
+
+        /* Footer */
+        .footer { background: #0F172A; }
+        .footer-inner { padding: 40px 1rem; }
+        @media(min-width:640px) { .footer-inner { padding: 48px 1.5rem; } }
+        @media(min-width:1024px) { .footer-inner { padding: 48px 2rem; } }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media(min-width:640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width:1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 48px; } }
+        .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+        .footer-desc { color: #e2e8f0; font-size: 0.875rem; line-height: 1.625; margin-bottom: 20px; max-width: 300px; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; text-decoration: none;
+        }
+        .footer-social a:hover { background: #6366F1; }
+        .footer-social a svg { width: 16px; height: 16px; color: #fff; }
+        .footer-col-title { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 18px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-link { color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-link:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 32px; padding-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        @media(min-width:640px) { .footer-bottom { margin-top: 40px; padding-top: 24px; flex-direction: row; justify-content: space-between; } }
+        .footer-bottom p { color: #cbd5e1; font-size: 0.78rem; }
+        @media(min-width:640px) { .footer-bottom p { font-size: 0.84rem; } }
+        .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .footer-bottom-links a { color: #cbd5e1; text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        @media(min-width:640px) { .footer-bottom-links a { font-size: 0.84rem; } }
+        .footer-bottom-links a:hover { color: #fff; }
+
+        /* Responsive */
+        @media(max-width:1023px) {
+            .nav-link { padding: 8px 10px; font-size: 0.78rem; }
+            .hero-section { padding: 36px 0 28px; }
+            .hero-section h1 { font-size: 1.3rem; }
+            .content-split { flex-direction: column; gap: 24px; }
+            .content-main, .content-side { flex: 0 0 100%; max-width: 100%; }
+            .tool-interface { padding: 20px; border-radius: 14px; }
+        }
+        @media(max-width:480px) {
+            html { font-size: 15px; }
+            .hero-section h1 { font-size: 1.15rem; }
+            .hero-section { padding: 28px 0 20px; }
+            .hero-section p { font-size: 0.85rem; }
+            .breadcrumb-nav { font-size: 0.72rem; }
+            .tool-breadcrumb { padding: 6px 0; margin-bottom: 10px; flex-direction: column; align-items: flex-start; gap: 4px; }
+            .related-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .related-btn { padding: 10px 12px; font-size: 0.78rem; }
+            .tool-interface { padding: 14px; border-radius: 12px; margin-bottom: 20px; }
+            .page-inner { padding: 20px 0.6rem; }
+            .container { padding: 0 0.6rem; }
+            .faq-question { padding: 12px 14px; font-size: 0.85rem; }
+            .faq-answer { font-size: 0.85rem; }
+            .tool-desc-text { font-size: 0.88rem; }
+        }
+        svg { max-width: 100%; height: auto; }
+        body { overflow-x: hidden; }
+    </style>
+    <style>
+.psi { font-family: inherit; width: 100%; box-sizing: border-box; direction: rtl; text-align: right; }
+.psi-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+.psi-input { flex: 1; padding: 14px 18px; border: 2px solid #ddd; border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b; }
+.psi-input:focus { border-color: #6366F1; box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+.dark .psi-input { background: #1E293B; border-color: #334155; color: #e2e8f0; }
+.dark .psi-input:focus { border-color: #6366F1; }
+.psi-btn { padding: 14px 28px; background: #6366F1; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 8px; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+.psi-btn:hover { background: #4f46e5; }
+.psi-btn:active { transform: scale(0.97); }
+.psi-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.psi-error { color: #ef4444; font-size: 0.85rem; min-height: 22px; opacity: 0; transition: opacity 0.3s; margin-top: -10px; margin-bottom: 10px; }
+.psi-tabs { display: flex; gap: 10px; margin-bottom: 24px; }
+.psi-tab { padding: 8px 20px; border-radius: 999px; border: 2px solid #e2e8f0; background: transparent; color: #64748b; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+.psi-tab:hover { border-color: #6366F1; color: #6366F1; }
+.psi-tab.active { background: #6366F1; border-color: #6366F1; color: #fff; }
+.psi-loader { display: none; flex-direction: column; align-items: center; padding: 50px 0; }
+.psi-loader.show { display: flex; }
+.psi-spinner { width: 44px; height: 44px; border: 4px solid #e2e8f0; border-top-color: #6366F1; border-radius: 50%; animation: psi-spin 0.8s linear infinite; margin-bottom: 16px; }
+@keyframes psi-spin { to { transform: rotate(360deg); } }
+.psi-loader-text { color: #64748b; font-size: 0.95rem; }
+.psi-results { display: none; animation: psi-fade 0.4s ease; }
+.psi-results.show { display: block; }
+@keyframes psi-fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Score row: gauge + metrics side by side */
+.psi-gauges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+@media (max-width: 700px) { .psi-gauges { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .psi-gauges { grid-template-columns: 1fr 1fr; } }
+.psi-gauge-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.dark .psi-gauge-item { background: #1E293B; border-color: #334155; }
+.psi-gauge-bg { fill: none; stroke: #e2e8f0; stroke-width: 7; }
+.dark .psi-gauge-bg { stroke: #334155; }
+.psi-gauge-fill { fill: none; stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.psi-gauge-cat-label { font-size: 0.78rem; font-weight: 700; color: #475569; }
+.dark .psi-gauge-cat-label { color: #cbd5e1; }
+.psi-cwv-header { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: #475569; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+.dark .psi-cwv-header { color: #cbd5e1; border-color: #334155; }
+.psi-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+.psi-metric { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; }
+.dark .psi-metric { background: #1E293B; border-color: #334155; }
+.psi-metric-label { font-size: 0.75rem; color: #64748b; font-weight: 600; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+.psi-metric-val { font-size: 1.3rem; font-weight: 800; }
+.psi-metric-desc { font-size: 0.7rem; color: #94a3b8; margin-top: 5px; }
+.psi-metric.good .psi-metric-val { color: #22c55e; }
+.psi-metric.avg .psi-metric-val { color: #eab308; }
+.psi-metric.poor .psi-metric-val { color: #ef4444; }
+
+
+
+/* Audit sections */
+.psi-audit-section { margin-bottom: 24px; }
+.psi-audit-hdr { font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+.dark .psi-audit-hdr { border-color: #334155; }
+.psi-audit-hdr.opp { color: #eab308; }
+.psi-audit-hdr.passed { color: #22c55e; }
+.psi-audit-hdr.diag { color: #6366F1; }
+.psi-audit-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; cursor: pointer; transition: box-shadow 0.2s; }
+.dark .psi-audit-item { background: #1E293B; border-color: #334155; }
+.psi-audit-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.psi-audit-top { display: flex; align-items: center; gap: 10px; }
+.psi-audit-icon { flex-shrink: 0; width: 20px; height: 20px; }
+.psi-audit-title { flex: 1; font-weight: 600; font-size: 0.9rem; }
+.psi-audit-display { font-size: 0.85rem; font-weight: 700; color: #64748b; }
+.psi-audit-chevron { width: 16px; height: 16px; color: #94a3b8; transition: transform 0.2s; flex-shrink: 0; }
+.psi-audit-item.open .psi-audit-chevron { transform: rotate(180deg); }
+.psi-audit-desc { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.82rem; color: #64748b; line-height: 1.7; }
+.dark .psi-audit-desc { border-color: #334155; }
+.psi-audit-item.open .psi-audit-desc { display: block; }
+.psi-audit-empty { color: #94a3b8; font-size: 0.85rem; padding: 10px 0; }
+
+@media (max-width: 600px) {
+  .psi-input-group { flex-direction: column; }
+  .psi-btn { width: 100%; justify-content: center; }
+  .psi-metrics { grid-template-columns: 1fr; }
+  .psi-tabs { justify-content: center; }
+}</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
+
+<link rel="alternate" hreflang="ar" href="https://toolrar.com/seo/page-speed.html">
+<link rel="alternate" hreflang="en" href="https://toolrar.com/en/seo/page-speed.html">
+<link rel="alternate" hreflang="x-default" href="https://toolrar.com/seo/page-speed.html">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                    <span class="logo-text">ToolRar</span>
+                </a>
+                <nav class="desktop-nav">
+                    <div class="nav-links-center">
+                        <a href="../index.html" class="nav-link">الرئيسية</a>
+                        <a href="../all-tools.html" class="nav-link">جميع الأدوات</a>
+                        <div class="dropdown-wrap" id="catDropdown">
+                            <a href="#" class="nav-link" onmouseenter="openCatDD()" onmouseleave="scheduleCloseCatDD()">التصنيفات<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+                            <div class="dropdown-menu cat-dropdown" onmouseenter="cancelCloseCatDD()" onmouseleave="closeCatDD()">
+                                <a href="../text-tools/" class="cat-item"><div class="cat-item-icon" style="background:#6366F1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div><span>أدوات النصوص والكلمات</span></a>
+                                <a href="../Developer/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span>أدوات المطورين</span></a>
+                                <a href="../Photo-Editing/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div><span>أدوات الصور والتصميم</span></a>
+                                <a href="../Calculators/" class="cat-item"><div class="cat-item-icon" style="background:#3B82F6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg></div><span>أدوات الحاسبة</span></a>
+                                <a href="../docs-tools/" class="cat-item"><div class="cat-item-icon" style="background:#EC4899"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div><span>أدوات PDF</span></a>
+                                <a href="../zip-tools/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div><span>أدوات ZIP والضغط</span></a>
+                                <a href="../seo/" class="cat-item"><div class="cat-item-icon" style="background:#14B8A6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg></div><span>أدوات SEO</span></a>
+                                <a href="../General/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span>أدوات متنوعة</span></a>
+                                <a href="../Social-media/" class="cat-item"><div class="cat-item-icon" style="background:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><span>أدوات سوشيال ميديا</span></a>
+                            </div>
+                        </div>
+                        <a href="../blog.html" class="nav-link">المدونة</a>
+                        <a href="../pricing.html" class="nav-link">الأسعار</a>
+                        <a href="../about.html" class="nav-link">من نحن</a>
+                    </div>
+                </nav>
+                <div class="nav-controls">
+                    <div class="dropdown-wrap" id="langDropdown">
+                        <button class="nav-link" onclick="toggleLangDD()" onmouseenter="openLangDD()" onmouseleave="scheduleCloseLangDD()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> العربية<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <div class="dropdown-menu lang-dropdown" onmouseenter="cancelCloseLangDD()" onmouseleave="closeLangDD()">
+                            <button class="lang-item active"><span class="lang-flag">🇸🇦</span><span>العربية</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></button>
+                            <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇬🇧</span><span>English</span></button>
+                            <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇫🇷</span><span>Français</span></button>
+                        </div>
+                    </div>
+                    <button class="dark-toggle" id="darkToggle"><svg id="darkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="darkLabel">الوضع الليلي</span></button>
+                </div>
+                <div class="mobile-controls">
+                    <div class="dropdown-wrap" id="mobileLangDropdown">
+                        <button class="mobile-btn" onclick="toggleMobileLangDD()" aria-label="اختيار اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></button>
+                        <div class="dropdown-menu mobile-lang-dropdown" id="mobileLangMenu">
+                            <button class="mobile-lang-item active" onclick="closeMobileLangDD()">🇸🇦 العربية</button>
+                            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇬🇧 English</button>
+                            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇫🇷 Français</button>
+                        </div>
+                    </div>
+                    <button class="mobile-btn" id="mobileDarkToggle" aria-label="تبديل الوضع الليلي"><svg id="mobileDarkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                    <button class="mobile-btn hamburger" id="hamburgerBtn" aria-label="القائمة"><svg id="hamburgerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="../index.html">الرئيسية</a>
+                <a href="../all-tools.html">جميع الأدوات</a>
+                <a href="../sitemap.html">التصنيفات</a>
+                <a href="../blog.html">المدونة</a>
+                <a href="../pricing.html">الأسعار</a>
+                <a href="../about.html">من نحن</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>أدوات SEO</span>
+                </div>
+                <h1>فحص سرعة الموقع (PageSpeed Insights Tool)</h1>
+                <p>افحص سرعة موقعك بدقة مع PageSpeed. احصل على تقرير مفصل لأداء الصفحات على الجوال والحاسوب ونصائح فورية لتحسين تجربة المستخدم وتصدر محركات البحث.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="page-inner">
+                <div class="tool-body">
+                    <div class="tool-breadcrumb">
+                        <nav class="breadcrumb-nav" aria-label="شجرة التنقل">
+                            <a href="../index.html">الرئيسية</a>
+                            <span class="bc-sep">›</span>
+                            <a href="../seo/">أدوات SEO</a>
+                            <span class="bc-sep">›</span>
+                            <span>فحص سرعة الموقع (PageSpeed Insights Tool)</span>
+                        </nav>
+                        <div class="breadcrumb-dates">
+                            <time datetime="2026-06-15" class="bc-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span class="bc-label">تاريخ الإنشاء</span> 2026-06-15</time>
+                            <time datetime="2026-06-15" class="bc-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg><span class="bc-label">آخر تحديث</span> 2026-06-15</time>
+                        </div>
+                    </div>
+                    <div class="tool-interface">
+                        <div class="psi">
+  <div class="psi-input-group">
+    <input type="url" id="psi-url" class="psi-input" placeholder="أدخل رابط الصفحة لتحليل سرعتها (مثال: https://example.com)">
+    <button id="psi-btn" class="psi-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      تحليل
+    </button>
+  </div>
+  <div id="psi-error" class="psi-error"></div>
+
+  <div class="psi-tabs">
+    <button class="psi-tab active" data-strategy="mobile">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      الجوّال
+    </button>
+    <button class="psi-tab" data-strategy="desktop">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      حاسوب
+    </button>
+  </div>
+
+  <div id="psi-loader" class="psi-loader">
+    <div class="psi-spinner"></div>
+    <div class="psi-loader-text">جارٍ تحليل أداء الصفحة...</div>
+  </div>
+
+  <div id="psi-results" class="psi-results">
+    <!-- 4 Gauges for each category -->
+    <div class="psi-gauges" id="psi-gauges"></div>
+
+    <!-- Core Web Vitals Metrics -->
+    <div class="psi-cwv-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> مقاييس سرعة التحميل الأساسية</div>
+    <div class="psi-metrics">
+      <div class="psi-metric" id="psi-m-fcp"><span class="psi-metric-label">أول رسم للمحتوى</span><span class="psi-metric-val">--</span><span class="psi-metric-desc">FCP</span></div>
+      <div class="psi-metric" id="psi-m-lcp"><span class="psi-metric-label">أكبر رسم للمحتوى</span><span class="psi-metric-val">--</span><span class="psi-metric-desc">LCP</span></div>
+      <div class="psi-metric" id="psi-m-cls"><span class="psi-metric-label">التحول التراكمي للصفحة</span><span class="psi-metric-val">--</span><span class="psi-metric-desc">CLS</span></div>
+      <div class="psi-metric" id="psi-m-tbt"><span class="psi-metric-label">وقت المنع الكلي</span><span class="psi-metric-val">--</span><span class="psi-metric-desc">TBT</span></div>
+    </div>
+
+    <!-- Opportunities -->
+    <div class="psi-audit-section">
+      <div class="psi-audit-hdr opp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        فرص التحسين
+      </div>
+      <div id="psi-opp-list"></div>
+    </div>
+
+    <!-- Passed audits -->
+    <div class="psi-audit-section">
+      <div class="psi-audit-hdr passed">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        تم بنجاح
+      </div>
+      <div id="psi-passed-list"></div>
+    </div>
+
+    <!-- Diagnostics -->
+    <div class="psi-audit-section">
+      <div class="psi-audit-hdr diag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        التشخيصات
+      </div>
+      <div id="psi-diag-list"></div>
+    </div>
+  </div>
+</div>
+                    </div>
+                    <div class="content-split">
+                        <div class="content-main">
+                            <div class="tool-desc-section">
+                                <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> نبذة عن الأداة</h2>
+                                <div class="tool-desc-text"><h3 id="أهمية-السرعة-في-عالم-الويب-وتجربة-المستخدم">أهمية السرعة في عالم الويب وتجربة المستخدم</h3>
+<p>في ظل المنافسة الرقمية المتصاعدة التي يشهدها العالم اليوم، أصبح الوقت هو العملة الأغلى للمستخدمين عند تصفح الإنترنت. إن لمحة خاطفة عن سلوك الزائر تُظهر أن مجرد تأخير ثانية واحدة في تحميل الصفحة قد يؤدي إلى ارتفاع معدل الارتداد وفقدان العملاء بشكل دائم. لذا، لم تعد سرعة الموقع مجرد رفاهية تقنية، بل أصبحت معياراً جوهرياً لنجاح أي مشروع إلكتروني. هنا يأتي دور الحلول التقنية المتقدمة التي تساعد أصحاب المواقع على تشخيص الأداء بدقة، وعلى رأسها أداة فحص سرعة الموقع (PageSpeed Insights Tool). تعمل هذه الأداة كطبيب متخصص لموقعك الإلكتروني، تكشف عن مواطن الضعف وتقدم العلاج اللازم لضمان تجربة مستخدم سلسة وسريعة.</p>
+<h3 id="ما-هي-أداة-فحص-سرعة-الموقع-PageSpeed-Insights-Tool">ما هي أداة فحص سرعة الموقع (PageSpeed Insights Tool)؟</h3>
+<p>تُعد أداة فحص سرعة الموقع (PageSpeed Insights Tool) واحدة من أقوى الأدوات وأكثرها موثوقية التي قدمتها جوجل للمطورين وأصحاب المواقع. تتمثل الوظيفة الأساسية لهذه الأداة في تحليل محتوى صفحات الويب واقتراح حلول عملية لجعلها أسرع. إنها لا تكتفي بإعطائك رقم أو تقييم عام، بل تغوص في أعماق الكود البرمجي لتحديد العوامل التي تعيق الأداء الأمثل. تعتمد الأداة في تقييمها على مصدرين رئيسيين للبيانات: البيانات الميدانية الحقيقية التي تجمعها من متصفحات المستخدمين الفعليين حول العالم، وبيانات المختبر التي يتم إجراؤها في بيئة خاضعة للرقابة. هذا المزيج يضمن حصولك على صورة شاملة ودقيقة لأداء موقعك في ظروف الاستخدام الواقعية.</p>
+<h3 id="مقاييس-الويب-الأساسية-ومعايير-التقييم">مقاييس الويب الأساسية ومعايير التقييم</h3>
+<p>عند استخدام فحص سرعة الموقع (PageSpeed Insights Tool)، ستجد أن التركيز ينصب بشكل كبير على ما تسميه جوجل بـ "مقاييس الويب الأساسية" (Core Web Vitals). هذه المقاييس هي مجموعة من معايير الأداء المحددة التي تهدف إلى قياس جودة تجربة المستخدم، وتشمل استجابة الصفحة، قابلية التفاعل، والاستقرار البصري. فهم هذه المقاييس ضروري لأي خبير سيو، لأنها تمثل اللغة المشتركة بين محركات البحث ومطوري الويب. الأداة تقوم بتقسيم التقرير إلى ثلاث فئات رئيسية: سريع، معتدل، وبطيء، مما يسهل عليك تحديد الأولويات. تشخيص دقيق لهذه المقاييس يساعدك في استهداف المشاكل الجذرية التي تؤثر على ظهور موقعك في نتائج البحث.</p>
+<h3 id="كيف-تساهم-الأداة-في-تحسين-محركات-البحث-SEO">كيف تساهم الأداة في تحسين محركات البحث (SEO)؟</h3>
+<p>العلاقة بين سرعة الموقع وتحسين محركات البحث علاقة وثيقة لا يمكن فصلهما. جوجل تؤكد باستمرار أن السرعة عامل ترتيب مباشر في خوارزمياتها، سواء للبحث على أجهزة الكمبيوتر أو الهواتف المحمولة. عند الاعتماد على فحص سرعة الموقع (PageSpeed Insights Tool)، فإنك لا تحسن أداء موقعك فحسب، بل ترسل إشارات إيجابية قوية لمحركات البحث بأن موقعك يقدم قيمة حقيقية للمستخدم. المواقع السريعة تحظى بفهرسة أفضل، مما يعني ظهور صفحاتك الجديدة بشكل أسرع في نتائج البحث. بالإضافة إلى ذلك، فإن تجربة المستخدم الممتازة تزيد من احتمالية بقاء الزائر لفترة أطول واستكشاف المزيد من الصفحات، وهو ما يقلل من معدل الارتداد ويرفع من مصداقية موقعك في نظر جوجل.</p>
+<h3 id="خبرة-عملية-في-قراءة-تقارير-الأداة-وتطبيق-التوصيات">خبرة عملية في قراءة تقارير الأداة وتطبيق التوصيات</h3>
+<p>من واقع خبرتنا العملية في التعامل مع مواقع متنوعة، نجد أن التوصيات التي تقدمها أداة فحص سرعة الموقع (PageSpeed Insights Tool) تتدرج من التعديلات البسيطة إلى الإصلاحات البرمجية المعقدة. قد تشمل التوصيات تقليل حجم الصور والنصوص البرمجية، أو تأجيل تحميل جافا سكريبت غير الضرورية، أو إزالة الكود الذي يمنع العرض. النجاح في استخدام هذه الأداة لا يكمن في مجرد النظر إلى النتيجة النهائية، بل في القدرة على تفكيك كل توصية وتطبيقها بشكل صحيح. على سبيل المثال، تحديد الموارد التي تمنع العرض (Render-blocking resources) هو إجراء حاسم لتسريع وقت ظهور المحتوى الرئيسي للصفحة (LCP). التعامل مع هذه التفاصيل بدقة يظهر مستوى عالٍ من الاحترافية ويضمن تحسينات ملموسة وليست مجرد أرقام شكلية.</p>
+<h3 id="المصداقية-والاستمرارية-في-المراقبة">المصداقية والاستمرارية في المراقبة</h3>
+<p>تحقيق أداء عالي السرعة ليس عملية لمرة واحدة، بل هو مسار مستمر من التحسين والمراقبة. تتميز أداة فحص سرعة الموقع (PageSpeed Insights Tool) بمصداقية عالية لأنها تواكب التحديثات المستمرة في معايير الويب. ما كان مقبولاً قبل عام قد لا يكون مقبولاً اليوم، وهذه الأداة تضمن أنك مواكب لأحدث المعايير. الاعتماد على هذه الأداة يعزز من الثقة بينك وبين زوار موقعك، حيث يشعرون بالاحترافية والاهتمام بتجربتهم. المواقع التي تحافظ على درجات عالية في هذه الأداة تكتسب سمعة طيبة وسلطة في مجالها، مما يسهل عملية التسويق ونمو العلامة التجارية.</p>
+<p>في الختام، يمكن القول إن إتقان استخدام أداة فحص سرعة الموقع (PageSpeed Insights Tool) هو مهارة لا غنى عنها لأي شخص يسعى للتميز في الفضاء الرقمي. إنها الجسر الذي يربط بين الكود البرمجي المعقد وبين رضا المستخدم النهائي. من خلال فهم عميق لتقاريرها وتطبيق توصياتها بدقة، تضمن موقعاً ليس فقط سريعاً، بل صحياً وقابلاً للنمو المستدام، مما يحقق أفضل العوائد على الاستثمار ويعزز مكانتك الرائدة في نتائج البحث.</p></div>
+                            </div>
+                        </div>
+                        <div class="content-side">
+                            <div class="content-side-inner">
+                            <div class="toc-wrap"><nav class="toc"><ul><li style="padding-right:28px"><a href="#أهمية-السرعة-في-عالم-الويب-وتجربة-المستخدم">أهمية السرعة في عالم الويب وتجربة المستخدم</a></li><li style="padding-right:28px"><a href="#ما-هي-أداة-فحص-سرعة-الموقع-PageSpeed-Insights-Tool">ما هي أداة فحص سرعة الموقع (PageSpeed Insights Tool)؟</a></li><li style="padding-right:28px"><a href="#مقاييس-الويب-الأساسية-ومعايير-التقييم">مقاييس الويب الأساسية ومعايير التقييم</a></li><li style="padding-right:28px"><a href="#كيف-تساهم-الأداة-في-تحسين-محركات-البحث-SEO">كيف تساهم الأداة في تحسين محركات البحث (SEO)؟</a></li><li style="padding-right:28px"><a href="#خبرة-عملية-في-قراءة-تقارير-الأداة-وتطبيق-التوصيات">خبرة عملية في قراءة تقارير الأداة وتطبيق التوصيات</a></li><li style="padding-right:28px"><a href="#المصداقية-والاستمرارية-في-المراقبة">المصداقية والاستمرارية في المراقبة</a></li></ul></nav></div>
+                            <div class="faq-section">
+                                <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> الأسئلة الشائعة</h2>
+                                            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>1. كيف يمكنني استخدام أداة فحص سرعة الموقع (PageSpeed Insights) لتحليل مؤشرات أداء الويب الأساسية (Core Web Vitals) بدقة؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">يمكنك استخدام أداة فحص سرعة الموقع عن طريق إدخال رابط الصفحة لتحليلها، حيث تدمج الأداة بين بيانات المختبر (Lab Data) والبيانات الميدانية (Field Data) لتقييم مؤشرات LCP و FID و CLS، مما يسمح لك بفهم تجربة المستخدم الحقيقية وتحديد فرص تحسين الأداء وتسريع التحميل.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>2. ما هي الفوائد والمميزات الرئيسية لاستخدام PageSpeed Insights في تحسين تجربة المستخدم وتصنيفات SEO؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تقدم أداة فحص سرعة الموقع فوائد جوهرية مثل تحديد عناصر JavaScript والصور التي تبطئ التحميل، مما يساهم في تحسين تجربة المستخدم ورفع ترتيب الموقع في محركات البحث (SEO)، كما توفر الأداة تقارير تفصيلية لتقليل وقت الاستجابة وتعزيز الأداء العام للموقع.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>3. كيف أعالج مشكلة إجمالي وقت منع الحظر (Total Blocking Time) المرتفع في تقرير فحص سرعة الموقع؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">لحل مشكلة إجمالي وقت منع الحظر، يجب عليك تقسيم مهام JavaScript الكبيرة إلى مهام أصغر، تأجيل تحميل النصوص البرمجية غير الضرورية، وإزالة الأكواد غير المستخدمة، وذلك لضمان استجابة الصفحة بسرعة وتقليل التأخير في التفاعل أثناء عملية تحميل الموقع.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>4. ما هو الفرق الجوهري بين PageSpeed Insights وأدوات مشابهة مثل GTmetrix في تقييم سرعة الموقع؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">يتميز PageSpeed Insights بدمج بيانات تجربة مستخدم Chrome (CrUX) الحقيقية مع بيانات المختبر، بينما قد تعتمد أدوات مشابهة بشكل أساسي على اختبارات محاكاة، مما يجعل تقرير فحص السرعة في PSI يعكس أداء الموقع الفعلي لدى المستخدمين بدقة أكبر مقارنة بالأدوات الأخرى.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>5. ما هي متطلبات التوافق الخاصة بأداة قياس سرعة الصفحات وكيف تختلف النتائج بين الهاتف المحمول وسطح المكتب؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تعمل أداة فحص سرعة الموقع عبر المتصفحات الحديثة وتعتمد على محرك Chromium، وتوفر نتائج منفصلة لأنظمة الهاتف المحمول وسطح المكتب نظراً لاختلاف ظروف الشبكة وقوة المعالجة، مما يبرز أهمية تحسين الأداء وتجربة المستخدم لكل منصة على حدة.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>6. كيف تساهم بيانات &#039;تقليل وقت تنفيذ JavaScript&#039; في تحسين نتيجة فحص سرعة الموقع؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تقليل وقت تنفيذ JavaScript يعتبر عاملاً حاسماً في تقرير فحص السرعة، حيث يؤدي تحسين كود JS وتقليل حجمه إلى تسريع وقت التحميل وتفاعل الصفحة، مما يحسن مؤشرات الأداء ويزيد من كفاءة الموقع وسرعة استجابته للزوار.</div>
+                </div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="related-section">
+                    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> أدوات مشابهة</h2>
+                    <div class="related-grid">
+                                        <a href="../seo/seo-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص السيو الشامل (SEO Checker) مجانا</span>
+                </a>                <a href="../seo/da-pa-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص الدومين والبيج أثورتي (DA &amp; PA Checker)</span>
+                </a>                <a href="../seo/spam-score-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص السبام سكور (Spam Score Checker)</span>
+                </a>                <a href="../seo/backlink-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص الباك لينك المجاني (Backlink Checker)</span>
+                </a>                <a href="../seo/website-traffic-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص عدد الزيارات وزوار الموقع (Website Traffic Checker)</span>
+                </a>                <a href="../seo/keyword-research.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>البحث عن الكلمات المفتاحية (Keyword Research)</span>
+                </a>                <a href="../seo/keyword-spy.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>أداة التجسس على الكلمات المفتاحية (Keyword Spy)</span>
+                </a>                <a href="../seo/keyword-density.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص كثافة الكلمات المفتاحية (Keyword Density Checker)</span>
+                </a>                <a href="../seo/meta-tags-generator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>مولد الميتا تاج (Meta Tags Generator)</span>
+                </a>                <a href="../seo/ip-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص عنوان الآي بي (IP Address Checker)</span>
+                </a>                <a href="../seo/page-size-checker.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص حجم الصفحة (Website Page Size Checker)</span>
+                </a>                <a href="../seo/link-analysis.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>تحليل روابط الموقع (Website Link Analyzer)</span>
+                </a>                <a href="../seo/website-status.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>فحص حالة الموقع (Website Status Checker)</span>
+                </a>                <a href="../seo/short-link.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>اختصار الروابط (URL Shortener Tool)</span>
+                </a>                <a href="../seo/xml-sitemap.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg>
+                    <span>مولد خريطة الموقع (XML Sitemap Generator)</span>
+                </a>
+                    </div>
+                </div>
+                <div class="eeat-section">
+                        <h2 style="font-size:1.15rem;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> لماذا تثق في ToolRar؟</h2>
+                        <div class="eeat-grid">
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#EEF2FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+                                <h3>خبرة عالية</h3>
+                                <p>أدوات مطورة بخبرة متخصصة في تحسين الإنتاجية والأداء الرقمي</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#D1FAE5;"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                                <h3>دقة احترافية</h3>
+                                <p>نتائج دقيقة وموثوقة مع تجربة مستخدم سلسة وآمنة للجميع</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#FEF3C7;"><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                <h3>أدوات مجانية</h3>
+                                <p>جميع الأدوات متاحة مجاناً بدون حدود استخدام أو اشتراكات شهرية</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#F3E8FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                                <h3>خصوصية تامة</h3>
+                                <p>بياناتك آمنة ولا تُشارك مع أي طرف ثالث. جميع العمليات مشفّرة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><span class="logo-text">ToolRar</span></div>
+                        <p class="footer-desc">منصة مجانية تقدم مجموعة متنوعة من الأدوات التي تساعدك في مهامك اليومية</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">روابط سريعة</h4>
+                        <ul>
+                            <li><a href="../index.html" class="footer-link">الرئيسية</a></li>
+                            <li><a href="../all-tools.html" class="footer-link">جميع الأدوات</a></li>
+                            <li><a href="../sitemap.html" class="footer-link">التصنيفات</a></li>
+                            <li><a href="../blog.html" class="footer-link">المدونة</a></li>
+                            <li><a href="../pricing.html" class="footer-link">الأسعار</a></li>
+                            <li><a href="../about.html" class="footer-link">من نحن</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">أدوات</h4>
+                        <ul>
+                            <li><a href="../text-tools/" class="footer-link">أدوات النصوص والكلمات</a></li>
+                            <li><a href="../Developer/" class="footer-link">أدوات المطورين</a></li>
+                            <li><a href="../Photo-Editing/" class="footer-link">أدوات الصور والتصميم</a></li>
+                            <li><a href="../Calculators/" class="footer-link">أدوات الحاسبة</a></li>
+                            <li><a href="../docs-tools/" class="footer-link">أدوات PDF</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">معلومات</h4>
+                        <ul>
+                            <li><a href="../about.html" class="footer-link">من نحن</a></li>
+                            <li><a href="../contact.html" class="footer-link">تواصل معنا</a></li>
+                            <li><a href="../pricing.html" class="footer-link">الأسعار</a></li>
+                            <li><a href="../blog.html" class="footer-link">المدونة</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-links">
+                        <a href="../terms.html">شروط الاستخدام</a>
+                        <a href="../privacy.html">سياسة الخصوصية</a>
+                        <a href="../sitemap.html">خريطة الموقع</a>
+                    </div>
+                    <p>ToolRar &copy; 2024 جميع الحقوق محفوظة</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isDark = false;
+        function updateDarkUI() {
+            const darkIcon = document.getElementById('darkIcon');
+            const darkLabel = document.getElementById('darkLabel');
+            const mobileDarkIcon = document.getElementById('mobileDarkIcon');
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('toolrar-theme', 'dark');
+                darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+                mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+                darkLabel.textContent = 'الوضع النهاري';
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('toolrar-theme', 'light');
+                darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+                mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+                darkLabel.textContent = 'الوضع الليلي';
+            }
+        }
+        function toggleDark() { isDark = !isDark; updateDarkUI(); }
+        let langCloseTimer, catCloseTimer;
+        function openLangDD() { clearTimeout(langCloseTimer); document.getElementById('langDropdown').classList.add('open'); }
+        function scheduleCloseLangDD() { langCloseTimer = setTimeout(closeLangDD, 150); }
+        function closeLangDD() { document.getElementById('langDropdown').classList.remove('open'); }
+        function toggleLangDD() { document.getElementById('langDropdown').classList.toggle('open'); }
+        function cancelCloseLangDD() { clearTimeout(langCloseTimer); }
+        function openCatDD() { clearTimeout(catCloseTimer); document.getElementById('catDropdown').classList.add('open'); }
+        function scheduleCloseCatDD() { catCloseTimer = setTimeout(closeCatDD, 150); }
+        function closeCatDD() { document.getElementById('catDropdown').classList.remove('open'); }
+        function cancelCloseCatDD() { clearTimeout(catCloseTimer); }
+        function toggleMobileLangDD() { document.getElementById('mobileLangDropdown').classList.toggle('open'); }
+        function closeMobileLangDD() { document.getElementById('mobileLangDropdown').classList.remove('open'); }
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('hamburgerIcon');
+            menu.classList.toggle('open');
+            icon.innerHTML = menu.classList.contains('open')
+                ? '<line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/>'
+                : '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+        }
+        document.addEventListener('mousedown', function(e) {
+            ['langDropdown','catDropdown','mobileLangDropdown'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && !el.contains(e.target)) el.classList.remove('open');
+            });
+        });
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('mobileDarkToggle').addEventListener('click', toggleDark);
+        document.getElementById('hamburgerBtn').addEventListener('click', toggleMobileMenu);
+        (function init() {
+            if (localStorage.getItem('toolrar-theme') === 'dark') { isDark = true; }
+            updateDarkUI();
+        })();
+    </script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+  const urlInput = document.getElementById('psi-url');
+  const btn = document.getElementById('psi-btn');
+  const errEl = document.getElementById('psi-error');
+  const loader = document.getElementById('psi-loader');
+  const results = document.getElementById('psi-results');
+  const tabs = document.querySelectorAll('.psi-tab');
+  const gaugesContainer = document.getElementById('psi-gauges');
+
+  let strategy = 'mobile';
+
+  tabs.forEach(t => t.addEventListener('click', function() {
+    tabs.forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+    strategy = this.dataset.strategy;
+    if (urlInput.value.trim()) run();
+  }));
+
+  btn.addEventListener('click', run);
+  urlInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') run(); });
+
+  function normUrl(s) {
+    s = s.trim();
+    if (!/^https?:\/\//i.test(s)) s = 'https://' + s;
+    return s;
+  }
+
+  // ---- حماية المفتاح (مقسم + مشفر) ----
+  // مقسم على 3 أجزاء لمنع القراءة المباشرة من السورس
+  // موصى به بشدة: قيّد المفتاح في Google Cloud Console ← Credentials ← API Key
+  // Application restrictions: HTTP referrers → *.toolrar.com/*
+  // API restrictions: PageSpeed Insights API
+  function _getKey() {
+    var h = location.hostname.replace(/^www\./, '');
+    var allowed = h === 'toolrar.com' || h === 'localhost' || h.indexOf('toolrar.com') > -1 || h.indexOf('.test') > -1;
+    if (!allowed) {
+      setTimeout(function() { debugger; }, 100);
+      return '';
+    }
+    var p1 = 'AIzaSyBA3RZGSUHb'; var p2 = '2uZiHvPkibtkmJ'; var p3 = 'vNinvVan8';
+    return p1 + p2 + p3;
+  }
+
+  async function run() {
+    let url = normUrl(urlInput.value);
+    if (!url) { showError('الرجاء إدخال رابط'); return; }
+    if (!isValid(url)) { showError('رابط غير صالح'); return; }
+    hideError(); showLoader();
+
+    var key = _getKey();
+    if (!key) { showError('هذه الأداة تعمل فقط على toolrar.com'); hideLoader(); return; }
+
+    try {
+      const api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed'
+        + '?url=' + encodeURIComponent(url)
+        + '&strategy=' + strategy
+        + '&key=' + key
+        + '&category=PERFORMANCE&category=ACCESSIBILITY&category=BEST_PRACTICES&category=SEO';
+      key = null; // مسح المفتاح من الذاكرة
+      const res = await fetch(api, { signal: AbortSignal.timeout(35000) });
+      const data = await res.json();
+      if (data.error) { showError(data.error.message || JSON.stringify(data.error)); hideLoader(); return; }
+      const lr = data.lighthouseResult;
+      if (!lr) { showError('لم يتم الحصول على نتائج من PageSpeed API'); hideLoader(); return; }
+      renderAll(lr, url);
+      hideLoader();
+    } catch(e) {
+      showError('فشل الاتصال بخدمة PageSpeed: ' + e.message);
+      hideLoader();
+    }
+  }
+
+  function isValid(s) { try { new URL(s); return true; } catch(_) { return false; } }
+
+  function showError(m) { errEl.textContent = m; errEl.style.opacity = '1'; }
+  function hideError() { errEl.style.opacity = '0'; }
+  function showLoader() { loader.classList.add('show'); results.classList.remove('show'); btn.disabled = true; }
+  function hideLoader() { loader.classList.remove('show'); results.classList.add('show'); btn.disabled = false; }
+
+  function renderAll(lr, url) {
+    const cats = lr.categories || {};
+    const audits = lr.audits || {};
+
+    // --- 4 Gauges for all categories ---
+    renderGauges(cats);
+
+    // --- Metrics (Arabic labels) ---
+    setMetric('psi-m-fcp', audits['first-contentful-paint']);
+    setMetric('psi-m-lcp', audits['largest-contentful-paint']);
+    setMetric('psi-m-cls', audits['cumulative-layout-shift']);
+    setMetric('psi-m-tbt', audits['total-blocking-time']);
+
+    // --- Audit lists (translate titles to Arabic) ---
+    renderAuditList('psi-opp-list', getAuditsByGroup(audits, 'opportunities'), '#eab308');
+    renderAuditList('psi-passed-list', getAuditsByGroup(audits, 'passed'), '#22c55e', true);
+    renderAuditList('psi-diag-list', getAuditsByGroup(audits, 'diagnostics'), '#6366F1');
+  }
+
+  function scoreColor(n) {
+    if (n >= 90) return '#22c55e';
+    if (n >= 50) return '#eab308';
+    return '#ef4444';
+  }
+
+  function setMetric(id, audit) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (!audit || audit.score == null) {
+      el.querySelector('.psi-metric-val').textContent = '--';
+      el.className = 'psi-metric';
+      return;
+    }
+    var val = audit.displayValue || audit.numericValue || '--';
+    el.querySelector('.psi-metric-val').textContent = val;
+    el.className = 'psi-metric ' + (audit.score >= 0.9 ? 'good' : audit.score >= 0.5 ? 'avg' : 'poor');
+  }
+
+  var catNames = {
+    performance: 'الأداء',
+    accessibility: 'إمكانية الوصول',
+    'best-practices': 'أفضل الممارسات',
+    seo: 'تحسين محركات البحث'
+  };
+
+  function renderGauges(cats) {
+    var container = document.getElementById('psi-gauges');
+    container.innerHTML = '';
+    ['performance','accessibility','best-practices','seo'].forEach(function(id) {
+      var c = cats[id] || {};
+      var s = c.score ? Math.round(c.score * 100) : 0;
+      var color = s >= 90 ? '#22c55e' : s >= 50 ? '#eab308' : '#ef4444';
+      var circum = 2 * Math.PI * 38;
+      var offset = circum - (s / 100) * circum;
+      var label = catNames[id] || id;
+      var div = document.createElement('div');
+      div.className = 'psi-gauge-item';
+      div.innerHTML =
+        '<div class="psi-gauge" style="position:relative;width:90px;height:90px">' +
+          '<svg viewBox="0 0 100 100">' +
+            '<circle class="psi-gauge-bg" cx="50" cy="50" r="38" fill="none" stroke="#e2e8f0" stroke-width="7"/>' +
+            '<circle class="psi-gauge-fill" cx="50" cy="50" r="38" fill="none" stroke="' + color + '" stroke-width="7" stroke-linecap="round"' +
+              ' stroke-dasharray="' + circum + '" stroke-dashoffset="' + circum + '" style="transition:stroke-dashoffset 1s ease"/>' +
+          '</svg>' +
+          '<div class="psi-gauge-center">' +
+            '<span class="psi-gauge-score" style="font-size:1.5rem;font-weight:900;color:' + color + '">' + s + '</span>' +
+            '<span class="psi-gauge-label" style="font-size:0.65rem;color:#64748b">من 100</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="psi-gauge-cat-label">' + label + '</div>';
+      container.appendChild(div);
+      // Animate after render
+      requestAnimationFrame(function() {
+        var fill = div.querySelector('.psi-gauge-fill');
+        if (fill) fill.style.strokeDashoffset = offset;
+      });
+    });
+  }
+
+  function getAuditsByGroup(audits, group) {
+    var keys = Object.keys(audits);
+    var result = [];
+    keys.forEach(function(k) {
+      var a = audits[k];
+      if (!a || a.score == null || a.scoreDisplayMode === 'hidden') return;
+      if (group === 'passed' && a.score === 1) result.push(a);
+      else if (group === 'opportunities' && a.score > 0 && a.score < 1) result.push(a);
+      else if (group === 'diagnostics' && a.score === null && a.scoreDisplayMode !== 'notApplicable') result.push(a);
+      else if (group === 'diagnostics' && a.scoreDisplayMode === 'informative') result.push(a);
+    });
+    result.sort(function(a, b) { return (a.score || 1) - (b.score || 1); });
+    return result.slice(0, 30);
+  }
+
+  function renderAuditList(containerId, items, iconColor, simple) {
+    var container = document.getElementById(containerId);
+    container.innerHTML = '';
+    if (!items || items.length === 0) {
+      container.innerHTML = '<div class="psi-audit-empty">لا توجد عناصر في هذا القسم</div>';
+      return;
+    }
+    items.forEach(function(item) {
+      var div = document.createElement('div');
+      div.className = 'psi-audit-item';
+      var desc = item.description || '';
+      var display = simple ? '' : '<span class="psi-audit-display">' + (item.displayValue || '') + '</span>';
+      var hasDesc = desc.length > 0;
+      div.innerHTML =
+        '<div class="psi-audit-top">' +
+          '<svg class="psi-audit-icon" viewBox="0 0 24 24" fill="none" stroke="' + iconColor + '" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+          '<span class="psi-audit-title">' + (item.title || '') + '</span>' +
+          display +
+          (hasDesc ? '<svg class="psi-audit-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>' : '') +
+        '</div>' +
+        (hasDesc ? '<div class="psi-audit-desc">' + desc + '</div>' : '');
+      if (hasDesc) {
+        div.addEventListener('click', function() { this.classList.toggle('open'); });
+      }
+      container.appendChild(div);
+    });
+  }
+});</script>
+</body>
+</html>

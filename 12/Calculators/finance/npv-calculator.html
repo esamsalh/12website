@@ -1,0 +1,1556 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة القيمة NPV - تقييم ربحية المشاريع طويلة الأجل</title>
+    <meta name="description" content="اكتشف قيمة استثماراتك الحقيقية مع حاسبة صافي القيمة الحالية NPV المجانية والدقيقة. احسب العائد المالي لمشاريعك بسهولة من خلال إدخال التدفقات النقدية ومعدل الخصم. أداةنا المثالية تساعد المستثمرين والمحللين على اتخاذ قرارات مالية صائبة. استخدم حاسبة NPV الآن مجاناً وبدون توقف.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "حاسبة صافي القيمة الحالية NPV",
+        "description": "احسب صافي القيمة الحالية (NPV) لمشاريعك بدقة. أداة احترافية مجانية تساعدك على تحليل التدفقات النقدية المستقبلية وتقييم الجدوى الاقتصادية لاتخاذ قرارات استثمارية",
+        "applicationCategory": "المحولات الرياضية",
+        "operatingSystem": "All",
+        "browserRequirements": "HTML5, CSS3, JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+    {
+        "@type": "Question",
+        "name": "ما هي الخطوات التفصيلية لحساب صافي القيمة الحالية NPV باستخدام هذه الأداة بدقة؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لحساب صافي القيمة الحالي بدقة، يجب أولاً إدخال قيمة الاستثمار الأولي (كقيمة سالبة)، ثم إضافة التدفقات النقدية المتوقعة لكل فترة زمنية بشكل متسلسل، وتحديد معدل الخصم (Cost of Capital) المناسب، وأخيراً الضغط على زر الحساب للحصول على القيمة الصافية."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما هي المزايا الرئيسية لاستخدام حاسبة صافي القيمة الحالية NPV في تقييم المشاريع الاستثمارية؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تتميز أداة صافي القيمة الحالية بقدرتها على تقييم الجدوى الاقتصادية للمشاريع من خلال مراعاة القيمة الزمنية للمال، حيث تقوم بخصم التدفقات النقدية المستقبلية إلى قيمتها الحالية، مما يساعد المستثمرين في اتخاذ قرارات مالية مدروسة مقارنة بطرق التقييم التقليدية."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "كيف يمكن تفسير نتيجة صافي القيمة الحالية السلبية وماذا تعني بالنسبة للمشروع؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تشير النتيجة السلبية في صافي القيمة الحالية إلى أن التكلفة الاستثمارية للمشروع تتجاوز العوائد المخصومة، مما يعني أن المشروع قد يسبب خسارة مالية وغير مجدٍ اقتصادياً بناءً على معدل الخصم المستخدم، وينصح عادةً برفضه أو إعادة النظر في التدفقات النقدية المتوقعة."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما هي البيانات والمتطلبات الأساسية اللازمة لعمل حاسبة صافي القيمة الحالية NPV بكفاءة؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تتطلب الأداة بيانات دقيقة تشمل على حجم الاستثمار الأولي (Initial Outlay)، التوزيع الزمني للتدفقات النقدية الداخلة والخارجة (Cash Inflows\/Outflows)، وتحديد معدل العائد المطلوب أو معدل الخصم (Discount Rate) الذي يعكس تكلفة الفرصة البديلة للمشروع."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "ما الفرق الجوهري بين استخدام حاسبة صافي القيمة الحالية NPV وطريقة معدل العائد الداخلي IRR؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "بينما يركز صافي القيمة الحالية NPV على القيمة المالية المضافة المطلقة للمشروع بالعملة المحلية، فإن معدل العائد الداخلي IRR يحسب النسبة المئوية للعائد، ويعتبر NPV أكثر موثوقية في المشاريع ذات التغيرات في معدلات الخصم أو عند مقارنة مشاريع بأحجام وأعمار مختلفة."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "كيف يؤثر تغيير معدل الخصم على نتيجة صافي القيمة الحالية NPV المحسوبة؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "توجد علاقة عكسية بين معدل الخصم وصافي القيمة الحالية؛ فكلما ارتفع معدل الخصم (بسبب زيادة المخاطر أو تكلفة التمويل)، انخفضت القيمة الحالية للتدفقات المستقبلية، مما يؤدي إلى تقليل قيمة NPV أو تحويلها إلى سالبة، والعكس صحيح عند انخفاض المعدل."
+        }
+    }
+]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "حاسبة القيمة NPV - تقييم ربحية المشاريع طويلة الأجل",
+        "description": "اكتشف قيمة استثماراتك الحقيقية مع حاسبة صافي القيمة الحالية NPV المجانية والدقيقة. احسب العائد المالي لمشاريعك بسهولة من خلال إدخال التدفقات النقدية ومعدل الخصم. أداةنا المثالية تساعد المستثمرين والمحللين على اتخاذ قرارات مالية صائبة. استخدم حاسبة NPV الآن مجاناً وبدون توقف.",
+        "datePublished": "2026-06-05",
+        "dateModified": "2026-06-05",
+        "author": {
+            "@type": "Organization",
+            "name": "ToolRar"
+        }
+    }
+    </script>
+    <link rel="preload" href="../../admin/assets/fonts/cairo/cairo-v31-arabic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../admin/assets/fonts/cairo/cairo-v31-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        /* Cairo font - locally hosted WOFF2 variable font with full Arabic support */
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../../admin/assets/fonts/cairo/cairo-v31-arabic.woff2) format('woff2');
+          unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+        }
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../../admin/assets/fonts/cairo/cairo-v31-latin-ext.woff2) format('woff2');
+          unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+          font-family: 'Cairo';
+          font-style: normal;
+          font-weight: 200 900;
+          font-display: swap;
+          src: url(../../admin/assets/fonts/cairo/cairo-v31-latin.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+        body { overflow-x: hidden; width: 100%; position: relative; }
+        body {
+            font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background: #ffffff; color: #1e293b;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.6;
+        }
+        img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+        pre, code { white-space: pre-wrap; word-break: break-word; }
+        .dark body { background: #080C1A; color: #e2e8f0; }
+        .dark .header { background: #080C1A; border-color: rgba(255,255,255,0.03); }
+        .dark .hero-section { background: #192746 !important; }
+        .dark .hero-section::before { opacity: 0.03; }
+        .dark .page-section { background: #0F172A; }
+        .dark .tool-interface { background: #1E293B; border-color: #334155; }
+        .dark .tool-desc-text { color: #e2e8f0; }
+        .dark .related-btn { background: #1E293B; border-color: #334155; color: #cbd5e1; }
+        .dark .related-btn:hover { background: #334155; border-color: #6366F1; }
+        .dark .related-empty { color: #cbd5e1; }
+        .dark .faq-item { border-color: #334155; }
+        .dark .faq-question { color: #e2e8f0; }
+        .dark .faq-question:hover { background: #1E293B; }
+        .dark .faq-answer { color: #94a3b8; }
+        .dark .footer { background: #080C1A; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; width: 100%; }
+        @media(min-width:640px) { .container { padding: 0 1.5rem; } }
+        @media(min-width:1024px) { .container { padding: 0 2rem; } }
+        .header {
+            background: #0F172A; position: sticky; top: 0; z-index: 50;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo-icon {
+            width: 36px; height: 36px; background: #6366F1; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+        }
+        .logo-icon svg { width: 20px; height: 20px; color: #fff; }
+        .logo-text { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+        .desktop-nav { display: none; flex: 1; gap: 4px; margin: 0 8px; }
+        @media(min-width:1024px) { .desktop-nav { display: flex; align-items: center; justify-content: space-between; } }
+        .nav-links-center { display: flex; align-items: center; gap: 2px; margin: 0 auto; }
+        .nav-link {
+            color: #94a3b8; text-decoration: none; font-size: 0.82rem; font-weight: 500;
+            padding: 7px 12px; border-radius: 8px; transition: all 0.2s;
+            display: flex; align-items: center; gap: 4px; background: none; border: none;
+            font-family: inherit; cursor: pointer; white-space: nowrap;
+        }
+        .nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .dropdown-chevron { width: 13px; height: 13px; transition: transform 0.2s; }
+        .dropdown-wrap { position: relative; }
+        .dropdown-menu {
+            position: absolute; top: 100%; right: 0; margin-top: 8px;
+            background: #1E293B; border: 1px solid rgba(55,65,81,0.5);
+            border-radius: 12px; padding: 8px; min-width: 220px;
+            opacity: 0; visibility: hidden; transform: translateY(8px);
+            transition: all 0.2s ease; z-index: 100;
+        }
+        .dropdown-wrap.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .cat-dropdown { display: grid; grid-template-columns: 1fr; gap: 4px; min-width: 260px; }
+        @media(min-width:1200px) { .cat-dropdown { grid-template-columns: 1fr 1fr; min-width: 500px; } }
+        .cat-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px;
+            text-decoration: none; transition: background 0.15s; color: #e2e8f0; font-size: 0.82rem; font-weight: 500;
+        }
+        .cat-item:hover { background: rgba(99,102,241,0.1); color: #6366F1; }
+        .cat-item-icon {
+            width: 28px; height: 28px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .cat-item-icon svg { width: 14px; height: 14px; color: #fff; }
+        .nav-controls { display: none; align-items: center; gap: 4px; }
+        @media(min-width:1024px) { .nav-controls { display: flex; } }
+        .lang-dropdown { min-width: 155px; }
+        .lang-item {
+            display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px;
+            border: none; background: none; color: #cbd5e1; font-size: 0.85rem;
+            font-family: inherit; cursor: pointer; border-radius: 8px; transition: background 0.15s;
+        }
+        .lang-item:hover { background: rgba(255,255,255,0.05); }
+        .lang-item.active { color: #6366F1; }
+        .lang-flag { font-size: 1.05rem; }
+        .lang-check { width: 16px; height: 16px; color: #6366F1; }
+        .dark-toggle {
+            display: flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 8px;
+            background: none; border: none; color: #94a3b8; font-family: inherit;
+            font-size: 0.78rem; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .dark-toggle:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .dark-toggle svg { width: 16px; height: 16px; }
+        .mobile-controls { display: flex; align-items: center; gap: 6px; }
+        @media(min-width:1024px) { .mobile-controls { display: none; } }
+        .mobile-btn {
+            width: 36px; height: 36px; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; background: rgba(255,255,255,0.06);
+            border: none; cursor: pointer; color: #94a3b8; transition: background 0.2s;
+        }
+        .mobile-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .mobile-btn svg { width: 20px; height: 20px; }
+        .mobile-lang-dropdown { min-width: 140px; }
+        .mobile-lang-item {
+            display: block; width: 100%; padding: 10px 14px; border: none;
+            background: none; color: #cbd5e1; font-size: 0.85rem;
+            font-family: inherit; cursor: pointer; text-align: right; border-radius: 8px;
+        }
+        .mobile-lang-item:hover { background: rgba(255,255,255,0.05); }
+        .mobile-lang-item.active { color: #6366F1; }
+        .mobile-menu {
+            display: none; flex-direction: column; padding: 8px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            padding: 12px 16px; color: #94a3b8; text-decoration: none;
+            font-size: 0.9rem; font-weight: 500; border-radius: 8px; transition: all 0.2s;
+        }
+        .mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+        /* Breadcrumb */
+        .tool-breadcrumb {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 0; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;
+        }
+        .breadcrumb-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.82rem; }
+        .breadcrumb-nav a { color: #475569; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb-nav a:hover { color: #6366F1; }
+        .breadcrumb-nav span { color: #475569; }
+        .bc-sep { color: #475569; font-size: 1rem; }
+        .breadcrumb-dates { display: none; align-items: center; gap: 16px; }
+        @media(min-width:768px) { .breadcrumb-dates { display: flex; } }
+        .bc-date { display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: #475569; direction: ltr; white-space: nowrap; font-weight: 500; }
+        .bc-date svg { width: 13px; height: 13px; flex-shrink: 0; }
+        .bc-date .bc-label { font-size: 0.65rem; color: #475569; margin-left: 2px; }
+        .dark .breadcrumb-nav a { color: #cbd5e1; }
+        .dark .breadcrumb-nav a:hover { color: #6366F1; }
+        .dark .breadcrumb-nav span { color: #94a3b8; }
+        .dark .bc-date { color: #cbd5e1; }
+        .dark .bc-date .bc-label { color: #94a3b8; }
+
+        /* TOC */
+        .toc-wrap {
+            background: #F8FAFC; border: 1px solid #E2E8F0;
+            border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;
+        }
+        .dark .toc-wrap { background: #1E293B; border-color: #334155; }
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 6px; }
+        .toc a {
+            color: #4f46e5; text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: color 0.2s;
+        }
+        .toc a:hover { color: #4338ca; text-decoration: underline; }
+        .dark .toc a { color: #a5b4fc; }
+        .dark .toc a:hover { color: #c7d2fe; }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative; overflow: hidden;
+            background: #192746;
+            padding: 48px 0 40px; width: 100%;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-section .container { position: relative; z-index: 1; }
+        .hero-section .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+        .hero-section .hero-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 16px; border-radius: 9999px;
+            background: rgba(255,255,255,0.15); color: #fff;
+            font-size: 0.75rem; font-weight: 700; margin-bottom: 16px;
+            backdrop-filter: blur(4px);
+        }
+        .hero-section .hero-badge svg { width: 13px; height: 13px; }
+        .hero-section h1 {
+            font-size: 1.6rem; font-weight: 900; margin-bottom: 10px;
+            line-height: 1.35; color: #fff;
+        }
+        @media(min-width:640px) { .hero-section h1 { font-size: 2rem; } }
+        .hero-section p {
+            color: rgba(255,255,255,0.8); font-size: 0.92rem;
+            max-width: 580px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* Page Section */
+        .page-section { background: #F8FAFC; flex: 1; width: 100%; overflow-x: hidden; }
+        .page-inner { padding: 32px 1rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+        @media(min-width:640px) { .page-inner { padding: 40px 1.5rem; } }
+        @media(min-width:768px) { .page-inner { padding: 48px 1.5rem; } }
+        .tool-body { max-width: 960px; margin: 0 auto; width: 100%; }
+
+        /* Tool Interface */
+        .tool-interface {
+            background: #ffffff; border: 1px solid #E2E8F0; border-radius: 18px;
+            padding: 24px; margin-bottom: 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, border-color 0.3s;
+            overflow: hidden;
+        }
+        @media(min-width:640px) { .tool-interface { padding: 32px; } }
+
+        /* Description */
+        /* Split Layout */
+        .content-split {
+            display: flex; flex-direction: column; gap: 32px;
+            margin-bottom: 36px; width: 100%;
+        }
+        @media(min-width:768px) { .content-split { flex-direction: row; } }
+        .content-main { flex: 0 0 60%; max-width: 100%; }
+        @media(min-width:768px) { .content-main { max-width: 60%; } }
+        .content-side { flex: 0 0 40%; max-width: 100%; }
+        @media(min-width:768px) {
+            .content-side { max-width: 40%; }
+            .content-side-inner { position: sticky; top: 80px; z-index: 1; }
+        }
+
+        .tool-desc-section { }
+        .tool-desc-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .tool-desc-text { color: #475569; line-height: 1.9; font-size: 0.95rem; word-wrap: break-word; overflow-wrap: break-word; }
+        .tool-desc-text img { max-width: 100%; height: auto; }
+        .tool-desc-text h3 {
+            font-size: 1.15rem; font-weight: 800; color: #1e293b;
+            margin-top: 24px; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .dark .tool-desc-text h3 { color: #e2e8f0; }
+        .tool-desc-text h4 {
+            font-size: 1.05rem; font-weight: 700; color: #1e293b;
+            margin-top: 20px; margin-bottom: 10px;
+        }
+        .dark .tool-desc-text h4 { color: #e2e8f0; }
+        .tool-desc-text p { margin-bottom: 16px; line-height: 1.8; text-align: justify; }
+        .tool-desc-text ul, .tool-desc-text ol {
+            margin-right: 20px; margin-bottom: 16px; list-style-type: square;
+        }
+        .tool-desc-text li {
+            margin-bottom: 8px; line-height: 1.7;
+        }
+        .tool-desc-text table {
+            width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem;
+        }
+        .tool-desc-text th, .tool-desc-text td {
+            border: 1px solid #E2E8F0; padding: 10px 12px; text-align: right;
+        }
+        .dark .tool-desc-text th, .dark .tool-desc-text td {
+            border-color: #334155;
+        }
+        .tool-desc-text th {
+            background-color: #F8FAFC; font-weight: 700; color: #1e293b;
+        }
+        .dark .tool-desc-text th {
+            background-color: #1E293B; color: #e2e8f0;
+        }
+
+        /* Related Tools */
+        .related-section { margin-bottom: 36px; width: 100%; clear: both; }
+        .related-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+        @media(min-width:600px) { .related-grid { grid-template-columns: repeat(4, 1fr); } }
+        .related-btn {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 16px; border-radius: 12px;
+            background: #fff; border: 1px solid #E2E8F0;
+            text-decoration: none; color: #1e293b; font-size: 0.82rem; font-weight: 600;
+            transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .related-btn:hover {
+            border-color: #6366F1; color: #6366F1;
+            box-shadow: 0 4px 12px rgba(99,102,241,0.15);
+            transform: translateY(-2px);
+        }
+        .related-btn svg { flex-shrink: 0; width: 18px; height: 18px; color: #6366F1; }
+        .related-empty { color: #475569; font-size: 0.85rem; }
+
+        /* EEAT Trust Section */
+        .eeat-section { margin-bottom: 36px; width: 100%; clear: both; }
+        .eeat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media(min-width:640px) { .eeat-grid { grid-template-columns: repeat(4, 1fr); } }
+        .eeat-card {
+            background: #fff; border: 1px solid #E2E8F0; border-radius: 14px;
+            padding: 18px 16px; text-align: center; transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .eeat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); transform: translateY(-2px); }
+        .dark .eeat-card { background: #1E293B; border-color: #334155; }
+        .eeat-card-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px;
+        }
+        .eeat-card-icon svg { width: 20px; height: 20px; }
+        .eeat-card h3 { font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; color: #1e293b; }
+        .dark .eeat-card h3 { color: #e2e8f0; }
+        .eeat-card p { font-size: 0.72rem; color: #64748b; line-height: 1.5; }
+        .dark .eeat-card p { color: #94a3b8; }
+
+        /* FAQ */
+        .faq-section { }
+        .faq-section h2 {
+            font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .faq-item { border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+        .faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 18px; cursor: pointer; font-weight: 600; font-size: 0.92rem;
+            transition: background 0.2s; color: #1e293b; gap: 8px;
+        }
+        .faq-question:hover { background: #F8FAFC; }
+        .faq-question svg { transition: transform 0.3s; flex-shrink: 0; color: #10B981; }
+        .faq-item.open .faq-question svg { transform: rotate(180deg); }
+        .faq-answer { padding: 0 18px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #64748b; line-height: 1.8; font-size: 0.9rem; }
+        .faq-item.open .faq-answer { padding: 0 18px 14px; max-height: 600px; }
+
+        /* Footer */
+        .footer { background: #0F172A; }
+        .footer-inner { padding: 40px 1rem; }
+        @media(min-width:640px) { .footer-inner { padding: 48px 1.5rem; } }
+        @media(min-width:1024px) { .footer-inner { padding: 48px 2rem; } }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media(min-width:640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width:1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 48px; } }
+        .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+        .footer-desc { color: #e2e8f0; font-size: 0.875rem; line-height: 1.625; margin-bottom: 20px; max-width: 300px; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; text-decoration: none;
+        }
+        .footer-social a:hover { background: #6366F1; }
+        .footer-social a svg { width: 16px; height: 16px; color: #fff; }
+        .footer-col-title { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 18px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-link { color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-link:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 32px; padding-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        @media(min-width:640px) { .footer-bottom { margin-top: 40px; padding-top: 24px; flex-direction: row; justify-content: space-between; } }
+        .footer-bottom p { color: #cbd5e1; font-size: 0.78rem; }
+        @media(min-width:640px) { .footer-bottom p { font-size: 0.84rem; } }
+        .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .footer-bottom-links a { color: #cbd5e1; text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        @media(min-width:640px) { .footer-bottom-links a { font-size: 0.84rem; } }
+        .footer-bottom-links a:hover { color: #fff; }
+
+        /* Responsive */
+        @media(max-width:1023px) {
+            .nav-link { padding: 8px 10px; font-size: 0.78rem; }
+            .hero-section { padding: 36px 0 28px; }
+            .hero-section h1 { font-size: 1.3rem; }
+            .content-split { flex-direction: column; gap: 24px; }
+            .content-main, .content-side { flex: 0 0 100%; max-width: 100%; }
+            .tool-interface { padding: 20px; border-radius: 14px; }
+        }
+        @media(max-width:480px) {
+            html { font-size: 15px; }
+            .hero-section h1 { font-size: 1.15rem; }
+            .hero-section { padding: 28px 0 20px; }
+            .hero-section p { font-size: 0.85rem; }
+            .breadcrumb-nav { font-size: 0.72rem; }
+            .tool-breadcrumb { padding: 6px 0; margin-bottom: 10px; flex-direction: column; align-items: flex-start; gap: 4px; }
+            .related-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .related-btn { padding: 10px 12px; font-size: 0.78rem; }
+            .tool-interface { padding: 14px; border-radius: 12px; margin-bottom: 20px; }
+            .page-inner { padding: 20px 0.6rem; }
+            .container { padding: 0 0.6rem; }
+            .faq-question { padding: 12px 14px; font-size: 0.85rem; }
+            .faq-answer { font-size: 0.85rem; }
+            .tool-desc-text { font-size: 0.88rem; }
+        }
+        svg { max-width: 100%; height: auto; }
+        body { overflow-x: hidden; }
+    </style>
+    <style>.tool-npv-container {
+  font-family: 'Cairo', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #1a202c;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+/* Dark Blue Theme Colors & Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .tool-npv-container {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    border-color: #1e293b;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Support for manual dark mode class on parent */
+body.dark-mode .tool-npv-container,
+.dark-mode .tool-npv-container {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #1e293b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tool-npv-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-header { border-bottom-color: #1e293b; }
+}
+body.dark-mode .tool-npv-header { border-bottom-color: #1e293b; }
+
+.tool-npv-icon-header {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #003366, #001f3f);
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.tool-npv-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: #003366;
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-header h3 { color: #60a5fa; }
+}
+body.dark-mode .tool-npv-header h3 { color: #60a5fa; }
+
+.tool-npv-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.tool-npv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .tool-npv-grid { grid-template-columns: 1fr; }
+}
+
+.tool-npv-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-npv-input-wrapper label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #003366;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-input-wrapper label { color: #94a3b8; }
+}
+body.dark-mode .tool-npv-input-wrapper label { color: #94a3b8; }
+
+.tool-npv-input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tool-npv-input-icon svg {
+  position: absolute;
+  right: 12px;
+  color: #003366;
+  opacity: 0.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-input-icon svg { color: #60a5fa; }
+}
+body.dark-mode .tool-npv-input-icon svg { color: #60a5fa; }
+
+.tool-npv-input-icon input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Cairo', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #f8fafc;
+  color: #1a202c;
+  box-sizing: border-box;
+}
+
+.tool-npv-input-icon input:focus {
+  outline: none;
+  border-color: #003366;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-input-icon input {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f1f5f9;
+  }
+  .tool-npv-input-icon input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    background-color: #0f172a;
+  }
+}
+body.dark-mode .tool-npv-input-icon input {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+body.dark-mode .tool-npv-input-icon input:focus {
+  border-color: #60a5fa;
+  background-color: #0f172a;
+}
+
+.tool-npv-flows-section {
+  margin-bottom: 24px;
+}
+
+.tool-npv-flows-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tool-npv-flows-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #003366;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-flows-header h4 { color: #e2e8f0; }
+}
+body.dark-mode .tool-npv-flows-header h4 { color: #e2e8f0; }
+
+.tool-npv-btn-add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 2px dashed #003366;
+  color: #003366;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.tool-npv-btn-add:hover {
+  background-color: rgba(0, 51, 102, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-btn-add {
+    border-color: #60a5fa;
+    color: #60a5fa;
+  }
+  .tool-npv-btn-add:hover { background-color: rgba(96, 165, 250, 0.1); }
+}
+body.dark-mode .tool-npv-btn-add {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+body.dark-mode .tool-npv-btn-add:hover { background-color: rgba(96, 165, 250, 0.1); }
+
+.tool-npv-flows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-npv-flow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tool-npv-year-label {
+  min-width: 60px;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-year-label { color: #94a3b8; }
+}
+body.dark-mode .tool-npv-year-label { color: #94a3b8; }
+
+.tool-npv-flow-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Cairo', sans-serif;
+  background-color: #f8fafc;
+  color: #1a202c;
+  box-sizing: border-box;
+}
+
+.tool-npv-flow-input:focus {
+  outline: none;
+  border-color: #003366;
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-flow-input {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f1f5f9;
+  }
+  .tool-npv-flow-input:focus {
+    border-color: #60a5fa;
+    background-color: #0f172a;
+  }
+}
+body.dark-mode .tool-npv-flow-input {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+body.dark-mode .tool-npv-flow-input:focus {
+  border-color: #60a5fa;
+  background-color: #0f172a;
+}
+
+.tool-npv-btn-remove {
+  background: #fee2e2;
+  border: none;
+  color: #ef4444;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tool-npv-btn-remove:hover {
+  background: #fecaca;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-btn-remove {
+    background: rgba(239, 68, 68, 0.2);
+  }
+  .tool-npv-btn-remove:hover {
+    background: rgba(239, 68, 68, 0.3);
+  }
+}
+body.dark-mode .tool-npv-btn-remove { background: rgba(239, 68, 68, 0.2); }
+body.dark-mode .tool-npv-btn-remove:hover { background: rgba(239, 68, 68, 0.3); }
+
+.tool-npv-actions {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.tool-npv-btn-calc {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #003366, #001a33);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 51, 102, 0.2);
+}
+
+.tool-npv-btn-calc:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 51, 102, 0.3);
+}
+
+.tool-npv-btn-calc:active {
+  transform: translateY(0);
+}
+
+.tool-npv-result-box {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-result-box {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-color: #334155;
+  }
+}
+body.dark-mode .tool-npv-result-box {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-color: #334155;
+}
+
+.tool-npv-result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-npv-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-label { color: #94a3b8; }
+}
+body.dark-mode .tool-npv-label { color: #94a3b8; }
+
+.tool-npv-value-large {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #003366;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-value-large { color: #fff; }
+}
+body.dark-mode .tool-npv-value-large { color: #fff; }
+
+.tool-npv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.tool-npv-badge.positive {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.tool-npv-badge.negative {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-badge { background-color: #334155; color: #cbd5e1; }
+  .tool-npv-badge.positive { background-color: rgba(34, 197, 94, 0.2); color: #4ade80; }
+  .tool-npv-badge.negative { background-color: rgba(239, 68, 68, 0.2); color: #f87171; }
+}
+body.dark-mode .tool-npv-badge { background-color: #334155; color: #cbd5e1; }
+body.dark-mode .tool-npv-badge.positive { background-color: rgba(34, 197, 94, 0.2); color: #4ade80; }
+body.dark-mode .tool-npv-badge.negative { background-color: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+.tool-npv-footer {
+  margin-top: 24px;
+  text-align: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-footer { border-top-color: #1e293b; }
+}
+body.dark-mode .tool-npv-footer { border-top-color: #1e293b; }
+
+.tool-npv-footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.tool-npv-footer a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tool-npv-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tool-npv-footer a { color: #60a5fa; }
+}
+body.dark-mode .tool-npv-footer a { color: #60a5fa; }</style>
+<link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
+
+<link rel="alternate" hreflang="ar" href="https://toolrar.com/Calculators/finance/npv-calculator.html">
+<link rel="alternate" hreflang="en" href="https://toolrar.com/en/Calculators/finance/npv-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://toolrar.com/Calculators/finance/npv-calculator.html">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../../index.html" class="logo">
+                    <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                    <span class="logo-text">ToolRar</span>
+                </a>
+                <nav class="desktop-nav">
+                    <div class="nav-links-center">
+                        <a href="../../index.html" class="nav-link">الرئيسية</a>
+                        <a href="../../all-tools.html" class="nav-link">جميع الأدوات</a>
+                        <div class="dropdown-wrap" id="catDropdown">
+                            <a href="#" class="nav-link" onmouseenter="openCatDD()" onmouseleave="scheduleCloseCatDD()">التصنيفات<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+                            <div class="dropdown-menu cat-dropdown" onmouseenter="cancelCloseCatDD()" onmouseleave="closeCatDD()">
+                                <a href="../../text-tools/" class="cat-item"><div class="cat-item-icon" style="background:#6366F1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div><span>أدوات النصوص والكلمات</span></a>
+                                <a href="../../Developer/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span>أدوات المطورين</span></a>
+                                <a href="../../Photo-Editing/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div><span>أدوات الصور والتصميم</span></a>
+                                <a href="../../Calculators/" class="cat-item"><div class="cat-item-icon" style="background:#3B82F6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg></div><span>أدوات الحاسبة</span></a>
+                                <a href="../../docs-tools/" class="cat-item"><div class="cat-item-icon" style="background:#EC4899"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div><span>أدوات PDF</span></a>
+                                <a href="../../zip-tools/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div><span>أدوات ZIP والضغط</span></a>
+                                <a href="../../seo/" class="cat-item"><div class="cat-item-icon" style="background:#14B8A6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg></div><span>أدوات SEO</span></a>
+                                <a href="../../General/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span>أدوات متنوعة</span></a>
+                                <a href="../../Social-media/" class="cat-item"><div class="cat-item-icon" style="background:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><span>أدوات سوشيال ميديا</span></a>
+                            </div>
+                        </div>
+                        <a href="../../blog.html" class="nav-link">المدونة</a>
+                        <a href="../../pricing.html" class="nav-link">الأسعار</a>
+                        <a href="../../about.html" class="nav-link">من نحن</a>
+                    </div>
+                </nav>
+                <div class="nav-controls">
+                    <div class="dropdown-wrap" id="langDropdown">
+                        <button class="nav-link" onclick="toggleLangDD()" onmouseenter="openLangDD()" onmouseleave="scheduleCloseLangDD()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> العربية<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <div class="dropdown-menu lang-dropdown" onmouseenter="cancelCloseLangDD()" onmouseleave="closeLangDD()">
+                            <button class="lang-item active"><span class="lang-flag">🇸🇦</span><span>العربية</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></button>
+                            <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇬🇧</span><span>English</span></button>
+                            <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇫🇷</span><span>Français</span></button>
+                        </div>
+                    </div>
+                    <button class="dark-toggle" id="darkToggle"><svg id="darkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="darkLabel">الوضع الليلي</span></button>
+                </div>
+                <div class="mobile-controls">
+                    <div class="dropdown-wrap" id="mobileLangDropdown">
+                        <button class="mobile-btn" onclick="toggleMobileLangDD()" aria-label="اختيار اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></button>
+                        <div class="dropdown-menu mobile-lang-dropdown" id="mobileLangMenu">
+                            <button class="mobile-lang-item active" onclick="closeMobileLangDD()">🇸🇦 العربية</button>
+                            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇬🇧 English</button>
+                            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇫🇷 Français</button>
+                        </div>
+                    </div>
+                    <button class="mobile-btn" id="mobileDarkToggle" aria-label="تبديل الوضع الليلي"><svg id="mobileDarkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                    <button class="mobile-btn hamburger" id="hamburgerBtn" aria-label="القائمة"><svg id="hamburgerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="../../index.html">الرئيسية</a>
+                <a href="../../all-tools.html">جميع الأدوات</a>
+                <a href="../../sitemap.html">التصنيفات</a>
+                <a href="../../blog.html">المدونة</a>
+                <a href="../../pricing.html">الأسعار</a>
+                <a href="../../about.html">من نحن</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>المحولات الرياضية</span>
+                </div>
+                <h1>حاسبة صافي القيمة الحالية NPV</h1>
+                <p>احسب صافي القيمة الحالية (NPV) لمشاريعك بدقة. أداة احترافية مجانية تساعدك على تحليل التدفقات النقدية المستقبلية وتقييم الجدوى الاقتصادية لاتخاذ قرارات استثمارية</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="page-inner">
+                <div class="tool-body">
+                    <div class="tool-breadcrumb">
+                        <nav class="breadcrumb-nav" aria-label="شجرة التنقل">
+                            <a href="../../index.html">الرئيسية</a>
+                            <span class="bc-sep">›</span>
+                            <a href="../../Calculators/">المحولات الرياضية</a>
+                            <span class="bc-sep">›</span>
+                            <span>حاسبة صافي القيمة الحالية NPV</span>
+                        </nav>
+                        <div class="breadcrumb-dates">
+                            <time datetime="2026-06-05" class="bc-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span class="bc-label">تاريخ الإنشاء</span> 2026-06-05</time>
+                            <time datetime="2026-06-05" class="bc-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg><span class="bc-label">آخر تحديث</span> 2026-06-05</time>
+                        </div>
+                    </div>
+                    <div class="tool-interface">
+                        <div class="tool-npv-container">
+  <div class="tool-npv-header">
+    <div class="tool-npv-icon-header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14"></line><line x1="12" y1="14" x2="12" y2="14"></line><line x1="8" y1="14" x2="8" y2="14"></line><line x1="16" y1="18" x2="16" y2="18"></line><line x1="12" y1="18" x2="12" y2="18"></line><line x1="8" y1="18" x2="8" y2="18"></line></svg>
+    </div>
+    <h3>حاسبة صافي القيمة الحالية (NPV)</h3>
+    <p>أداة احترافية لحساب العائد الاستثماري للمشاريع</p>
+  </div>
+
+  <div class="tool-npv-content">
+    <div class="tool-npv-grid">
+      <div class="tool-npv-input-wrapper">
+        <label for="npv-investment">الاستثمار الأولي (مبلغ سالب)</label>
+        <div class="tool-npv-input-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <input type="number" id="npv-investment" placeholder="مثال: -10000" step="any">
+        </div>
+      </div>
+
+      <div class="tool-npv-input-wrapper">
+        <label for="npv-rate">معدل الخصم (%)</label>
+        <div class="tool-npv-input-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <input type="number" id="npv-rate" placeholder="مثال: 10" step="0.01">
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-npv-flows-section">
+      <div class="tool-npv-flows-header">
+        <h4>التدفقات النقدية السنوية</h4>
+        <button type="button" class="tool-npv-btn-add" id="btnAddFlow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          إضافة سنة
+        </button>
+      </div>
+      
+      <div id="flows-container" class="tool-npv-flows-list">
+        <!-- Rows will be added here by JS -->
+      </div>
+    </div>
+
+    <div class="tool-npv-actions">
+      <button type="button" class="tool-npv-btn-calc" id="btnCalculate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14"></line><line x1="8" y1="18" x2="8" y2="18"></line></svg>
+        احسب النتيجة
+      </button>
+    </div>
+
+    <div class="tool-npv-result-box" id="resultBox">
+      <div class="tool-npv-result-card">
+        <span class="tool-npv-label">صافي القيمة الحالية</span>
+        <div class="tool-npv-value-large" id="npvResultDisplay">0.00</div>
+        <div class="tool-npv-badge" id="npvStatusBadge">
+          <span id="npvStatusText">جاهز للحساب</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-npv-footer">
+    <p>Embed by <a href="https://www.toolrar.com" target="_blank" rel="noopener noreferrer">www.toolrar.com</a></p>
+  </div>
+</div>
+                    </div>
+                    <div class="content-split">
+                        <div class="content-main">
+                            <div class="tool-desc-section">
+                                <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> نبذة عن الأداة</h2>
+                                <div class="tool-desc-text"><h3 id="مقدمة-في-عالم-التخطيط-المالي-والاستثماري">مقدمة في عالم التخطيط المالي والاستثماري</h3>
+<p>في عالم المال والأعمال المتسارع، يُعد اتخاذ القرار الاستثماري الصحيح الفاصل بين النجاح والفشل، وبين الازدهار والخسارة المالية. يواجه المستثمرون ومديرو المشاريع تحديات يومية تتطلب أدوات دقيقة لتقييم الجدوى الاقتصادية للمبادرات المختلفة قبل ضخ الأموال فيها. من هنا، تبرز الحاجة الملحة لاستخدام أدوات تحليلية رياضية ومالية معقدة لكنها سهلة التطبيق، والتي تهدف إلى تقدير القيمة الحقيقية للأموال مستقبلاً مقارنة بقيمتها الحالية. وفي صلب هذه الأدوات تقع methodology معقدة بسّطتها التكنولوجيا الحديثة للمستخدم، وهي تلك المعنية بحساب العائد على الاستثمار بعد خصم التدفقات النقدية المتوقعة. وتعد <strong>حاسبة صافي القيمة الحالية NPV</strong> واحدة من أهم الأدوات التي لا غنى عنها في ترسانة أي محلل مالي أو مستثمر يسعى لتحقيق أقصى عائد ممكن مع تقليل المخاطر المحتملة.</p>
+<h3 id="ما-هي-حاسبة-صافي-القيمة-الحالية-NPV">ما هي حاسبة صافي القيمة الحالية NPV؟</h3>
+<p>تعرف <strong>حاسبة صافي القيمة الحالية NPV</strong> بأنها أداة رقمية مصممة لحساب الفرق بين القيمة الحالية للتدفقات النقدية الداخلة والقيمة الحالية للتدفقات النقدية الخارجة لمشروع معين أو استثمار ما. تعتمد هذه الأداة في جوهرها على مبدأ مالي أساسي وهو أن "الدينار اليوم أفضل من الدينار غداً"، نظراً لقدرة المال على تحقيق عوائد عند استثماره حالياً. تقوم الحاسبة بإجراء عمليات حسابية معقدة تستخدم فيها "سعر الخصم" لتحويل جميع التدفقات النقدية المستقبلية المتوقعة إلى قيمتها المكافئة اليوم. ومن خلال تجميع هذه القيم وطرح تكلفة الاستثمار الأولية، تمنحنا الحاسبة رقماً واحداً نهائياً يعكس بدقة ما إذا كان المشروع سيضيف قيمة للثروة أم أنه سيؤدي إلى خسائر.</p>
+<h3 id="أهمية-الوقت-في-تقييم-الأموال">أهمية الوقت في تقييم الأموال</h3>
+<p>عند الحديث عن الاستثمار، لا يمكن إغفال عامل الوقت وتأثيره الكبير على قيمة النقود. إن التضخم، الفرص البديلة، وتكلفة الفرصة البديلة لرأس المال، كلها عوامل تجعل من الضروري خصم القيم المستقبلية. وهنا تتجلى الخبرة والمهارة في استخدام <strong>حاسبة صافي القيمة الحالية NPV</strong>، حيث تعمل الأداة على تطبيق معدل خصم يعكس المخاطرة المرتبطة بالمشروع وتكلفة التمويل. فالمشروع الذي يعد بعوائد مالية بعد خمس سنوات لا يُ对待 بنفس طريقة التعامل مع مشروع يحقق نفس العوائد خلال عام واحد فقط، وتضمن هذه الحاسبة مراعاة هذا الفارق الزمني بدقة متناهية، مما يعزز من موثوقية القرارات المالية المتخذة بناءً على نتائجها.</p>
+<h3 id="كيف-تعمل-هذه-الأداة-بدقة-واحترافية">كيف تعمل هذه الأداة بدقة واحترافية؟</h3>
+<p>تتميز <strong>حاسبة صافي القيمة الحالية NPV</strong> بسلاسة الاستخدام رغم الدقة العالية للخوارزميات التي تعتمد عليها. يعتمد عملها على مدخلات أساسية يجب على المستخدم توفيرها بدقة للحصول على نتائج صحيحة. تعتمد الأداة على معادلة رياضية تقوم بخصم كل تدفق نقدي متوقع لكل فترة زمنية باستخدام المعادلة الأساسية للخصم. يتم جمع هذه القيم الحالية لجميع السنوات، ثم يُطرح منها الاستثمار الأولي. النتيجة النهائية هي الرقم الذي يحدد مصير المشروع. هذا الت automatization للعمليات الحسابية يوفر الوقت والجهد ويقضي على احتمالية الأخطاء البشرية التي قد تنتج عن الحسابات اليدوية المعقدة خاصة في المشاريع طويلة الأجل.</p>
+<h3 id="البيانات-المطلوبة-للحصول-على-تقييم-دقيق">البيانات المطلوبة للحصول على تقييم دقيق</h3>
+<p>لضمان الحصول على أقصى درجات الدقة والفائدة من <strong>حاسبة صافي القيمة الحالية NPV</strong>، يجب تجهيز البيانات التالية مسبقاً:</p>
+<ul>
+<li>مبلغ الاستثمار الأولي: وهو كامل المال الذي سيتم ضخه في بداية المشروع.</li>
+<li>معدل الخصم: وهو النسبة المئوية التي تمثل تكلفة رأس المال أو العائد المطلوب، ويعكس المخاطرة.</li>
+<li>التدفقات النقدية المتوقعة: وهي صافي الأموال التي يتوقع دخولها أو خروجها سنوياً طوال عمر المشروع.</li>
+<li>الفترة الزمنية للمشروع: عدد السنوات المتوقع أن يستمر فيها المشروع أو الاستثمار.</li>
+</ul>
+<h3 id="قراءة-النتائج-وفهمها-بعمق">قراءة النتائج وفهمها بعمق</h3>
+<p>بعد إدخال البيانات ومعالجتها، تخرج <strong>حاسبة صافي القيمة الحالية NPV</strong> برقم نهائي له دلالات محددة جداً. إذا كانت النتيجة رقماً موجباً، فهذا يعني أن المشروع مربح وأنه يحقق عائداً يتجاوز تكلفة رأس المال، مما يشير إلى أنه استثمار جيد يُنصح به. أما إذا كانت النتيجة صفراً، فهذا يعني أن المشروع يحقق عائداً مساوياً تماماً لتكلفة رأس المال، وهو الحد الأدنى للقبول. في المقابل، إذا كانت النتيجة رقماً سالباً، فهذا مؤشر خطير يفيد بأن المشروع سيخسر قيمة على المدى الطويل، وبالتالي يجب رفضه أو إعادة النظر في معطياته. هذا التفسير الواضح والمباشر يجعل من الأداة مرشداً أميناً في غرف الاجتماعات وعند اتخاذ القرارات المصيرية.</p>
+<h3 id="لماذا-تعتمد-على-حاسبة-صافي-القيمة-الحالية-NPV">لماذا تعتمد على حاسبة صافي القيمة الحالية NPV؟</h3>
+<p>في الختام، إن الاعتماد على الحدس أو التخمين في القرارات المالية هو وصفة للكارثة. إن استخدام أدوات علمية وموثوقة مثل <strong>حاسبة صافي القيمة الحالية NPV</strong> يعكس مستوى عالياً من الاحترافية والخبرة. إنها ليست مجرد آلة حاسبة، بل هي نظام دعم للقرار يضع بين يديك الحقائق والأرقام التي تحتاجها لتقييم الفرص الاستثمارية بمنظور موضوعي وواقعي. سواء كنت تدير شركة كبيرة، أو مستثمراً فردياً، أو طالباً في مجال المال، فإن هذه الأداة تمنحك الثقة الكافية لاتخاذ خطوات مدروسة نحو المستقبل، محققاً بذلك معايير الأمانة المهنية والسلطة المعرفية في عالم التمويل. تذكر دائماً أن التخطيط المالي السليم هو الطريق الوحيد لضمان الاستدامة والنمو، وهذه الحاسبة</p></div>
+                            </div>
+                        </div>
+                        <div class="content-side">
+                            <div class="content-side-inner">
+                            <div class="toc-wrap"><nav class="toc"><ul><li style="padding-right:28px"><a href="#مقدمة-في-عالم-التخطيط-المالي-والاستثماري">مقدمة في عالم التخطيط المالي والاستثماري</a></li><li style="padding-right:28px"><a href="#ما-هي-حاسبة-صافي-القيمة-الحالية-NPV">ما هي حاسبة صافي القيمة الحالية NPV؟</a></li><li style="padding-right:28px"><a href="#أهمية-الوقت-في-تقييم-الأموال">أهمية الوقت في تقييم الأموال</a></li><li style="padding-right:28px"><a href="#كيف-تعمل-هذه-الأداة-بدقة-واحترافية">كيف تعمل هذه الأداة بدقة واحترافية؟</a></li><li style="padding-right:28px"><a href="#البيانات-المطلوبة-للحصول-على-تقييم-دقيق">البيانات المطلوبة للحصول على تقييم دقيق</a></li><li style="padding-right:28px"><a href="#قراءة-النتائج-وفهمها-بعمق">قراءة النتائج وفهمها بعمق</a></li><li style="padding-right:28px"><a href="#لماذا-تعتمد-على-حاسبة-صافي-القيمة-الحالية-NPV">لماذا تعتمد على حاسبة صافي القيمة الحالية NPV؟</a></li></ul></nav></div>
+                            <div class="faq-section">
+                                <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> الأسئلة الشائعة</h2>
+                                            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>1. ما هي الخطوات التفصيلية لحساب صافي القيمة الحالية NPV باستخدام هذه الأداة بدقة؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">لحساب صافي القيمة الحالي بدقة، يجب أولاً إدخال قيمة الاستثمار الأولي (كقيمة سالبة)، ثم إضافة التدفقات النقدية المتوقعة لكل فترة زمنية بشكل متسلسل، وتحديد معدل الخصم (Cost of Capital) المناسب، وأخيراً الضغط على زر الحساب للحصول على القيمة الصافية.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>2. ما هي المزايا الرئيسية لاستخدام حاسبة صافي القيمة الحالية NPV في تقييم المشاريع الاستثمارية؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تتميز أداة صافي القيمة الحالية بقدرتها على تقييم الجدوى الاقتصادية للمشاريع من خلال مراعاة القيمة الزمنية للمال، حيث تقوم بخصم التدفقات النقدية المستقبلية إلى قيمتها الحالية، مما يساعد المستثمرين في اتخاذ قرارات مالية مدروسة مقارنة بطرق التقييم التقليدية.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>3. كيف يمكن تفسير نتيجة صافي القيمة الحالية السلبية وماذا تعني بالنسبة للمشروع؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تشير النتيجة السلبية في صافي القيمة الحالية إلى أن التكلفة الاستثمارية للمشروع تتجاوز العوائد المخصومة، مما يعني أن المشروع قد يسبب خسارة مالية وغير مجدٍ اقتصادياً بناءً على معدل الخصم المستخدم، وينصح عادةً برفضه أو إعادة النظر في التدفقات النقدية المتوقعة.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>4. ما هي البيانات والمتطلبات الأساسية اللازمة لعمل حاسبة صافي القيمة الحالية NPV بكفاءة؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">تتطلب الأداة بيانات دقيقة تشمل على حجم الاستثمار الأولي (Initial Outlay)، التوزيع الزمني للتدفقات النقدية الداخلة والخارجة (Cash Inflows/Outflows)، وتحديد معدل العائد المطلوب أو معدل الخصم (Discount Rate) الذي يعكس تكلفة الفرصة البديلة للمشروع.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>5. ما الفرق الجوهري بين استخدام حاسبة صافي القيمة الحالية NPV وطريقة معدل العائد الداخلي IRR؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">بينما يركز صافي القيمة الحالية NPV على القيمة المالية المضافة المطلقة للمشروع بالعملة المحلية، فإن معدل العائد الداخلي IRR يحسب النسبة المئوية للعائد، ويعتبر NPV أكثر موثوقية في المشاريع ذات التغيرات في معدلات الخصم أو عند مقارنة مشاريع بأحجام وأعمار مختلفة.</div>
+                </div>
+            </div>            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>6. كيف يؤثر تغيير معدل الخصم على نتيجة صافي القيمة الحالية NPV المحسوبة؟</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">توجد علاقة عكسية بين معدل الخصم وصافي القيمة الحالية؛ فكلما ارتفع معدل الخصم (بسبب زيادة المخاطر أو تكلفة التمويل)، انخفضت القيمة الحالية للتدفقات المستقبلية، مما يؤدي إلى تقليل قيمة NPV أو تحويلها إلى سالبة، والعكس صحيح عند انخفاض المعدل.</div>
+                </div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="related-section">
+                    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> أدوات مشابهة</h2>
+                    <div class="related-grid">
+                                        <a href="../../Calculators/finance/loan-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة دفعات القرض</span>
+                </a>                <a href="../../Calculators/finance/compound-interest-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة الفائدة المركبة</span>
+                </a>                <a href="../../Calculators/finance/savings-goal-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة هدف الادخار</span>
+                </a>                <a href="../../Calculators/finance/mortgage-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة القرض العقاري</span>
+                </a>                <a href="../../Calculators/finance/retirement-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة التقاعد والادخار</span>
+                </a>                <a href="../../Calculators/finance/vat-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة ضريبة VAT</span>
+                </a>                <a href="../../Calculators/finance/discount-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة الخصومات - احسب السعر النهائي بعد الخصم</span>
+                </a>                <a href="../../Calculators/finance/credit-card-payoff-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة سداد البطاقة - خطط لسداد ديون بطاقتك الائتمانية</span>
+                </a>                <a href="../../Calculators/finance/home-affordability-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة القدرة الشرائية للمنازل</span>
+                </a>                <a href="../../Calculators/finance/loan-amortization.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>جدول استهلاك القرض التفصيلي</span>
+                </a>                <a href="../../Calculators/finance/auto-loan-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة تمويل السيارات - احسب قسط سيارتك الشهري بدقة</span>
+                </a>                <a href="../../Calculators/finance/salary-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة الراتب الصافي والاجور</span>
+                </a>                <a href="../../Calculators/finance/inflation-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة التضخم وتأكل القوة الشرائية</span>
+                </a>                <a href="../../Calculators/finance/break-even-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة نقطة التعادل للمشاريع</span>
+                </a>                <a href="../../Calculators/finance/roi-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة العائد ROI للقرض الشهري - احسب القسط الشهري والفوائد</span>
+                </a>                <a href="../../Calculators/finance/irr-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسة معدل العائد الداخلي IRR</span>
+                </a>                <a href="../../Calculators/finance/depreciation-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة إهلاك الأصول الثابتة</span>
+                </a>                <a href="../../Calculators/finance/working-capital-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة رأس المال - تقييم قدرة الشركة على التمويل</span>
+                </a>                <a href="../../Calculators/finance/ebitda-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة EBITDA - تقييم الأداء التشغيلي لشركتك بدقة</span>
+                </a>                <a href="../../Calculators/finance/de-ratio-calculator.html" class="related-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+                    <span>حاسبة نسبة الدين إلى حقوق الملكية (D/E Ratio)</span>
+                </a>
+                    </div>
+                </div>
+                <div class="eeat-section">
+                        <h2 style="font-size:1.15rem;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> لماذا تثق في ToolRar؟</h2>
+                        <div class="eeat-grid">
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#EEF2FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+                                <h3>خبرة عالية</h3>
+                                <p>أدوات مطورة بخبرة متخصصة في تحسين الإنتاجية والأداء الرقمي</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#D1FAE5;"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                                <h3>دقة احترافية</h3>
+                                <p>نتائج دقيقة وموثوقة مع تجربة مستخدم سلسة وآمنة للجميع</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#FEF3C7;"><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                                <h3>أدوات مجانية</h3>
+                                <p>جميع الأدوات متاحة مجاناً بدون حدود استخدام أو اشتراكات شهرية</p>
+                            </div>
+                            <div class="eeat-card">
+                                <div class="eeat-card-icon" style="background:#F3E8FF;"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                                <h3>خصوصية تامة</h3>
+                                <p>بياناتك آمنة ولا تُشارك مع أي طرف ثالث. جميع العمليات مشفّرة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><span class="logo-text">ToolRar</span></div>
+                        <p class="footer-desc">منصة مجانية تقدم مجموعة متنوعة من الأدوات التي تساعدك في مهامك اليومية</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+                            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">روابط سريعة</h4>
+                        <ul>
+                            <li><a href="../../index.html" class="footer-link">الرئيسية</a></li>
+                            <li><a href="../../all-tools.html" class="footer-link">جميع الأدوات</a></li>
+                            <li><a href="../../sitemap.html" class="footer-link">التصنيفات</a></li>
+                            <li><a href="../../blog.html" class="footer-link">المدونة</a></li>
+                            <li><a href="../../pricing.html" class="footer-link">الأسعار</a></li>
+                            <li><a href="../../about.html" class="footer-link">من نحن</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">أدوات</h4>
+                        <ul>
+                            <li><a href="../../text-tools/" class="footer-link">أدوات النصوص والكلمات</a></li>
+                            <li><a href="../../Developer/" class="footer-link">أدوات المطورين</a></li>
+                            <li><a href="../../Photo-Editing/" class="footer-link">أدوات الصور والتصميم</a></li>
+                            <li><a href="../../Calculators/" class="footer-link">أدوات الحاسبة</a></li>
+                            <li><a href="../../docs-tools/" class="footer-link">أدوات PDF</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">معلومات</h4>
+                        <ul>
+                            <li><a href="../../about.html" class="footer-link">من نحن</a></li>
+                            <li><a href="../../contact.html" class="footer-link">تواصل معنا</a></li>
+                            <li><a href="../../pricing.html" class="footer-link">الأسعار</a></li>
+                            <li><a href="../../blog.html" class="footer-link">المدونة</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-links">
+                        <a href="../../terms.html">شروط الاستخدام</a>
+                        <a href="../../privacy.html">سياسة الخصوصية</a>
+                        <a href="../../sitemap.html">خريطة الموقع</a>
+                    </div>
+                    <p>ToolRar &copy; 2024 جميع الحقوق محفوظة</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isDark = false;
+        function updateDarkUI() {
+            const darkIcon = document.getElementById('darkIcon');
+            const darkLabel = document.getElementById('darkLabel');
+            const mobileDarkIcon = document.getElementById('mobileDarkIcon');
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('toolrar-theme', 'dark');
+                darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+                mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+                darkLabel.textContent = 'الوضع النهاري';
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('toolrar-theme', 'light');
+                darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+                mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+                darkLabel.textContent = 'الوضع الليلي';
+            }
+        }
+        function toggleDark() { isDark = !isDark; updateDarkUI(); }
+        let langCloseTimer, catCloseTimer;
+        function openLangDD() { clearTimeout(langCloseTimer); document.getElementById('langDropdown').classList.add('open'); }
+        function scheduleCloseLangDD() { langCloseTimer = setTimeout(closeLangDD, 150); }
+        function closeLangDD() { document.getElementById('langDropdown').classList.remove('open'); }
+        function toggleLangDD() { document.getElementById('langDropdown').classList.toggle('open'); }
+        function cancelCloseLangDD() { clearTimeout(langCloseTimer); }
+        function openCatDD() { clearTimeout(catCloseTimer); document.getElementById('catDropdown').classList.add('open'); }
+        function scheduleCloseCatDD() { catCloseTimer = setTimeout(closeCatDD, 150); }
+        function closeCatDD() { document.getElementById('catDropdown').classList.remove('open'); }
+        function cancelCloseCatDD() { clearTimeout(catCloseTimer); }
+        function toggleMobileLangDD() { document.getElementById('mobileLangDropdown').classList.toggle('open'); }
+        function closeMobileLangDD() { document.getElementById('mobileLangDropdown').classList.remove('open'); }
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('hamburgerIcon');
+            menu.classList.toggle('open');
+            icon.innerHTML = menu.classList.contains('open')
+                ? '<line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/>'
+                : '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+        }
+        document.addEventListener('mousedown', function(e) {
+            ['langDropdown','catDropdown','mobileLangDropdown'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && !el.contains(e.target)) el.classList.remove('open');
+            });
+        });
+        document.getElementById('darkToggle').addEventListener('click', toggleDark);
+        document.getElementById('mobileDarkToggle').addEventListener('click', toggleDark);
+        document.getElementById('hamburgerBtn').addEventListener('click', toggleMobileMenu);
+        (function init() {
+            if (localStorage.getItem('toolrar-theme') === 'dark') { isDark = true; }
+            updateDarkUI();
+        })();
+    </script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+  const flowsContainer = document.getElementById('flows-container');
+  const btnAddFlow = document.getElementById('btnAddFlow');
+  const btnCalculate = document.getElementById('btnCalculate');
+  const investmentInput = document.getElementById('npv-investment');
+  const rateInput = document.getElementById('npv-rate');
+  const npvResultDisplay = document.getElementById('npvResultDisplay');
+  const npvStatusBadge = document.getElementById('npvStatusBadge');
+  const npvStatusText = document.getElementById('npvStatusText');
+
+  // Initialize with 5 years
+  let yearCount = 1;
+  const initialYears = 5;
+
+  function createFlowRow(year) {
+    const div = document.createElement('div');
+    div.className = 'tool-npv-flow-row';
+    div.innerHTML = `
+      <span class="tool-npv-year-label">السنة ${year}</span>
+      <input type="number" class="tool-npv-flow-input" placeholder="0.00" step="any" data-year="${year}">
+      <button type="button" class="tool-npv-btn-remove" aria-label="حذف">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+      </button>
+    `;
+
+    // Delete functionality
+    div.querySelector('.tool-npv-btn-remove').addEventListener('click', function() {
+      div.remove();
+      updateLabels();
+    });
+
+    return div;
+  }
+
+  function updateLabels() {
+    const rows = flowsContainer.querySelectorAll('.tool-npv-flow-row');
+    rows.forEach((row, index) => {
+      const label = row.querySelector('.tool-npv-year-label');
+      const input = row.querySelector('.tool-npv-flow-input');
+      if (label) label.textContent = `السنة ${index + 1}`;
+      if (input) input.setAttribute('data-year', index + 1);
+    });
+  }
+
+  function addFlow() {
+    const currentRows = flowsContainer.children.length;
+    const newRow = createFlowRow(currentRows + 1);
+    flowsContainer.appendChild(newRow);
+  }
+
+  // Initialize rows
+  for (let i = 0; i < initialYears; i++) {
+    flowsContainer.appendChild(createFlowRow(i + 1));
+  }
+
+  btnAddFlow.addEventListener('click', addFlow);
+
+  function calculateNPV() {
+    // Get Initial Investment
+    const investment = parseFloat(investmentInput.value);
+    if (isNaN(investment)) {
+      alert('يرجى إدخال قيمة الاستثمار الأولي');
+      investmentInput.focus();
+      return;
+    }
+
+    // Get Discount Rate
+    const ratePercent = parseFloat(rateInput.value);
+    if (isNaN(ratePercent)) {
+      alert('يرجى إدخال معدل الخصم');
+      rateInput.focus();
+      return;
+    }
+    const rate = ratePercent / 100;
+
+    // Get Cash Flows
+    const flowInputs = document.querySelectorAll('.tool-npv-flow-input');
+    let npv = 0;
+    let hasFlows = false;
+
+    flowInputs.forEach((input) => {
+      const flowValue = parseFloat(input.value);
+      if (!isNaN(flowValue)) {
+        hasFlows = true;
+        const year = parseInt(input.getAttribute('data-year'));
+        // Formula: Flow / (1 + r)^year
+        npv += flowValue / Math.pow(1 + rate, year);
+      }
+    });
+
+    // Add initial investment (usually negative)
+    npv += investment;
+
+    // Format Result
+    const formatter = new Intl.NumberFormat('ar-EG', {
+      style: 'currency',
+      currency: 'EGP', // Default currency, can be changed or removed
+      minimumFractionDigits: 2
+    });
+
+    // Remove currency symbol if you prefer just number, replacing EGP with ''
+    const formattedNumber = npv.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    npvResultDisplay.textContent = formattedNumber;
+
+    // Update Status Badge
+    npvStatusBadge.className = 'tool-npv-badge';
+    if (npv > 0) {
+      npvStatusBadge.classList.add('positive');
+      npvStatusText.textContent = 'مشروع مربح (مقبول)';
+    } else if (npv < 0) {
+      npvStatusBadge.classList.add('negative');
+      npvStatusText.textContent = 'مشروع خاسر (مرفوض)';
+    } else {
+      npvStatusText.textContent = 'تعادل النقدي (نقطة التعادل)';
+    }
+  }
+
+  btnCalculate.addEventListener('click', calculateNPV);
+});</script>
+</body>
+</html>
