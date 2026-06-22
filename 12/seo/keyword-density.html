@@ -235,6 +235,7 @@
             font-size: 0.9rem; font-weight: 500; border-radius: 8px; transition: all 0.2s;
         }
         .mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
         /* Breadcrumb */
         .tool-breadcrumb {
             display: flex; align-items: center; justify-content: space-between;
@@ -255,6 +256,7 @@
         .dark .breadcrumb-nav span { color: #94a3b8; }
         .dark .bc-date { color: #cbd5e1; }
         .dark .bc-date .bc-label { color: #94a3b8; }
+
         /* TOC */
         .toc-wrap {
             background: #F8FAFC; border: 1px solid #E2E8F0;
@@ -270,6 +272,7 @@
         .toc a:hover { color: #4338ca; text-decoration: underline; }
         .dark .toc a { color: #a5b4fc; }
         .dark .toc a:hover { color: #c7d2fe; }
+
         /* Hero Section */
         .hero-section {
             position: relative; overflow: hidden;
@@ -301,12 +304,14 @@
             color: rgba(255,255,255,0.8); font-size: 0.92rem;
             max-width: 580px; margin: 0 auto; line-height: 1.7;
         }
+
         /* Page Section */
         .page-section { background: #F8FAFC; flex: 1; width: 100%; overflow-x: hidden; }
         .page-inner { padding: 32px 1rem; max-width: 1100px; margin: 0 auto; width: 100%; }
         @media(min-width:640px) { .page-inner { padding: 40px 1.5rem; } }
         @media(min-width:768px) { .page-inner { padding: 48px 1.5rem; } }
         .tool-body { max-width: 960px; margin: 0 auto; width: 100%; }
+
         /* Tool Interface */
         .tool-interface {
             background: #ffffff; border: 1px solid #E2E8F0; border-radius: 18px;
@@ -316,6 +321,7 @@
             overflow: hidden;
         }
         @media(min-width:640px) { .tool-interface { padding: 32px; } }
+
         /* Description */
         /* Split Layout */
         .content-split {
@@ -330,6 +336,7 @@
             .content-side { max-width: 40%; }
             .content-side-inner { position: sticky; top: 80px; z-index: 1; }
         }
+
         .tool-desc-section { }
         .tool-desc-section h2 {
             font-size: 1.15rem; font-weight: 800; margin-bottom: 14px;
@@ -370,6 +377,7 @@
         .dark .tool-desc-text th {
             background-color: #1E293B; color: #e2e8f0;
         }
+
         /* Related Tools */
         .related-section { margin-bottom: 36px; width: 100%; clear: both; }
         .related-section h2 {
@@ -392,6 +400,7 @@
         }
         .related-btn svg { flex-shrink: 0; width: 18px; height: 18px; color: #6366F1; }
         .related-empty { color: #475569; font-size: 0.85rem; }
+
         /* EEAT Trust Section */
         .eeat-section { margin-bottom: 36px; width: 100%; clear: both; }
         .eeat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -413,6 +422,7 @@
         .dark .eeat-card h3 { color: #e2e8f0; }
         .eeat-card p { font-size: 0.72rem; color: #64748b; line-height: 1.5; }
         .dark .eeat-card p { color: #94a3b8; }
+
         /* FAQ */
         .faq-section { }
         .faq-section h2 {
@@ -431,6 +441,7 @@
         .faq-item.open .faq-question svg { transform: rotate(180deg); }
         .faq-answer { padding: 0 18px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #64748b; line-height: 1.8; font-size: 0.9rem; }
         .faq-item.open .faq-answer { padding: 0 18px 14px; max-height: 600px; }
+
         /* Footer */
         .footer { background: #0F172A; }
         .footer-inner { padding: 40px 1rem; }
@@ -462,6 +473,7 @@
         .footer-bottom-links a { color: #cbd5e1; text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
         @media(min-width:640px) { .footer-bottom-links a { font-size: 0.84rem; } }
         .footer-bottom-links a:hover { color: #fff; }
+
         /* Responsive */
         @media(max-width:1023px) {
             .nav-link { padding: 8px 10px; font-size: 0.78rem; }
@@ -503,6 +515,7 @@
   --tool-radius: 12px;
   --tool-font: inherit;
 }
+
 /* Dark Mode Support via body class */
 body.dark-mode .tool-keyword-density,
 .tool-keyword-density[data-theme="dark"] {
@@ -513,6 +526,7 @@ body.dark-mode .tool-keyword-density,
   --tool-border: #334155;
   --tool-primary-light: #1e3a8a;
 }
+
 .tool-keyword-density {
   font-family: var(--tool-font);
   background-color: var(--tool-bg);
@@ -525,11 +539,13 @@ body.dark-mode .tool-keyword-density,
   max-width: 100%;
   transition: background-color 0.3s, color 0.3s;
 }
+
 /* Header */
 .tool-kd-header {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
 .tool-kd-title-icon {
   display: flex;
   align-items: center;
@@ -537,30 +553,36 @@ body.dark-mode .tool-keyword-density,
   gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
+
 .tool-kd-title-icon svg {
   width: 32px;
   height: 32px;
   color: var(--tool-primary);
 }
+
 .tool-kd-header h2 {
   font-size: 1.5rem;
   margin: 0;
   color: var(--tool-primary);
   font-weight: 700;
 }
+
 .tool-kd-desc {
   color: var(--tool-text-light);
   font-size: 0.95rem;
   margin: 0;
 }
+
 /* Input Area */
 .tool-kd-controls {
   margin-bottom: 1.5rem;
 }
+
 .tool-kd-textarea-wrapper {
   position: relative;
   margin-bottom: 1rem;
 }
+
 #toolKdInput {
   width: 100%;
   height: 180px;
@@ -576,10 +598,12 @@ body.dark-mode .tool-keyword-density,
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }
+
 #toolKdInput:focus {
   border-color: var(--tool-primary);
   box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
 }
+
 .tool-kd-char-count {
   position: absolute;
   bottom: 10px;
@@ -591,12 +615,14 @@ body.dark-mode .tool-keyword-density,
   border-radius: 4px;
   border: 1px solid var(--tool-border);
 }
+
 /* Buttons */
 .tool-kd-actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
 }
+
 .tool-kd-btn {
   display: flex;
   align-items: center;
@@ -610,23 +636,28 @@ body.dark-mode .tool-keyword-density,
   border: none;
   font-size: 1rem;
 }
+
 .tool-kd-btn-primary {
   background-color: var(--tool-primary);
   color: #ffffff;
 }
+
 .tool-kd-btn-primary:hover {
   background-color: var(--tool-primary-hover);
   transform: translateY(-1px);
 }
+
 .tool-kd-btn-secondary {
   background-color: transparent;
   border: 1px solid var(--tool-border);
   color: var(--tool-text);
 }
+
 .tool-kd-btn-secondary:hover {
   background-color: var(--tool-surface);
   border-color: var(--tool-text-light);
 }
+
 /* Stats Cards */
 .tool-kd-summary {
   display: grid;
@@ -634,6 +665,7 @@ body.dark-mode .tool-keyword-density,
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
 .tool-kd-stat-card {
   background-color: var(--tool-surface);
   padding: 1rem;
@@ -641,25 +673,30 @@ body.dark-mode .tool-keyword-density,
   text-align: center;
   border: 1px solid var(--tool-border);
 }
+
 .tool-kd-stat-value {
   display: block;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--tool-primary);
 }
+
 .tool-kd-stat-label {
   font-size: 0.85rem;
   color: var(--tool-text-light);
 }
+
 /* Results Table */
 .tool-kd-results-wrapper {
   margin-top: 2rem;
   animation: fadeIn 0.5s ease;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 .tool-kd-results-wrapper h3 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
@@ -667,33 +704,40 @@ body.dark-mode .tool-keyword-density,
   padding-bottom: 0.5rem;
   display: inline-block;
 }
+
 .tool-kd-table-container {
   overflow-x: auto;
   border-radius: 8px;
   border: 1px solid var(--tool-border);
 }
+
 .tool-kd-table {
   width: 100%;
   border-collapse: collapse;
   min-width: 600px;
 }
+
 .tool-kd-table th,
 .tool-kd-table td {
   padding: 1rem;
   text-align: right;
   border-bottom: 1px solid var(--tool-border);
 }
+
 .tool-kd-table th {
   background-color: var(--tool-primary);
   color: #ffffff;
   font-weight: 600;
 }
+
 .tool-kd-table tr:hover {
   background-color: var(--tool-surface);
 }
+
 .tool-kd-table tr:last-child td {
   border-bottom: none;
 }
+
 /* Progress Bar in Table */
 .tool-kd-progress-bg {
   background-color: var(--tool-border);
@@ -702,11 +746,13 @@ body.dark-mode .tool-keyword-density,
   width: 100px;
   overflow: hidden;
 }
+
 .tool-kd-progress-fill {
   height: 100%;
   background-color: var(--tool-primary);
   border-radius: 4px;
 }
+
 /* Footer */
 .tool-kd-footer {
   margin-top: 2rem;
@@ -716,14 +762,17 @@ body.dark-mode .tool-keyword-density,
   border-top: 1px solid var(--tool-border);
   padding-top: 1rem;
 }
+
 .tool-kd-footer a {
   color: var(--tool-primary);
   text-decoration: none;
   font-weight: 600;
 }
+
 .tool-kd-footer a:hover {
   text-decoration: underline;
 }
+
 /* Responsive */
 @media (max-width: 600px) {
   .tool-keyword-density {
@@ -748,6 +797,7 @@ body.dark-mode .tool-keyword-density,
 <link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
+
 <link rel="alternate" hreflang="ar" href="https://toolrar.com/seo/keyword-density.html">
 <link rel="alternate" hreflang="en" href="https://toolrar.com/en/seo/keyword-density.html">
 <link rel="alternate" hreflang="x-default" href="https://toolrar.com/seo/keyword-density.html">
@@ -817,6 +867,7 @@ body.dark-mode .tool-keyword-density,
             </div>
         </div>
     </header>
+
     <main>
     <!-- Hero Section -->
     <section class="hero-section">
@@ -831,6 +882,7 @@ body.dark-mode .tool-keyword-density,
             </div>
         </div>
     </section>
+
     <section class="page-section">
         <div class="container">
             <div class="page-inner">
@@ -857,6 +909,7 @@ body.dark-mode .tool-keyword-density,
     </div>
     <p class="tool-kd-desc">أداة احترافية لتحليل النصوص وحساب تكرار الكلمات ونسبتها بدقة عالية.</p>
   </div>
+
   <div class="tool-kd-controls">
     <div class="tool-kd-textarea-wrapper">
       <textarea id="toolKdInput" placeholder="الصق النص أو المقال هنا للبدء في التحليل..." spellcheck="false"></textarea>
@@ -874,6 +927,7 @@ body.dark-mode .tool-keyword-density,
       </button>
     </div>
   </div>
+
   <div class="tool-kd-summary" id="toolKdSummary">
     <div class="tool-kd-stat-card">
       <span class="tool-kd-stat-value" id="statWords">0</span>
@@ -892,6 +946,7 @@ body.dark-mode .tool-keyword-density,
       <span class="tool-kd-stat-label">كلمات فريدة</span>
     </div>
   </div>
+
   <div class="tool-kd-results-wrapper" id="toolKdResults" style="display:none;">
     <h3>نتائج التحليل</h3>
     <div class="tool-kd-table-container">
@@ -911,6 +966,7 @@ body.dark-mode .tool-keyword-density,
       </table>
     </div>
   </div>
+
   <div class="tool-kd-footer">
     <span>تطوير وتصميم <a href="https://www.toolrar.com" target="_blank">ToolRar.com</a></span>
   </div>
@@ -1056,6 +1112,7 @@ body.dark-mode .tool-keyword-density,
         </div>
     </section>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
@@ -1112,6 +1169,7 @@ body.dark-mode .tool-keyword-density,
             </div>
         </div>
     </footer>
+
     <script>
         let isDark = false;
         function updateDarkUI() {
@@ -1176,6 +1234,7 @@ body.dark-mode .tool-keyword-density,
     'the', 'and', 'is', 'in', 'to', 'of', 'a', 'for', 'on', 'with',
     'as', 'this', 'that', 'it', 'at', 'by', 'from', 'or', 'an', 'be'
   ]);
+
   const inputArea = document.getElementById('toolKdInput');
   const charCountLabel = document.getElementById('toolKdCharCount');
   const analyzeBtn = document.getElementById('toolKdAnalyze');
@@ -1188,10 +1247,12 @@ body.dark-mode .tool-keyword-density,
   const statChars = document.getElementById('statChars');
   const statSentences = document.getElementById('statSentences');
   const statUnique = document.getElementById('statUnique');
+
   // Input listener for live char count
   inputArea.addEventListener('input', () => {
     charCountLabel.textContent = inputArea.value.length + ' حرف';
   });
+
   // Clear Function
   clearBtn.addEventListener('click', () => {
     inputArea.value = '';
@@ -1199,6 +1260,7 @@ body.dark-mode .tool-keyword-density,
     resultsArea.style.display = 'none';
     resetStats();
   });
+
   // Analyze Function
   analyzeBtn.addEventListener('click', () => {
     const text = inputArea.value.trim();
@@ -1209,20 +1271,24 @@ body.dark-mode .tool-keyword-density,
     
     performAnalysis(text);
   });
+
   function resetStats() {
     statWords.textContent = '0';
     statChars.textContent = '0';
     statSentences.textContent = '0';
     statUnique.textContent = '0';
   }
+
   function performAnalysis(text) {
     // 1. Basic Stats
     const totalChars = text.length;
     const totalWords = text.split(/\s+/).filter(word => word.length > 0).length;
     const totalSentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
     statChars.textContent = totalChars.toLocaleString();
     statWords.textContent = totalWords.toLocaleString();
     statSentences.textContent = totalSentences.toLocaleString();
+
     // 2. Word Processing
     // Normalize Arabic text and remove punctuation
     const cleanText = text
@@ -1230,9 +1296,11 @@ body.dark-mode .tool-keyword-density,
       .replace(/[\u064B-\u065F\u0670]/g, '') // Remove Arabic diacritics
       .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\[\]"]/g, "") // Remove punctuation
       .replace(/\s{2}/g, " ");
+
     const words = cleanText.split(/\s+/).filter(w => w.length > 1); // Ignore single chars
     const wordMap = {};
     let uniqueCount = 0;
+
     words.forEach(word => {
       if (!stopWords.has(word)) {
         if (wordMap[word]) {
@@ -1243,7 +1311,9 @@ body.dark-mode .tool-keyword-density,
         }
       }
     });
+
     statUnique.textContent = uniqueCount.toLocaleString();
+
     // 3. Calculate Density and Sort
     const sortedWords = Object.keys(wordMap)
       .map(key => ({
@@ -1253,10 +1323,12 @@ body.dark-mode .tool-keyword-density,
       }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 20); // Top 20 results
+
     // 4. Render Table
     renderTable(sortedWords, totalWords);
     resultsArea.style.display = 'block';
   }
+
   function renderTable(data, totalWords) {
     tableBody.innerHTML = '';
     
@@ -1264,12 +1336,14 @@ body.dark-mode .tool-keyword-density,
       tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center">لم يتم العثور على كلمات مفتاحية كافية</td></tr>';
       return;
     }
+
     data.forEach((item, index) => {
       const row = document.createElement('tr');
       
       // Calculate visual bar width (max density assumed 10% for scaling)
       const maxDensity = Math.max(...data.map(d => parseFloat(d.density)));
       const barWidth = (parseFloat(item.density) / maxDensity) * 100;
+
       row.innerHTML = `
         <td>${index + 1}</td>
         <td style="font-weight:bold">${item.word}</td>
@@ -1285,6 +1359,7 @@ body.dark-mode .tool-keyword-density,
       tableBody.appendChild(row);
     });
   }
+
   // Auto-detect dark mode from body class if exists
   function checkTheme() {
     if (document.body.classList.contains('dark-mode')) {
@@ -1298,6 +1373,7 @@ body.dark-mode .tool-keyword-density,
   const observer = new MutationObserver(checkTheme);
   observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   checkTheme();
+
 })();</script>
 </body>
 </html>
