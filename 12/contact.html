@@ -352,6 +352,21 @@
     }
     svg { max-width: 100%; height: auto; }
     body { overflow-x: hidden; }
+    .toast-container { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; flex-direction: column; gap: 12px; pointer-events: none; width: 90%; max-width: 420px; }
+    .toast { pointer-events: auto; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); font-size: 0.9rem; font-weight: 600; line-height: 1.5; animation: toastIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; direction: rtl; }
+    .toast.out { animation: toastOut 0.3s ease forwards; }
+    .toast-success { background: #064E3B; color: #A7F3D0; border: 1px solid rgba(167,243,208,0.15); }
+    .toast-error { background: #7F1D1D; color: #FECACA; border: 1px solid rgba(254,202,202,0.15); }
+    .toast-icon { width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+    .toast-success .toast-icon { background: rgba(167,243,208,0.15); }
+    .toast-error .toast-icon { background: rgba(254,202,202,0.15); }
+    .toast-icon svg { width: 16px; height: 16px; }
+    .toast-close { margin-right: auto; background: none; border: none; color: inherit; opacity: 0.5; cursor: pointer; padding: 4px; display: flex; align-items: center; font-size: 1.1rem; transition: opacity 0.2s; }
+    .toast-close:hover { opacity: 1; }
+    .dark .toast-success { background: #064E3B; }
+    .dark .toast-error { background: #7F1D1D; }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(-24px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes toastOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-24px) scale(0.95); } }
   </style>
 <link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
@@ -450,7 +465,7 @@
 
           <div>
             <div class="contact-form-wrap">
-              <form onsubmit="return sendContact(event)">
+              <form id="contactForm" onsubmit="return sendContact(event)">
                 <div class="form-group">
                   <label for="name">الاسم الكامل</label>
                   <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
@@ -581,23 +596,47 @@
             <a href="privacy.html">سياسة الخصوصية</a>
             <a href="sitemap.html">خريطة الموقع</a>
           </div>
-          <p>ToolRar &copy; 2026 جميع الحقوق محفوظة</p>
+          <p>ToolRar &copy; 2024 جميع الحقوق محفوظة</p>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    function showToast(msg, type) {
+      const container = document.getElementById('toastContainer');
+      const t = document.createElement('div');
+      t.className = 'toast toast-' + type;
+      const iconSvg = type === 'success'
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>';
+      t.innerHTML = '<div class="toast-icon">' + iconSvg + '</div><span>' + msg + '</span><button class="toast-close" onclick="this.parentElement.classList.add(\'out\');setTimeout(()=>this.parentElement.remove(),300)">×</button>';
+      container.appendChild(t);
+      setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 300); }, 5000);
+    }
     function sendContact(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value.trim();
-      if (!name || !email || !message) { alert('يرجى ملء جميع الحقول المطلوبة'); return false; }
-      const body = 'الاسم: ' + name + '\nالبريد الإلكتروني: ' + email + '\nالموضوع: ' + subject + '\n\nالرسالة:\n' + message;
-      window.location.href = 'mailto:esamsalh@gmail.com?subject=' + encodeURIComponent('رسالة من ' + name + ' - ToolRar') + '&body=' + encodeURIComponent(body);
-      alert('تم فتح برنامج البريد لإرسال رسالتك');
+      if (!name || !email || !message) { showToast('يرجى ملء جميع الحقول المطلوبة', 'error'); return false; }
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('email', email);
+      fd.append('subject', subject);
+      fd.append('message', message);
+      fetch('/contact', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(d => {
+          if (d.success) {
+            showToast('تم إرسال رسالتك بنجاح، سنتواصل معك قريباً', 'success');
+            document.getElementById('contactForm').reset();
+          } else {
+            showToast('عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقاً', 'error');
+          }
+        })
+        .catch(() => showToast('عذراً، حدث خطأ في الاتصال. يرجى المحاولة لاحقاً', 'error'));
       return false;
     }
     let isDark = false;
@@ -659,5 +698,6 @@
       updateDarkUI();
     })();
   </script>
+<div id="toastContainer" class="toast-container"></div>
 </body>
 </html>
