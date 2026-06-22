@@ -626,7 +626,7 @@
       fd.append('email', email);
       fd.append('subject', subject);
       fd.append('message', message);
-      fetch('/contact', { method: 'POST', body: fd })
+      fetch('https://formsubmit.co/ajax/esamsalh@gmail.com', { method: 'POST', body: fd })
         .then(r => r.json())
         .then(d => {
           if (d.success) {
