@@ -13,6 +13,7 @@
   "dependencies": {
     "btch-downloader": "^6.0.32",
     "cheerio": "^1.2.0",
-    "ell-pin": "^1.0.1"
+    "ell-pin": "^1.0.1",
+    "nodemailer": "^6.9.16"
   }
 }
