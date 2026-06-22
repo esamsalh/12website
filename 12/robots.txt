@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://toolrar.com/sitemap.xml
+Sitemap: https://www.toolrar.com/sitemap.xml
