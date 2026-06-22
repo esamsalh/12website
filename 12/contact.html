@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -450,7 +450,7 @@
 
           <div>
             <div class="contact-form-wrap">
-              <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.');">
+              <form onsubmit="return sendContact(event)">
                 <div class="form-group">
                   <label for="name">الاسم الكامل</label>
                   <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
@@ -490,7 +490,7 @@
                 </div>
                 <div>
                   <h3>البريد الإلكتروني</h3>
-                  <p>support@toolrar.com<br>info@toolrar.com</p>
+                  <p>esamsalh@gmail.com</p>
                 </div>
               </div>
               <div class="contact-info-card">
@@ -499,7 +499,7 @@
                 </div>
                 <div>
                   <h3>الهاتف</h3>
-                  <p>+966 55 123 4567<br>+966 11 234 5678</p>
+                  <p>+218915701809<br>+218928701809</p>
                 </div>
               </div>
               <div class="contact-info-card">
@@ -508,7 +508,7 @@
                 </div>
                 <div>
                   <h3>العنوان</h3>
-                  <p>الرياض، المملكة العربية السعودية<br>شارع الملك فهد، مبنى 1234</p>
+                  <p>ليبيا، طرابلس<br>شارع صلاح الدين، المبني رقم 120</p>
                 </div>
               </div>
             </div>
@@ -588,6 +588,18 @@
   </footer>
 
   <script>
+    function sendContact(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) { alert('يرجى ملء جميع الحقول المطلوبة'); return false; }
+      const body = 'الاسم: ' + name + '\nالبريد الإلكتروني: ' + email + '\nالموضوع: ' + subject + '\n\nالرسالة:\n' + message;
+      window.location.href = 'mailto:esamsalh@gmail.com?subject=' + encodeURIComponent('رسالة من ' + name + ' - ToolRar') + '&body=' + encodeURIComponent(body);
+      alert('تم فتح برنامج البريد لإرسال رسالتك');
+      return false;
+    }
     let isDark = false;
     function updateDarkUI() {
       const darkIcon = document.getElementById('darkIcon');
@@ -649,4 +661,3 @@
   </script>
 </body>
 </html>
-
