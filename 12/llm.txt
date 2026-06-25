@@ -1,0 +1,444 @@
+﻿# ToolRar - دليل الموقع الشامل
+> https://toolrar.com | منصة أدوات ويب مجانية بالكامل | المعالجة في المتصفح لحماية الخصوصية
+
+## 🏠 الصفحات الأساسية
+
+| الصفحة | الرابط |
+|---------|--------|
+| الرئيسية | https://toolrar.com/ |
+| جميع الأدوات | https://toolrar.com/all-tools |
+| خريطة الموقع | https://toolrar.com/sitemap |
+| من نحن | https://toolrar.com/about |
+| اتصل بنا | https://toolrar.com/contact |
+| المدونة | https://toolrar.com/blog |
+| الأسعار | https://toolrar.com/pricing |
+| سياسة الخصوصية | https://toolrar.com/privacy |
+| شروط الخدمة | https://toolrar.com/terms |
+| صفحة الخطأ 404 | https://toolrar.com/404 |
+
+---
+
+## 📝 أدوات النصوص والكلمات (19 أداة)
+> { "category": "text-tools", "color": "#6366F1", "icon": "pen" }
+
+| الأداة | الرابط |
+|--------|--------|
+| تحويل حالة الأحرف | https://toolrar.com/text-tools/converts-uppercase-and-lowercase-letters |
+| عداد الكلمات والحروف | https://toolrar.com/text-tools/word-counter |
+| استخراج الروابط | https://toolrar.com/text-tools/link-extractor |
+| استخراج الإيميلات | https://toolrar.com/text-tools/email-extractor |
+| تنظيف النصوص | https://toolrar.com/text-tools/text-cleaner |
+| تحويل النص إلى Slug | https://toolrar.com/text-tools/slug-generator |
+| مولد نص Lorem Ipsum | https://toolrar.com/text-tools/lorem-ipsum |
+| عكس النص | https://toolrar.com/text-tools/text-reverser |
+| تحويل الأرقام إلى كلمات (تفقيط) | https://toolrar.com/text-tools/tafqeet |
+| إزالة الأسطر المكررة | https://toolrar.com/text-tools/remove-duplicates |
+| تحليل كثافة الكلمات | https://toolrar.com/text-tools/keyword-density |
+| مولد أسماء المستخدمين | https://toolrar.com/text-tools/username-generator |
+| مقارنة النصوص | https://toolrar.com/text-tools/text-comparison |
+| فحص الاقتباس (Plagiarism) | https://toolrar.com/text-tools/plagiarism-checker |
+| تحويل النص إلى كلام | https://toolrar.com/text-tools/text-to-speech |
+| تحويل الكلام إلى نص | https://toolrar.com/text-tools/speech-to-text |
+| اختبار سرعة الكتابة | https://toolrar.com/text-tools/typing-test |
+| تشفير Base64 | https://toolrar.com/text-tools/base64 |
+| تحويل النص إلى Binary | https://toolrar.com/text-tools/text-to-binary |
+
+---
+
+## 💻 أدوات المطورين (15 أداة)
+> { "category": "developer", "color": "#10B981", "icon": "code" }
+
+| الأداة | الرابط |
+|--------|--------|
+| تحويل JSON | https://toolrar.com/Developer/json-to-excel-csv |
+| تنسيق الكود | https://toolrar.com/Developer/code-formatter |
+| تحويل XML إلى JSON | https://toolrar.com/Developer/xml-to-json |
+| معلومات المتصفح | https://toolrar.com/Developer/browser-info |
+| منتقي الألوان | https://toolrar.com/Developer/color-picker |
+| اختبار قوة كلمة المرور | https://toolrar.com/Developer/password-strength |
+| مولد كلمات المرور | https://toolrar.com/Developer/password-generator |
+| محول الألوان | https://toolrar.com/Developer/color-converter |
+| تشفير/فك تشفير URL | https://toolrar.com/Developer/url-encoder-decoder |
+| حساب وقت القراءة | https://toolrar.com/Developer/reading-time |
+| مولد رابط واتساب | https://toolrar.com/Developer/whatsapp-link |
+| مولد Meta Tags | https://toolrar.com/Developer/meta-tags-generator |
+| فحص حجم الصفحة | https://toolrar.com/Developer/page-size-checker |
+| استخراج ألوان الصورة | https://toolrar.com/Developer/image-color-extractor |
+| فحص IP | https://toolrar.com/Developer/ip-checker |
+
+---
+
+## 🖼️ أدوات الصور والتصميم (15 أداة)
+> { "category": "photo-editing", "color": "#F59E0B", "icon": "image" }
+
+| الأداة | الرابط |
+|--------|--------|
+| تحويل PNG إلى JPG | https://toolrar.com/Photo-Editing/png-to-jpg |
+| تغيير حجم الصورة | https://toolrar.com/Photo-Editing/resize-image |
+| مولد صور Placeholder | https://toolrar.com/Photo-Editing/placeholder-generator |
+| ضغط الصور | https://toolrar.com/Photo-Editing/compress-image |
+| تحويل إلى WebP | https://toolrar.com/Photo-Editing/to-webp |
+| قص الصورة | https://toolrar.com/Photo-Editing/crop-image |
+| تحويل الصورة إلى Base64 | https://toolrar.com/Photo-Editing/image-to-base64 |
+| استخراج بيانات EXIF | https://toolrar.com/Photo-Editing/exif-reader |
+| إضافة علامة مائية | https://toolrar.com/Photo-Editing/watermark |
+| مولد Favicon | https://toolrar.com/Photo-Editing/favicon-generator |
+| إزالة الخلفية بالذكاء الاصطناعي | https://toolrar.com/Photo-Editing/background-remover |
+| تحسين الصورة | https://toolrar.com/Photo-Editing/image-enhancer |
+| تحويل الصورة إلى SVG | https://toolrar.com/Photo-Editing/image-to-vector |
+| ممحاة الكائنات | https://toolrar.com/Photo-Editing/object-remover |
+| ضغط ذكي للصور | https://toolrar.com/Photo-Editing/smart-compressor |
+
+---
+
+## 📊 أدوات الحاسبة والمال والتاريخ والصحة
+
+### التاريخ والوقت (7 أدوات)
+> { "category": "calculators", "subcategory": "date-time", "color": "#3B82F6" }
+
+| الأداة | الرابط |
+|--------|--------|
+| حساب العمر | https://toolrar.com/Calculators/age-calculator |
+| حساب العمر القمري | https://toolrar.com/Calculators/lunar-age |
+| فرق التاريخ | https://toolrar.com/Calculators/date-and-time/date-difference |
+| إضافة أيام إلى تاريخ | https://toolrar.com/Calculators/date-and-time/add-days |
+| العد التنازلي | https://toolrar.com/Calculators/date-and-time/countdown |
+| أيام العمل | https://toolrar.com/Calculators/date-and-time/work-days |
+| تحويل المناطق الزمنية | https://toolrar.com/Calculators/date-and-time/timezone-converter |
+
+### المالية (23 أداة)
+> { "category": "calculators", "subcategory": "finance", "color": "#10B981" }
+
+| الأداة | الرابط |
+|--------|--------|
+| حاسبة القرض | https://toolrar.com/Calculators/finance/loan-payment |
+| الفائدة المركبة | https://toolrar.com/Calculators/finance/compound-interest |
+| هدف الادخار | https://toolrar.com/Calculators/finance/savings-goal |
+| حاسبة الرهن العقاري | https://toolrar.com/Calculators/finance/mortgage |
+| التقاعد | https://toolrar.com/Calculators/finance/retirement |
+| ضريبة القيمة المضافة (VAT) | https://toolrar.com/Calculators/finance/vat |
+| الخصم | https://toolrar.com/Calculators/finance/discount |
+| بطاقة الائتمان | https://toolrar.com/Calculators/finance/credit-card-payoff |
+| القدرة الشرائية للمنزل | https://toolrar.com/Calculators/finance/home-affordability |
+| جدول استهلاك القرض | https://toolrar.com/Calculators/finance/loan-amortization |
+| قرض السيارة | https://toolrar.com/Calculators/finance/auto-loan |
+| حاسبة الراتب | https://toolrar.com/Calculators/finance/salary |
+| التضخم | https://toolrar.com/Calculators/finance/inflation |
+| نقطة التعادل | https://toolrar.com/Calculators/finance/break-even |
+| العائد على الاستثمار (ROI) | https://toolrar.com/Calculators/finance/roi |
+| صافي القيمة الحالية (NPV) | https://toolrar.com/Calculators/finance/npv |
+| معدل العائد الداخلي (IRR) | https://toolrar.com/Calculators/finance/irr |
+| الإهلاك | https://toolrar.com/Calculators/finance/depreciation |
+| رأس المال العامل | https://toolrar.com/Calculators/finance/working-capital |
+| EBITDA | https://toolrar.com/Calculators/finance/ebitda |
+| نسبة D/E | https://toolrar.com/Calculators/finance/debt-equity-ratio |
+| التدفق النقدي | https://toolrar.com/Calculators/finance/cash-forecast |
+| هامش الربح | https://toolrar.com/Calculators/finance/profit-margin |
+
+### الصحة واللياقة (20 أداة)
+> { "category": "calculators", "subcategory": "health-fitness", "color": "#EF4444" }
+
+| الأداة | الرابط |
+|--------|--------|
+| BMI | https://toolrar.com/Calculators/health-and-fitness/bmi |
+| BMR | https://toolrar.com/Calculators/health-and-fitness/bmr |
+| TDEE | https://toolrar.com/Calculators/health-and-fitness/tdee |
+| دهون الجسم | https://toolrar.com/Calculators/health-and-fitness/body-fat |
+| الوزن المثالي | https://toolrar.com/Calculators/health-and-fitness/ideal-weight |
+| حاسبة السعرات (Macro Planner) | https://toolrar.com/Calculators/health-and-fitness/macro-planner |
+| تحليل FFMI | https://toolrar.com/Calculators/health-and-fitness/ffmi |
+| موعد الولادة | https://toolrar.com/Calculators/health-and-fitness/pregnancy-due-date |
+| الإباضة والخصوبة | https://toolrar.com/Calculators/health-and-fitness/ovulation |
+| كمية الماء | https://toolrar.com/Calculators/health-and-fitness/water-intake |
+| مساحة سطح الجسم (BSA) | https://toolrar.com/Calculators/health-and-fitness/bsa |
+| الوزن المعدل (AjBW) | https://toolrar.com/Calculators/health-and-fitness/ajbw |
+| محيط الخصر إلى الورك (WHR) | https://toolrar.com/Calculators/health-and-fitness/whr |
+| محيط الخصر إلى الطول (WHtR) | https://toolrar.com/Calculators/health-and-fitness/whtr |
+| مخاطر فرامنغهام | https://toolrar.com/Calculators/health-and-fitness/framingham-risk |
+| تقدير مخاطر ASCVD | https://toolrar.com/Calculators/health-and-fitness/ascvd-risk |
+| QRISK3 | https://toolrar.com/Calculators/health-and-fitness/qrisk3 |
+| Reynolds Risk Score | https://toolrar.com/Calculators/health-and-fitness/reynolds-risk |
+| متلازمة الأيض | https://toolrar.com/Calculators/health-and-fitness/metabolic-syndrome |
+| كحول الدم (BAC) | https://toolrar.com/Calculators/health-and-fitness/bac |
+
+### التعليمية (9 أدوات)
+> { "category": "calculators", "subcategory": "educational", "color": "#8B5CF6" }
+
+| الأداة | الرابط |
+|--------|--------|
+| حساب المعدل (GPA) | https://toolrar.com/Calculators/educational/gpa |
+| GPA 4.0 | https://toolrar.com/Calculators/educational/gpa-4 |
+| حساب الدرجات | https://toolrar.com/Calculators/educational/grade |
+| النسبة المئوية للاختبار | https://toolrar.com/Calculators/educational/test-percentage |
+| المعدل الموزون | https://toolrar.com/Calculators/educational/weighted-grade |
+| الدرجة المطلوبة | https://toolrar.com/Calculators/educational/required-grade |
+| حاسبة جامعة النجاح (ANU) | https://toolrar.com/Calculators/educational/anu |
+| تحويل النسبة إلى GPA 4.0 | https://toolrar.com/Calculators/educational/percentage-to-gpa |
+| GPA 5.0 | https://toolrar.com/Calculators/educational/gpa-5 |
+
+### الرياضيات (15 أداة)
+> { "category": "calculators", "subcategory": "math", "color": "#3B82F6" }
+
+| الأداة | الرابط |
+|--------|--------|
+| آلة حاسبة عادية | https://toolrar.com/Calculators/math/standard |
+| آلة حاسبة علمية | https://toolrar.com/Calculators/math/scientific |
+| آلة حاسبة بيانية | https://toolrar.com/Calculators/math/graphing |
+| حل المعادلات الجبرية | https://toolrar.com/Calculators/math/algebra-solver |
+| حل المعادلات التربيعية | https://toolrar.com/Calculators/math/quadratic-solver |
+| الجذر التربيعي | https://toolrar.com/Calculators/math/square-root |
+| المتوسط والوسيط والمنوال | https://toolrar.com/Calculators/math/mean-median-mode |
+| الانحراف المعياري | https://toolrar.com/Calculators/math/standard-deviation |
+| اللوغاريتم | https://toolrar.com/Calculators/math/log |
+| كسر إلى عشري | https://toolrar.com/Calculators/math/fraction-to-decimal |
+| عشري إلى كسر | https://toolrar.com/Calculators/math/decimal-to-fraction |
+| فحص الأعداد الأولية | https://toolrar.com/Calculators/math/prime-checker |
+| نظرية فيثاغورس | https://toolrar.com/Calculators/math/pythagorean |
+| الأس | https://toolrar.com/Calculators/math/exponent |
+| المضروب (Factorial) | https://toolrar.com/Calculators/math/factorial |
+
+### الحاسبة الإسلامية (6 أدوات)
+> { "category": "calculators", "subcategory": "islamic", "color": "#059669" }
+
+| الأداة | الرابط |
+|--------|--------|
+| زكاة الذهب | https://toolrar.com/Calculators/islamic/zakat-gold |
+| زكاة المال | https://toolrar.com/Calculators/islamic/zakat-money |
+| المواريث الإسلامية | https://toolrar.com/Calculators/islamic/inheritance |
+| المسبحة الرقمية | https://toolrar.com/Calculators/islamic/tasbeeh |
+| حساب الثلث الأخير من الليل | https://toolrar.com/Calculators/islamic/last-third-of-night |
+| زكاة الفطر | https://toolrar.com/Calculators/islamic/zakat-fitr |
+
+---
+
+## 📄 أدوات PDF (9 أدوات)
+> { "category": "pdf-tools", "color": "#EC4899", "icon": "file-text" }
+
+| الأداة | الرابط |
+|--------|--------|
+| دمج PDF | https://toolrar.com/docs-tools/merge-pdf |
+| تقسيم PDF | https://toolrar.com/docs-tools/split-pdf |
+| Word إلى PDF | https://toolrar.com/docs-tools/word-to-pdf |
+| PDF إلى صور | https://toolrar.com/docs-tools/pdf-to-images |
+| حماية PDF بكلمة مرور | https://toolrar.com/docs-tools/protect-pdf |
+| فتح قفل PDF | https://toolrar.com/docs-tools/unlock-pdf |
+| تدوير صفحات PDF | https://toolrar.com/docs-tools/rotate-pdf |
+| ترقيم صفحات PDF | https://toolrar.com/docs-tools/number-pdf |
+| إضافة علامة مائية لـ PDF | https://toolrar.com/docs-tools/add-watermark |
+
+---
+
+## 🗜️ أدوات ZIP والضغط (43 أداة)
+> { "category": "zip-tools", "color": "#10B981", "icon": "archive" }
+
+### فك الضغط
+| الأداة | الرابط |
+|--------|--------|
+| ZIP Extractor | https://toolrar.com/zip-tools/extract/zip-extractor |
+| RAR Extractor | https://toolrar.com/zip-tools/extract/rar-extractor |
+| 7Z Extractor | https://toolrar.com/zip-tools/extract/7z-extractor |
+| TAR Extractor | https://toolrar.com/zip-tools/extract/tar-extractor |
+| GZ Extractor | https://toolrar.com/zip-tools/extract/gz-extractor |
+| ISO Extractor | https://toolrar.com/zip-tools/extract/iso-extractor |
+| فك ضغط ZIP المحمي بكلمة مرور | https://toolrar.com/zip-tools/extract/password-zip-extractor |
+| فك ضغط جزئي | https://toolrar.com/zip-tools/extract/partial-extractor |
+| عارض محتوى الأرشيف | https://toolrar.com/zip-tools/extract/archive-content-viewer |
+
+### إنشاء الضغط
+| الأداة | الرابط |
+|--------|--------|
+| ZIP Maker | https://toolrar.com/zip-tools/create-compress/zip-maker |
+| ZIP مشفر | https://toolrar.com/zip-tools/create-compress/secure-zip-maker |
+| ضغط مجلد | https://toolrar.com/zip-tools/create-compress/folder-compressor |
+| صور إلى ZIP | https://toolrar.com/zip-tools/create-compress/images-to-zip |
+| PDF إلى ZIP | https://toolrar.com/zip-tools/create-compress/pdfs-to-zip |
+| مستندات إلى ZIP | https://toolrar.com/zip-tools/create-compress/documents-to-zip |
+| وسائط إلى ZIP | https://toolrar.com/zip-tools/create-compress/media-to-zip |
+| TAR Maker | https://toolrar.com/zip-tools/create-compress/tar-maker |
+| GZ Maker | https://toolrar.com/zip-tools/create-compress/gz-maker |
+| ZIP Grabber من URL | https://toolrar.com/zip-tools/create-compress/url-zip-grabber |
+
+### تحويل الصيغ
+| الأداة | الرابط |
+|--------|--------|
+| RAR إلى ZIP | https://toolrar.com/zip-tools/compression-generation/rar-to-zip |
+| 7Z إلى ZIP | https://toolrar.com/zip-tools/compression-generation/7z-to-zip |
+| TAR إلى ZIP | https://toolrar.com/zip-tools/compression-generation/tar-to-zip |
+| ZIP إلى TAR | https://toolrar.com/zip-tools/compression-generation/zip-to-tar |
+| CBR إلى ZIP | https://toolrar.com/zip-tools/compression-generation/cbr-to-zip |
+| CBZ إلى ZIP | https://toolrar.com/zip-tools/compression-generation/cbz-to-zip |
+| EXE إلى ZIP | https://toolrar.com/zip-tools/compression-generation/exe-to-zip |
+| BIN إلى ZIP | https://toolrar.com/zip-tools/compression-generation/bin-to-zip |
+
+### إصلاح وتقسيم
+| الأداة | الرابط |
+|--------|--------|
+| تقسيم ZIP | https://toolrar.com/zip-tools/fix-split/zip-splitter |
+| دمج ZIP | https://toolrar.com/zip-tools/fix-split/zip-joiner |
+| دمج أجزاء ZIP | https://toolrar.com/zip-tools/fix-split/zip-merge |
+| التحقق من صحة ZIP | https://toolrar.com/zip-tools/fix-split/zip-validator |
+| إصلاح ZIP التالف | https://toolrar.com/zip-tools/fix-split/zip-repair |
+| تنظيف ZIP | https://toolrar.com/zip-tools/fix-split/zip-cleaner |
+| محرر الأرشيف | https://toolrar.com/zip-tools/fix-split/archive-editor |
+| مقارنة الأرشيفات | https://toolrar.com/zip-tools/fix-split/archive-compare |
+
+### تحليلات البيانات
+| الأداة | الرابط |
+|--------|--------|
+| حاسبة نسبة الضغط | https://toolrar.com/zip-tools/data-analytics/compression-ratio |
+| بيانات تعريف الأرشيف | https://toolrar.com/zip-tools/data-analytics/metadata-viewer |
+| محلل المساحة | https://toolrar.com/zip-tools/data-analytics/space-analyzer |
+| تقليل حجم كود ZIP | https://toolrar.com/zip-tools/data-analytics/code-zip-minimizer |
+| مولد ZIP وهمي | https://toolrar.com/zip-tools/data-analytics/dummy-zip-generator |
+| عداد كلمات الأرشيف | https://toolrar.com/zip-tools/data-analytics/archive-word-counter |
+| ماسح أمان الأرشيف | https://toolrar.com/zip-tools/data-analytics/archive-security-scanner |
+
+---
+
+## 🔍 أدوات SEO وتحسين محركات البحث (17 أداة)
+> { "category": "seo", "color": "#14B8A6", "icon": "search" }
+
+| الأداة | الرابط |
+|--------|--------|
+| فحص IP | https://toolrar.com/seo/ip-checker |
+| تحليل الروابط | https://toolrar.com/seo/link-analysis |
+| كثافة الكلمات المفتاحية | https://toolrar.com/seo/keyword-density |
+| أداة البحث عن الكلمات المفتاحية | https://toolrar.com/seo/keyword-research |
+| مولد XML Sitemap | https://toolrar.com/seo/xml-sitemap-generator |
+| مولد Meta Tags | https://toolrar.com/seo/meta-tags-generator |
+| فحص حجم الصفحة | https://toolrar.com/seo/page-size-checker |
+| فحص سرعة الصفحة | https://toolrar.com/seo/page-speed-checker |
+| فحص الروابط المعطلة | https://toolrar.com/seo/broken-links-checker |
+| فحص حالة الموقع | https://toolrar.com/seo/website-status-checker |
+| فحص حركة المرور | https://toolrar.com/seo/website-traffic-checker |
+| فحص الباك لينك | https://toolrar.com/seo/backlink-checker |
+| فحص DA/PA | https://toolrar.com/seo/da-pa-checker |
+| فحص Spam Score | https://toolrar.com/seo/spam-score-checker |
+| تدقيق SEO شامل | https://toolrar.com/seo/seo-audit-checker |
+| Keyword Spy | https://toolrar.com/seo/keyword-spy |
+| مولد الروابط القصيرة | https://toolrar.com/seo/short-link-generator |
+
+---
+
+## 🛠️ أدوات متنوعة (7 أدوات)
+> { "category": "general", "color": "#F59E0B", "icon": "grid" }
+
+| الأداة | الرابط |
+|--------|--------|
+| مولد QR Code | https://toolrar.com/General/qr-generator |
+| قارئ QR Code | https://toolrar.com/General/qr-reader |
+| ساعة إيقاف | https://toolrar.com/General/stopwatch |
+| عد تنازلي | https://toolrar.com/General/countdown-timer |
+| اختيار عشوائي (سحب) | https://toolrar.com/General/random-picker |
+| اختبار سرعة الكتابة | https://toolrar.com/General/typing-speed |
+| محول التاريخ | https://toolrar.com/General/date-converter |
+
+---
+
+## 📱 أدوات سوشيال ميديا (27 أداة)
+> { "category": "social-media", "color": "#8B5CF6", "icon": "share-2" }
+
+### أدوات التحميل
+| الأداة | الرابط |
+|--------|--------|
+| تحميل TikTok | https://toolrar.com/Social-media/tiktok-downloader |
+| تحميل Instagram Reels | https://toolrar.com/Social-media/instagram-reels |
+| حفظ Instagram Story | https://toolrar.com/Social-media/instagram-story-saver |
+| YouTube إلى MP3/MP4 | https://toolrar.com/Social-media/youtube-converter |
+| تحميل Twitter/X فيديو | https://toolrar.com/Social-media/twitter-downloader |
+| تحميل Facebook فيديو | https://toolrar.com/Social-media/facebook-downloader |
+| تحميل Pinterest | https://toolrar.com/Social-media/pinterest-downloader |
+| تحميل Threads | https://toolrar.com/Social-media/threads-downloader |
+| تحميل YouTube Shorts | https://toolrar.com/Social-media/youtube-shorts-downloader |
+| تحميل YouTube Thumbnail | https://toolrar.com/Social-media/youtube-thumbnail-downloader |
+| تحميل LinkedIn فيديو | https://toolrar.com/Social-media/linkedin-downloader |
+| تحميل Snapchat فيديو | https://toolrar.com/Social-media/snapchat-downloader |
+| تحميل Facebook فيديو خاص | https://toolrar.com/Social-media/private-facebook-downloader |
+| استخراج صوت TikTok | https://toolrar.com/Social-media/tiktok-audio-extractor |
+| تحميل Instagram Profile Pic | https://toolrar.com/Social-media/instagram-profile-pic |
+
+### أدوات التفاعل والتحليلات
+| الأداة | الرابط |
+|--------|--------|
+| اختيار تعليق عشوائي | https://toolrar.com/Social-media/random-comment-picker |
+| منشئ استبيان (Poll) | https://toolrar.com/Social-media/poll-creator |
+| فحص الرابط الآمن | https://toolrar.com/Social-media/safe-link-checker |
+| عداد مشتركين YouTube المباشر | https://toolrar.com/Social-media/youtube-live-counter |
+| فحص نص إعلانات Facebook | https://toolrar.com/Social-media/fb-ads-text-overlay |
+| معاينة الوضع الداكن | https://toolrar.com/Social-media/dark-mode-previewer |
+| منشئ صفحة شخصية (Linktree) | https://toolrar.com/Social-media/linktree-creator |
+| حساب معدل التفاعل | https://toolrar.com/Social-media/engagement-rate |
+| تقدير أرباح YouTube | https://toolrar.com/Social-media/youtube-money-estimator |
+| تدقيق الحساب | https://toolrar.com/Social-media/social-media-audit |
+| أداة كتم الصوت للفيديو | https://toolrar.com/Social-media/video-mute |
+| قص Banner YouTube | https://toolrar.com/Social-media/youtube-banner-crop |
+
+---
+
+## 🤖 أدوات الذكاء الاصطناعي
+> { "category": "ai", "color": "#6366F1", "icon": "sparkles" }
+
+| الأداة | الرابط |
+|--------|--------|
+| مولد Captions بالذكاء الاصطناعي | https://toolrar.com/Social-media/ai-caption-generator |
+| كاتب سكربت YouTube الذكي | https://toolrar.com/Social-media/ai-youtube-script |
+| مولد وصف Instagram بالذكاء الاصطناعي | https://toolrar.com/Social-media/ai-instagram-description |
+| مولد Hook/Jingle TikTok بالذكاء الاصطناعي | https://toolrar.com/Social-media/ai-tiktok-hook |
+
+---
+
+## 🔄 محول الخطوط (34 صيغة)
+> { "category": "font-converter", "color": "#F59E0B" }
+
+```
+AFM, BIN, BMP, CFF, CID, CUR, DFONT, EOT, GIF, ICO, JPEG, JPG,
+OTF, PCD, PCT, PDB, PFA, PFB, PNG, PS, PSD, SFD, SVG, T11, TGA,
+TIFF, TTF, UFO, VIFF, WEBP, WOFF, WOFF2, XPM
+```
+
+https://toolrar.com/font-converter/
+
+---
+
+## 📊 إحصائيات الموقع
+
+| المعلومة | القيمة |
+|----------|--------|
+| إجمالي الأدوات | 225+ أداة |
+| روابط خريطة XML | 2919 URL |
+| التقييم | 5/5 ⭐ (50,000+ تقييم) |
+| اللغات | العربية (رئيسية)، الإنجليزية، الفرنسية |
+| الترخيص | مجاني 100% |
+| المعالجة | في المتصفح (Client-Side) |
+| نظام الألوان | Dark/Light Mode |
+
+---
+
+## 🔧 المواصفات التقنية
+
+| العنصر | التفاصيل |
+|--------|----------|
+| نوع الموقع | أدوات ويب (Free Online Tools) |
+| المعالجة | Client-Side (المتصفح) - لا يتم رفع البيانات لخوادم |
+| الخط المستخدم | Cairo Font |
+| التصميم | Responsive (متجاوب) - Mobile, Tablet, Desktop |
+| الاتجاه | RTL (يمين إلى يسار) |
+| Schema.org | Organization + AggregateRating (JSON-LD) |
+| التحسين لمحركات البحث | Canonical URLs, hreflang tags, Meta descriptions |
+| الملفات المهمة | robots.txt, sitemap.xml, sitemap |
+| أيقونات الموقع | Favicon 32/48/192/512 + Apple Touch Icon |
+
+---
+
+## 📌 روابط سريعة
+
+- **خريطة الموقع**: https://toolrar.com/sitemap
+- **خريطة XML**: https://toolrar.com/sitemap.xml
+- **الملف التعريفي (Robots)**: https://toolrar.com/robots.txt
+- **جميع الأدوات**: https://toolrar.com/all-tools
+- **المدونة**: https://toolrar.com/blog
+
+---
+
+> تم إنشاء هذا الملف لمساعدة نماذج LLM على فهم هيكل ومحتوى موقع ToolRar بشكل كامل.
+> تاريخ التحديث: 2026
