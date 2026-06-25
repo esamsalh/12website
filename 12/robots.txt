@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.toolrar.com/sitemap.xml
+Sitemap: https://www.toolrar.com/rss-gold.xml
+Sitemap: https://www.toolrar.com/rss-tools.xml
+Sitemap: https://www.toolrar.com/rss.xml
