@@ -751,14 +751,14 @@ function cleanUrl(p) { return p.replace(/\$/g, ''); }
         tokens.forEach(function(t) {
           nameTokens.forEach(function(nt) {
             if (nt === t) { score += 100; }
-            else if (nt.index.htmlOf(t) !== -1 || t.index.htmlOf(nt) !== -1) { score += 50; }
+            else if (nt.indexOf(t) !== -1 || t.indexOf(nt) !== -1) { score += 50; }
             else {
               const dist = levenshtein(nt, t);
               if (dist <= 2) score += 30 - dist * 10;
             }
           });
           catTokens.forEach(function(ct) {
-            if (ct === t || ct.index.htmlOf(t) !== -1 || t.index.htmlOf(ct) !== -1) score += 10;
+            if (ct === t || ct.indexOf(t) !== -1 || t.indexOf(ct) !== -1) score += 10;
           });
         });
 
