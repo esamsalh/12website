@@ -1,0 +1,2903 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - مدونة ToolRar</title>
+  <meta name="description" content="لوحة تحكم مدونة ToolRar - إدارة المقالات والأقسام">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="stylesheet" href="/styles/global.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Cairo',sans-serif;background:#F0F2F5;color:#1e293b;min-height:100vh}
+    .admin-wrap{display:flex;flex-direction:column;min-height:100vh}
+    .admin-header{background:#0F172A;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.08)}
+    .admin-header-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.25rem;max-width:1400px;margin:0 auto}
+    .admin-header-start{display:flex;align-items:center;gap:24px}
+    .admin-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+    .admin-logo-icon{width:32px;height:32px;background:#6366F1;border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(99,102,241,.3)}
+    .admin-logo-icon svg{width:18px;height:18px;color:#fff}
+    .admin-logo-text{color:#fff;font-weight:700;font-size:1.15rem}
+    .admin-tabs{display:flex;align-items:center;gap:2px}
+    .admin-tab{background:none;border:none;color:#9ca3af;padding:8px 14px;font-size:.82rem;font-weight:600;cursor:pointer;border-radius:8px;transition:all .2s;font-family:inherit;display:flex;align-items:center;gap:6px}
+    .admin-tab:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .admin-tab.active{color:#fff;background:rgba(99,102,241,.2)}
+    .admin-tab svg{width:16px;height:16px}
+    .admin-header-end{display:flex;align-items:center;gap:8px}
+    .admin-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;font-family:inherit;text-decoration:none}
+    .admin-btn-outline{background:transparent;color:#d1d5db;border:1px solid rgba(255,255,255,.15)}
+    .admin-btn-outline:hover{background:rgba(255,255,255,.1);color:#fff}
+    .admin-btn-ghost{background:transparent;color:#d1d5db;border:none}
+    .admin-btn-ghost:hover{color:#fff}
+    .admin-btn svg{width:14px;height:14px}
+    .admin-body{flex:1;padding:24px 1.25rem;max-width:1400px;margin:0 auto;width:100%}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    .admin-grid{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:768px){.admin-grid{grid-template-columns:1fr 1fr}}
+    .admin-grid-3{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:768px){.admin-grid-3{grid-template-columns:repeat(3,1fr)}}
+    .stat-card{background:#fff;border-radius:14px;padding:20px 22px;border:1px solid #E2E8F0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .stat-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+    .stat-card-label{font-size:.78rem;color:#6b7280;font-weight:600}
+    .stat-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+    .stat-card-icon svg{width:18px;height:18px;color:#fff}
+    .stat-card-value{font-size:1.75rem;font-weight:900;color:#111827}
+    .card{background:#fff;border-radius:14px;border:1px solid #E2E8F0;box-shadow:0 1px 3px rgba(0,0,0,.04);padding:24px;margin-bottom:20px}
+    .card-title{font-size:1rem;font-weight:700;color:#111827;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #6366F1;display:flex;align-items:center;gap:8px}
+    .card-title svg{width:18px;height:18px;color:#6366F1}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:.8rem;font-weight:600;color:#374151;margin-bottom:4px}
+    .form-row{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:640px){.form-row{grid-template-columns:1fr 1fr}}
+    .form-control{width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:.88rem;font-family:inherit;transition:border-color .2s;background:#fff;color:#1e293b}
+    .form-control:focus{outline:none;border-color:#6366F1;box-shadow:0 0 0 3px rgba(99,102,241,.12)}
+    textarea.form-control{min-height:280px;resize:vertical;direction:ltr;font-size:.85rem;line-height:1.7}
+    select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;padding-left:36px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;font-family:inherit;text-decoration:none}
+    .btn-primary{background:#6366F1;color:#fff}
+    .btn-primary:hover{background:#4f46e5}
+    .btn-primary:disabled{opacity:.6;cursor:not-allowed}
+    .btn-secondary{background:#E2E8F0;color:#374151}
+    .btn-secondary:hover{background:#cbd5e1}
+    .btn-success{background:#10B981;color:#fff}
+    .btn-success:hover{background:#059669}
+    .btn-danger{background:#EF4444;color:#fff}
+    .btn-danger:hover{background:#DC2626}
+    .btn-sm{padding:6px 12px;font-size:.75rem}
+    .btn-block{width:100%}
+    .msg{padding:12px 16px;border-radius:8px;font-size:.82rem;font-weight:500;margin-top:10px;display:none;white-space:pre-wrap;line-height:1.6}
+    .msg-success{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0;display:block}
+    .msg-error{background:#fee2e2;color:#991b1b;border:1px solid #fecaca;display:block}
+    .msg-loading{background:#fef3c7;color:#92400e;border:1px solid #fde68a;display:block}
+    .slug-preview{font-size:.75rem;color:#6b7280;margin-top:4px;direction:ltr;text-align:right}
+    .color-input-wrap{display:flex;align-items:center;gap:10px}
+    .color-input-wrap input[type=color]{width:44px;height:40px;border:1px solid #d1d5db;border-radius:6px;padding:2px;cursor:pointer;background:none}
+    .color-input-wrap .color-hex{font-size:.82rem;color:#374151;font-weight:600;direction:ltr}
+    .cat-list{display:flex;flex-direction:column;gap:8px}
+    .cat-item-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0;transition:all .2s}
+    .cat-item-row:hover{border-color:#6366F1}
+    .cat-item-color{width:8px;height:40px;border-radius:4px;flex-shrink:0}
+    .cat-item-info{flex:1;min-width:0}
+    .cat-item-name{font-size:.88rem;font-weight:700;color:#111827}
+    .cat-item-slug{font-size:.72rem;color:#6b7280;direction:ltr;text-align:right}
+    .cat-item-actions{display:flex;gap:6px;flex-shrink:0}
+    .editor-layout{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:992px){.editor-layout{grid-template-columns:1fr 1fr}}
+    .editor-preview{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px;min-height:400px;overflow-y:auto;max-height:70vh}
+    .editor-preview h2{font-size:1.2rem;font-weight:800;color:#111827;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #6366F1}
+    .editor-preview p{font-size:.9rem;color:#374151;line-height:1.8;margin-bottom:12px}
+    .editor-preview img{max-width:100%;border-radius:8px;margin:12px 0}
+    .editor-preview hr{border:none;border-top:1px solid #E2E8F0;margin:16px 0}
+    .img-upload-area{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .img-upload-area input[type=file]{display:none}
+    .img-upload-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#F1F5F9;border:2px dashed #cbd5e1;border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:600;color:#475569;transition:all .2s;font-family:inherit}
+    .img-upload-btn:hover{background:#E2E8F0;border-color:#6366F1;color:#6366F1}
+    .img-upload-btn svg{width:18px;height:18px}
+    .img-preview-wrap{display:flex;align-items:center;gap:10px;background:#F8FAFC;border-radius:8px;padding:8px 12px;border:1px solid #E2E8F0}
+    .img-preview-wrap img{width:48px;height:48px;object-fit:cover;border-radius:6px}
+    .img-preview-info{font-size:.75rem;color:#6b7280}
+    .img-preview-info strong{color:#374151}
+    .editor-tabs{display:flex;gap:0;margin-bottom:12px;border-bottom:1px solid #E2E8F0}
+    .editor-tab{background:none;border:none;padding:8px 16px;font-size:.82rem;font-weight:600;color:#6b7280;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit}
+    .editor-tab:hover{color:#374151}
+    .editor-tab.active{color:#6366F1;border-bottom-color:#6366F1}
+    .empty-state{text-align:center;padding:48px 0;color:#9ca3af}
+    .empty-state svg{width:48px;height:48px;margin-bottom:12px;opacity:.4}
+    .empty-state p{font-size:.9rem}
+    .badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:9999px;font-size:.7rem;font-weight:700}
+    .badge-green{background:#d1fae5;color:#065f46}
+    .badge-red{background:#fee2e2;color:#991b1b}
+    .badge-yellow{background:#fef3c7;color:#92400e}
+    @media(max-width:639px){.admin-header-inner{padding:0 .75rem}.admin-tab{padding:6px 10px;font-size:.75rem}.admin-tab span{display:none}.admin-body{padding:16px .75rem}.stat-card-value{font-size:1.35rem}}
+    .color-swatch{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:middle;margin-left:4px}
+    .arts-mgr-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+    .arts-mgr-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .arts-mgr-filters select,.arts-mgr-filters input{padding:7px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:.8rem;font-family:inherit;background:#fff;color:#1e293b}
+    .arts-mgr-filters select:focus,.arts-mgr-filters input:focus{outline:none;border-color:#6366F1}
+    .arts-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    .arts-table th{text-align:right;padding:12px 14px;font-weight:700;color:#6b7280;border-bottom:2px solid #E2E8F0;white-space:nowrap;cursor:pointer;user-select:none}
+    .arts-table th:hover{color:#6366F1}
+    .arts-table th .sort-arrow{display:inline-block;width:12px;margin-right:4px;opacity:.4}
+    .arts-table th .sort-arrow.active{opacity:1;color:#6366F1}
+    .arts-table td{padding:12px 14px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    .arts-table tr:hover td{background:#F8FAFC}
+    .arts-table .art-title{font-weight:700;color:#111827;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .arts-table .art-title a{color:#111827;text-decoration:none}
+    .arts-table .art-title a:hover{color:#6366F1}
+    .arts-table .art-meta{font-size:.72rem;color:#9ca3af;margin-top:2px}
+    .arts-table .art-actions{display:flex;gap:4px;flex-wrap:nowrap}
+    .arts-table .art-actions button{padding:5px 9px;border-radius:6px;font-size:.7rem;font-weight:600;border:none;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:3px;font-family:inherit}
+    .arts-table .art-actions button svg{width:12px;height:12px}
+    .art-status{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:9999px;font-size:.7rem;font-weight:700}
+    .art-status-published{background:#d1fae5;color:#065f46}
+    .art-status-archived{background:#fef3c7;color:#92400e}
+    .arts-empty{text-align:center;padding:64px 0;color:#9ca3af}
+    .arts-empty svg{width:48px;height:48px;opacity:.3;margin-bottom:12px}
+    .arts-loading{text-align:center;padding:48px 0;color:#6b7280}
+    .arts-loading .spinner{display:inline-block;width:24px;height:24px;border:3px solid #E2E8F0;border-top-color:#6366F1;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-left:8px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .arts-pagination{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-size:.8rem}
+    .arts-pagination button{padding:6px 14px;border-radius:6px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;background:#E2E8F0;color:#374151;transition:all .15s;font-family:inherit}
+    .arts-pagination button:hover{background:#cbd5e1}
+    .arts-pagination button.active{background:#6366F1;color:#fff}
+    .arts-pagination button:disabled{opacity:.4;cursor:not-allowed}
+    .arts-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:600}
+    .arts-badge svg{width:10px;height:10px}
+    .guide-step{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:20px 24px;margin-bottom:16px}
+    .guide-step:last-child{margin-bottom:0}
+    .guide-step-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#6366F1;color:#fff;border-radius:8px;font-size:.85rem;font-weight:800;margin-left:10px}
+    .guide-step-title{font-size:1rem;font-weight:700;color:#111827;margin-bottom:8px;display:flex;align-items:center}
+    .guide-step p{font-size:.85rem;color:#374151;line-height:1.8;margin-bottom:6px}
+    .guide-step code{background:#F1F5F9;padding:2px 8px;border-radius:4px;font-size:.8rem;direction:ltr;display:inline-block;color:#1e293b}
+    .guide-step pre{background:#0F172A;color:#E2E8F0;padding:14px 18px;border-radius:10px;font-size:.8rem;line-height:1.7;overflow-x:auto;direction:ltr;text-align:left;margin:8px 0}
+    .guide-step .hl{color:#6366F1;font-weight:700}
+    .guide-step .tip{background:#EEF2FF;border-right:3px solid #6366F1;padding:10px 14px;border-radius:8px;font-size:.8rem;color:#4338CA;margin:8px 0}
+    .guide-step .warn{background:#fef3c7;border-right:3px solid #F59E0B;padding:10px 14px;border-radius:8px;font-size:.8rem;color:#92400e;margin:8px 0}
+    .ai-grid-2{display:grid;grid-template-columns:1fr;gap:20px}@media(min-width:992px){.ai-grid-2{grid-template-columns:1fr 1fr}}
+    .ai-status{font-size:.78rem;color:#6b7280;display:flex;align-items:center;gap:6px;margin-top:6px}
+    .ai-status .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+    .ai-status .dot.green{background:#10B981}
+    .ai-status .dot.yellow{background:#F59E0B}
+    .ai-status .dot.red{background:#EF4444}
+    .queue-list{display:flex;flex-direction:column;gap:4px;margin-top:12px;max-height:400px;overflow-y:auto}
+    .queue-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#F8FAFC;border-radius:8px;border:1px solid #E2E8F0;font-size:.8rem}
+    .queue-item .kw{font-weight:600;color:#374151;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .queue-item .status{font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:9999px}
+    .queue-item .status.pending{background:#F1F5F9;color:#6b7280}
+    .queue-item .status.generating{background:#fef3c7;color:#92400e}
+    .queue-item .status.done{background:#d1fae5;color:#065f46}
+    .queue-item .status.error{background:#fee2e2;color:#991b1b}
+    .progress-bar{height:8px;background:#E2E8F0;border-radius:9999px;overflow:hidden}
+    .progress-fill{height:100%;background:#6366F1;border-radius:9999px;transition:width .3s ease}
+    .publish-bar{display:none;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid #E2E8F0;align-items:center;flex-wrap:wrap}
+    .preview-btn{background:none;border:none;color:#6366F1;font-size:.7rem;font-weight:600;cursor:pointer;padding:2px 8px;border-radius:4px;transition:all .2s}
+    .preview-btn:hover{background:#EEF2FF}
+    .ai-opt-check{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;cursor:pointer;transition:all .2s}
+    .ai-opt-check:hover{border-color:#6366F1}
+    .ai-opt-check input[type=checkbox]{width:18px;height:18px;accent-color:#6366F1;cursor:pointer}
+    .ai-opt-check label{font-size:.8rem;font-weight:600;cursor:pointer;flex:1}
+    .ai-options-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+    .keyword-counter{font-size:.75rem;color:#9ca3af;margin-top:4px}
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+    .modal{background:#fff;border-radius:14px;max-width:700px;width:100%;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 25px 50px rgba(0,0,0,.2)}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #E2E8F0}
+    .modal-header h2{font-size:1rem;font-weight:700;color:#111827}
+    .modal-close{background:none;border:none;font-size:1.5rem;color:#6b7280;cursor:pointer;padding:0 4px;line-height:1}
+    .modal-body{padding:20px;overflow-y:auto;flex:1}
+    .modal-body iframe{width:100%;height:400px;border:none;border-radius:8px;background:#fff}
+    .img-upload-row{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
+    .img-upload-row input[type=file]{font-size:.7rem;flex:1;min-width:80px}
+    .upload-btn{padding:4px 10px;border-radius:6px;border:1px solid #E2E8F0;background:#6366F1;color:#fff;cursor:pointer;font-size:.75rem;transition:all .2s}
+    .upload-btn:hover{background:#4f46e5}
+    .upload-btn:disabled{opacity:.6;cursor:not-allowed}
+    .ai-gen-btn{background:none;border:none;cursor:pointer;font-size:1rem;padding:2px 6px;border-radius:4px;transition:all .2s;vertical-align:middle;line-height:1}
+    .ai-gen-btn:hover{background:#EEF2FF;transform:scale(1.15)}
+    .ai-gen-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .ai-gen-btn-sm{font-size:.8rem;padding:1px 4px}
+    .auto-gh-file{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;border-bottom:1px solid #F1F5F9;font-size:.78rem}
+    .auto-gh-file:hover{background:#F8FAFC}
+    .auto-gh-file .file-icon{color:#6b7280;margin-left:6px}
+    .auto-gh-file .file-name{flex:1;color:#374151;cursor:pointer}
+    .auto-gh-file .file-name:hover{color:#6366F1}
+    .auto-gh-folder{font-weight:600;color:#111827}
+    .auto-breadcrumb{font-size:.72rem;color:#6366F1;margin-bottom:8px;display:flex;gap:4px;flex-wrap:wrap}
+    .auto-breadcrumb span{cursor:pointer}
+    .auto-breadcrumb span:hover{text-decoration:underline}
+    .auto-pf-item{display:flex;align-items:center;gap:8px;padding:4px 8px;border-bottom:1px solid #F1F5F9;font-size:.75rem}
+    .auto-pf-item:last-child{border-bottom:none}
+    .auto-pf-item .pf-icon{flex-shrink:0;width:16px;text-align:center}
+    .auto-pf-item .pf-path{flex:1;color:#374151;direction:ltr;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .auto-pf-item .pf-size{color:#9ca3af;font-size:.7rem;flex-shrink:0}
+  </style>
+</head>
+<body>
+<div class="admin-wrap">
+
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <div class="admin-header-start">
+        <a href="/admin.html" class="admin-logo">
+          <div class="admin-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <span class="admin-logo-text">لوحة التحكم</span>
+        </a>
+        <div class="admin-tabs" id="adminTabs">
+          <button class="admin-tab active" data-tab="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><span>الرئيسية</span></button>
+          <button class="admin-tab" data-tab="categories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span>الأقسام</span></button>
+          <button class="admin-tab" data-tab="articles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><span>المقالات</span></button>
+          <button class="admin-tab" data-tab="manage-articles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/><path d="M10 9l-3 3 3 3"/></svg><span>التحكم بالمقالات</span></button>
+          <button class="admin-tab" data-tab="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4m0 16v-4M4 12H8m12 0h4M18.36 5.64l-2.83 2.83M8.46 15.54l-2.82 2.82M5.64 18.36l2.83-2.83M15.54 8.46l2.82-2.82"/></svg><span>الذكاء الاصطناعي</span></button>
+          <button class="admin-tab" data-tab="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span>الدليل</span></button>
+          <button class="admin-tab" data-tab="automation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/><circle cx="12" cy="12" r="3"/></svg><span>الأتمتة</span></button>
+        </div>
+      </div>
+      <div class="admin-header-end">
+        <a href="/blog.html" class="admin-btn admin-btn-outline" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> زيارة المدونة</a>
+        <button class="admin-btn admin-btn-ghost" id="logoutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-body">
+
+    <!-- ====== TAB: الرئيسية ====== -->
+    <div class="tab-content active" id="tabDashboard">
+      <div class="admin-grid-3" style="margin-bottom:20px">
+        <div class="stat-card">
+          <div class="stat-card-header"><span class="stat-card-label">إجمالي المقالات</span><div class="stat-card-icon" style="background:#6366F1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div></div>
+          <div class="stat-card-value" id="statPosts">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header"><span class="stat-card-label">الأقسام</span><div class="stat-card-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+          <div class="stat-card-value" id="statCategories">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-header"><span class="stat-card-label">عدد الزوار</span><div class="stat-card-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div></div>
+          <div class="stat-card-value" id="statVisitors">-</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> إعدادات المدونة العامة</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>اسم المدونة</label>
+            <input type="text" class="form-control" id="blogNameInput" placeholder="مدونة ToolRar" value="مدونة ToolRar">
+          </div>
+          <div class="form-group">
+            <label>رابط المدونة (Canonical URL)</label>
+            <input type="text" class="form-control" id="blogUrlInput" placeholder="https://toolrar.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>وصف المدونة (Meta Description)</label>
+          <input type="text" class="form-control" id="blogDescInput" placeholder="أحدث المقالات والأدلة والشروحات">
+        </div>
+        <button class="btn btn-secondary" id="saveBlogSettingsBtn">حفظ الإعدادات</button>
+        <div id="blogSettingsMsg" class="msg"></div>
+      </div>
+
+      <div class="admin-grid">
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg> روابط التواصل الاجتماعي</div>
+          <div class="form-group"><label>Telegram</label><input type="text" class="form-control" id="socialTelegram" placeholder="https://t.me/..."></div>
+          <div class="form-group"><label>Twitter / X</label><input type="text" class="form-control" id="socialTwitter" placeholder="https://x.com/..."></div>
+          <div class="form-group"><label>Instagram</label><input type="text" class="form-control" id="socialInstagram" placeholder="https://instagram.com/..."></div>
+          <div class="form-group"><label>Facebook</label><input type="text" class="form-control" id="socialFacebook" placeholder="https://facebook.com/..."></div>
+          <button class="btn btn-secondary" id="saveSocialBtn">حفظ روابط التواصل</button>
+          <div id="socialMsg" class="msg"></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> حالة الاتصال بـ GitHub</div>
+          <div id="githubStatus">
+            <p style="color:#6b7280;font-size:.85rem;margin-bottom:10px">لم يتم تعيين بيانات الاتصال بعد</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('articles')">الانتقال إلى إعدادات النشر</button>
+          <hr style="border:none;border-top:1px solid #E2E8F0;margin:12px 0">
+          <button class="btn btn-primary btn-sm" id="publishSettingsBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> نشر جميع الإعدادات إلى GitHub</button>
+          <div id="publishSettingsMsg" class="msg"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== TAB: الأقسام ====== -->
+    <div class="tab-content" id="tabCategories">
+      <div class="admin-grid">
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> إضافة قسم جديد</div>
+          <form id="categoryForm" onsubmit="return false">
+            <div class="form-row">
+              <div class="form-group">
+                <label>اسم القسم</label>
+                <input type="text" class="form-control" id="catNameInput" placeholder="مثال: أدوات النصوص" required>
+              </div>
+              <div class="form-group">
+                <label>Slug (المعرف)</label>
+                <input type="text" class="form-control" id="catSlugInput" placeholder="text-tools" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>اللون</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="catColorInput" value="#6366F1">
+                  <span class="color-hex" id="catColorHex">#6366F1</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>الترتيب (رقم)</label>
+                <input type="number" class="form-control" id="catOrderInput" placeholder="1" value="1" min="1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>الوصف</label>
+              <input type="text" class="form-control" id="catDescInput" placeholder="وصف مختصر للقسم">
+            </div>
+            <div class="form-group">
+              <label>رمز SVG (اختياري)</label>
+              <input type="text" class="form-control" id="catIconInput" placeholder="<polyline points='...'/>">
+              <div style="font-size:.72rem;color:#6b7280;margin-top:4px">ضع محتوى SVG فقط وليس الوسم كاملاً</div>
+            </div>
+            <input type="hidden" id="catEditId" value="">
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-primary" id="saveCategoryBtn">حفظ القسم</button>
+              <button class="btn btn-secondary" id="cancelCategoryBtn" style="display:none">إلغاء التعديل</button>
+            </div>
+            <div id="catMsg" class="msg"></div>
+          </form>
+        </div>
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg> الأقسام الموجودة</div>
+          <div id="categoriesList"><div class="empty-state"><p>لا توجد أقسام بعد. أضف أول قسم الآن.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== TAB: المقالات ====== -->
+    <div class="tab-content" id="tabArticles">
+      <div class="editor-layout">
+        <div>
+          <div class="card">
+            <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg> تحرير المقال</div>
+            <div class="form-row" style="margin-bottom:8px;padding:8px 12px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0">
+              <div class="form-group" style="margin-bottom:0">
+                <label style="font-size:.72rem">مزود AI للتوليد</label>
+                <select class="form-control" id="artAiProvider" onchange="onArtAiProviderChange()" style="padding:6px 10px;font-size:.78rem">
+                  <option value="openrouter">OpenRouter</option>
+                  <option value="google">Google AI Studio</option>
+                  <option value="opencode">OpenCode Zen</option>
+                  <option value="groq">Groq</option>
+                  <option value="cerebras">Cerebras</option>
+                  <option value="siliconflow">SiliconFlow</option>
+                  <option value="routeway">Routeway</option>
+                  <option value="featherless">Featherless</option>
+                  <option value="github">GitHub Models</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label style="font-size:.72rem">النموذج</label>
+                <select class="form-control" id="artAiModel" onchange="onArtAiModelChange()" style="padding:6px 10px;font-size:.78rem"></select>
+              </div>
+            </div>
+            <div class="editor-tabs" id="editorModeTabs">
+              <button class="editor-tab active" data-mode="write">كتابة</button>
+              <button class="editor-tab" data-mode="preview">معاينة</button>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>عنوان المقال <button type="button" class="ai-gen-btn" onclick="aiGenTitle(this)" title="توليد عنوان بالذكاء الاصطناعي">🤖</button></label>
+                <input type="text" class="form-control" id="titleInput" placeholder="أدخل عنوان المقال" oninput="updateSlug()">
+              </div>
+              <div class="form-group">
+                <label>Slug (رابط المقال) <button type="button" class="ai-gen-btn ai-gen-btn-sm" onclick="aiGenSlug(this)" title="توليد Slug احترافي من العنوان">🤖</button></label>
+                <input type="text" class="form-control" id="slugInput" placeholder="article-slug">
+                <div class="slug-preview" id="slugPreview">blog/&#123;slug&#125;.md</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>القسم</label>
+                <select class="form-control" id="categorySelect"></select>
+              </div>
+              <div class="form-group">
+                <label>تاريخ النشر</label>
+                <input type="date" class="form-control" id="dateInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>الوصف (Meta Description) <button type="button" class="ai-gen-btn" onclick="aiGenDesc(this)" title="توليد وصف بالذكاء الاصطناعي">🤖</button></label>
+              <input type="text" class="form-control" id="descInput" placeholder="وصف مختصر للمقال لتحسين محركات البحث">
+            </div>
+            <div class="form-group">
+              <label>الكلمات المفتاحية (tags) - مفصولة بفاصلة <button type="button" class="ai-gen-btn" onclick="aiGenTags(this)" title="توليد كلمات مفتاحية بالذكاء الاصطناعي">🤖</button></label>
+              <input type="text" class="form-control" id="tagsInput" placeholder="SEO, أدوات ويب, برمجة">
+            </div>
+            <div class="form-group">
+              <label>رفع صورة المقال</label>
+              <div class="img-upload-area">
+                <label class="img-upload-btn" id="uploadBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> اختر صورة
+                  <input type="file" id="imageInput" accept="image/*">
+                </label>
+                <div id="imageStatus" style="display:none" class="img-preview-wrap"></div>
+              </div>
+              <div id="imageMetaFields" style="display:none;margin-top:8px">
+                <div class="form-row">
+                  <div class="form-group" style="margin-bottom:6px">
+                    <label style="font-size:.72rem">اسم الصورة (Image Alt Text) - لتحسين SEO</label>
+                    <input type="text" class="form-control" id="imageAltInput" placeholder="نص بديل للصورة لتحسين محركات البحث" style="padding:6px 10px;font-size:.78rem">
+                  </div>
+                  <div class="form-group" style="margin-bottom:6px">
+                    <label style="font-size:.72rem">وصف الصورة (Image Title) - يظهر عند التمرير</label>
+                    <input type="text" class="form-control" id="imageTitleInput" placeholder="عنوان يظهر عند تمرير الماوس على الصورة" style="padding:6px 10px;font-size:.78rem">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>المحتوى (Markdown) <button type="button" class="ai-gen-btn" onclick="aiGenContent(this)" title="توليد محتوى كامل بالذكاء الاصطناعي (Markdown)">🤖</button></label>
+              <textarea class="form-control" id="contentInput" placeholder="اكتب المحتوى هنا بصيغة Markdown...&#10;&#10;## عنوان فرعي&#10;نص الفقرة..."></textarea>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-primary" id="publishBtn" style="flex:1">نشر المقال على GitHub</button>
+            </div>
+            <div id="publishMsg" class="msg"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> معاينة المقال</div>
+            <div class="editor-preview" id="articlePreview">
+              <div class="empty-state"><p>ابدأ بكتابة المحتوى لرؤية المعاينة</p></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> إعدادات النشر على GitHub</div>
+            <div class="form-group">
+              <label>GitHub Personal Access Token (كلاسيكي مع صلاحية repo)</label>
+              <input type="password" class="form-control" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>اسم المستخدم (GitHub Username)</label>
+                <input type="text" class="form-control" id="usernameInput" placeholder="your-username">
+              </div>
+              <div class="form-group">
+                <label>اسم المستودع (Repository)</label>
+                <input type="text" class="form-control" id="repoInput" placeholder="my-blog">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>الفرع (Branch)</label>
+                <input type="text" class="form-control" id="branchInput" placeholder="main" value="main">
+              </div>
+              <div class="form-group">
+                <label>مسار المقالات</label>
+                <input type="text" class="form-control" id="pathInput" placeholder="src/pages/blog" value="src/pages/blog">
+              </div>
+            </div>
+            <button class="btn btn-secondary" id="saveTokenBtn" style="width:auto">حفظ الإعدادات</button>
+            <div id="tokenMsg" class="msg"></div>
+            <hr style="border:none;border-top:1px solid #E2E8F0;margin:16px 0">
+            <h4 style="font-size:.9rem;font-weight:700;color:#111827;margin-bottom:8px">تعليمات سريعة</h4>
+            <ol style="margin-right:18px;font-size:.8rem;color:#6b7280;line-height:1.8">
+              <li>أنشئ <strong>GitHub Personal Access Token (كلاسيكي)</strong> من <a href="https://github.com/settings/tokens" target="_blank" style="color:#6366F1;">GitHub Settings → Tokens</a> مع صلاحية <code style="background:#f1f5f9;padding:1px 5px;border-radius:4px;direction:ltr;display:inline-block">repo</code>.</li>
+              <li>اربط المستودع بـ <strong>Cloudflare Pages</strong> للبناء التلقائي عند كل push.</li>
+              <li>اضبط مسار البناء: <code style="background:#f1f5f9;padding:1px 5px;border-radius:4px;direction:ltr">npm run build</code> والمجلد: <code style="background:#f1f5f9;padding:1px 5px;border-radius:4px;direction:ltr">dist</code>.</li>
+              <li>عند نشر المقال، سيتم إنشاء ملف <code>.md</code> في المسار المحدد.</li>
+              <li>الصور المرفوعة تُخزّن في <code>public/images/</code> وتظهر فوراً بعد البناء.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== TAB: التحكم بالمقالات ====== -->
+    <div class="tab-content" id="tabManageArticles">
+      <div class="card" style="overflow-x:auto">
+        <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/><path d="M10 9l-3 3 3 3"/></svg> إدارة المقالات</div>
+        <div class="arts-mgr-header">
+          <div class="arts-mgr-filters">
+            <select id="artsFilterStatus"><option value="all">جميع الحالات</option><option value="published">منشور</option><option value="archived">مؤرشف</option></select>
+            <select id="artsFilterCategory"><option value="all">جميع الأقسام</option></select>
+            <input type="text" id="artsSearchInput" placeholder="بحث عن مقال..." style="width:180px">
+            <button class="btn btn-secondary btn-sm" id="artsRefreshBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg> تحديث</button>
+          </div>
+          <span id="artsCount" style="font-size:.8rem;color:#6b7280;font-weight:600">0 مقال</span>
+        </div>
+        <div id="artsListContainer"><div class="arts-loading"><div class="spinner"></div> جاري تحميل المقالات...</div></div>
+      </div>
+    </div>
+
+    <!-- ====== TAB: الذكاء الاصطناعي ====== -->
+    <div class="tab-content" id="tabAi">
+      <div class="ai-grid-2">
+        <div>
+          <div class="card">
+            <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4m0 16v-4M4 12H8m12 0h4M18.36 5.64l-2.83 2.83M8.46 15.54l-2.82 2.82M5.64 18.36l2.83-2.83M15.54 8.46l2.82-2.82"/></svg> الإعدادات</div>
+            <div class="form-group">
+              <label>مزود الذكاء الاصطناعي</label>
+              <select class="form-control" id="aiProvider" onchange="onAiProviderChange()">
+                <option value="openrouter">OpenRouter (أوبن راوتر)</option>
+                <option value="google">Google AI Studio (قوقل AI ستوديو)</option>
+                <option value="opencode">OpenCode Zen (خطة زين)</option>
+                <option value="groq">Groq (منصة جروك)</option>
+                <option value="cerebras">Cerebras (منصة سيريبراس السريعة)</option>
+                <option value="siliconflow">SiliconFlow (سيليكون فلو - GLM)</option>
+                <option value="routeway">Routeway (منصة راوت واي)</option>
+                <option value="featherless">Featherless (مخدم GLM)</option>
+                <option value="github">GitHub Models (نماذج GPT)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>النموذج</label>
+              <select class="form-control" id="aiModel" onchange="onAiModelChange()"></select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>اللغة</label>
+                <select class="form-control" id="aiLang">
+                  <option value="ar">العربية</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>التصنيف</label>
+                <select class="form-control" id="aiCategory"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>كاتب المقال</label>
+              <select class="form-control" id="aiAuthor">
+                <option value="Admin">Admin</option>
+                <option value="عصام العماري">عصام العماري</option>
+                <option value="Toolrar">Toolrar</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>عناوين المقالات (عنوان واحد في كل سطر)</label>
+              <textarea class="form-control" id="keywordsInput" rows="6" placeholder="أدخل كل عنوان مقال في سطر منفصل" style="min-height:120px;direction:rtl"></textarea>
+              <div class="keyword-counter" id="keywordCounter">0 عنوان (الحد الأقصى: 100)</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>رابط خارجي (اختياري)</label>
+                <input class="form-control" id="externalUrl" placeholder="https://example.com/page">
+              </div>
+              <div class="form-group">
+                <label>نص الرابط (Anchor Text)</label>
+                <input class="form-control" id="anchorText" placeholder="انقر هنا لمعرفة المزيد">
+              </div>
+            </div>
+            <div style="font-weight:700;font-size:.82rem;color:#374151;margin:12px 0 8px">🔧 خيارات إضافية عند النشر:</div>
+            <div class="ai-options-grid">
+              <label class="ai-opt-check"><input type="checkbox" id="chkArticleSchema" checked><label for="chkArticleSchema">🧾 Article Schema</label></label>
+              <label class="ai-opt-check"><input type="checkbox" id="chkFaqSchema"><label for="chkFaqSchema">❓ FAQ Schema</label></label>
+              <label class="ai-opt-check"><input type="checkbox" id="chkBreadcrumb" checked><label for="chkBreadcrumb">🍞 Breadcrumb Schema</label></label>
+              <label class="ai-opt-check"><input type="checkbox" id="chkEnSlug" checked><label for="chkEnSlug">🔤 Slug إنجليزي</label></label>
+            </div>
+            <button class="btn btn-primary btn-lg" id="startBulkBtn" onclick="startBulkGeneration()" style="width:100%;margin-top:8px">🚀 بدء التوليد الجماعي</button>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:20px">
+            <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> حالة التوليد</div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+            <div class="ai-status" id="progressText"><span class="dot yellow"></span> 0%</div>
+            <div id="queueList" class="queue-list"></div>
+            <div class="publish-bar" id="publishBar">
+              <button class="btn btn-success" id="publishAllBtn" onclick="publishAllArticles()" style="flex:1">📰 نشر الكل (0)</button>
+              <button class="btn btn-secondary" onclick="clearSession()">🗑️ مسح</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== TAB: الدليل ====== -->
+    <div class="tab-content" id="tabGuide">
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> الدليل الشامل لنشر المدونة على toolrar.com/blog</div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">1</span> إنشاء مستودع على GitHub</div>
+          <p>تأكد من أن لديك حساب على <a href="https://github.com" target="_blank" style="color:#6366F1;font-weight:600">GitHub</a>، ثم:</p>
+          <p>• اذهب إلى <a href="https://github.com/new" target="_blank" style="color:#6366F1;">github.com/new</a></p>
+          <p>• اختر اسم المستودع مثلاً <code>toolrar-blog</code></p>
+          <p>• اجعل المستودع <span class="hl">Public</span> (عام)</p>
+          <p>• لا تختر أي قوالب (README، .gitignore)</p>
+          <p>• اضغط <span class="hl">Create repository</span></p>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">2</span> رفع المشروع إلى GitHub</div>
+          <p>افتح PowerShell أو Terminal في مجلد المشروع <code>C:\xampp\htdocs\12\blog2</code>، وشغّل الأوامر التالية:</p>
+          <pre>git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/your-username/toolrar-blog.git
+git push -u origin main</pre>
+          <div class="tip">استبدل <code>your-username</code> و <code>toolrar-blog</code> باسم المستخدم والمستودع الخاص بك.</div>
+          <p>بعد تنفيذ الأوامر، جميع ملفات المشروع ستكون مرفوعة على GitHub.</p>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">3</span> ربط Cloudflare Pages بالمستودع</div>
+          <p>• سجل الدخول إلى <a href="https://dash.cloudflare.com" target="_blank" style="color:#6366F1;font-weight:600">Cloudflare Dashboard</a></p>
+          <p>• اذهب إلى <span class="hl">Workers & Pages</span></p>
+          <p>• اضغط <span class="hl">Create application</span> → <span class="hl">Pages</span></p>
+          <p>• اختر <span class="hl">Connect to Git</span></p>
+          <p>• اختر مستودع <code>toolrar-blog</code></p>
+          <p>• في إعدادات البناء، اترك كل شيء افتراضياً:</p>
+          <pre>Framework: Astro
+Build command: npm run build
+Build output: dist</pre>
+          <p>• اضغط <span class="hl">Save and Deploy</span></p>
+          <div class="warn">أول بناء قد يستغرق 2-3 دقائق. بعدها سيظهر رابط تجريبي مثل <code>toolrar-blog.pages.dev</code>.</div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">4</span> ربط النطاق المخصص toolrar.com</div>
+          <p>بعد نجاح أول نشر، المدونة متاحة على الرابط التجريبي <code>toolrar-blog.pages.dev</code>. لجعلها على <span class="hl">toolrar.com/blog</span> لديك خياران:</p>
+          <p style="margin-top:8px"><strong>الخيار الأول (الأسهل):</strong> ربط نطاق فرعي مثل <code>blog.toolrar.com</code></p>
+          <p>• في صفحة المشروع على Cloudflare Pages → اذهب إلى <span class="hl">Custom domains</span></p>
+          <p>• اضغط <span class="hl">Set up a custom domain</span></p>
+          <p>• أدخل <code>blog.toolrar.com</code> ثم Save</p>
+          <p>• Cloudflare سيضيف تلقائياً سجلات DNS اللازمة</p>
+          <div class="tip">بعد ذلك ستكون المدونة متاحة على <code>blog.toolrar.com</code> وهذا الخيار بسيط ومباشر.</div>
+          <p style="margin-top:8px"><strong>الخيار الثاني (toolrar.com/blog):</strong> استخدام Cloudflare Worker لتوجيه المسار</p>
+          <p>إذا كنت تريد بالضبط <code>toolrar.com/blog</code>، أنشئ Worker بهذا الكود:</p>
+          <pre>export default &#123;
+  async fetch(request) &#123;
+    const url = new URL(request.url);
+    if (url.pathname.startsWith('/blog')) &#123;
+      url.hostname = 'toolrar-blog.pages.dev';
+      return fetch(url);
+    &#125;
+    return fetch(request);
+  &#125;
+&#125;</pre>
+          <p>• اذهب إلى <span class="hl">Workers & Pages</span> → <span class="hl">Create Worker</span></p>
+          <p>• الصق الكود أعلاه واضغط <span class="hl">Deploy</span></p>
+          <p>• اربط الـ Worker بنطاق <code>toolrar.com</code> من خلال <span class="hl">Triggers</span> → <span class="hl">Custom Domains</span></p>
+          <div class="warn">تأكد أن <code>toolrar.com</code> اسم نطاقك في Cloudflare وأن DNS موجه إلى Cloudflare.</div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">5</span> إعداد GitHub Token في لوحة التحكم</div>
+          <p>للنشر المباشر من لوحة التحكم إلى GitHub، تحتاج إلى Personal Access Token:</p>
+          <p>• اذهب إلى <a href="https://github.com/settings/tokens" target="_blank" style="color:#6366F1;">github.com/settings/tokens</a></p>
+          <p>• اضغط <span class="hl">Generate new token (classic)</span></p>
+          <p>• اختر صلاحية <code>repo</code> (كاملة)</p>
+          <p>• انسخ token وضعه في حقل <span class="hl">GitHub Token</span> في تبويب <span class="hl">المقالات</span> في لوحة التحكم</p>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">6</span> النشر التلقائي (CI/CD)</div>
+          <p>بعد ربط Cloudflare Pages بالمستودع، كلما قمت بنشر مقال جديد من لوحة التحكم:</p>
+          <p>1️⃣ المقال يُرفع إلى <span class="hl">GitHub</span> كملف Markdown</p>
+          <p>2️⃣ Cloudflare Pages يكتشف التغيير تلقائياً</p>
+          <p>3️⃣ يتم بناء الموقع من جديد (<code>npm run build</code>)</p>
+          <p>4️⃣ الموقع المنشور يُحدّث خلال 1-2 دقيقة</p>
+          <div class="tip">يمكنك متابعة حالة البناء من Cloudflare Dashboard → Pages → اسم المشروع → Deployments.</div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-title"><span class="guide-step-num">7</span> هيكل الملفات والمسارات النهائية</div>
+          <p>بعد النشر، المسارات التالية ستكون متاحة على موقعك:</p>
+          <pre>toolrar.com/blog              ← صفحة المدونة الرئيسية
+toolrar.com/blog/hello-world ← مقال (كل مقال له رابط خاص)
+toolrar.com/rss.xml          ← RSS Feed للمدونة
+toolrar.com/admin            ← لوحة التحكم (مخفي عن محركات البحث)</pre>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====== TAB: الأتمتة ====== -->
+    <div class="tab-content" id="tabAutomation">
+      <div class="admin-grid-3" style="margin-bottom:20px">
+        <div class="stat-card" id="autoGhCard">
+          <div class="stat-card-header"><span class="stat-card-label">GitHub</span>
+            <div class="auto-status-icon" id="autoGhIcon" style="width:12px;height:12px;border-radius:50%;background:#D1D5DB"></div>
+          </div>
+          <div class="stat-card-value" style="font-size:1rem" id="autoGhStatus">غير متصل</div>
+        </div>
+        <div class="stat-card" id="autoCfCard">
+          <div class="stat-card-header"><span class="stat-card-label">Cloudflare Pages</span>
+            <div class="auto-status-icon" id="autoCfIcon" style="width:12px;height:12px;border-radius:50%;background:#D1D5DB"></div>
+          </div>
+          <div class="stat-card-value" style="font-size:1rem" id="autoCfStatus">غير متصل</div>
+        </div>
+        <div class="stat-card" id="autoDepCard">
+          <div class="stat-card-header"><span class="stat-card-label">آخر نشر</span>
+            <div class="auto-status-icon" id="autoDepIcon" style="width:12px;height:12px;border-radius:50%;background:#D1D5DB"></div>
+          </div>
+          <div class="stat-card-value" style="font-size:1rem" id="autoDepStatus">غير معروف</div>
+        </div>
+      </div>
+
+      <div class="admin-grid">
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub - الربط التلقائي</div>
+          <div id="autoGhSection">
+            <div class="form-group">
+              <label>Personal Access Token (كلاسيكي مع صلاحية repo)</label>
+              <div style="display:flex;gap:8px">
+                <input type="password" class="form-control" id="autoTokenInput" placeholder="ghp_..." autocomplete="off" style="flex:1">
+                <button class="btn btn-secondary btn-sm" id="autoTestGhBtn" onclick="autoTestGh()">اختبار</button>
+              </div>
+            </div>
+            <div id="autoGhDetails" style="display:none">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>المستودع الحالي</label>
+                  <select class="form-control" id="autoGhRepo"></select>
+                </div>
+                <div class="form-group">
+                  <label>الفرع</label>
+                  <input type="text" class="form-control" id="autoGhBranch" value="main">
+                </div>
+              </div>
+              <div id="autoRepoInfo" style="padding:12px;background:#F8FAFC;border-radius:10px;font-size:.82rem;margin-bottom:10px"></div>
+              <button class="btn btn-primary btn-sm" onclick="autoSaveGhConfig()">💾 حفظ إعدادات GitHub</button>
+              <button class="btn btn-secondary btn-sm" onclick="autoBrowseRepo()" style="margin-right:8px">📂 تصفح المستودع</button>
+              <div id="autoRepoBrowser" style="display:none;margin-top:10px;max-height:300px;overflow-y:auto;border:1px solid #E2E8F0;border-radius:8px;padding:8px"></div>
+            </div>
+            <div id="autoGhMsg" class="msg"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 4.2 9 8 10 3.8-1 8-4.6 8-10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg> Cloudflare Pages - الربط التلقائي</div>
+          <div id="autoCfSection">
+            <div class="form-group">
+              <label>Cloudflare API Token (صلاحية Pages:Read + Pages:Write)</label>
+              <div style="display:flex;gap:8px">
+                <input type="password" class="form-control" id="autoCfToken" placeholder="cf_api_token..." autocomplete="off" style="flex:1">
+                <button class="btn btn-secondary btn-sm" onclick="autoTestCf()">اختبار</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>اسم حساب Cloudflare (E-mail)</label>
+              <input type="text" class="form-control" id="autoCfEmail" placeholder="your@email.com">
+            </div>
+            <div id="autoCfDetails" style="display:none">
+              <div class="form-group">
+                <label>مشروع Cloudflare Pages</label>
+                <select class="form-control" id="autoCfProject"></select>
+              </div>
+              <div id="autoCfDeployInfo" style="padding:12px;background:#F8FAFC;border-radius:10px;font-size:.82rem;margin-bottom:10px"></div>
+              <button class="btn btn-primary btn-sm" onclick="autoDeployCf()">🔄 تشغيل نشر جديد</button>
+            </div>
+            <div id="autoCfMsg" class="msg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> رفع المشروع إلى GitHub من جهازك</div>
+        <p style="font-size:.82rem;color:#6b7280;margin-bottom:8px">اختر مجلد المشروع من جهازك لرفعه مباشرة إلى GitHub. سيتم إنشاء الملفات تلقائياً في المستودع المحدد.</p>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+          <label class="btn btn-secondary btn-sm" style="cursor:pointer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> 📂 اختيار مجلد المشروع
+            <input type="file" id="projectFolderInput" webkitdirectory style="display:none">
+          </label>
+          <span style="font-size:.75rem;color:#9ca3af" id="fileCountLabel">0 ملف</span>
+          <button class="btn btn-primary btn-sm" id="uploadProjectBtn" onclick="autoUploadProject()" disabled>⬆️ رفع إلى GitHub</button>
+          <button class="btn btn-secondary btn-sm" onclick="autoClearProjectFiles()">🗑️ مسح</button>
+        </div>
+        <div id="projectFileList" style="max-height:250px;overflow-y:auto;border:1px solid #E2E8F0;border-radius:8px;padding:4px;display:none"></div>
+        <div id="projectUploadProgress" style="display:none;margin-top:8px">
+          <div class="progress-bar"><div class="progress-fill" id="projectProgressFill" style="width:0%"></div></div>
+          <div style="font-size:.75rem;color:#6b7280;margin-top:4px" id="projectProgressText">0 / 0</div>
+        </div>
+        <div id="uploadProjectMsg" class="msg"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> الإعداد التلقائي الكامل (Auto-Setup)</div>
+        <p style="font-size:.85rem;color:#6b7280;margin-bottom:12px">بضغطة واحدة، سيتم اختبار جميع الاتصالات وإعداد GitHub و Cloudflare تلقائياً. سيتم حفظ الإعدادات في المتصفح.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="autoRunFullSetup()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> 🚀 تشغيل الإعداد الكامل</button>
+          <button class="btn btn-secondary" onclick="autoRefreshStatus()">🔄 تحديث الحالة</button>
+          <button class="btn btn-secondary" onclick="autoClearSettings()">🗑️ مسح الإعدادات</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:16px;border-top:1px solid #E2E8F0;background:#fff;font-size:.75rem;color:#9ca3af">ToolRar &copy; 2026 جميع الحقوق محفوظة</footer>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var defaultCategories = [
+    { id: 'text-tools', name: 'أدوات النصوص والكلمات', color: '#6366F1', icon: '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/>', desc: 'أدوات تحرير النصوص وتحليل الكلمات' },
+    { id: 'developer', name: 'أدوات المطورين', color: '#10B981', icon: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>', desc: 'أدوات البرمجة وتطوير الويب' },
+    { id: 'photo-editing', name: 'أدوات الصور والتصميم', color: '#F59E0B', icon: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>', desc: 'أدوات تحرير الصور والتصميم الجرافيكي' },
+    { id: 'calculators', name: 'أدوات الحاسبة', color: '#3B82F6', icon: '<rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/>', desc: 'حاسبات رياضية ومالية' },
+    { id: 'docs-tools', name: 'أدوات PDF', color: '#EC4899', icon: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>', desc: 'أدوات تحرير ودمج PDF' },
+    { id: 'zip-tools', name: 'أدوات ZIP والضغط', color: '#059669', icon: '<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>', desc: 'أدوات ضغط وفك ضغط الملفات' },
+    { id: 'seo', name: 'أدوات SEO', color: '#14B8A6', icon: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/>', desc: 'أدوات تحسين محركات البحث' },
+    { id: 'general', name: 'أدوات متنوعة', color: '#F59E0B', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', desc: 'أدوات عامة متنوعة' },
+    { id: 'social-media', name: 'أدوات سوشيال ميديا', color: '#8B5CF6', icon: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>', desc: 'أدوات إدارة السوشيال ميديا' }
+  ];
+
+  var categories = loadCategories();
+  var uploadedImage = null;
+
+  function loadCategories() {
+    try {
+      var d = localStorage.getItem('toolrar_categories');
+      if (d) return JSON.parse(d);
+    } catch(e) {}
+    return defaultCategories;
+  }
+
+  function saveCategories() {
+    localStorage.setItem('toolrar_categories', JSON.stringify(categories));
+  }
+
+  function renderCategories() {
+    var list = document.getElementById('categoriesList');
+    if (!categories.length) {
+      list.innerHTML = '<div class="empty-state"><p>لا توجد أقسام بعد. أضف أول قسم الآن.</p></div>';
+      return;
+    }
+    var html = '<div class="cat-list">';
+    categories.forEach(function(c, i) {
+      html += '<div class="cat-item-row">';
+      html += '<div class="cat-item-color" style="background:' + c.color + '"></div>';
+      html += '<div class="cat-item-info"><div class="cat-item-name"><span class="color-swatch" style="background:' + c.color + '"></span>' + escHtml(c.name) + '</div><div class="cat-item-slug">' + escHtml(c.id) + '</div></div>';
+      html += '<div class="cat-item-actions">';
+      html += '<button class="btn btn-secondary btn-sm" onclick="editCategory(' + i + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></button>';
+      html += '<button class="btn btn-danger btn-sm" onclick="deleteCategory(' + i + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>';
+      html += '</div></div>';
+    });
+    html += '</div>';
+    list.innerHTML = html;
+    updateCategorySelect();
+    updateStats();
+  }
+
+  function updateCategorySelect() {
+    var sel = document.getElementById('categorySelect');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">اختر القسم...</option>';
+    categories.forEach(function(c) {
+      sel.innerHTML += '<option value="' + escHtml(c.id) + '">' + escHtml(c.name) + '</option>';
+    });
+  }
+
+  window.editCategory = function(index) {
+    var c = categories[index];
+    document.getElementById('catNameInput').value = c.name;
+    document.getElementById('catSlugInput').value = c.id;
+    document.getElementById('catColorInput').value = c.color;
+    document.getElementById('catColorHex').textContent = c.color;
+    document.getElementById('catDescInput').value = c.desc || '';
+    document.getElementById('catIconInput').value = c.icon || '';
+    document.getElementById('catOrderInput').value = (index + 1).toString();
+    document.getElementById('catEditId').value = index;
+    document.getElementById('saveCategoryBtn').textContent = 'تحديث القسم';
+    document.getElementById('cancelCategoryBtn').style.display = 'inline-flex';
+    document.getElementById('cancelCategoryBtn').onclick = resetCategoryForm;
+    document.getElementById('catMsg').className = 'msg';
+    document.getElementById('catMsg').textContent = '';
+    document.getElementById('catNameInput').focus();
+  };
+
+  window.deleteCategory = function(index) {
+    if (!confirm('هل أنت متأكد من حذف القسم "' + categories[index].name + '"؟')) return;
+    categories.splice(index, 1);
+    saveCategories();
+    renderCategories();
+  };
+
+  function resetCategoryForm() {
+    document.getElementById('catNameInput').value = '';
+    document.getElementById('catSlugInput').value = '';
+    document.getElementById('catColorInput').value = '#6366F1';
+    document.getElementById('catColorHex').textContent = '#6366F1';
+    document.getElementById('catDescInput').value = '';
+    document.getElementById('catIconInput').value = '';
+    document.getElementById('catOrderInput').value = '1';
+    document.getElementById('catEditId').value = '';
+    document.getElementById('saveCategoryBtn').textContent = 'حفظ القسم';
+    document.getElementById('cancelCategoryBtn').style.display = 'none';
+    document.getElementById('catMsg').className = 'msg';
+    document.getElementById('catMsg').textContent = '';
+  }
+
+  document.getElementById('catColorInput').addEventListener('input', function() {
+    document.getElementById('catColorHex').textContent = this.value;
+  });
+
+  document.getElementById('saveCategoryBtn').addEventListener('click', function() {
+    var name = document.getElementById('catNameInput').value.trim();
+    var slug = document.getElementById('catSlugInput').value.trim();
+    var color = document.getElementById('catColorInput').value;
+    var desc = document.getElementById('catDescInput').value.trim();
+    var icon = document.getElementById('catIconInput').value.trim();
+    var editId = document.getElementById('catEditId').value;
+    var msg = document.getElementById('catMsg');
+
+    if (!name || !slug) { msg.className = 'msg msg-error'; msg.textContent = 'يرجى إدخال اسم القسم والـ slug'; return; }
+
+    if (editId !== '') {
+      categories[parseInt(editId)] = { id: slug, name: name, color: color, icon: icon, desc: desc };
+    } else {
+      if (categories.some(function(c) { return c.id === slug; })) {
+        msg.className = 'msg msg-error'; msg.textContent = 'يوجد قسم بنفس الـ slug بالفعل'; return;
+      }
+      categories.push({ id: slug, name: name, color: color, icon: icon, desc: desc });
+    }
+    saveCategories();
+    renderCategories();
+    resetCategoryForm();
+    msg.className = 'msg msg-success'; msg.textContent = 'تم حفظ القسم بنجاح';
+  });
+
+  // Tab switching
+  var tabs = document.querySelectorAll('.admin-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      switchTab(this.getAttribute('data-tab'));
+    });
+  });
+
+  window.switchTab = function(tabId) {
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function(tc) { tc.classList.remove('active'); });
+    document.querySelector('.admin-tab[data-tab="' + tabId + '"]').classList.add('active');
+    document.getElementById('tab' + tabId.charAt(0).toUpperCase() + tabId.slice(1)).classList.add('active');
+  };
+
+  // Editor mode tabs (write/preview)
+  document.querySelectorAll('#editorModeTabs .editor-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('#editorModeTabs .editor-tab').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+      if (this.getAttribute('data-mode') === 'preview') updatePreview();
+    });
+  });
+
+  function escHtml(s) {
+    if (!s) return '';
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function simpleMarkdown(md) {
+    if (!md) return '<div class="empty-state"><p>ابدأ بكتابة المحتوى لرؤية المعاينة</p></div>';
+    var h = md
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+      .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+      .replace(/!\[(.+?)\]\((.+?)\)/g, '<img src="$2" alt="$1" loading="lazy">')
+      .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank">$1</a>')
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+      .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+      .replace(/(?:^<li>.*<\/li>\n?)+/g, function(m) { return '<ol>' + m + '</ol>'; })
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/\n/g, '<br>');
+    return '<p>' + h + '</p>';
+  }
+
+  function updatePreview() {
+    var preview = document.getElementById('articlePreview');
+    var title = document.getElementById('titleInput').value.trim();
+    var content = document.getElementById('contentInput').value;
+    var html = '';
+    if (title) html += '<h2>' + escHtml(title) + '</h2>';
+    // Show uploaded image in preview
+    var imgPreview = document.querySelector('#imageStatus .img-preview-wrap img');
+    if (imgPreview) {
+      var alt = document.getElementById('imageAltInput').value.trim() || 'صورة المقال';
+      var titleAttr = document.getElementById('imageTitleInput').value.trim() || '';
+      html += '<figure><img src="' + imgPreview.src + '" alt="' + escHtml(alt) + '"' + (titleAttr ? ' title="' + escHtml(titleAttr) + '"' : '') + ' style="max-width:100%;border-radius:8px;margin:12px 0"><figcaption style="font-size:.78rem;color:#6b7280;text-align:center">' + escHtml(alt) + '</figcaption></figure>';
+    }
+    if (content) {
+      html += simpleMarkdown(content);
+    } else if (!imgPreview) {
+      html = '<div class="empty-state"><p>ابدأ بكتابة المحتوى لرؤية المعاينة</p></div>';
+    }
+    preview.innerHTML = html;
+  }
+
+  document.getElementById('contentInput').addEventListener('input', function() {
+    var active = document.querySelector('#editorModeTabs .editor-tab.active');
+    if (active && active.getAttribute('data-mode') === 'preview') updatePreview();
+  });
+
+  document.getElementById('imageAltInput').addEventListener('input', function() {
+    var active = document.querySelector('#editorModeTabs .editor-tab.active');
+    if (active && active.getAttribute('data-mode') === 'preview') updatePreview();
+  });
+  document.getElementById('imageTitleInput').addEventListener('input', function() {
+    var active = document.querySelector('#editorModeTabs .editor-tab.active');
+    if (active && active.getAttribute('data-mode') === 'preview') updatePreview();
+  });
+
+  // Image upload
+  document.getElementById('imageInput').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var status = document.getElementById('imageStatus');
+    var metaFields = document.getElementById('imageMetaFields');
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      uploadedImage = { name: file.name, data: ev.target.result.split(',')[1], type: file.type };
+      var imgHtml = '<div class="img-preview-wrap"><img src="' + ev.target.result + '" alt="' + file.name + '"><div class="img-preview-info"><strong>' + file.name + '</strong><br>' + (file.size / 1024).toFixed(1) + ' KB</div></div>';
+      status.innerHTML = imgHtml;
+      status.style.display = 'block';
+      metaFields.style.display = 'block';
+      // Set default alt from filename
+      var altInput = document.getElementById('imageAltInput');
+      if (!altInput.value) altInput.value = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      // Update preview
+      var active = document.querySelector('#editorModeTabs .editor-tab.active');
+      if (active && active.getAttribute('data-mode') === 'preview') updatePreview();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Update slug
+  window.updateSlug = function() {
+    var title = document.getElementById('titleInput').value.trim();
+    var slugInput = document.getElementById('slugInput');
+    var preview = document.getElementById('slugPreview');
+    if (!title) { slugInput.value = ''; preview.textContent = 'blog/{slug}.md'; return; }
+    var slug = title.replace(/[^\w\s\u0600-\u06FF-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+    slugInput.value = slug;
+    preview.textContent = 'blog/' + slug + '.md';
+  };
+
+  document.getElementById('slugInput').addEventListener('input', function() {
+    document.getElementById('slugPreview').textContent = 'blog/' + (this.value.trim() || '{slug}') + '.md';
+  });
+
+  // Unicode-safe Base64
+  function unicodeBase64(str) {
+    var bytes = [];
+    for (var i = 0; i < str.length; i++) {
+      var code = str.charCodeAt(i);
+      if (code < 0x80) { bytes.push(code); }
+      else if (code < 0x800) { bytes.push(0xC0 | (code >> 6)); bytes.push(0x80 | (code & 0x3F)); }
+      else if (code < 0xD800 || code >= 0xE000) { bytes.push(0xE0 | (code >> 12)); bytes.push(0x80 | ((code >> 6) & 0x3F)); bytes.push(0x80 | (code & 0x3F)); }
+      else { i++; code = 0x10000 + (((code & 0x3FF) << 10) | (str.charCodeAt(i) & 0x3FF)); bytes.push(0xF0 | (code >> 18)); bytes.push(0x80 | ((code >> 12) & 0x3F)); bytes.push(0x80 | ((code >> 6) & 0x3F)); bytes.push(0x80 | (code & 0x3F)); }
+    }
+    var binary = '';
+    for (var j = 0; j < bytes.length; j++) binary += String.fromCharCode(bytes[j]);
+    return btoa(binary);
+  }
+
+  function showMsg(el, text, type) {
+    el.textContent = text; el.className = 'msg msg-' + type;
+  }
+
+  // GitHub token management
+  var tokenInput = document.getElementById('tokenInput');
+  var usernameInput = document.getElementById('usernameInput');
+  var repoInput = document.getElementById('repoInput');
+  var branchInput = document.getElementById('branchInput');
+  var pathInput = document.getElementById('pathInput');
+
+  function loadTokenSettings() {
+    if (localStorage.getItem('gh_token')) tokenInput.value = localStorage.getItem('gh_token');
+    if (localStorage.getItem('gh_user')) usernameInput.value = localStorage.getItem('gh_user');
+    if (localStorage.getItem('gh_repo')) repoInput.value = localStorage.getItem('gh_repo');
+    if (localStorage.getItem('gh_branch')) branchInput.value = localStorage.getItem('gh_branch');
+    if (localStorage.getItem('gh_path')) pathInput.value = localStorage.getItem('gh_path');
+    updateGitHubStatus();
+  }
+  loadTokenSettings();
+
+  document.getElementById('saveTokenBtn').addEventListener('click', function() {
+    var t = tokenInput.value.trim(), u = usernameInput.value.trim(), r = repoInput.value.trim();
+    if (!t || !u || !r) { showMsg(document.getElementById('tokenMsg'), 'يرجى ملء جميع الحقول', 'error'); return; }
+    localStorage.setItem('gh_token', t);
+    localStorage.setItem('gh_user', u);
+    localStorage.setItem('gh_repo', r);
+    localStorage.setItem('gh_branch', branchInput.value.trim() || 'main');
+    localStorage.setItem('gh_path', pathInput.value.trim() || 'src/pages/blog');
+    showMsg(document.getElementById('tokenMsg'), 'تم حفظ إعدادات النشر بنجاح', 'success');
+    updateGitHubStatus();
+  });
+
+  function updateGitHubStatus() {
+    var el = document.getElementById('githubStatus');
+    var user = localStorage.getItem('gh_user');
+    var repo = localStorage.getItem('gh_repo');
+    if (user && repo) {
+      el.innerHTML = '<div style="display:flex;align-items:center;gap:8px;padding:12px;background:#d1fae5;border-radius:8px;font-size:.85rem"><svg viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span style="color:#065f46;font-weight:600">متصل: ' + escHtml(user) + '/' + escHtml(repo) + '</span></div>';
+    } else {
+      el.innerHTML = '<p style="color:#6b7280;font-size:.85rem;margin-bottom:10px">لم يتم تعيين بيانات الاتصال بعد</p>';
+    }
+  }
+
+  function collectSettings() {
+    return {
+      siteName: document.getElementById('blogNameInput').value.trim() || 'ToolRar',
+      siteUrl: document.getElementById('blogUrlInput').value.trim() || 'https://toolrar.com',
+      siteDescription: document.getElementById('blogDescInput').value.trim() || 'أحدث المقالات والأدلة والشروحات حول أدوات الويب والبرمجة والتقنية',
+      siteKeywords: 'مدونة, أدوات ويب, مقالات, شروحات, برمجة, تصميم, SEO',
+      social: {
+        telegram: document.getElementById('socialTelegram').value.trim() || '',
+        twitter: document.getElementById('socialTwitter').value.trim() || '',
+        instagram: document.getElementById('socialInstagram').value.trim() || '',
+        facebook: document.getElementById('socialFacebook').value.trim() || ''
+      },
+      footerDescription: 'منصة مجانية تقدم مجموعة متنوعة من الأدوات التي تساعدك في مهامك اليومية بكل سهولة وكفاءة',
+      copyright: (document.getElementById('blogNameInput').value.trim() || 'ToolRar') + ' © 2026 جميع الحقوق محفوظة'
+    };
+  }
+
+  function pushConfigToGitHub(cfg, msgEl, successCallback) {
+    var gh = getGhConfig();
+    if (!gh.token || !gh.user || !gh.repo) {
+      showMsg(msgEl, 'يرجى إعداد بيانات GitHub أولاً في إعدادات النشر', 'error');
+      return;
+    }
+    var contentStr = JSON.stringify(cfg, null, 2);
+    var encoded = unicodeBase64(contentStr);
+    var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(gh.user) + '/' + encodeURIComponent(gh.repo) + '/contents/src/data/site-config.json';
+
+    fetch(apiUrl, {
+      headers: { 'Authorization': 'token ' + gh.token, 'Accept': 'application/vnd.github.v3+json' }
+    }).then(function(r) {
+      if (r.status === 404) return null;
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ ' + r.status); });
+      return r.json();
+    }).then(function(existing) {
+      var body = {
+        message: 'تحديث إعدادات المدونة',
+        content: encoded,
+        branch: gh.branch
+      };
+      if (existing) body.sha = existing.sha;
+      return fetch(apiUrl, {
+        method: 'PUT',
+        headers: { 'Authorization': 'token ' + gh.token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+        body: JSON.stringify(body)
+      });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ ' + r.status); });
+      return r.json();
+    }).then(function() {
+      showMsg(msgEl, 'تم نشر الإعدادات إلى GitHub بنجاح!\nسيتم تطبيق التغييرات بعد إعادة البناء من Cloudflare Pages.', 'success');
+      if (successCallback) successCallback();
+    }).catch(function(err) {
+      showMsg(msgEl, 'خطأ في النشر: ' + err.message, 'error');
+    });
+  }
+
+  // Blog settings save
+  document.getElementById('saveBlogSettingsBtn').addEventListener('click', function() {
+    var name = document.getElementById('blogNameInput').value.trim();
+    var url = document.getElementById('blogUrlInput').value.trim();
+    var desc = document.getElementById('blogDescInput').value.trim();
+    if (name) localStorage.setItem('toolrar_blog_name', name);
+    if (url) localStorage.setItem('toolrar_blog_url', url);
+    if (desc) localStorage.setItem('toolrar_blog_desc', desc);
+    var msg = document.getElementById('blogSettingsMsg');
+    showMsg(msg, 'تم حفظ إعدادات المدونة محلياً', 'success');
+    var gh = getGhConfig();
+    if (gh.token && gh.user && gh.repo) {
+      msg.textContent += '\nجاري النشر إلى GitHub...';
+      msg.className = 'msg msg-loading';
+      pushConfigToGitHub(collectSettings(), msg);
+    }
+  });
+
+  // Social links save
+  document.getElementById('saveSocialBtn').addEventListener('click', function() {
+    var ids = ['telegram','twitter','instagram','facebook'];
+    ids.forEach(function(id) {
+      var val = document.getElementById('social' + id.charAt(0).toUpperCase() + id.slice(1)).value.trim();
+      if (val) localStorage.setItem('toolrar_social_' + id, val);
+    });
+    var msg = document.getElementById('socialMsg');
+    showMsg(msg, 'تم حفظ روابط التواصل محلياً', 'success');
+    var gh = getGhConfig();
+    if (gh.token && gh.user && gh.repo) {
+      msg.textContent += '\nجاري النشر إلى GitHub...';
+      msg.className = 'msg msg-loading';
+      pushConfigToGitHub(collectSettings(), msg);
+    }
+  });
+
+  // Publish all settings to GitHub
+  document.getElementById('publishSettingsBtn').addEventListener('click', function() {
+    var cfg = collectSettings();
+    var ids = ['telegram','twitter','instagram','facebook'];
+    ids.forEach(function(id) {
+      var val = document.getElementById('social' + id.charAt(0).toUpperCase() + id.slice(1)).value.trim();
+      if (val) localStorage.setItem('toolrar_social_' + id, val);
+    });
+    var name = document.getElementById('blogNameInput').value.trim();
+    if (name) localStorage.setItem('toolrar_blog_name', name);
+    pushConfigToGitHub(cfg, document.getElementById('publishSettingsMsg'));
+  });
+
+  // Load saved settings
+  function loadBlogSettings() {
+    var n = localStorage.getItem('toolrar_blog_name');
+    var u = localStorage.getItem('toolrar_blog_url');
+    var d = localStorage.getItem('toolrar_blog_desc');
+    if (n) document.getElementById('blogNameInput').value = n;
+    if (u) document.getElementById('blogUrlInput').value = u;
+    if (d) document.getElementById('blogDescInput').value = d;
+    ['telegram','twitter','instagram','facebook'].forEach(function(id) {
+      var v = localStorage.getItem('toolrar_social_' + id);
+      if (v) document.getElementById('social' + id.charAt(0).toUpperCase() + id.slice(1)).value = v;
+    });
+  }
+  loadBlogSettings();
+
+  function updateStats() {
+    document.getElementById('statCategories').textContent = categories.length;
+    // Post count from session
+    var pc = sessionStorage.getItem('toolrar_post_count');
+    document.getElementById('statPosts').textContent = pc || '0';
+  }
+  updateStats();
+
+  // Date default
+  document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
+
+  // Publish
+  function getGhConfig() {
+    return {
+      token: localStorage.getItem('gh_token') || '',
+      user: localStorage.getItem('gh_user') || '',
+      repo: localStorage.getItem('gh_repo') || '',
+      branch: localStorage.getItem('gh_branch') || 'main',
+      path: localStorage.getItem('gh_path') || 'src/pages/blog'
+    };
+  }
+
+  document.getElementById('publishBtn').addEventListener('click', function() {
+    var cfg = getGhConfig();
+    var title = document.getElementById('titleInput').value.trim();
+    var slug = document.getElementById('slugInput').value.trim();
+    var desc = document.getElementById('descInput').value.trim();
+    var content = document.getElementById('contentInput').value.trim();
+    var tags = document.getElementById('tagsInput').value.trim();
+    var cat = document.getElementById('categorySelect').value;
+    var dateVal = document.getElementById('dateInput').value || new Date().toISOString().split('T')[0];
+    var msg = document.getElementById('publishMsg');
+    var btn = this;
+
+    if (!cfg.token || !cfg.user || !cfg.repo) { showMsg(msg, 'يرجى إدخال بيانات GitHub في إعدادات النشر أولاً', 'error'); return; }
+    if (!title || !content || !slug) { showMsg(msg, 'يرجى ملء عنوان المقال والمحتوى والـ slug', 'error'); return; }
+
+    var isEdit = sessionStorage.getItem('edit_path') ? true : false;
+    var fm = '---\n';
+    fm += 'title: "' + title.replace(/"/g, '\\"') + '"\n';
+    fm += 'description: "' + (desc || '').replace(/"/g, '\\"') + '"\n';
+    fm += 'date: ' + dateVal + '\n';
+    fm += 'author: "مدونة ToolRar"\n';
+    if (cat) fm += 'category: "' + cat + '"\n';
+    if (tags) fm += 'tags: [' + tags.split(',').map(function(t) { return '"' + t.trim() + '"'; }).join(', ') + ']\n';
+    fm += '---\n\n';
+    var fullContent = fm + content;
+    var encoded = unicodeBase64(fullContent);
+    var filePath = isEdit ? sessionStorage.getItem('edit_path') : (cfg.path + '/' + slug + '.md');
+    var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(cfg.user) + '/' + encodeURIComponent(cfg.repo) + '/contents/' + filePath;
+
+    btn.disabled = true;
+    btn.textContent = 'جاري النشر...';
+    showMsg(msg, (isEdit ? 'جاري تحديث' : 'جاري إنشاء') + ' الملف ونشره على GitHub...', 'loading');
+
+    // Upload image first if any
+    var uploadPromise = Promise.resolve();
+    if (uploadedImage) {
+      var ext = uploadedImage.name.split('.').pop();
+      var imgName = slug + '-' + Date.now() + '.' + ext;
+      var imgPath = 'public/images/' + imgName;
+      var imgUrl = 'https://api.github.com/repos/' + encodeURIComponent(cfg.user) + '/' + encodeURIComponent(cfg.repo) + '/contents/' + imgPath;
+      var altText = document.getElementById('imageAltInput').value.trim() || 'صورة المقال';
+      var titleText = document.getElementById('imageTitleInput').value.trim() || 'صورة مقال ' + title;
+      uploadPromise = fetch(imgUrl, {
+        method: 'PUT',
+        headers: { 'Authorization': 'token ' + cfg.token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+        body: JSON.stringify({ message: 'رفع صورة: ' + imgName, content: uploadedImage.data, branch: cfg.branch })
+      }).then(function(r) {
+        if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ في رفع الصورة'); });
+        return r.json();
+      }).then(function() {
+        var imgMd = '\n![' + altText + '](/images/' + imgName + ' "' + titleText + '")\n\n';
+        fullContent = fm + imgMd + content;
+        encoded = unicodeBase64(fullContent);
+      });
+    }
+
+    uploadPromise.then(function() {
+      var body = { message: (isEdit ? 'تحديث مقال: ' : 'نشر مقال: ') + title + ' [' + dateVal + ']', content: encoded, branch: cfg.branch };
+      if (isEdit) body.sha = sessionStorage.getItem('edit_sha');
+      return fetch(apiUrl, {
+        method: 'PUT',
+        headers: { 'Authorization': 'token ' + cfg.token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+        body: JSON.stringify(body)
+      });
+    }).then(function(resp) {
+      if (!resp.ok) return resp.json().then(function(err) { throw new Error(err.message || 'خطأ ' + resp.status); });
+      return resp.json();
+    }).then(function(data) {
+      btn.disabled = false;
+      btn.textContent = isEdit ? 'تحديث المقال على GitHub' : 'نشر المقال على GitHub';
+      var extra = uploadedImage ? '\nوالصورة المرفوعة' : '';
+      showMsg(msg, (isEdit ? 'تم التحديث' : 'تم النشر') + ' بنجاح' + extra + '!\n\nالملف: ' + filePath + '\nCloudflare Pages سينشر الموقع تلقائياً.', 'success');
+      if (!isEdit) {
+        var pc = parseInt(sessionStorage.getItem('toolrar_post_count') || '0') + 1;
+        sessionStorage.setItem('toolrar_post_count', pc.toString());
+        document.getElementById('statPosts').textContent = pc;
+      }
+      sessionStorage.removeItem('edit_sha');
+      sessionStorage.removeItem('edit_path');
+      sessionStorage.removeItem('edit_name');
+      document.getElementById('titleInput').value = '';
+      document.getElementById('slugInput').value = '';
+      document.getElementById('descInput').value = '';
+      document.getElementById('contentInput').value = '';
+      document.getElementById('tagsInput').value = '';
+      document.getElementById('slugPreview').textContent = 'blog/{slug}.md';
+      document.getElementById('imageStatus').style.display = 'none';
+      document.getElementById('imageMetaFields').style.display = 'none';
+      document.getElementById('imageInput').value = '';
+      document.getElementById('imageAltInput').value = '';
+      document.getElementById('imageTitleInput').value = '';
+      uploadedImage = null;
+    }).catch(function(err) {
+      btn.disabled = false;
+      btn.textContent = isEdit ? 'تحديث المقال على GitHub' : 'نشر المقال على GitHub';
+      showMsg(msg, 'خطأ: ' + err.message, 'error');
+    });
+  });
+
+  // ====== Articles Management ======
+  var artsData = [];
+  var artsSortCol = 'date';
+  var artsSortDir = -1;
+
+  function parseFrontmatter(md) {
+    var result = { frontmatter: {}, content: md };
+    var m = md.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (!m) return result;
+    result.content = (m[2] || '').trim();
+    var lines = m[1].split('\n');
+    lines.forEach(function(l) {
+      var sep = l.indexOf(': ');
+      if (sep < 0) { sep = l.indexOf(':'); }
+      if (sep < 0) return;
+      var k = l.substring(0, sep).trim();
+      var v = l.substring(sep + 1).trim();
+      if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1);
+      if (v.startsWith('[') && v.endsWith(']')) {
+        v = v.slice(1, -1).split(',').map(function(t) { return t.trim().replace(/^"|"$/g, ''); });
+      }
+      result.frontmatter[k] = v;
+    });
+    return result;
+  }
+
+  function buildFrontmatter(fm) {
+    var out = '---\n';
+    out += 'title: "' + (fm.title || '').replace(/"/g, '\\"') + '"\n';
+    out += 'description: "' + (fm.description || '').replace(/"/g, '\\"') + '"\n';
+    out += 'date: ' + (fm.date || new Date().toISOString().split('T')[0]) + '\n';
+    out += 'author: "' + (fm.author || 'مدونة ToolRar').replace(/"/g, '\\"') + '"\n';
+    if (fm.category) out += 'category: "' + fm.category + '"\n';
+    if (fm.tags && fm.tags.length) {
+      out += 'tags: [' + fm.tags.map(function(t) { return '"' + t.trim() + '"'; }).join(', ') + ']\n';
+    }
+    out += '---\n\n';
+    return out;
+  }
+
+  function ghApi(path, method, body) {
+    var cfg = getGhConfig();
+    var opts = {
+      headers: { 'Authorization': 'token ' + cfg.token, 'Accept': 'application/vnd.github.v3+json' }
+    };
+    if (body) { opts.method = method || 'PUT'; opts.body = JSON.stringify(body); opts.headers['Content-Type'] = 'application/json'; }
+    else { opts.method = method || 'GET'; }
+    return fetch('https://api.github.com/repos/' + encodeURIComponent(cfg.user) + '/' + encodeURIComponent(cfg.repo) + path, opts);
+  }
+
+  function fetchArticlesFromGitHub() {
+    var cfg = getGhConfig();
+    if (!cfg.token || !cfg.user || !cfg.repo) {
+      document.getElementById('artsListContainer').innerHTML = '<div class="arts-empty"><p style="color:#EF4444">يرجى إعداد بيانات GitHub أولاً في إعدادات النشر</p></div>';
+      return Promise.reject('no config');
+    }
+    document.getElementById('artsListContainer').innerHTML = '<div class="arts-loading"><div class="spinner"></div> جاري تحميل المقالات...</div>';
+    var promises = [
+      ghApi('/contents/' + cfg.path).then(function(r) {
+        if (!r.ok) return [];
+        return r.json();
+      }).catch(function() { return []; }),
+      ghApi('/contents/' + cfg.path + '/_archived').then(function(r) {
+        if (!r.ok) return [];
+        return r.json();
+      }).catch(function() { return []; })
+    ];
+    return Promise.all(promises).then(function(results) {
+      var all = [];
+      var seen = {};
+      results.forEach(function(files, idx) {
+        if (!Array.isArray(files)) return;
+        files.forEach(function(f) {
+          if (!f.name || !f.name.endsWith('.md') || seen[f.name]) return;
+          seen[f.name] = true;
+          all.push({ name: f.name, path: f.path, sha: f.sha, archived: idx === 1, _loading: true });
+        });
+      });
+      artsData = all;
+      if (all.length === 0) {
+        document.getElementById('artsListContainer').innerHTML = '<div class="arts-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><p>لا توجد مقالات بعد</p></div>';
+        document.getElementById('artsCount').textContent = '0 مقال';
+        return;
+      }
+      renderArtsTable();
+      return all;
+    });
+  }
+
+  function renderArtsTable() {
+    var statusFilter = document.getElementById('artsFilterStatus').value;
+    var catFilter = document.getElementById('artsFilterCategory').value;
+    var search = document.getElementById('artsSearchInput').value.trim().toLowerCase();
+
+    var filtered = artsData.filter(function(a) {
+      if (a._loading) return true;
+      if (statusFilter === 'published' && a.archived) return false;
+      if (statusFilter === 'archived' && !a.archived) return false;
+      if (catFilter !== 'all' && a.fm && a.fm.category !== catFilter) return false;
+      if (search && a.fm && a.fm.title && a.fm.title.toLowerCase().indexOf(search) === -1 && a.name.toLowerCase().indexOf(search) === -1) return false;
+      return true;
+    });
+
+    filtered.sort(function(a, b) {
+      if (!a.fm || !b.fm) return 0;
+      var va, vb;
+      if (artsSortCol === 'title') { va = (a.fm.title || '').toLowerCase(); vb = (b.fm.title || '').toLowerCase(); }
+      else if (artsSortCol === 'category') { va = (a.fm.category || ''); vb = (b.fm.category || ''); }
+      else { va = a.fm.date || ''; vb = b.fm.date || ''; }
+      if (va < vb) return -1 * artsSortDir;
+      if (va > vb) return 1 * artsSortDir;
+      return 0;
+    });
+
+    document.getElementById('artsCount').textContent = filtered.length + ' مقال' + (filtered.length !== artsData.length ? ' (من أصل ' + artsData.length + ')' : '');
+
+    if (filtered.length === 0) {
+      document.getElementById('artsListContainer').innerHTML = '<div class="arts-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><p>لا توجد مقالات مطابقة</p></div>';
+      return;
+    }
+
+    var html = '<table class="arts-table"><thead><tr>';
+    html += '<th onclick="sortArts(\'title\')">العنوان <span class="sort-arrow' + (artsSortCol === 'title' ? ' active' : '') + '">' + (artsSortCol === 'title' ? (artsSortDir === 1 ? '▲' : '▼') : '▽') + '</span></th>';
+    html += '<th onclick="sortArts(\'category\')">القسم <span class="sort-arrow' + (artsSortCol === 'category' ? ' active' : '') + '">' + (artsSortCol === 'category' ? (artsSortDir === 1 ? '▲' : '▼') : '▽') + '</span></th>';
+    html += '<th onclick="sortArts(\'date\')">التاريخ <span class="sort-arrow' + (artsSortCol === 'date' ? ' active' : '') + '">' + (artsSortCol === 'date' ? (artsSortDir === 1 ? '▲' : '▼') : '▽') + '</span></th>';
+    html += '<th>الحالة</th><th>الإجراءات</th></tr></thead><tbody>';
+
+    filtered.forEach(function(a) {
+      if (a._loading) {
+        html += '<tr><td colspan="5"><div class="arts-loading" style="padding:12px"><div class="spinner"></div> جاري التحميل...</div></td></tr>';
+        return;
+      }
+      var fm = a.fm || {};
+      var title = fm.title || a.name.replace('.md', '');
+      var cat = fm.category || '';
+      var date = fm.date || '';
+      var formattedDate = date ? new Date(date).toLocaleDateString('ar-SA', { year: 'numeric', month: 'short', day: 'numeric' }) : '-';
+      var slug = a.name.replace('.md', '');
+      var blogUrl = '/blog/' + slug + '.html';
+      var isArchived = a.archived;
+      var isLocal = a._local || !a.sha;
+
+      html += '<tr>';
+      html += '<td><div class="art-title"><a href="' + blogUrl + '" target="_blank" title="' + escHtml(title) + '">' + escHtml(title) + '</a></div><div class="art-meta">' + escHtml(slug) + '</div></td>';
+      html += '<td>' + escHtml(cat) + '</td>';
+      html += '<td style="white-space:nowrap">' + formattedDate + '</td>';
+      html += '<td><span class="art-status ' + (isArchived ? 'art-status-archived' : 'art-status-published') + '">' + (isArchived ? 'مؤرشف' : 'منشور') + '</span></td>';
+      html += '<td><div class="art-actions">';
+      if (isLocal) {
+        html += '<button onclick="editLocalArticle(\'' + a.path.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + '\',\'' + a.name.replace(/'/g, "\\'") + '\')" style="background:#EEF2FF;color:#6366F1" title="تعديل"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg> تعديل</button>';
+        html += '<button onclick="window.open(\'' + blogUrl + '\',\'_blank\')" style="background:#F1F5F9;color:#475569" title="عرض"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></button>';
+      } else {
+        html += '<button onclick="editArticle(\'' + a.sha + '\',\'' + a.path.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + '\')" style="background:#EEF2FF;color:#6366F1" title="تعديل"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg> تعديل</button>';
+        html += '<button onclick="window.open(\'' + blogUrl + '\',\'_blank\')" style="background:#F1F5F9;color:#475569" title="عرض"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></button>';
+        if (isArchived) {
+          html += '<button onclick="unarchiveArticle(\'' + a.sha + '\',\'' + a.path.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + '\',\'' + a.name.replace(/'/g, "\\'") + '\')" style="background:#d1fae5;color:#065f46" title="نشر"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> نشر</button>';
+        } else {
+          html += '<button onclick="archiveArticle(\'' + a.sha + '\',\'' + a.path.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + '\',\'' + a.name.replace(/'/g, "\\'") + '\')" style="background:#fef3c7;color:#92400e" title="أرشفة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg> أرشفة</button>';
+        }
+        html += '<button onclick="deleteArticle(\'' + a.sha + '\',\'' + a.path.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + '\',\'' + a.name.replace(/'/g, "\\'") + '\')" style="background:#fef2f2;color:#dc2626" title="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>';
+      }
+      html += '</div></td>';
+      html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+    document.getElementById('artsListContainer').innerHTML = html;
+  }
+
+  window.sortArts = function(col) {
+    if (artsSortCol === col) artsSortDir *= -1;
+    else { artsSortCol = col; artsSortDir = -1; }
+    renderArtsTable();
+  };
+
+  function loadArticleContent(sha, path) {
+    return ghApi('/contents/' + path).then(function(r) {
+      if (!r.ok) throw new Error('فشل تحميل المقال');
+      return r.json();
+    }).then(function(data) {
+      var decoded = atob(data.content.replace(/\n/g, ''));
+      var parsed = parseFrontmatter(decoded);
+      var fm = parsed.frontmatter;
+      return {
+        sha: data.sha,
+        path: data.path,
+        name: data.name.replace('.md', ''),
+        decoded: decoded,
+        fm: fm,
+        content: parsed.content
+      };
+    });
+  }
+
+  window.editArticle = function(sha, path) {
+    var msg = document.getElementById('artsListContainer').querySelector('.arts-loading, .arts-empty');
+    loadArticleContent(sha, path).then(function(article) {
+      var fm = article.fm;
+      document.getElementById('titleInput').value = fm.title || '';
+      var slug = article.name;
+      document.getElementById('slugInput').value = slug;
+      document.getElementById('slugPreview').textContent = 'blog/' + slug + '.md';
+      document.getElementById('descInput').value = fm.description || '';
+      document.getElementById('dateInput').value = fm.date || new Date().toISOString().split('T')[0];
+      document.getElementById('contentInput').value = article.content || '';
+      document.getElementById('tagsInput').value = (fm.tags || []).join(', ');
+      if (fm.category) document.getElementById('categorySelect').value = fm.category;
+      sessionStorage.setItem('edit_sha', article.sha);
+      sessionStorage.setItem('edit_path', article.path);
+      sessionStorage.setItem('edit_name', article.name);
+      document.getElementById('publishBtn').textContent = 'تحديث المقال على GitHub';
+      switchTab('articles');
+      showMsg(document.getElementById('publishMsg'), 'تم تحميل المقال للتعديل. قم بإجراء التغييرات ثم اضغط "تحديث المقال"', 'loading');
+    }).catch(function(err) {
+      alert('خطأ: ' + err.message);
+    });
+  };
+
+  window.editLocalArticle = function(path, name) {
+    var fm = null;
+    artsData.forEach(function(a) { if (a.path === path && a.fm) fm = a.fm; });
+    if (!fm) { alert('تعذر تحميل بيانات المقال'); return; }
+    document.getElementById('titleInput').value = fm.title || '';
+    var slug = name.replace('.md', '');
+    document.getElementById('slugInput').value = slug;
+    document.getElementById('slugPreview').textContent = 'blog/' + slug + '.md';
+    document.getElementById('descInput').value = fm.description || '';
+    document.getElementById('dateInput').value = fm.date || new Date().toISOString().split('T')[0];
+    document.getElementById('tagsInput').value = (fm.tags || []).join(', ');
+    if (fm.category) document.getElementById('categorySelect').value = fm.category;
+    sessionStorage.removeItem('edit_sha');
+    sessionStorage.removeItem('edit_path');
+    sessionStorage.removeItem('edit_name');
+    document.getElementById('publishBtn').textContent = 'نشر المقال على GitHub';
+    switchTab('articles');
+    showMsg(document.getElementById('publishMsg'), 'تم تحميل البيانات. يمكنك التعديل ثم النشر عبر GitHub.', 'loading');
+  };
+
+  window.deleteArticle = function(sha, path, name) {
+    if (!confirm('هل أنت متأكد من حذف "' + name.replace('.md', '') + '"؟\n\nهذا الإجراء لا يمكن التراجع عنه!')) return;
+    if (!confirm('تأكيد الحذف النهائي للمقال؟')) return;
+    var msg = document.getElementById('artsListContainer');
+    ghApi('/contents/' + path, 'DELETE', { message: 'حذف مقال: ' + name, sha: sha, branch: getGhConfig().branch })
+      .then(function(r) {
+        if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ ' + r.status); });
+        showMsg(document.getElementById('publishMsg'), 'تم حذف المقال بنجاح', 'success');
+        fetchArticlesFromGitHub();
+      }).catch(function(err) {
+        alert('خطأ في الحذف: ' + err.message);
+        fetchArticlesFromGitHub();
+      });
+  };
+
+  window.archiveArticle = function(sha, path, name) {
+    if (!confirm('هل تريد أرشفة "' + name.replace('.md', '') + '"؟\n\nالمقال المؤرشف لا يظهر للزوار ولا لمحركات البحث.')) return;
+    var cfg = getGhConfig();
+    var archivedPath = cfg.path + '/_archived/' + name;
+    ghApi('/contents/' + path).then(function(r) {
+      if (!r.ok) throw new Error('فشل تحميل المقال');
+      return r.json();
+    }).then(function(data) {
+      var content = data.content;
+      return ghApi('/contents/' + archivedPath, 'PUT', { message: 'أرشفة مقال: ' + name, content: content, branch: cfg.branch });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ في الأرشفة'); });
+      return ghApi('/contents/' + path, 'DELETE', { message: 'نقل مقال إلى الأرشيف: ' + name, sha: sha, branch: cfg.branch });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ في حذف المقال القديم'); });
+      showMsg(document.getElementById('publishMsg'), 'تم أرشفة المقال بنجاح', 'success');
+      fetchArticlesFromGitHub();
+    }).catch(function(err) {
+      alert('خطأ: ' + err.message);
+      fetchArticlesFromGitHub();
+    });
+  };
+
+  window.unarchiveArticle = function(sha, path, name) {
+    if (!confirm('هل تريد إعادة نشر "' + name.replace('.md', '') + '"؟')) return;
+    var cfg = getGhConfig();
+    var blogPath = cfg.path + '/' + name;
+    ghApi('/contents/' + path).then(function(r) {
+      if (!r.ok) throw new Error('فشل تحميل المقال');
+      return r.json();
+    }).then(function(data) {
+      return ghApi('/contents/' + blogPath, 'PUT', { message: 'إعادة نشر مقال من الأرشيف: ' + name, content: data.content, branch: cfg.branch });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ في إعادة النشر'); });
+      return ghApi('/contents/' + path, 'DELETE', { message: 'حذف المقال من الأرشيف: ' + name, sha: sha, branch: cfg.branch });
+    }).then(function(r) {
+      if (!r.ok) return r.json().then(function(e) { throw new Error(e.message || 'خطأ في حذف النسخة المؤرشفة'); });
+      showMsg(document.getElementById('publishMsg'), 'تم إعادة نشر المقال بنجاح', 'success');
+      fetchArticlesFromGitHub();
+    }).catch(function(err) {
+      alert('خطأ: ' + err.message);
+      fetchArticlesFromGitHub();
+    });
+  };
+
+  // Wire up filter/search events
+  document.getElementById('artsFilterStatus').addEventListener('change', renderArtsTable);
+  document.getElementById('artsFilterCategory').addEventListener('change', renderArtsTable);
+  document.getElementById('artsSearchInput').addEventListener('input', renderArtsTable);
+  document.getElementById('artsRefreshBtn').addEventListener('click', function() {
+    var cfg = getGhConfig();
+    if (cfg.token && cfg.user && cfg.repo) { fetchArticlesFromGitHub(); }
+    else { loadLocalArticles(); }
+  });
+
+  function loadLocalArticles() {
+    document.getElementById('artsListContainer').innerHTML = '<div class="arts-loading"><div class="spinner"></div> جاري تحميل المقالات...</div>';
+    return fetch('/articles.json').then(function(r) {
+      if (!r.ok) throw new Error('فشل تحميل المقالات');
+      return r.json();
+    }).then(function(data) {
+      artsData = (data.articles || []).map(function(a) {
+        return {
+          name: a.name,
+          path: a.path,
+          slug: a.slug,
+          sha: null,
+          archived: false,
+          _loading: false,
+          fm: a.frontmatter || {},
+          _local: true
+        };
+      });
+      if (artsData.length === 0) {
+        document.getElementById('artsListContainer').innerHTML = '<div class="arts-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><p>لا توجد مقالات بعد. اكتب أول مقال من تبويب "المقالات".</p></div>';
+        document.getElementById('artsCount').textContent = '0 مقال';
+        return;
+      }
+      renderArtsTable();
+      updateCategoryFilter();
+    }).catch(function() {
+      document.getElementById('artsListContainer').innerHTML = '<div class="arts-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><p>لا توجد مقالات بعد. اكتب أول مقال من تبويب "المقالات".</p></div>';
+      document.getElementById('artsCount').textContent = '0 مقال';
+    });
+  }
+
+  function updateCategoryFilter() {
+    var sel = document.getElementById('artsFilterCategory');
+    var cats = {};
+    artsData.forEach(function(a) {
+      if (a.fm && a.fm.category) cats[a.fm.category] = true;
+    });
+    var current = sel.value;
+    sel.innerHTML = '<option value="all">جميع الأقسام</option>';
+    Object.keys(cats).sort().forEach(function(c) { sel.innerHTML += '<option value="' + escHtml(c) + '">' + escHtml(c) + '</option>'; });
+    if (current) sel.value = current;
+  }
+
+  // Load articles when switching to manage tab
+  var origSwitchTab = window.switchTab;
+  window.switchTab = function(tabId) {
+    origSwitchTab(tabId);
+    if (tabId === 'ai') {
+      populateAiCategories();
+    } else if (tabId === 'manage-articles') {
+      var cfg = getGhConfig();
+      if (cfg.token && cfg.user && cfg.repo) {
+        fetchArticlesFromGitHub().then(function() {
+          var loadPromises = artsData.map(function(a) {
+            if (a._loading) {
+              return loadArticleContent(a.sha, a.path).then(function(art) {
+                a.fm = art.fm;
+                a._loading = false;
+              }).catch(function() {
+                a.fm = {};
+                a._loading = false;
+              });
+            }
+            return Promise.resolve();
+          });
+          return Promise.all(loadPromises);
+        }).then(function() {
+          renderArtsTable();
+          updateCategoryFilter();
+        });
+      } else {
+        loadLocalArticles();
+      }
+    }
+  };
+
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+    if (!confirm('هل أنت متأكد من تسجيل الخروج؟')) return;
+    localStorage.removeItem('gh_token');
+    localStorage.removeItem('gh_user');
+    localStorage.removeItem('gh_repo');
+    localStorage.removeItem('gh_branch');
+    localStorage.removeItem('gh_path');
+    window.location.href = '/blog.html';
+  });
+
+  // ====== AI Tab (الذكاء الاصطناعي) ======
+  var aiModelsByProvider = {
+    google: [
+      { value: 'gemini-2.5-flash', text: 'gemini-2.5-flash (أحدث نموذج سريع - توليد نصوص وأكواد)' },
+      { value: 'gemini-2.5-pro', text: 'gemini-2.5-pro (ذكاء فائق ومنطق عالي - نصوص وأكواد معقدة)' },
+      { value: 'gemini-2.0-flash', text: 'gemini-2.0-flash (سريع جداً وذكي - نصوص وأكواد)' },
+      { value: 'gemini-2.0-flash-thinking-exp', text: 'gemini-2.0-flash-thinking-exp (استدلال وتفكير عميق - حل مشكلات وبرمجة)' },
+      { value: 'gemini-1.5-flash', text: 'gemini-1.5-flash (افتراضي متزن وسياق طويل - نصوص وأكواد)' },
+      { value: 'gemini-1.5-pro', text: 'gemini-1.5-pro (تحليل عميق وسياق ضخم - نصوص وأكواد)' }
+    ],
+    opencode: [
+      { value: 'qwen3.6-plus-free', text: 'qwen3.6-plus-free (كوين 3.6 بلس مجاني - نصوص وبرمجة)' },
+      { value: 'deepseek-v4-flash-free', text: 'deepseek-v4-flash-free (ديب سيك v4 فلاش مجاني - سريع جداً)' },
+      { value: 'minimax-m3-free', text: 'minimax-m3-free (مينيمكس 3 مجاني - نصوص ومقالات وسياق كبير)' },
+      { value: 'mimo-v2.5-free', text: 'mimo-v2.5-free (ميمو 2.5 مجاني - برمجة وتوليد أكواد)' },
+      { value: 'big-pickle', text: 'big-pickle (بيج بيكل مجاني - برمجة وتوليد أكواد)' },
+      { value: 'nemotron-3-ultra-free', text: 'nemotron-3-ultra-free (نيموترون 3 الترا مجاني)' },
+      { value: 'nemotron-3-super-free', text: 'nemotron-3-super-free (نيموترون مجاني - نصوص ومقالات)' }
+    ],
+    openrouter: [
+      { value: 'deepseek/deepseek-v4-flash:free', text: 'DeepSeek V4 Flash (free) - ديب سيك V4 فلاش مجاني' },
+      { value: 'z-ai/glm-4.5-air:free', text: 'GLM 4.5 Air (free) - جي إل إم 4.5 إير مجاني' },
+      { value: 'moonshotai/kimi-k2.6:free', text: 'Kimi K2.6 (free) - كيمي K2.6 مجاني' },
+      { value: 'poolside/laguna-m.1:free', text: 'Laguna M.1 (free) - لاجونا M.1 مجاني' },
+      { value: 'poolside/laguna-xs.2:free', text: 'Laguna XS.2 (free) - لاجونا XS.2 مجاني' },
+      { value: 'openai/gpt-oss-120b:free', text: 'gpt-oss-120b (free) - جي بي تي أوس 120b مجاني' }
+    ],
+    groq: [
+      { value: 'llama-3.3-70b-versatile', text: 'llama-3.3-70b-versatile (نموذج ميتا القوي - نصوص ومقالات ومحادثة)' },
+      { value: 'deepseek-r1-distill-llama-70b', text: 'deepseek-r1-distill-llama-70b (تفكير واستدلال - برمجة وكود ونصوص معقدة)' },
+      { value: 'deepseek-r1-distill-qwen-32b', text: 'deepseek-r1-distill-qwen-32b (تفكير واستدلال ممتاز - برمجة وكود ونصوص)' },
+      { value: 'qwen-2.5-coder-32b', text: 'qwen-2.5-coder-32b (نموذج علي بابا المتخصص - برمجة وتوليد أكواد)' },
+      { value: 'llama-3.1-8b-instant', text: 'llama-3.1-8b-instant (نموذج ميتا السريع - نصوص ومحادثة خفيفة)' },
+      { value: 'mixtral-8x7b-32768', text: 'mixtral-8x7b-32768 (سياق طويل 32k - نصوص وبرمجة)' },
+      { value: 'gemma2-9b-it', text: 'gemma2-9b-it (نموذج قوقل خفيف - نصوص ومحادثة)' }
+    ],
+    cerebras: [
+      { value: 'gpt-oss-120b', text: 'gpt-oss-120b (استدلال وتفكير عميق فائق السرعة - نصوص وأكواد)' },
+      { value: 'zai-glm-4.7', text: 'zai-glm-4.7 (نموذج محادثة ذكي وفائق السرعة - نصوص وأكواد)' }
+    ],
+    siliconflow: [
+      { value: 'deepseek-ai/DeepSeek-R1', text: 'DeepSeek-R1 (برمجة/تفكير - الأقوى)' },
+      { value: 'deepseek-ai/DeepSeek-V4-Pro', text: 'DeepSeek-V4-Pro (برمجة)' },
+      { value: 'deepseek-ai/DeepSeek-V4-Flash', text: 'DeepSeek-V4-Flash (برمجة/سريع)' },
+      { value: 'zai-org/GLM-5.1', text: 'GLM-5.1 (برمجة - GLM)' },
+      { value: 'deepseek-ai/DeepSeek-V3.2', text: 'DeepSeek-V3.2 (برمجة/نصوص)' },
+      { value: 'zai-org/GLM-5', text: 'GLM-5 (برمجة - GLM)' },
+      { value: 'deepseek-ai/DeepSeek-V3.1', text: 'DeepSeek-V3.1 (برمجة/نصوص)' },
+      { value: 'Qwen/Qwen3-Coder-30B-A3B-Instruct', text: 'Qwen3-Coder-30B (برمجة)' },
+      { value: 'Qwen/Qwen3-32B', text: 'Qwen3-32B (نصوص/برمجة)' },
+      { value: 'zai-org/GLM-4.5-Air', text: 'GLM-4.5-Air (نصوص - GLM)' },
+      { value: 'zai-org/GLM-5V-Turbo', text: 'GLM-5V-Turbo (نصوص - GLM)' },
+      { value: 'google/gemma-4-31B-it', text: 'Gemma-4-31B (نصوص)' },
+      { value: 'MiniMaxAI/MiniMax-M3', text: 'MiniMax-M3 (نصوص)' },
+      { value: 'moonshotai/Kimi-K2.6', text: 'Kimi-K2.6 (نصوص)' },
+      { value: 'openai/gpt-oss-120b', text: 'GPT-OSS-120B (نصوص)' },
+      { value: 'stepfun-ai/Step-3.5-Flash', text: 'Step-3.5-Flash (نصوص)' },
+      { value: 'Qwen/Qwen3-14B', text: 'Qwen3-14B (نصوص)' },
+      { value: 'Qwen/Qwen3-8B', text: 'Qwen3-8B (نصوص)' },
+      { value: 'Qwen/Qwen2.5-72B-Instruct', text: 'Qwen2.5-72B (نصوص)' },
+      { value: 'Qwen/Qwen2.5-7B-Instruct', text: 'Qwen2.5-7B (نصوص)' }
+    ],
+    routeway: [
+      { value: 'deepseek-v4-flash:free', text: 'DeepSeek V4 Flash (برمجة/سريع)' },
+      { value: 'llama-3.3-70b-instruct:free', text: 'Llama 3.3 70B (نصوص/برمجة)' },
+      { value: 'nemotron-3-nano-30b-a3b:free', text: 'Nemotron 3 Nano 30B (نصوص)' },
+      { value: 'llama-3.1-8b-instruct:free', text: 'Llama 3.1 8B (نصوص)' },
+      { value: 'llama-3.2-3b-instruct:free', text: 'Llama 3.2 3B (نصوص)' },
+      { value: 'llama-3.2-1b-instruct:free', text: 'Llama 3.2 1B (نصوص)' },
+      { value: 'mistral-nemo-instruct:free', text: 'Mistral Nemo (نصوص)' },
+      { value: 'nemotron-nano-9b-v2:free', text: 'Nemotron Nano 9B (نصوص)' },
+      { value: 'minimax-m2:free', text: 'MiniMax M2 (نصوص)' },
+      { value: 'gpt-oss-120b:free', text: 'GPT-OSS 120B (نصوص)' },
+      { value: 'step-3.5-flash:free', text: 'Step 3.5 Flash (نصوص)' },
+      { value: 'ling-2.6-flash:free', text: 'Ling 2.6 Flash (نصوص)' },
+      { value: 'laguna-xs.2:free', text: 'Laguna XS.2 (نصوص)' },
+      { value: 'laguna-m.1:free', text: 'Laguna M.1 (نصوص)' }
+    ],
+    featherless: [
+      { value: 'zai-org/GLM-5.1', text: 'GLM-5.1 (برمجة - GLM الأحدث)' },
+      { value: 'zai-org/GLM-5', text: 'GLM-5 (برمجة - GLM)' },
+      { value: 'zai-org/GLM-4.7', text: 'GLM-4.7 (نصوص/برمجة - GLM)' },
+      { value: 'zai-org/GLM-4.6', text: 'GLM-4.6 (نصوص/برمجة - GLM)' }
+    ],
+    github: [
+      { value: 'openai/gpt-4.1', text: 'GPT-4.1 (برمجة - الأقوى)' },
+      { value: 'deepseek/deepseek-r1', text: 'DeepSeek R1 (برمجة/تفكير)' },
+      { value: 'deepseek/deepseek-r1-0528', text: 'DeepSeek R1-0528 (برمجة/تفكير)' },
+      { value: 'openai/gpt-4o', text: 'GPT-4o (برمجة/نصوص)' },
+      { value: 'deepseek/deepseek-v3-0324', text: 'DeepSeek V3-0324 (برمجة)' },
+      { value: 'mistral-ai/codestral-2501', text: 'Codestral 2501 (برمجة - كود)' },
+      { value: 'meta/meta-llama-3.1-405b-instruct', text: 'Llama 3.1 405B (برمجة/نصوص)' },
+      { value: 'meta/llama-4-maverick-17b-128e-instruct-fp8', text: 'Llama 4 Maverick 17B (نصوص)' },
+      { value: 'meta/llama-3.3-70b-instruct', text: 'Llama 3.3 70B (نصوص)' },
+      { value: 'microsoft/phi-4-reasoning', text: 'Phi-4 Reasoning (برمجة/تفكير)' },
+      { value: 'microsoft/phi-4-mini-reasoning', text: 'Phi-4 Mini Reasoning (برمجة/تفكير)' },
+      { value: 'mistral-ai/mistral-medium-2505', text: 'Mistral Medium 2505 (نصوص)' },
+      { value: 'microsoft/phi-4', text: 'Phi-4 (نصوص/برمجة)' },
+      { value: 'mistral-ai/mistral-small-2503', text: 'Mistral Small 2503 (نصوص)' },
+      { value: 'meta/llama-4-scout-17b-16e-instruct', text: 'Llama 4 Scout 17B (نصوص)' },
+      { value: 'openai/gpt-4.1-mini', text: 'GPT-4.1 Mini (نصوص/سريع)' },
+      { value: 'openai/gpt-4.1-nano', text: 'GPT-4.1 Nano (نصوص/سريع)' },
+      { value: 'openai/gpt-4o-mini', text: 'GPT-4o Mini (نصوص/سريع)' },
+      { value: 'meta/meta-llama-3.1-8b-instruct', text: 'Llama 3.1 8B (نصوص)' },
+      { value: 'mistral-ai/ministral-3b', text: 'Ministral 3B (نصوص)' },
+      { value: 'cohere/cohere-command-a', text: 'Cohere Command A (نصوص)' }
+    ]
+  };
+  var aiEndpoints = {
+    google:'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}',
+    opencode:'https://opencode.ai/zen/v1/chat/completions',
+    openrouter:'https://openrouter.ai/api/v1/chat/completions',
+    groq:'https://api.groq.com/openai/v1/chat/completions',
+    cerebras:'https://api.cerebras.ai/v1/chat/completions',
+    siliconflow:'https://api.siliconflow.com/v1/chat/completions',
+    routeway:'https://api.routeway.ai/v1/chat/completions',
+    featherless:'https://api.featherless.ai/v1/chat/completions',
+    github:'https://models.github.ai/inference/chat/completions'
+  };
+  var aiApiKeys = {
+    google:'AIzaSyBRiyZRp5g8JPQUdJN1dEhh4LAR9MhTItA',
+    opencode:'sk-KQSYcYOXAr5YDBCzFh7jlVlxoSR5ZI4cnc8y56RlJJ9YjROqQhkmuG6fvKLwsWrR',
+    openrouter:'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',
+    groq:'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',
+    cerebras:'csk-8hnwewjmfy46xthhwcn3t22n94tt9t349e2rdkw9xvnf28pc',
+    siliconflow:'sk-uksfscrxjhaynjmlcpbhcvykqqkukmjwqdidjbvsczsjdsge',
+    routeway:'sk-Mrl1csStecbVXviGdJaae157NT5Whg9WVY6ZMqy8wg05AcmJhokX0l9e5SHQjjltcsTlaLhwN8H8HDf1-w5O',
+    featherless:'rc_ad3f761e6bcecf4c751c248e549bc2a045438e268d4c995172d338155615db0d',
+    github:'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'
+  };
+
+  var generatedArticles = {};
+  var aiTotalKeywords = 0;
+
+  window.onAiProviderChange = function(selectedModel) {
+    var ps = document.getElementById('aiProvider');
+    var ms = document.getElementById('aiModel');
+    if (!ps || !ms) return;
+    var prov = ps.value;
+    var models = aiModelsByProvider[prov] || [];
+    ms.innerHTML = '';
+    models.forEach(function(m) {
+      var opt = document.createElement('option');
+      opt.value = m.value;
+      opt.textContent = m.text;
+      ms.appendChild(opt);
+    });
+    if (selectedModel) {
+      ms.value = selectedModel;
+    } else {
+      var saved = localStorage.getItem('ai_selected_model_' + prov);
+      if (saved && models.some(function(m) { return m.value === saved; })) ms.value = saved;
+    }
+    localStorage.setItem('ai_selected_provider', prov);
+    localStorage.setItem('ai_selected_model_' + prov, ms.value);
+  };
+
+  window.onAiModelChange = function() {
+    var ms = document.getElementById('aiModel');
+    var ps = document.getElementById('aiProvider');
+    if (!ms || !ps) return;
+    localStorage.setItem('ai_selected_model_' + ps.value, ms.value);
+  };
+
+  function restoreAiSettings() {
+    var ps = document.getElementById('aiProvider');
+    var ms = document.getElementById('aiModel');
+    if (!ps || !ms) return;
+    var savedProvider = localStorage.getItem('ai_selected_provider');
+    if (savedProvider && aiModelsByProvider[savedProvider]) ps.value = savedProvider;
+    onAiProviderChange();
+  }
+
+  function populateAiCategories() {
+    var sel = document.getElementById('aiCategory');
+    if (!sel) return;
+    var cats = loadCategories();
+    sel.innerHTML = '';
+    cats.forEach(function(c) {
+      var opt = document.createElement('option');
+      opt.value = c.id;
+      opt.textContent = c.name;
+      sel.appendChild(opt);
+    });
+  }
+
+  function callAiApi(provider, model, systemMsg, userMsg, lang, maxTokens) {
+    var key = aiApiKeys[provider];
+    var endpoint = aiEndpoints[provider];
+    if (!key || !endpoint) return Promise.reject('مزود غير مدعوم: ' + provider);
+    endpoint = endpoint.replace('{model}', encodeURIComponent(model)).replace('{key}', key);
+    var body;
+    if (provider === 'google') {
+      body = { contents: [{ role: 'user', parts: [{ text: systemMsg + '\n' + userMsg }] }], generationConfig: { maxOutputTokens: maxTokens || 2048, temperature: 0.7 } };
+    } else {
+      body = { model: model, messages: [{ role: 'system', content: systemMsg }, { role: 'user', content: userMsg }], max_tokens: maxTokens || 2048, temperature: 0.7 };
+      if (provider === 'openrouter') body.headers = { 'HTTP-Referer': 'https://toolrar.com', 'X-Title': 'ToolRar Blog' };
+    }
+    return fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+      body: JSON.stringify(body)
+    }).then(function(r) {
+      if (!r.ok) return r.text().then(function(t) { throw new Error('HTTP ' + r.status + ': ' + t); });
+      return r.json();
+    }).then(function(data) {
+      if (provider === 'google') {
+        var txt = '';
+        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+          data.candidates[0].content.parts.forEach(function(p) { if (p.text) txt += p.text; });
+        }
+        return txt;
+      }
+      return data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content : '';
+    });
+  }
+
+  function cleanAndFormatHtml(html) {
+    if (!html) return '';
+    html = html.replace(/^```(?:html)?\s*\n?/gi, '');
+    html = html.replace(/\n?```\s*$/gi, '');
+    html = html.replace(/(?:\r?\n|^)#{1,4}\s+(.*?)(?:\r?\n|$)/gu, '\n<h2>$1</h2>\n');
+    html = html.replace(/\*\*(.*?)\*\*/gs, '<strong>$1</strong>');
+    html = html.replace(/__(.*?)__/gs, '<strong>$1</strong>');
+    var lines = html.split('\n');
+    var inList = false;
+    for (var li = 0; li < lines.length; li++) {
+      var trimmed = lines[li].trim();
+      var m = trimmed.match(/^[-\*]\s+(.*)$/u);
+      if (m) {
+        if (!inList) { lines[li] = '<ul>\n<li>' + m[1] + '</li>'; inList = true; }
+        else { lines[li] = '<li>' + m[1] + '</li>'; }
+      } else {
+        if (inList && trimmed) { lines[li] = '</ul>\n' + lines[li]; inList = false; }
+      }
+    }
+    if (inList) lines.push('</ul>');
+    html = lines.join('\n');
+    html = html.replace(/<p>\s*<\/p>/gi, '');
+    return html.trim();
+  }
+
+  function slugify(str) {
+    return str.replace(/[^\w\s\u0600-\u06FF-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+  }
+
+  function generateEnSlug(provider, model, title, lang) {
+    var sysMsg = 'You are a URL slug generator. Rules: 1) Extract the core meaning/keywords from the title 2) Generate a short slug (max 5 words, 3-4 is ideal) 3) Use only lowercase English letters and hyphens 4) Remove stop words 5) Be as short as possible. Return ONLY the slug.';
+    var userMsg = 'Title: ' + title + '\nSlug:';
+    return callAiApi(provider, model, sysMsg, userMsg, 'en', 256).then(function(text) {
+      if (!text) { var fallback = slugify(title).replace(/[^\w-]/g,''); if (fallback.length < 3) fallback = 'article-' + Date.now(); return fallback; }
+      text = text.trim().replace(/[^\w-]/g, '').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+      var parts = text.split('-').filter(function(p) { return p.length > 0; }).slice(0, 6);
+      text = parts.join('-');
+      if (text.length < 3) text = slugify(title).replace(/[^\w-]/g,'');
+      if (text.length < 3) text = 'article-' + Date.now();
+      return text.toLowerCase();
+    });
+  }
+
+  function generateArticleContent(provider, model, keyword, lang, extraPrompt) {
+    var langName = lang === 'ar' ? 'العربية' : 'English';
+    var systemMsg = lang === 'ar'
+      ? 'أنت كاتب محتوى متخصص في أدوات الويب والتقنية. اكتب مقالاً متكاملاً ومنسقاً بالعربية الفصحى عن الموضوع المطلوب. يجب أن يكون المقال غنياً بالمعلومات ومنظماً باستخدام علامات HTML (h2, p, ul, li, strong). اكتب مقدمة قوية مشوقة، ثم قسم المحتوى إلى أقسام بعناوين فرعية مناسبة. استخدم أسلوباً احترافياً وجذاباً. تأكد من أن المحتوى أصلي 100% وقيم للقارئ.'
+      : 'You are a professional web content writer. Write a comprehensive, well-formatted article in English using HTML tags (h2, p, ul, li, strong). Write a strong introduction, then divide the content into sections with appropriate subheadings. Make it professional, engaging, and 100% original. Minimum 600 words.';
+    var userMsg = keyword + (extraPrompt ? '\n\n' + extraPrompt : '');
+    return callAiApi(provider, model, systemMsg, userMsg, lang, 4096);
+  }
+
+  function addToQueue(keyword, status) {
+    var list = document.getElementById('queueList');
+    if (!list) return null;
+    var item = document.createElement('div');
+    item.className = 'queue-item';
+    item.innerHTML = '<span class="kw">' + escHtml(keyword) + '</span><span class="status ' + status + '">' + (status === 'pending' ? 'في الانتظار' : status === 'generating' ? 'جاري التوليد...' : status === 'done' ? 'تم ✓' : 'خطأ ✗') + '</span>';
+    list.appendChild(item);
+    return item;
+  }
+
+  function updateQueueStatus(item, status) {
+    if (!item) return;
+    var s = item.querySelector('.status');
+    if (!s) return;
+    s.className = 'status ' + status;
+    s.textContent = status === 'pending' ? 'في الانتظار' : status === 'generating' ? 'جاري التوليد...' : status === 'done' ? 'تم ✓' : 'خطأ ✗';
+  }
+
+  function showToast(msg, type) {
+    type = type || 'success';
+    var c = document.getElementById('toastContainer');
+    if (!c) {
+      c = document.createElement('div');
+      c.id = 'toastContainer';
+      c.style.cssText = 'position:fixed;top:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:8px;max-width:360px';
+      document.body.appendChild(c);
+    }
+    var t = document.createElement('div');
+    t.style.cssText = 'padding:12px 18px;border-radius:10px;font-size:.82rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.12);animation:slideIn .3s ease;' + (type === 'success' ? 'background:#d1fae5;color:#065f46;border:1px solid #a7f3d0' : type === 'error' ? 'background:#fee2e2;color:#991b1b;border:1px solid #fecaca' : 'background:#fef3c7;color:#92400e;border:1px solid #fde68a');
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(function() { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; setTimeout(function() { t.remove(); }, 300); }, 3500);
+  }
+
+  // Preview modal
+  var aiPreviewModal = null;
+  function ensurePreviewModal() {
+    if (aiPreviewModal) return;
+    aiPreviewModal = document.createElement('div');
+    aiPreviewModal.className = 'modal-overlay';
+    aiPreviewModal.style.display = 'none';
+    aiPreviewModal.onclick = function(e) { if (e.target === aiPreviewModal) closeAiPreview(); };
+    aiPreviewModal.innerHTML = '<div class="modal"><div class="modal-header"><h2 id="aiPreviewTitle">معاينة المقال</h2><button class="modal-close" onclick="closeAiPreview()">&times;</button></div><div class="modal-body" id="aiPreviewBody"></div></div>';
+    document.body.appendChild(aiPreviewModal);
+  }
+  window.closeAiPreview = function() { if (aiPreviewModal) aiPreviewModal.style.display = 'none'; };
+  function showAiPreview(data) {
+    ensurePreviewModal();
+    document.getElementById('aiPreviewTitle').textContent = '📄 ' + (data.title || data.keyword);
+    var content = data.content_preview || 'لا يوجد محتوى للمعاينة';
+    document.getElementById('aiPreviewBody').innerHTML = '<div style="margin-bottom:12px;padding:10px;background:#F8FAFC;border-radius:8px;font-size:.82rem"><strong>عنوان المقال:</strong> ' + escHtml(data.keyword) + '<br><strong>الوصف:</strong> ' + escHtml(data.short_desc || '') + '</div><div style="background:#fff;color:#1e293b;padding:16px;border-radius:8px;font-size:.9rem;line-height:1.8;max-height:400px;overflow-y:auto">' + content + '...</div>';
+    aiPreviewModal.style.display = 'flex';
+  }
+
+  // Bulk generation
+  window.startBulkGeneration = function() {
+    var input = document.getElementById('keywordsInput');
+    var lines = input.value.split('\n').filter(function(l) { return l.trim() !== ''; });
+    if (lines.length === 0) { showToast('الرجاء إدخال عناوين المقالات', 'error'); return; }
+    if (lines.length > 100) { showToast('الحد الأقصى 100 عنوان', 'error'); return; }
+    var keywords = lines.map(function(l) { return l.trim(); }).slice(0, 100);
+    aiTotalKeywords = keywords.length;
+    generatedArticles = {};
+    var btn = document.getElementById('startBulkBtn');
+    btn.disabled = true;
+    btn.textContent = 'جاري التوليد...';
+    document.getElementById('publishBar').style.display = 'none';
+    document.getElementById('queueList').innerHTML = '';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressText').innerHTML = '<span class="dot yellow"></span> 0%';
+    var queueItems = [];
+    keywords.forEach(function(kw) { queueItems.push(addToQueue(kw, 'pending')); });
+    var provider = document.getElementById('aiProvider').value;
+    var model = document.getElementById('aiModel').value;
+    var lang = document.getElementById('aiLang').value;
+    var category = document.getElementById('aiCategory').value;
+    var externalUrl = document.getElementById('externalUrl').value.trim();
+    var anchorText = document.getElementById('anchorText').value.trim();
+    var author = document.getElementById('aiAuthor').value;
+    var extraPrompt = '';
+    if (externalUrl && anchorText) {
+      extraPrompt = 'تأكد من إدراج رابط "' + anchorText + '" (الرابط: ' + externalUrl + ') بشكل طبيعي ضمن فقرة مناسبة في المقال. يجب أن يكون الرابط جزءاً طبيعياً من المحتوى.';
+    }
+
+    function processNext(index) {
+      if (index >= keywords.length) {
+        btn.disabled = false;
+        btn.textContent = '🚀 بدء التوليد الجماعي';
+        var totalDone = Object.keys(generatedArticles).length;
+        document.getElementById('publishBar').style.display = 'flex';
+        document.getElementById('publishAllBtn').innerHTML = '📰 نشر الكل (' + totalDone + ')';
+        showToast('تم الانتهاء من توليد ' + totalDone + ' مقال!', 'success');
+        return;
+      }
+      var batchSize = Math.min(2, keywords.length - index);
+      for (var bi = 0; bi < batchSize; bi++) {
+        if (queueItems[index + bi]) updateQueueStatus(queueItems[index + bi], 'generating');
+      }
+      var promises = [];
+      for (var pi = 0; pi < batchSize; pi++) {
+        var ki = index + pi;
+        var kw = keywords[ki];
+        (function(idx, kword) {
+          promises.push(generateArticleContent(provider, model, kword, lang, extraPrompt).then(function(content) {
+            if (!content) { if (queueItems[idx]) updateQueueStatus(queueItems[idx], 'error'); return { error: 'فشل توليد', keyword: kword, index: idx }; }
+            var cleaned = cleanAndFormatHtml(content);
+            var plain = cleaned.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            var shortDesc = plain.substring(0, 160);
+            generatedArticles[idx] = {
+              success: true, keyword: kword, index: idx, id: 'blog_' + Date.now() + '_' + idx,
+              title: kword, short_desc: shortDesc, content_preview: plain.substring(0, 200),
+              content: cleaned, category: document.getElementById('aiCategory').value, author: document.getElementById('aiAuthor').value, provider: provider, model: model, lang: lang,
+              created_at: new Date().toISOString().replace('T', ' ').substring(0, 19)
+            };
+            if (queueItems[idx]) {
+              updateQueueStatus(queueItems[idx], 'done');
+              addArticleActions(queueItems[idx], generatedArticles[idx]);
+            }
+            return { success: true, index: idx };
+          }).catch(function(err) {
+            if (queueItems[idx]) updateQueueStatus(queueItems[idx], 'error');
+            return { error: err.message, keyword: kword, index: idx };
+          }));
+        })(ki, kw);
+      }
+      Promise.all(promises).then(function() {
+        var progress = Math.round(((index + batchSize) / keywords.length) * 100);
+        document.getElementById('progressFill').style.width = progress + '%';
+        document.getElementById('progressText').innerHTML = '<span class="dot ' + (progress >= 100 ? 'green' : 'yellow') + '"></span> ' + progress + '%';
+        processNext(index + batchSize);
+      });
+    }
+
+    function addArticleActions(qel, data) {
+      var actionsDiv = qel.querySelector('.actions');
+      if (!actionsDiv) {
+        actionsDiv = document.createElement('div');
+        actionsDiv.className = 'actions';
+        qel.appendChild(actionsDiv);
+      }
+      var prevBtn = document.createElement('button');
+      prevBtn.className = 'preview-btn';
+      prevBtn.textContent = '👁️';
+      prevBtn.title = 'معاينة';
+      prevBtn.onclick = function() { showAiPreview(data); };
+      actionsDiv.appendChild(prevBtn);
+    }
+
+    processNext(0);
+  };
+
+  function getGhConfig() {
+    return {
+      token: localStorage.getItem('gh_token') || '',
+      user: localStorage.getItem('gh_user') || '',
+      repo: localStorage.getItem('gh_repo') || '',
+      branch: localStorage.getItem('gh_branch') || 'main',
+      path: localStorage.getItem('gh_path') || 'src/pages/blog'
+    };
+  }
+
+  window.publishAllArticles = function() {
+    var total = Object.keys(generatedArticles).length;
+    if (total === 0) { showToast('لا توجد مقالات للنشر', 'error'); return; }
+    var cfg = getGhConfig();
+    if (!cfg.token || !cfg.user || !cfg.repo) { showToast('يرجى إعداد بيانات GitHub أولاً', 'error'); return; }
+    var btn = document.getElementById('publishAllBtn');
+    btn.disabled = true;
+    btn.textContent = 'جاري النشر...';
+    var useEnSlug = document.getElementById('chkEnSlug').checked;
+    var useArticleSchema = document.getElementById('chkArticleSchema').checked;
+    var useFaqSchema = document.getElementById('chkFaqSchema').checked;
+    var useBreadcrumb = document.getElementById('chkBreadcrumb').checked;
+    var author = document.getElementById('aiAuthor').value;
+    var provider = document.getElementById('aiProvider').value;
+    var model = document.getElementById('aiModel').value;
+    var basePath = cfg.path;
+    var published = 0;
+    var errors = 0;
+    var errorList = [];
+    var keys = Object.keys(generatedArticles).sort(function(a,b) { return parseInt(a) - parseInt(b); });
+
+    function publishNext(idx) {
+      if (idx >= keys.length) {
+        btn.disabled = false;
+        var msg = 'تم نشر ' + published + ' مقال بنجاح!';
+        if (errors > 0) msg += ' (' + errors + ' أخطاء)';
+        showToast(msg, 'success');
+        btn.textContent = '✅ تم النشر (' + published + ')';
+        document.getElementById('publishBar').innerHTML = '<span style="color:#10B981;font-weight:700;font-size:.9rem">✅ تم نشر ' + published + ' مقال بنجاح</span>';
+        generatedArticles = {};
+        return;
+      }
+      var data = generatedArticles[keys[idx]];
+      var title = data.title || data.keyword;
+      var slug = slugify(title);
+      var cat = data.category || 'general';
+      var dateStr = (data.created_at || new Date().toISOString()).substring(0, 10);
+      var tags = [cat];
+
+      function doPublish(enSlug) {
+        var finalSlug = enSlug || slug;
+        var frontmatter = '---\ntitle: "' + title.replace(/"/g, '\\"') + '"\ndescription: "' + (data.short_desc || '').replace(/"/g, '\\"') + '"\ndate: ' + dateStr + '\nauthor: "' + author.replace(/"/g, '\\"') + '"\ncategory: "' + cat.replace(/"/g, '\\"') + '"\ntags: [' + tags.map(function(t) { return '"' + t.replace(/"/g, '\\"') + '"'; }).join(', ') + ']\n---\n\n' + (data.content || '');
+        var filePath = basePath + '/' + finalSlug + '.md';
+        var contentB64 = btoa(unescape(encodeURIComponent(frontmatter)));
+        var ghBody = { message: 'إضافة مقال: ' + title, content: contentB64, branch: cfg.branch };
+        return fetch('https://api.github.com/repos/' + encodeURIComponent(cfg.user) + '/' + encodeURIComponent(cfg.repo) + '/contents/' + encodeURIComponent(filePath), {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + cfg.token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+          body: JSON.stringify(ghBody)
+        }).then(function(r) {
+          if (r.ok) { published++; return true; }
+          return r.json().then(function(j) { throw new Error(j.message || 'خطأ في النشر'); });
+        });
+      }
+
+      if (useEnSlug) {
+        generateEnSlug(provider, model, title, data.lang || 'ar').then(function(enSlug) {
+          return doPublish(enSlug);
+        }).then(function() {
+          publishNext(idx + 1);
+        }).catch(function(err) {
+          errors++;
+          errorList.push({ keyword: title, error: err.message });
+          publishNext(idx + 1);
+        });
+      } else {
+        doPublish(null).then(function() {
+          publishNext(idx + 1);
+        }).catch(function(err) {
+          errors++;
+          errorList.push({ keyword: title, error: err.message });
+          publishNext(idx + 1);
+        });
+      }
+    }
+
+    publishNext(0);
+  };
+
+  window.clearSession = function() {
+    document.getElementById('queueList').innerHTML = '';
+    document.getElementById('publishBar').style.display = 'none';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressText').innerHTML = '<span class="dot yellow"></span> 0%';
+    generatedArticles = {};
+    showToast('تم مسح الجلسة', 'info');
+  };
+
+  function initAiTab() {
+    var input = document.getElementById('keywordsInput');
+    if (input) {
+      input.addEventListener('input', function() {
+        var lines = this.value.split('\n').filter(function(l) { return l.trim() !== ''; });
+        var counter = document.getElementById('keywordCounter');
+        if (counter) counter.textContent = lines.length + ' عنوان (الحد الأقصى: 100)';
+      });
+    }
+    restoreAiSettings();
+    populateAiCategories();
+  }
+
+  // ====== Articles Tab AI Generation ======
+  var artAiSavedProvider = '';
+
+  window.onArtAiProviderChange = function() {
+    var ps = document.getElementById('artAiProvider');
+    var ms = document.getElementById('artAiModel');
+    if (!ps || !ms) return;
+    var prov = ps.value;
+    var models = aiModelsByProvider[prov] || [];
+    ms.innerHTML = '';
+    models.forEach(function(m) {
+      var opt = document.createElement('option');
+      opt.value = m.value;
+      opt.textContent = m.text;
+      ms.appendChild(opt);
+    });
+    var saved = localStorage.getItem('art_model_' + prov);
+    if (saved && models.some(function(m) { return m.value === saved; })) ms.value = saved;
+    localStorage.setItem('art_provider', prov);
+    localStorage.setItem('art_model_' + prov, ms.value);
+    artAiSavedProvider = prov;
+  };
+
+  window.onArtAiModelChange = function() {
+    var ms = document.getElementById('artAiModel');
+    var ps = document.getElementById('artAiProvider');
+    if (!ms || !ps) return;
+    localStorage.setItem('art_model_' + ps.value, ms.value);
+  };
+
+  function restoreArtAiSettings() {
+    var ps = document.getElementById('artAiProvider');
+    var ms = document.getElementById('artAiModel');
+    if (!ps || !ms) return;
+    var saved = localStorage.getItem('art_provider');
+    if (saved && aiModelsByProvider[saved]) ps.value = saved;
+    onArtAiProviderChange();
+  }
+
+  function getArtAiProvider() { return document.getElementById('artAiProvider').value; }
+  function getArtAiModel() { return document.getElementById('artAiModel').value; }
+
+  function aiShowLoading(btn) {
+    btn.disabled = true;
+    btn.textContent = '⏳';
+  }
+  function aiHideLoading(btn) {
+    btn.disabled = false;
+    btn.textContent = '🤖';
+  }
+
+  window.aiGenTitle = function(btn) {
+    var cat = document.getElementById('categorySelect');
+    var catText = cat.options[cat.selectedIndex] ? cat.options[cat.selectedIndex].text : 'أدوات الويب';
+    var sysMsg = 'أنت خبير في كتابة عناوين المقالات التقنية والـ SEO. اكتب عنواناً جذاباً ومحسناً لمحركات البحث للمقال المطلوب. يجب أن يكون العنوان بين 40-60 حرفاً وأن يحتوي على الكلمة المفتاحية الأساسية. أعد العنوان فقط دون أي إضافات أو علامات تنصيص.';
+    var userMsg = 'اقترح عنواناً جذاباً لمقال عن "' + catText + '" في مجال أدوات الويب والتقنية.';
+    aiShowLoading(btn);
+    callAiApi(getArtAiProvider(), getArtAiModel(), sysMsg, userMsg, 'ar', 8192).then(function(text) {
+      aiHideLoading(btn);
+      if (text) {
+        text = text.replace(/^["'«»]+|["'»«]+$/g, '').trim();
+        document.getElementById('titleInput').value = text;
+        updateSlug();
+      } else { showToast('لم يتم الحصول على رد من API', 'error'); }
+    }).catch(function(err) { aiHideLoading(btn); showToast('خطأ: ' + (err.message || err), 'error'); console.error('aiGenTitle err:', err); });
+  };
+
+  window.aiGenDesc = function(btn) {
+    var title = document.getElementById('titleInput').value.trim();
+    if (!title) { showToast('اكتب عنوان المقال أولاً', 'error'); return; }
+    var sysMsg = 'أنت خبير SEO في مجال أدوات الويب والتقنية. اكتب وصفاً تعريفياً (Meta Description) للمقال بالعربية بين 150-160 حرفاً. يجب أن يحتوي الوصف على الكلمة المفتاحية الأساسية ويكون جاذباً للنقر مع احترام معايير السيو. أعد الوصف فقط دون أي إضافات.';
+    var userMsg = 'المقال: "' + title + '"\nالوصف:';
+    aiShowLoading(btn);
+    callAiApi(getArtAiProvider(), getArtAiModel(), sysMsg, userMsg, 'ar', 8192).then(function(text) {
+      aiHideLoading(btn);
+      if (text) document.getElementById('descInput').value = text.replace(/^["'«»]+|["'»«]+$/g, '').trim();
+      else showToast('لم يتم الحصول على رد من API', 'error');
+    }).catch(function(err) { aiHideLoading(btn); showToast('خطأ: ' + (err.message || err), 'error'); console.error('aiGenDesc err:', err); });
+  };
+
+  window.aiGenTags = function(btn) {
+    var title = document.getElementById('titleInput').value.trim();
+    if (!title) { showToast('اكتب عنوان المقال أولاً', 'error'); return; }
+    var sysMsg = 'أنت خبير SEO. اقترح 4-7 كلمات مفتاحية مناسبة للمقال تشمل الكلمة المفتاحية الأساسية وكلمات طويلة الذيل وكلمات مساندة. أعدها مفصولة بفاصلة فقط بالعربية. مثال: "أدوات ويب, تحسين محركات البحث, كتابة محتوى, سي ووردبريس"';
+    var userMsg = 'كلمات مفتاحية لمقال بعنوان: "' + title + '"';
+    aiShowLoading(btn);
+    callAiApi(getArtAiProvider(), getArtAiModel(), sysMsg, userMsg, 'ar', 8192).then(function(text) {
+      aiHideLoading(btn);
+      if (text) {
+        text = text.replace(/^["'«»]+|["'»«]+$/g, '').trim();
+        document.getElementById('tagsInput').value = text;
+      } else showToast('لم يتم الحصول على رد من API', 'error');
+    }).catch(function(err) { aiHideLoading(btn); showToast('خطأ: ' + (err.message || err), 'error'); console.error('aiGenTags err:', err); });
+  };
+
+  window.aiGenSlug = function(btn) {
+    var title = document.getElementById('titleInput').value.trim();
+    if (!title) { showToast('اكتب عنوان المقال أولاً', 'error'); return; }
+    var sysMsg = 'أنت خبير SEO ومطور ويب. حول عنوان المقال التالي إلى Slug (رابط URL) احترافي وصديق لمحركات البحث. يجب أن يكون slug قصيراً (30-60 حرفاً)، يحتوي على الكلمة المفتاحية الأساسية فقط، بأحرف إنجليزية صغيرة، وواصلات بين الكلمات. أعد slug فقط.';
+    var userMsg = 'أنتج Slug احترافي من هذا العنوان: "' + title + '"';
+    aiShowLoading(btn);
+    callAiApi(getArtAiProvider(), getArtAiModel(), sysMsg, userMsg, 'ar', 8192).then(function(text) {
+      aiHideLoading(btn);
+      if (text) {
+        text = text.replace(/^["'«»]+|["'»«]+$/g, '').trim().toLowerCase().replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+        document.getElementById('slugInput').value = text;
+        document.getElementById('slugPreview').textContent = 'blog/' + text + '.md';
+      } else showToast('لم يتم الحصول على رد من API', 'error');
+    }).catch(function(err) { aiHideLoading(btn); showToast('خطأ: ' + (err.message || err), 'error'); console.error('aiGenSlug err:', err); });
+  };
+
+  window.aiGenContent = function(btn) {
+    var title = document.getElementById('titleInput').value.trim();
+    var desc = document.getElementById('descInput').value.trim();
+    var tags = document.getElementById('tagsInput').value.trim();
+    var cat = document.getElementById('categorySelect');
+    var catText = cat.options[cat.selectedIndex] ? cat.options[cat.selectedIndex].text : 'أدوات الويب';
+    if (!title) { showToast('اكتب عنوان المقال أولاً', 'error'); return; }
+    var primary = (tags || title).split(',')[0].trim();
+    var sysMsg = 'أنت كاتب محتوى خبير في أدوات الويب والتقنية والـ SEO. اكتب مقالاً كاملاً بصيغة Markdown متوافقة مع Astro. يجب أن تلتزم بالمعايير التالية:\n\n1. طول النص من 650 إلى 1200 كلمة.\n2. يجب أن يحتوي النص على الكلمة المفتاحية الأساسية "' + primary + '" بشكل طبيعي، وأيضاً كلمات مفتاحية طويلة الذيل وكلمات مساندة.\n3. هيكل منظم: ابدأ بفقرة تمهيدية قصيرة (مقدمة)، ثم استخدم عناوين H2 (##) للأقسام الرئيسية، و H3 (###) للأقسام الفرعية.\n4. أضف قسم أسئلة شائعة (FAQ) من 4 إلى 6 أسئلة احترافية تتعلق بعنوان المقال، مع إجابات مختصرة.\n5. التزم بأعلى معايير E-E-A-T (الخبرة، التخصص، المصداقية، الثقة).\n6. استخدم قوائم نقطية (ul/li) وإحصائيات عند الحاجة.\n7. اختم المقال بخاتمة موجزة مع دعوة لاتخاذ إجراء (CTA).\n8. استخدم تنسيق Markdown فقط (لا تستخدم HTML).';
+    var userMsg = 'اكتب مقالاً بصيغة Markdown. العنوان: "' + title + '". الكلمة المفتاحية الأساسية: "' + primary + '". ' + (desc ? 'الوصف: "' + desc + '". ' : '') + (tags ? 'الكلمات المفتاحية: ' + tags + '. ' : '') + 'التصنيف: ' + catText + '.';
+    aiShowLoading(btn);
+    callAiApi(getArtAiProvider(), getArtAiModel(), sysMsg, userMsg, 'ar', 8192).then(function(text) {
+      aiHideLoading(btn);
+      if (text) {
+        text = text.replace(/^```markdown\s*/i, '').replace(/\s*```$/i, '').trim();
+        document.getElementById('contentInput').value = text;
+      } else showToast('لم يتم الحصول على رد من API', 'error');
+    }).catch(function(err) { aiHideLoading(btn); showToast('خطأ: ' + (err.message || err), 'error'); console.error('aiGenContent err:', err); });
+  };
+  // ====== End Articles Tab AI ======
+
+  // ====== End AI Tab ======
+
+  // ====== Automation Tab ======
+  var autoState = { ghToken: '', ghUser: '', ghRepo: '', ghBranch: 'main', cfToken: '', cfEmail: '', cfAccount: '', cfProject: '' };
+
+  function autoLoadState() {
+    autoState.ghToken = localStorage.getItem('auto_gh_token') || document.getElementById('autoTokenInput').value || '';
+    autoState.ghUser = localStorage.getItem('auto_gh_user') || '';
+    autoState.ghRepo = localStorage.getItem('auto_gh_repo') || '';
+    autoState.ghBranch = localStorage.getItem('auto_gh_branch') || 'main';
+    autoState.cfToken = localStorage.getItem('auto_cf_token') || '';
+    autoState.cfEmail = localStorage.getItem('auto_cf_email') || '';
+    autoState.cfAccount = localStorage.getItem('auto_cf_account') || '';
+    autoState.cfProject = localStorage.getItem('auto_cf_project') || '';
+    if (autoState.ghToken) document.getElementById('autoTokenInput').value = autoState.ghToken;
+    if (autoState.cfToken) document.getElementById('autoCfToken').value = autoState.cfToken;
+    if (autoState.cfEmail) document.getElementById('autoCfEmail').value = autoState.cfEmail;
+  }
+
+  function autoSetStatus(id, status, iconColor) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = status;
+    var icon = document.getElementById(id.replace('Status', 'Icon'));
+    if (icon) icon.style.background = iconColor || '#D1D5DB';
+  }
+
+  function autoShowMsg(id, text, type) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text;
+    el.className = 'msg msg-' + (type || 'success');
+  }
+
+  window.autoTestGh = function() {
+    var token = document.getElementById('autoTokenInput').value.trim();
+    if (!token) { autoShowMsg('autoGhMsg', 'الرجاء إدخال GitHub Token', 'error'); return; }
+    autoShowMsg('autoGhMsg', 'جاري التحقق من التوكن...', 'loading');
+    fetch('https://api.github.com/user', { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+      .then(function(r) { if (!r.ok) throw new Error('رمز غير صالح (' + r.status + ')'); return r.json(); })
+      .then(function(user) {
+        autoState.ghUser = user.login;
+        autoState.ghToken = token;
+        localStorage.setItem('auto_gh_token', token);
+        localStorage.setItem('auto_gh_user', user.login);
+        autoSetStatus('autoGhStatus', 'متصل بـ ' + user.login, '#10B981');
+        autoShowMsg('autoGhMsg', '✅ تم التحقق بنجاح! مرحباً ' + user.login, 'success');
+        // Load repos
+        return fetch('https://api.github.com/user/repos?per_page=50&sort=updated', { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } });
+      })
+      .then(function(r) { if (!r.ok) throw new Error('فشل تحميل المستودعات'); return r.json(); })
+      .then(function(repos) {
+        var sel = document.getElementById('autoGhRepo');
+        sel.innerHTML = '';
+        repos.forEach(function(r) {
+          var opt = document.createElement('option');
+          opt.value = r.full_name;
+          opt.textContent = r.full_name + (r.private ? ' 🔒' : '') + ' [' + r.default_branch + ']';
+          sel.appendChild(opt);
+        });
+        if (autoState.ghRepo) sel.value = autoState.ghRepo;
+        document.getElementById('autoGhDetails').style.display = 'block';
+        autoShowGhRepoInfo();
+      })
+      .catch(function(err) { autoShowMsg('autoGhMsg', '❌ ' + err.message, 'error'); autoSetStatus('autoGhStatus', 'خطأ في الاتصال', '#EF4444'); });
+  };
+
+  function autoShowGhRepoInfo() {
+    var sel = document.getElementById('autoGhRepo');
+    var name = sel.value;
+    if (!name) return;
+    autoState.ghRepo = name;
+    autoState.ghBranch = document.getElementById('autoGhBranch').value || 'main';
+    var el = document.getElementById('autoRepoInfo');
+    el.innerHTML = '📦 <strong>' + name + '</strong><br>🌿 الفرع: ' + autoState.ghBranch + '<br><span style="color:#6b7280">✅ تم تحديد المستودع بنجاح</span>';
+  }
+
+  window.autoSaveGhConfig = function() {
+    autoShowGhRepoInfo();
+    localStorage.setItem('auto_gh_repo', autoState.ghRepo);
+    localStorage.setItem('auto_gh_branch', autoState.ghBranch);
+    // Also save to main config
+    var parts = autoState.ghRepo.split('/');
+    localStorage.setItem('gh_user', parts[0] || '');
+    localStorage.setItem('gh_repo', parts[1] || '');
+    localStorage.setItem('gh_branch', autoState.ghBranch);
+    localStorage.setItem('gh_token', autoState.ghToken);
+    localStorage.setItem('gh_path', 'src/pages/blog');
+    autoShowMsg('autoGhMsg', '✅ تم حفظ إعدادات GitHub بنجاح!', 'success');
+    autoSetStatus('autoGhStatus', '✅ متصل: ' + parts[0], '#10B981');
+  };
+
+  var autoBrowsePath = '';
+  window.autoBrowseRepo = function() {
+    var container = document.getElementById('autoRepoBrowser');
+    container.style.display = container.style.display === 'none' ? 'block' : 'none';
+    if (container.style.display === 'none') return;
+    autoBrowsePath = '';
+    autoLoadGhDir(container);
+  };
+
+  function autoLoadGhDir(container) {
+    container.innerHTML = '<div style="padding:12px;text-align:center;color:#6b7280">جاري التحميل...</div>';
+    var token = autoState.ghToken;
+    var fullName = autoState.ghRepo;
+    var branch = autoState.ghBranch;
+    if (!token || !fullName) { container.innerHTML = '<div style="padding:12px;color:#EF4444">الرجاء تحديد مستودع أولاً</div>'; return; }
+    var path = autoBrowsePath ? '/contents/' + autoBrowsePath : '/contents';
+    fetch('https://api.github.com/repos/' + fullName + path + '?ref=' + branch, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+      .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(items) {
+        container.innerHTML = '';
+        // Breadcrumb
+        var bc = '<div class="auto-breadcrumb">';
+        bc += '<span onclick="autoBrowsePath=\'\';autoLoadGhDir(document.getElementById(\'autoRepoBrowser\'))">🏠 /</span>';
+        if (autoBrowsePath) {
+          var parts = autoBrowsePath.split('/');
+          var acc = '';
+          parts.forEach(function(p, i) {
+            acc += (i > 0 ? '/' : '') + p;
+            bc += ' <span>/</span> <span onclick="autoBrowsePath=\'' + acc + '\';autoLoadGhDir(document.getElementById(\'autoRepoBrowser\'))">' + p + '</span>';
+          });
+        }
+        bc += '</div>';
+        container.innerHTML = bc;
+        if (items.length === 0) { container.innerHTML += '<div style="padding:12px;color:#6b7280">المجلد فارغ</div>'; return; }
+        items.forEach(function(item) {
+          var div = document.createElement('div');
+          div.className = 'auto-gh-file';
+          if (item.type === 'dir') {
+            div.innerHTML = '<span class="file-icon">📁</span><span class="file-name auto-gh-folder" onclick="autoBrowsePath=\'' + item.path + '\';autoLoadGhDir(document.getElementById(\'autoRepoBrowser\'))">' + item.name + '</span><span style="font-size:.7rem;color:#9ca3aw">مجلد</span>';
+          } else {
+            var ext = item.name.split('.').pop();
+            var icon = ext === 'md' ? '📝' : ext === 'js' || ext === 'ts' || ext === 'astro' ? '⚡' : ext === 'json' ? '📋' : ext === 'css' ? '🎨' : ext === 'html' ? '🌐' : '📄';
+            div.innerHTML = '<span class="file-icon">' + icon + '</span><span class="file-name" onclick="autoViewFile(\'' + item.path + '\')">' + item.name + '</span><span style="font-size:.7rem;color:#9ca3af">' + (item.size / 1024).toFixed(1) + ' KB</span>';
+          }
+          container.appendChild(div);
+        });
+      })
+      .catch(function(err) { container.innerHTML = '<div style="padding:12px;color:#EF4444">❌ ' + err.message + '</div>'; });
+  }
+
+  window.autoViewFile = function(path) {
+    var token = autoState.ghToken;
+    fetch('https://api.github.com/repos/' + autoState.ghRepo + '/contents/' + path + '?ref=' + autoState.ghBranch, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+      .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(data) {
+        if (data.content) {
+          var content = atob(data.content.replace(/\n/g, ''));
+          var lang = path.endsWith('.md') ? 'markdown' : path.endsWith('.js') ? 'javascript' : path.endsWith('.json') ? 'json' : path.endsWith('.astro') ? 'html' : 'text';
+          var lines = content.split('\n');
+          var preview = lines.slice(0, 50).join('\n');
+          showToast('📄 ' + path + ' (' + lines.length + ' سطر)', 'success');
+          // Show in modal
+          ensurePreviewModal();
+          var modal = document.getElementById('aiPreviewTitle');
+          if (modal) modal.textContent = '📄 ' + path;
+          var body = document.getElementById('aiPreviewBody');
+          if (body) body.innerHTML = '<pre style="background:#0F172A;color:#E2E8F0;padding:16px;border-radius:8px;font-size:.75rem;line-height:1.6;overflow-x:auto;max-height:500px;direction:ltr;text-align:left">' + escHtml(preview) + (lines.length > 50 ? '\n\n... (' + (lines.length - 50) + ' سطر إضافي)' : '') + '</pre>';
+          var overlay = document.querySelector('.modal-overlay');
+          if (overlay) overlay.style.display = 'flex';
+        }
+      })
+      .catch(function(err) { showToast('خطأ: ' + err.message, 'error'); });
+  };
+
+  window.autoTestCf = function() {
+    var token = document.getElementById('autoCfToken').value.trim();
+    var email = document.getElementById('autoCfEmail').value.trim();
+    if (!token) { autoShowMsg('autoCfMsg', 'الرجاء إدخال Cloudflare API Token', 'error'); return; }
+    autoShowMsg('autoCfMsg', 'جاري التحقق من التوكن...', 'loading');
+    autoState.cfToken = token;
+    autoState.cfEmail = email;
+    localStorage.setItem('auto_cf_token', token);
+    localStorage.setItem('auto_cf_email', email);
+    var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
+    if (email) headers['X-Auth-Email'] = email;
+    // Get accounts
+    fetch('https://api.cloudflare.com/client/v4/accounts', { headers: headers })
+      .then(function(r) { if (!r.ok) throw new Error('رمز غير صالح (' + r.status + ')'); return r.json(); })
+      .then(function(data) {
+        if (!data.success || !data.result || !data.result.length) throw new Error('لا يوجد حساب Cloudflare');
+        var account = data.result[0];
+        autoState.cfAccount = account.id;
+        localStorage.setItem('auto_cf_account', account.id);
+        autoSetStatus('autoCfStatus', '✅ متصل: ' + account.name, '#10B981');
+        autoShowMsg('autoCfMsg', '✅ تم التحقق! الحساب: ' + account.name, 'success');
+        // Get Pages projects
+        return fetch('https://api.cloudflare.com/client/v4/accounts/' + account.id + '/pages/projects', { headers: headers });
+      })
+      .then(function(r) { if (!r.ok) throw new Error('فشل تحميل المشاريع'); return r.json(); })
+      .then(function(data) {
+        var sel = document.getElementById('autoCfProject');
+        sel.innerHTML = '';
+        if (data.result && data.result.length) {
+          data.result.forEach(function(p) {
+            var opt = document.createElement('option');
+            opt.value = p.name;
+            opt.textContent = p.name + ' (' + (p.subdomain || 'بدون نطاق') + ')';
+            sel.appendChild(opt);
+          });
+          if (autoState.cfProject) sel.value = autoState.cfProject;
+        } else {
+          sel.innerHTML = '<option value="">لا توجد مشاريع Pages</option>';
+        }
+        document.getElementById('autoCfDetails').style.display = 'block';
+        autoShowCfDeployInfo();
+      })
+      .catch(function(err) { autoShowMsg('autoCfMsg', '❌ ' + err.message, 'error'); autoSetStatus('autoCfStatus', 'خطأ', '#EF4444'); });
+  };
+
+  function autoShowCfDeployInfo() {
+    var sel = document.getElementById('autoCfProject');
+    var name = sel.value;
+    if (!name) return;
+    autoState.cfProject = name;
+    localStorage.setItem('auto_cf_project', name);
+    var el = document.getElementById('autoCfDeployInfo');
+    el.innerHTML = '🌐 <strong>' + name + '</strong><br><span style="color:#6b7280">جاري تحميل معلومات النشر...</span>';
+    var headers = { 'Authorization': 'Bearer ' + autoState.cfToken, 'Content-Type': 'application/json' };
+    if (autoState.cfEmail) headers['X-Auth-Email'] = autoState.cfEmail;
+    fetch('https://api.cloudflare.com/client/v4/accounts/' + autoState.cfAccount + '/pages/projects/' + name + '/deployments?per_page=5', { headers: headers })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success && data.result && data.result.length) {
+          var d = data.result[0];
+          var status = d.latest_stage ? d.latest_stage.status : d.status;
+          var dateStr = d.created_on ? new Date(d.created_on).toLocaleString('ar-SA') : 'غير معروف';
+          var url = d.url || d.aliases || 'https://' + name + '.pages.dev';
+          var statusColor = status === 'success' ? '#10B981' : status === 'deploying' || status === 'queued' ? '#F59E0B' : '#EF4444';
+          var statusText = status === 'success' ? '✅ ناجح' : status === 'deploying' ? '⏳ جاري النشر' : status === 'queued' ? '⏳ في الانتظار' : '❌ ' + status;
+          el.innerHTML = '🌐 <strong>' + name + '</strong><br>📅 آخر نشر: ' + dateStr + '<br>🔄 الحالة: <span style="font-weight:700;color:' + statusColor + '">' + statusText + '</span><br>🔗 <a href="' + url + '" target="_blank" style="color:#6366F1">' + url + '</a>';
+          autoSetStatus('autoDepStatus', statusText.replace(/[✅❌⏳]/g, '').trim(), statusColor);
+          autoSetStatus('autoCfStatus', '✅ متصل', '#10B981');
+        } else {
+          el.innerHTML = '🌐 <strong>' + name + '</strong><br><span style="color:#6b7280">لا توجد عمليات نشر سابقة</span>';
+          autoSetStatus('autoDepStatus', 'لا توجد عمليات نشر', '#F59E0B');
+        }
+      })
+      .catch(function(err) { el.innerHTML = '❌ خطأ في تحميل معلومات النشر'; });
+  }
+
+  window.autoDeployCf = function() {
+    if (!autoState.cfAccount || !autoState.cfProject) { autoShowMsg('autoCfMsg', 'الرجاء تحديد مشروع أولاً', 'error'); return; }
+    var headers = { 'Authorization': 'Bearer ' + autoState.cfToken, 'Content-Type': 'application/json' };
+    if (autoState.cfEmail) headers['X-Auth-Email'] = autoState.cfEmail;
+    autoShowMsg('autoCfMsg', 'جاري تشغيل نشر جديد...', 'loading');
+    fetch('https://api.cloudflare.com/client/v4/accounts/' + autoState.cfAccount + '/pages/projects/' + autoState.cfProject + '/deployments', { method: 'POST', headers: headers })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success) {
+          autoShowMsg('autoCfMsg', '✅ تم تشغيل النشر بنجاح! سيتم بناء الموقع خلال دقائق.', 'success');
+          autoSetStatus('autoDepStatus', 'جاري النشر...', '#F59E0B');
+          setTimeout(autoShowCfDeployInfo, 10000);
+        } else {
+          var errMsg = data.errors && data.errors[0] ? data.errors[0].message : 'خطأ غير معروف';
+          autoShowMsg('autoCfMsg', '❌ ' + errMsg, 'error');
+        }
+      })
+      .catch(function(err) { autoShowMsg('autoCfMsg', '❌ ' + err.message, 'error'); });
+  };
+
+  window.autoRunFullSetup = function() {
+    autoShowMsg('autoGhMsg', '', ''); autoShowMsg('autoCfMsg', '', '');
+    autoSetStatus('autoGhStatus', 'جاري الإعداد...', '#F59E0B');
+    autoSetStatus('autoCfStatus', 'جاري الإعداد...', '#F59E0B');
+    // Step 1: Auto-load from existing config
+    var ghToken = localStorage.getItem('gh_token') || autoState.ghToken;
+    var ghUser = localStorage.getItem('gh_user') || autoState.ghUser;
+    var ghRepo = localStorage.getItem('gh_repo') || autoState.ghRepo;
+    if (ghToken) document.getElementById('autoTokenInput').value = ghToken;
+    if (ghRepo) {
+      var sel = document.getElementById('autoGhRepo');
+      var opt = document.createElement('option');
+      opt.value = ghRepo;
+      opt.textContent = ghRepo;
+      sel.appendChild(opt);
+      sel.value = ghRepo;
+      autoState.ghRepo = ghRepo;
+      document.getElementById('autoGhDetails').style.display = 'block';
+      autoShowGhRepoInfo();
+    }
+    // Step 2: Test GitHub
+    if (ghToken) {
+      autoTestGh();
+    } else {
+      autoSetStatus('autoGhStatus', '❌ لا يوجد توكن', '#EF4444');
+      autoShowMsg('autoGhMsg', 'الرجاء إدخال GitHub Token', 'error');
+    }
+    // Step 3: Try Cloudflare
+    var cfToken = localStorage.getItem('auto_cf_token') || '';
+    if (cfToken) {
+      document.getElementById('autoCfToken').value = cfToken;
+      setTimeout(autoTestCf, 500);
+    } else {
+      autoSetStatus('autoCfStatus', '❌ لا يوجد توكن', '#EF4444');
+    }
+    showToast('🚀 تم تشغيل الإعداد التلقائي', 'success');
+  };
+
+  window.autoRefreshStatus = function() {
+    autoLoadState();
+    if (autoState.ghToken) {
+      autoSetStatus('autoGhStatus', 'جاري التحديث...', '#F59E0B');
+      autoTestGh();
+    }
+    if (autoState.cfToken && autoState.cfAccount) {
+      autoSetStatus('autoCfStatus', 'جاري التحديث...', '#F59E0B');
+      autoShowCfDeployInfo();
+    }
+    showToast('🔄 تم تحديث الحالة', 'success');
+  };
+
+  // Project upload to GitHub
+  var projectFiles = [];
+
+  document.getElementById('projectFolderInput').addEventListener('change', function(e) {
+    var files = e.target.files;
+    if (!files || !files.length) return;
+    projectFiles = [];
+    var list = document.getElementById('projectFileList');
+    list.innerHTML = '';
+    var totalSize = 0;
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i];
+      var path = f.webkitRelativePath || f.name;
+      if (path.split('/').some(function(p) { return p.startsWith('.') || p === 'node_modules' || p === '.git'; })) continue;
+      projectFiles.push({ name: f.name, path: path, size: f.size, file: f });
+      totalSize += f.size;
+    }
+    document.getElementById('fileCountLabel').textContent = projectFiles.length + ' ملف (' + (totalSize / 1024 / 1024).toFixed(1) + ' MB)';
+    document.getElementById('uploadProjectBtn').disabled = false;
+    if (projectFiles.length > 0) {
+      list.style.display = 'block';
+      projectFiles.forEach(function(f, idx) {
+        var div = document.createElement('div');
+        div.className = 'auto-pf-item';
+        var ext = f.path.split('.').pop();
+        var icon = ext === 'md' ? '📝' : ext === 'js' || ext === 'ts' ? '⚡' : ext === 'astro' ? '🔥' : ext === 'json' ? '📋' : ext === 'css' ? '🎨' : ext === 'html' ? '🌐' : ext === 'png' || ext === 'jpg' || ext === 'jpeg' || ext === 'gif' || ext === 'webp' || ext === 'svg' || ext === 'ico' ? '🖼️' : ext === 'woff' || ext === 'woff2' || ext === 'ttf' || ext === 'eot' ? '🔤' : ext === 'xml' ? '📄' : ext === 'cjs' || ext === 'mjs' ? '⚡' : '📄';
+        div.innerHTML = '<span class="pf-icon">' + icon + '</span><span class="pf-path">' + f.path + '</span><span class="pf-size">' + (f.size / 1024).toFixed(1) + ' KB</span>';
+        list.appendChild(div);
+      });
+    }
+  });
+
+  window.autoClearProjectFiles = function() {
+    projectFiles = [];
+    document.getElementById('projectFolderInput').value = '';
+    document.getElementById('projectFileList').style.display = 'none';
+    document.getElementById('projectFileList').innerHTML = '';
+    document.getElementById('fileCountLabel').textContent = '0 ملف';
+    document.getElementById('uploadProjectBtn').disabled = true;
+    document.getElementById('uploadProjectMsg').className = 'msg';
+    document.getElementById('uploadProjectMsg').textContent = '';
+    document.getElementById('projectUploadProgress').style.display = 'none';
+  };
+
+  window.autoUploadProject = function() {
+    var msg = document.getElementById('uploadProjectMsg');
+    if (!projectFiles.length) { showToast('الرجاء اختيار مجلد أولاً', 'error'); return; }
+    var token = localStorage.getItem('auto_gh_token') || document.getElementById('autoTokenInput').value;
+    var fullName = localStorage.getItem('auto_gh_repo') || '';
+    var branch = localStorage.getItem('auto_gh_branch') || 'main';
+    if (!token || !fullName) { showToast('الرجاء إعداد GitHub أولاً في تبويب الأتمتة', 'error'); return; }
+
+    var btn = document.getElementById('uploadProjectBtn');
+    btn.disabled = true;
+    btn.textContent = '⏳ جاري الرفع...';
+    document.getElementById('projectUploadProgress').style.display = 'block';
+    document.getElementById('projectProgressFill').style.width = '0%';
+    document.getElementById('projectProgressText').textContent = '0 / ' + projectFiles.length;
+    msg.className = 'msg msg-loading';
+    msg.textContent = 'جاري رفع ' + projectFiles.length + ' ملف...';
+
+    var uploaded = 0;
+    var errors = 0;
+    var skipped = 0;
+
+    function isBinaryFile(path) {
+      var ext = path.split('.').pop().toLowerCase();
+      return ['png','jpg','jpeg','gif','webp','ico','svg','woff','woff2','ttf','eot','otf','pdf','zip','gz','tar','rar','7z','exe','dll','so','dmg'].indexOf(ext) !== -1;
+    }
+
+    function uploadNext(idx) {
+      if (idx >= projectFiles.length) {
+        btn.disabled = false;
+        btn.textContent = '⬆️ رفع إلى GitHub';
+        var resultText = '✅ تم رفع ' + uploaded + ' ملف بنجاح!';
+        if (skipped > 0) resultText += ' (' + skipped + ' موجود مسبقاً)';
+        if (errors > 0) resultText += ' (' + errors + ' أخطاء)';
+        msg.className = 'msg msg-' + (errors ? 'error' : 'success');
+        msg.textContent = resultText;
+        document.getElementById('projectProgressText').textContent = uploaded + ' / ' + projectFiles.length;
+        showToast(resultText, errors ? 'error' : 'success');
+        return;
+      }
+
+      var f = projectFiles[idx];
+      var filePath = f.path;
+      var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(fullName) + '/contents/' + encodeURIComponent(filePath);
+
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        var base64Content;
+        if (isBinaryFile(f.path)) {
+          base64Content = ev.target.result.split(',')[1];
+        } else {
+          base64Content = btoa(unescape(encodeURIComponent(ev.target.result)));
+        }
+
+        fetch(apiUrl + '?ref=' + branch, {
+          headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        }).then(function(resp) {
+          var existingSha = null;
+          if (resp.ok) return resp.json().then(function(d) { existingSha = d.sha; return existingSha; });
+          return null;
+        }).then(function(sha) {
+          var body = {
+            message: (sha ? 'تحديث: ' : 'إضافة: ') + filePath,
+            content: base64Content,
+            branch: branch
+          };
+          if (sha) body.sha = sha;
+          return fetch(apiUrl, {
+            method: 'PUT',
+            headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+            body: JSON.stringify(body)
+          });
+        }).then(function(r) {
+          if (r.status === 422) { skipped++; }
+          else if (!r.ok) { errors++; }
+          else { uploaded++; }
+          var pct = Math.round(((idx + 1) / projectFiles.length) * 100);
+          document.getElementById('projectProgressFill').style.width = pct + '%';
+          document.getElementById('projectProgressText').textContent = (uploaded + skipped) + ' / ' + projectFiles.length;
+          uploadNext(idx + 1);
+        }).catch(function() { errors++; uploadNext(idx + 1); });
+      };
+      if (isBinaryFile(f.path)) reader.readAsDataURL(f.file);
+      else reader.readAsText(f.file);
+    }
+    uploadNext(0);
+  };
+
+  window.autoClearSettings = function() {
+    ['auto_gh_token','auto_gh_user','auto_gh_repo','auto_gh_branch','auto_cf_token','auto_cf_email','auto_cf_account','auto_cf_project'].forEach(function(k) { localStorage.removeItem(k); });
+    autoState = { ghToken: '', ghUser: '', ghRepo: '', ghBranch: 'main', cfToken: '', cfEmail: '', cfAccount: '', cfProject: '' };
+    document.getElementById('autoTokenInput').value = '';
+    document.getElementById('autoCfToken').value = '';
+    document.getElementById('autoCfEmail').value = '';
+    document.getElementById('autoGhDetails').style.display = 'none';
+    document.getElementById('autoCfDetails').style.display = 'none';
+    document.getElementById('autoRepoBrowser').style.display = 'none';
+    autoSetStatus('autoGhStatus', 'غير متصل', '#D1D5DB');
+    autoSetStatus('autoCfStatus', 'غير متصل', '#D1D5DB');
+    autoSetStatus('autoDepStatus', 'غير معروف', '#D1D5DB');
+    autoShowMsg('autoGhMsg', 'تم مسح الإعدادات', 'success');
+    autoShowMsg('autoCfMsg', 'تم مسح الإعدادات', 'success');
+    showToast('🗑️ تم مسح جميع الإعدادات', 'success');
+  };
+
+  // Init - add automation setup
+  autoLoadState();
+
+  // Init
+  renderCategories();
+  initAiTab();
+  restoreArtAiSettings();
+})();
+</script>
+</body>
+</html>
