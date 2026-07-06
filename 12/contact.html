@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا - ToolRar</title>
+  <meta name="description" content="تواصل مع فريق ToolRar. أرسل استفسارك أو اقتراحك عبر نموذج التواصل أو عبر البريد الإلكتروني والهاتف.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ToolRar",
+    "url": "https://toolrar.com",
+    "description": "تواصل مع فريق ToolRar. أرسل استفسارك أو اقتراحك عبر نموذج التواصل",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "50000",
+      "reviewCount": "50000"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "سارة أحمد" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "أدوات ToolRar رائعة جداً! لقد ساعدتني في توفير الكثير من الوقت في عملي اليومي. أنصح بها بشدة."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "محمد علي" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "ToolRar يوفر مجموعة واسعة من الأدوات التي تحتاجها في حياتك اليومية. سهلة الاستخدام وفعالة جداً."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "فاطمة حسن" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "أنا استخدم ToolRar منذ فترة طويلة وأنا سعيد جداً بالنتائج. الأدوات متقدمة وتوفر حلولاً مثالية."
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="admin/assets/css/fonts-cairo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="admin/assets/css/fonts-cairo.css"></noscript>
+  <style>
+
+
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background: #ffffff;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+    .dark body { background: #080C1A; color: #e2e8f0; }
+    .dark .header { background: #080C1A; }
+    .dark .page-header { background: #080C1A; }
+    .dark .page-section { background: #0F172A; }
+    .dark .contact-form-wrap { background: #1E293B; border-color: rgba(55,65,81,0.5); }
+    .dark .contact-form-wrap label { color: #e5e7eb; }
+    .dark .contact-form-wrap input,
+    .dark .contact-form-wrap textarea,
+    .dark .contact-form-wrap select { background: #0F172A; color: #e5e7eb; border-color: #374151; }
+    .dark .contact-form-wrap input::placeholder,
+    .dark .contact-form-wrap textarea::placeholder { color: #6b7280; }
+    .dark .contact-info-card { background: #1E293B; border-color: rgba(55,65,81,0.5); }
+    .dark .contact-info-card h3 { color: #ffffff; }
+    .dark .contact-info-card p { color: #d1d5db; }
+    .dark .social-link { color: #d1d5db; }
+    .dark .social-link:hover { color: #6366F1; }
+    .dark .section-title { color: #ffffff; }
+    .dark .section-desc { color: #9ca3af; }
+    .dark .footer { background: #080C1A; }
+    .dark .footer-link:hover { color: #ffffff; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    @media(min-width:640px) { .container { padding: 0 1.5rem; } }
+    @media(min-width:1024px) { .container { padding: 0 2rem; } }
+    .header {
+      background: #0F172A;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background-color 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: #6366F1;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+    }
+    .logo-icon svg { width: 20px; height: 20px; color: #fff; }
+    .logo-text { color: #fff; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.025em; }
+    .desktop-nav { display: none; align-items: center; flex: 1; }
+    .nav-links-center { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+    .nav-controls { display: flex; align-items: center; }
+    @media(min-width:1024px) { .desktop-nav { display: flex; } }
+    .nav-link {
+      color: #fff; text-decoration: none;
+      padding: 8px 10px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease; display: flex; align-items: center; gap: 4px;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+    }
+    .nav-link:hover { color: #d1d5db; }
+    .dropdown-wrap { position: relative; }
+    .dropdown-menu {
+      position: absolute; top: 100%; margin-top: 4px;
+      background: #1E293B; border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden; z-index: 50;
+      opacity: 0; transform: translateY(-8px); visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+    .dark .dropdown-menu { background: #162032; }
+    .dropdown-wrap:hover .dropdown-menu,
+    .dropdown-wrap.open .dropdown-menu {
+      opacity: 1; transform: translateY(0); visibility: visible;
+    }
+    .dropdown-chevron { transition: transform 0.2s ease; }
+    .dropdown-wrap:hover .dropdown-chevron,
+    .dropdown-wrap.open .dropdown-chevron { transform: rotate(180deg); }
+    .cat-dropdown { right: 0; width: 224px; }
+    .lang-dropdown { left: 0; width: 176px; }
+    .lang-item {
+      width: 100%; display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s ease; cursor: pointer;
+      border: none; background: none; font-family: inherit; text-align: right;
+    }
+    .lang-item:hover { background: rgba(255,255,255,0.1); }
+    .lang-item.active { color: #6366F1; background: rgba(255,255,255,0.05); }
+    .lang-item:not(.active) { color: #d1d5db; }
+    .lang-flag { font-size: 1.125rem; }
+    .lang-check { margin-right: auto; width: 16px; height: 16px; color: #6366F1; }
+    .cat-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; font-size: 0.875rem; font-weight: 500;
+      color: #d1d5db; text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .cat-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .cat-item-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cat-item-icon svg { width: 14px; height: 14px; color: #fff; }
+    .dark-toggle {
+      display: flex; align-items: center; gap: 6px;
+      color: #fff; padding: 8px 10px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease; cursor: pointer;
+      background: none; border: none; font-family: inherit;
+    }
+    .dark-toggle:hover { color: #6366F1; }
+    .dark-toggle svg { width: 16px; height: 16px; }
+    .mobile-controls { display: flex; align-items: center; gap: 4px; }
+    @media(min-width:1024px) { .mobile-controls { display: none; } }
+    .mobile-btn {
+      color: #fff; padding: 8px; background: none; border: none; cursor: pointer;
+    }
+    .mobile-btn svg { width: 20px; height: 20px; }
+    .mobile-btn.hamburger svg { width: 24px; height: 24px; }
+    .mobile-lang-dropdown { left: 0; width: 160px; }
+    .mobile-lang-item {
+      width: 100%; display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s ease; cursor: pointer;
+      border: none; background: none; font-family: inherit; text-align: right; color: #d1d5db;
+    }
+    .mobile-lang-item:hover { background: rgba(255,255,255,0.1); }
+    .mobile-lang-item.active { color: #6366F1; background: rgba(255,255,255,0.05); }
+    .mobile-menu {
+      display: none; border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; color: #fff; text-decoration: none;
+      padding: 10px 12px; font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: #d1d5db; }
+    .page-header { background: #0F172A; position: relative; overflow: hidden; }
+    .page-header-content { position: relative; z-index: 10; text-align: center; padding: 40px 1rem; }
+    @media(min-width:640px) { .page-header-content { padding: 56px 1.5rem; } }
+    @media(min-width:768px) { .page-header-content { padding: 72px 1.5rem; } }
+    .page-header h1 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    @media(min-width:640px) { .page-header h1 { font-size: 2rem; } }
+    @media(min-width:768px) { .page-header h1 { font-size: 2.5rem; } }
+    .page-header p { color: #9ca3af; font-size: 0.875rem; max-width: 600px; margin: 0 auto; }
+    @media(min-width:640px) { .page-header p { font-size: 1rem; } }
+    .header-blur1 { position: absolute; top: 50%; right: 10%; width: 200px; height: 200px; border-radius: 50%; background: rgba(99,102,241,0.08); filter: blur(60px); }
+    .header-blur2 { position: absolute; top: 20%; left: 15%; width: 150px; height: 150px; border-radius: 50%; background: rgba(99,102,241,0.06); filter: blur(50px); }
+    .page-header .count-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.25); border-radius: 9999px; padding: 6px 16px; margin-bottom: 16px; }
+    .page-header .count-badge span { font-size: 0.75rem; color: #A5B4FC; font-weight: 600; }
+    @media(min-width:640px) { .page-header .count-badge span { font-size: 0.875rem; } }
+    .page-header .count-badge svg { width: 14px; height: 14px; color: #6366F1; }
+    .page-section { background: #F8FAFC; flex: 1; transition: background-color 0.3s ease; }
+    .page-inner { padding: 32px 1rem; max-width: 1100px; margin: 0 auto; }
+    @media(min-width:640px) { .page-inner { padding: 48px 1.5rem; } }
+    @media(min-width:768px) { .page-inner { padding: 64px 1.5rem; } }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+    @media(min-width:1024px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+    .contact-form-wrap {
+      background: #fff; border-radius: 16px; padding: 28px 24px;
+      border: 1px solid rgba(243,244,246,0.8); box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    @media(min-width:640px) { .contact-form-wrap { padding: 36px 32px; } }
+    .form-group { margin-bottom: 20px; }
+    @media(min-width:640px) { .form-group { margin-bottom: 24px; } }
+    .form-group label {
+      display: block; font-size: 0.825rem; font-weight: 600;
+      color: #374151; margin-bottom: 6px;
+    }
+    @media(min-width:640px) { .form-group label { font-size: 0.875rem; margin-bottom: 8px; } }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 10px 14px; border-radius: 10px;
+      border: 1px solid #e5e7eb; font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.825rem; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #fff; color: #1e293b; direction: rtl;
+    }
+    @media(min-width:640px) { .form-group input, .form-group textarea, .form-group select { padding: 12px 16px; font-size: 0.875rem; } }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { outline: none; border-color: #6366F1; box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left 12px center; padding-left: 36px; }
+    .form-btn {
+      width: 100%; padding: 12px; border-radius: 12px;
+      background: #6366F1; color: #fff; font-size: 0.875rem; font-weight: 700;
+      border: none; cursor: pointer; font-family: inherit;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.2s ease;
+    }
+    @media(min-width:640px) { .form-btn { padding: 14px; font-size: 1rem; } }
+    .form-btn:hover { background: #5558E6; box-shadow: 0 4px 14px rgba(99,102,241,0.3); }
+    .form-btn svg { width: 16px; height: 16px; }
+    .contact-info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media(min-width:640px) { .contact-info-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1024px) { .contact-info-grid { grid-template-columns: 1fr; } }
+    .contact-info-card {
+      background: #fff; border-radius: 16px; padding: 24px;
+      border: 1px solid rgba(243,244,246,0.8); box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.3s ease; display: flex; align-items: flex-start; gap: 14px;
+    }
+    @media(min-width:640px) { .contact-info-card { padding: 28px; gap: 16px; } }
+    .contact-info-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    @media(min-width:640px) { .info-icon { width: 48px; height: 48px; } }
+    .info-icon svg { width: 20px; height: 20px; color: #fff; }
+    .contact-info-card h3 { font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 4px; }
+    @media(min-width:640px) { .contact-info-card h3 { font-size: 1rem; } }
+    .contact-info-card p { font-size: 0.8rem; color: #6b7280; line-height: 1.5; }
+    @media(min-width:640px) { .contact-info-card p { font-size: 0.85rem; } }
+    .social-section { margin-top: 28px; }
+    @media(min-width:640px) { .social-section { margin-top: 32px; } }
+    .social-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+    .social-link {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(99,102,241,0.1); color: #6366F1;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease; text-decoration: none;
+    }
+    @media(min-width:640px) { .social-link { width: 48px; height: 48px; } }
+    .social-link:hover { background: #6366F1; color: #fff; transform: translateY(-2px); }
+    .social-link svg { width: 20px; height: 20px; }
+    .footer {
+      background: #0F172A;
+      transition: background-color 0.3s ease;
+    }
+    .footer-inner { padding: 40px 1rem; }
+    @media(min-width:640px) { .footer-inner { padding: 48px 1.5rem; } }
+    @media(min-width:1024px) { .footer-inner { padding: 48px 2rem; } }
+    .footer-grid {
+      display: grid; grid-template-columns: 1fr; gap: 32px;
+    }
+    @media(min-width:640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 48px; } }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-desc { color: #9ca3af; font-size: 0.875rem; line-height: 1.625; margin-bottom: 20px; }
+    .footer-social { display: flex; align-items: center; gap: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s ease; text-decoration: none;
+    }
+    .footer-social a:hover { background: #6366F1; }
+    .footer-social a svg { width: 16px; height: 16px; color: #fff; }
+    .footer-col-title { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-link {
+      color: #9ca3af; text-decoration: none; font-size: 0.875rem;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 32px; padding-top: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      align-items: center;
+    }
+    @media(min-width:640px) {
+      .footer-bottom { margin-top: 40px; padding-top: 24px; flex-direction: row; justify-content: space-between; }
+    }
+    .footer-bottom p { color: #6b7280; font-size: 0.75rem; margin: 0; }
+    @media(min-width:640px) { .footer-bottom p { font-size: 0.875rem; } }
+    .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .footer-bottom-links a {
+      color: #6b7280; text-decoration: none; font-size: 0.75rem;
+      transition: color 0.2s ease;
+    }
+    @media(min-width:640px) { .footer-bottom-links a { font-size: 0.875rem; } }
+    .footer-bottom-links a:hover { color: #fff; }
+    @media(max-width:359px) {
+      .header-inner { height: 56px; }
+      .logo-text { font-size: 1rem; }
+      .logo-icon { width: 30px; height: 30px; }
+      .logo-icon svg { width: 16px; height: 16px; }
+      .page-header h1 { font-size: 1.25rem; }
+      .page-inner { padding: 24px 0.75rem; }
+      .contact-form-wrap { padding: 20px 16px; }
+    }
+    @media(max-width:1023px) {
+      .nav-link { padding: 10px 12px; }
+      .mobile-menu a { padding: 12px 16px; }
+      .footer-bottom-links a { padding: 4px 0; }
+      .footer-link { display: inline-block; padding: 2px 0; }
+    }
+    svg { max-width: 100%; height: auto; }
+    body { overflow-x: hidden; }
+    .toast-container { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; flex-direction: column; gap: 12px; pointer-events: none; width: 90%; max-width: 420px; }
+    .toast { pointer-events: auto; display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); font-size: 0.9rem; font-weight: 600; line-height: 1.5; animation: toastIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; direction: rtl; }
+    .toast.out { animation: toastOut 0.3s ease forwards; }
+    .toast-success { background: #064E3B; color: #A7F3D0; border: 1px solid rgba(167,243,208,0.15); }
+    .toast-error { background: #7F1D1D; color: #FECACA; border: 1px solid rgba(254,202,202,0.15); }
+    .toast-icon { width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+    .toast-success .toast-icon { background: rgba(167,243,208,0.15); }
+    .toast-error .toast-icon { background: rgba(254,202,202,0.15); }
+    .toast-icon svg { width: 16px; height: 16px; }
+    .toast-close { margin-right: auto; background: none; border: none; color: inherit; opacity: 0.5; cursor: pointer; padding: 4px; display: flex; align-items: center; font-size: 1.1rem; transition: opacity 0.2s; }
+    .toast-close:hover { opacity: 1; }
+    .dark .toast-success { background: #064E3B; }
+    .dark .toast-error { background: #7F1D1D; }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(-24px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes toastOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-24px) scale(0.95); } }
+  </style>
+<link rel="icon" type="image/png" sizes="32x32" href="/12/admin/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/12/admin/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/12/admin/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
+
+<link rel="alternate" hreflang="ar" href="https://toolrar.com/contact.html">
+<link rel="alternate" hreflang="en" href="https://toolrar.com/en/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://toolrar.com/contact.html">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <span class="logo-text">ToolRar</span>
+        </a>
+        <nav class="desktop-nav">
+          <div class="nav-links-center">
+            <a href="index.html" class="nav-link">الرئيسية</a>
+            <a href="all-tools.html" class="nav-link">جميع الأدوات</a>
+            <div class="dropdown-wrap" id="catDropdown">
+              <a href="#" class="nav-link" onmouseenter="openCatDD()" onmouseleave="scheduleCloseCatDD()">التصنيفات<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></a>
+              <div class="dropdown-menu cat-dropdown" onmouseenter="cancelCloseCatDD()" onmouseleave="closeCatDD()">
+                <a href="text-tools/" class="cat-item"><div class="cat-item-icon" style="background:#6366F1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div><span>أدوات النصوص والكلمات</span></a>
+                <a href="Developer/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span>أدوات المطورين</span></a>
+                <a href="Photo-Editing/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div><span>أدوات الصور والتصميم</span></a>
+                <a href="Calculators/" class="cat-item"><div class="cat-item-icon" style="background:#3B82F6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg></div><span>أدوات الحاسبة</span></a>
+                <a href="docs-tools/" class="cat-item"><div class="cat-item-icon" style="background:#EC4899"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div><span>أدوات PDF</span></a>
+                <a href="zip-tools/" class="cat-item"><div class="cat-item-icon" style="background:#10B981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></div><span>أدوات ZIP والضغط</span></a>
+                <a href="seo/" class="cat-item"><div class="cat-item-icon" style="background:#14B8A6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/></svg></div><span>أدوات SEO</span></a>
+                <a href="General/" class="cat-item"><div class="cat-item-icon" style="background:#F59E0B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span>أدوات متنوعة</span></a>
+                <a href="Social-media/" class="cat-item"><div class="cat-item-icon" style="background:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><span>أدوات سوشيال ميديا</span></a>
+              </div>
+            </div>
+            <a href="blog.html" class="nav-link">المدونة</a>
+            <a href="pricing.html" class="nav-link">الأسعار</a>
+            <a href="about.html" class="nav-link">من نحن</a>
+          </div>
+          <div class="nav-controls">
+            <div class="dropdown-wrap" id="langDropdown">
+              <button class="nav-link" onclick="toggleLangDD()" onmouseenter="openLangDD()" onmouseleave="scheduleCloseLangDD()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> العربية<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div class="dropdown-menu lang-dropdown" onmouseenter="cancelCloseLangDD()" onmouseleave="closeLangDD()">
+                <button class="lang-item active"><span class="lang-flag">&#127481;&#127466;</span><span>العربية</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></button>
+                <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">&#127468;&#127463;</span><span>English</span></button>
+                <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">&#127467;&#127479;</span><span>Fran&ccedil;ais</span></button>
+              </div>
+            </div>
+            <button class="dark-toggle" id="darkToggle" aria-label="تبديل الوضع الليلي"><svg id="darkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="darkLabel">الوضع الليلي</span></button>
+          </div>
+        </nav>
+        <div class="mobile-controls">
+          <div class="dropdown-wrap" id="mobileLangDropdown">
+            <button class="mobile-btn" onclick="toggleMobileLangDD()" aria-label="اختيار اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></button>
+            <div class="dropdown-menu mobile-lang-dropdown" id="mobileLangMenu">
+              <button class="mobile-lang-item active" onclick="closeMobileLangDD()">&#127481;&#127466; العربية</button>
+              <button class="mobile-lang-item" onclick="closeMobileLangDD()">&#127468;&#127463; English</button>
+              <button class="mobile-lang-item" onclick="closeMobileLangDD()">&#127467;&#127479; Fran&ccedil;ais</button>
+            </div>
+          </div>
+          <button class="mobile-btn" id="mobileDarkToggle" aria-label="تبديل الوضع الليلي"><svg id="mobileDarkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <button class="mobile-btn hamburger" id="hamburgerBtn" aria-label="القائمة"><svg id="hamburgerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">الرئيسية</a>
+        <a href="all-tools.html">جميع الأدوات</a>
+        <a href="sitemap.html">التصنيفات</a>
+        <a href="blog.html">المدونة</a>
+        <a href="pricing.html">الأسعار</a>
+        <a href="about.html">من نحن</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="header-blur1"></div>
+    <div class="header-blur2"></div>
+    <div class="container page-header-content">
+      <div class="count-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>تواصل معنا</span>
+      </div>
+      <h1>تواصل معنا</h1>
+      <p>نحن هنا للإجابة على استفساراتك ومساعدتك في أي وقت</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="page-inner">
+        <div class="contact-grid">
+
+          <div>
+            <div class="contact-form-wrap">
+              <form id="contactForm" onsubmit="return sendContact(event)">
+                <div class="form-group">
+                  <label for="name">الاسم الكامل</label>
+                  <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">البريد الإلكتروني</label>
+                  <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                  <label for="subject">الموضوع</label>
+                  <select id="subject" required>
+                    <option value="">اختر الموضوع</option>
+                    <option value="support">دعم فني</option>
+                    <option value="suggestion">اقتراح</option>
+                    <option value="complaint">شكوى</option>
+                    <option value="partnership">شراكة</option>
+                    <option value="other">أخرى</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">الرسالة</label>
+                  <textarea id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                </div>
+                <button type="submit" class="form-btn">
+                  إرسال الرسالة
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-info-grid">
+              <div class="contact-info-card">
+                <div class="info-icon" style="background:#6366F1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <h3>البريد الإلكتروني</h3>
+                  <p>esamsalh@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-info-card">
+                <div class="info-icon" style="background:#10B981">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <h3>الهاتف</h3>
+                  <p>+218915701809<br>+218928701809</p>
+                </div>
+              </div>
+              <div class="contact-info-card">
+                <div class="info-icon" style="background:#F59E0B">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <h3>العنوان</h3>
+                  <p>ليبيا، طرابلس<br>شارع صلاح الدين، المبني رقم 120</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-section">
+              <h3 style="font-size:1rem;font-weight:700;color:#111827;margin-bottom:12px">تابعنا على</h3>
+              <div class="social-grid">
+                <a href="#" class="social-link" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+                <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="#" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><span class="logo-text">ToolRar</span></div>
+            <p class="footer-desc">أداة ToolRar هي منصة مجانية تقدم مجموعة متنوعة من الأدوات التي تساعدك في مهامك اليومية</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
+              <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">روابط سريعة</h4>
+            <ul>
+              <li><a href="index.html" class="footer-link">الرئيسية</a></li>
+              <li><a href="all-tools.html" class="footer-link">جميع الأدوات</a></li>
+              <li><a href="sitemap.html" class="footer-link">التصنيفات</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">أدوات</h4>
+            <ul>
+              <li><a href="text-tools/" class="footer-link">أدوات النصوص والكلمات</a></li>
+              <li><a href="Developer/" class="footer-link">أدوات المطورين</a></li>
+              <li><a href="Photo-Editing/" class="footer-link">أدوات الصور والتصميم</a></li>
+              <li><a href="Calculators/" class="footer-link">أدوات الحاسبة</a></li>
+              <li><a href="docs-tools/" class="footer-link">أدوات PDF</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">معلومات</h4>
+            <ul>
+              <li><a href="about.html" class="footer-link">من نحن</a></li>
+              <li><a href="contact.html" class="footer-link">تواصل معنا</a></li>
+              <li><a href="pricing.html" class="footer-link">الأسعار</a></li>
+              <li><a href="blog.html" class="footer-link">المدونة</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-links">
+            <a href="terms.html">شروط الاستخدام</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="sitemap.html">خريطة الموقع</a>
+          </div>
+          <p>ToolRar &copy; 2026 جميع الحقوق محفوظة</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showToast(msg, type) {
+      const container = document.getElementById('toastContainer');
+      const t = document.createElement('div');
+      t.className = 'toast toast-' + type;
+      const iconSvg = type === 'success'
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>';
+      t.innerHTML = '<div class="toast-icon">' + iconSvg + '</div><span>' + msg + '</span><button class="toast-close" onclick="this.parentElement.classList.add(\'out\');setTimeout(()=>this.parentElement.remove(),300)">×</button>';
+      container.appendChild(t);
+      setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 300); }, 5000);
+    }
+    function sendContact(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) { showToast('يرجى ملء جميع الحقول المطلوبة', 'error'); return false; }
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('email', email);
+      fd.append('subject', subject);
+      fd.append('message', message);
+      fetch('https://formsubmit.co/ajax/esamsalh@gmail.com', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(d => {
+          if (d.success) {
+            showToast('تم إرسال رسالتك بنجاح، سنتواصل معك قريباً', 'success');
+            document.getElementById('contactForm').reset();
+          } else {
+            showToast('عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقاً', 'error');
+          }
+        })
+        .catch(() => showToast('عذراً، حدث خطأ في الاتصال. يرجى المحاولة لاحقاً', 'error'));
+      return false;
+    }
+    let isDark = false;
+    function updateDarkUI() {
+      const darkIcon = document.getElementById('darkIcon');
+      const darkLabel = document.getElementById('darkLabel');
+      const mobileDarkIcon = document.getElementById('mobileDarkIcon');
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('toolrar-theme', 'dark');
+        darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        darkLabel.textContent = 'الوضع النهاري';
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('toolrar-theme', 'light');
+        darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        darkLabel.textContent = 'الوضع الليلي';
+      }
+    }
+    function toggleDark() { isDark = !isDark; updateDarkUI(); }
+    let langCloseTimer, catCloseTimer;
+    function openLangDD() { clearTimeout(langCloseTimer); document.getElementById('langDropdown').classList.add('open'); }
+    function scheduleCloseLangDD() { langCloseTimer = setTimeout(closeLangDD, 150); }
+    function closeLangDD() { document.getElementById('langDropdown').classList.remove('open'); }
+    function toggleLangDD() { document.getElementById('langDropdown').classList.toggle('open'); }
+    function cancelCloseLangDD() { clearTimeout(langCloseTimer); }
+    function openCatDD() { clearTimeout(catCloseTimer); document.getElementById('catDropdown').classList.add('open'); }
+    function scheduleCloseCatDD() { catCloseTimer = setTimeout(closeCatDD, 150); }
+    function closeCatDD() { document.getElementById('catDropdown').classList.remove('open'); }
+    function cancelCloseCatDD() { clearTimeout(catCloseTimer); }
+    function toggleMobileLangDD() { document.getElementById('mobileLangDropdown').classList.toggle('open'); }
+    function closeMobileLangDD() { document.getElementById('mobileLangDropdown').classList.remove('open'); }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('hamburgerIcon');
+      menu.classList.toggle('open');
+      if (menu.classList.contains('open')) {
+        icon.innerHTML = '<line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/>';
+      } else {
+        icon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+      }
+    }
+    document.addEventListener('mousedown', function(e) {
+      const langDD = document.getElementById('langDropdown');
+      if (langDD && !langDD.contains(e.target)) { langDD.classList.remove('open'); }
+      const catDD = document.getElementById('catDropdown');
+      if (catDD && !catDD.contains(e.target)) { catDD.classList.remove('open'); }
+      const mobileLangDD = document.getElementById('mobileLangDropdown');
+      if (mobileLangDD && !mobileLangDD.contains(e.target)) { mobileLangDD.classList.remove('open'); }
+    });
+    document.getElementById('darkToggle').addEventListener('click', toggleDark);
+    document.getElementById('mobileDarkToggle').addEventListener('click', toggleDark);
+    document.getElementById('hamburgerBtn').addEventListener('click', toggleMobileMenu);
+    (function init() {
+      const saved = localStorage.getItem('toolrar-theme');
+      if (saved === 'dark') { isDark = true; }
+      updateDarkUI();
+    })();
+  </script>
+<div id="toastContainer" class="toast-container"></div>
+</body>
+</html>
