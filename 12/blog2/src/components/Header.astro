@@ -1,0 +1,149 @@
+---
+import siteConfig from '../data/site-config.json';
+
+export interface Props {
+  activePage?: string;
+}
+
+const { activePage = '' } = Astro.props;
+const isActive = (page: string) => activePage === page ? ' active' : '';
+
+const categories = [
+  { id: 'text-tools', name: 'أدوات النصوص', color: '#6366F1', icon: '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/>' },
+  { id: 'Developer', name: 'أدوات المطورين', color: '#10B981', icon: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>' },
+  { id: 'Photo-Editing', name: 'أدوات التصميم', color: '#F59E0B', icon: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>' },
+  { id: 'Calculators', name: 'أدوات الحاسبة', color: '#3B82F6', icon: '<rect width="20" height="20" x="2" y="2" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/>' },
+  { id: 'docs-tools', name: 'أدوات PDF', color: '#EC4899', icon: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>' },
+  { id: 'zip-tools', name: 'أدوات ZIP', color: '#059669', icon: '<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>' },
+  { id: 'seo', name: 'أدوات SEO', color: '#14B8A6', icon: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m9 8 5 3-5 3V8z"/>' },
+  { id: 'General', name: 'أدوات متنوعة', color: '#F59E0B', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+  { id: 'Social-media', name: 'سوشيال ميديا', color: '#8B5CF6', icon: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>' },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <span class="logo-text">{siteConfig.siteName}</span>
+      </a>
+      <nav class="desktop-nav">
+        <div class="nav-links-center">
+          <a href="/" class={`nav-link${isActive('home')}`}>الرئيسية</a>
+          <a href="/all-tools.html" class={`nav-link${isActive('all-tools')}`}>جميع الأدوات</a>
+          <div class="dropdown-wrap" id="catDropdown">
+            <a href="#" class="nav-link" onmouseenter="openCatDD()" onmouseleave="scheduleCloseCatDD()">التصنيفات<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="dropdown-menu cat-dropdown" onmouseenter="cancelCloseCatDD()" onmouseleave="closeCatDD()">
+              {categories.map(cat => (
+                <a href={`/${cat.id}/`} class="cat-item">
+                  <div class="cat-item-icon" style={`background:${cat.color}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={cat.icon}></svg></div>
+                  <span>{cat.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <a href="/blog.html" class={`nav-link${isActive('blog')}`}>المدونة</a>
+          <a href="/pricing.html" class={`nav-link${isActive('pricing')}`}>الأسعار</a>
+          <a href="/about.html" class={`nav-link${isActive('about')}`}>من نحن</a>
+        </div>
+        <div class="nav-controls">
+          <div class="dropdown-wrap" id="langDropdown">
+            <button class="nav-link" onclick="toggleLangDD()" onmouseenter="openLangDD()" onmouseleave="scheduleCloseLangDD()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> العربية<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="dropdown-menu lang-dropdown" onmouseenter="cancelCloseLangDD()" onmouseleave="closeLangDD()">
+              <button class="lang-item active"><span class="lang-flag">🇸🇦</span><span>العربية</span><svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></button>
+              <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇬🇧</span><span>English</span></button>
+              <button class="lang-item" onclick="closeLangDD()"><span class="lang-flag">🇫🇷</span><span>Fran&ccedil;ais</span></button>
+            </div>
+          </div>
+          <button class="dark-toggle" id="darkToggle" aria-label="تبديل الوضع الليلي"><svg id="darkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="darkLabel">الوضع الليلي</span></button>
+        </div>
+      </nav>
+      <div class="mobile-controls">
+        <div class="dropdown-wrap" id="mobileLangDropdown">
+          <button class="mobile-btn" onclick="toggleMobileLangDD()" aria-label="اختيار اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></button>
+          <div class="dropdown-menu mobile-lang-dropdown" id="mobileLangMenu">
+            <button class="mobile-lang-item active" onclick="closeMobileLangDD()">🇸🇦 العربية</button>
+            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇬🇧 English</button>
+            <button class="mobile-lang-item" onclick="closeMobileLangDD()">🇫🇷 Fran&ccedil;ais</button>
+          </div>
+        </div>
+        <button class="mobile-btn" id="mobileDarkToggle" aria-label="تبديل الوضع الليلي"><svg id="mobileDarkIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="mobile-btn hamburger" id="hamburgerBtn" aria-label="القائمة"><svg id="hamburgerIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">الرئيسية</a>
+      <a href="/all-tools.html">جميع الأدوات</a>
+      <a href="/sitemap.html">التصنيفات</a>
+      <a href="/blog.html">المدونة</a>
+      <a href="/pricing.html">الأسعار</a>
+      <a href="/about.html">من نحن</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var isDark = localStorage.getItem('toolrar-theme') === 'dark';
+    if (isDark) document.documentElement.classList.add('dark');
+
+    function updateDarkUI() {
+      var darkIcon = document.getElementById('darkIcon');
+      var darkLabel = document.getElementById('darkLabel');
+      var mobileDarkIcon = document.getElementById('mobileDarkIcon');
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('toolrar-theme', 'dark');
+        darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+        darkLabel.textContent = 'الوضع النهاري';
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('toolrar-theme', 'light');
+        darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        darkLabel.textContent = 'الوضع الليلي';
+      }
+    }
+    updateDarkUI();
+
+    document.getElementById('darkToggle').addEventListener('click', function() { isDark = !isDark; updateDarkUI(); });
+    document.getElementById('mobileDarkToggle').addEventListener('click', function() { isDark = !isDark; updateDarkUI(); });
+
+    var langCloseTimer, catCloseTimer;
+    window.openLangDD = function() { clearTimeout(langCloseTimer); document.getElementById('langDropdown').classList.add('open'); };
+    window.closeLangDD = function() { document.getElementById('langDropdown').classList.remove('open'); };
+    window.scheduleCloseLangDD = function() { langCloseTimer = setTimeout(window.closeLangDD, 150); };
+    window.cancelCloseLangDD = function() { clearTimeout(langCloseTimer); };
+    window.toggleLangDD = function() {
+      var el = document.getElementById('langDropdown');
+      el.classList.toggle('open');
+    };
+    window.openCatDD = function() { clearTimeout(catCloseTimer); document.getElementById('catDropdown').classList.add('open'); };
+    window.closeCatDD = function() { document.getElementById('catDropdown').classList.remove('open'); };
+    window.scheduleCloseCatDD = function() { catCloseTimer = setTimeout(window.closeCatDD, 200); };
+    window.cancelCloseCatDD = function() { clearTimeout(catCloseTimer); };
+
+    window.toggleMobileLangDD = function() {
+      document.getElementById('mobileLangMenu').parentElement.classList.toggle('open');
+    };
+    window.closeMobileLangDD = function() {
+      document.getElementById('mobileLangMenu').parentElement.classList.remove('open');
+    };
+
+    var btn = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('mobileMenu');
+    var icon = document.getElementById('hamburgerIcon');
+    if (btn && menu) {
+      btn.addEventListener('click', function() {
+        menu.classList.toggle('open');
+        if (menu.classList.contains('open')) {
+          icon.innerHTML = '<line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/>';
+        } else {
+          icon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+        }
+      });
+    }
+  })();
+</script>
