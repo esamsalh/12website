@@ -1,0 +1,1027 @@
+{
+  "count": 73,
+  "items": [
+    {
+      "title": "ترميز Base64",
+      "h1": "ما معنى ترميز Base64؟",
+      "slug": "base64",
+      "clean_url": "https://www.toolrar.com/knowledge/base64",
+      "tool_url": "https://www.toolrar.com/text-tools/base64",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "النظام الثنائي Binary",
+      "h1": "ما معنى النظام الثنائي Binary؟",
+      "slug": "binary",
+      "clean_url": "https://www.toolrar.com/knowledge/binary",
+      "tool_url": "https://www.toolrar.com/text-tools/text-to-binary",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الرابط النصي Slug",
+      "h1": "ما معنى الرابط النصي Slug؟",
+      "slug": "slug",
+      "clean_url": "https://www.toolrar.com/knowledge/slug",
+      "tool_url": "https://www.toolrar.com/text-tools/slug-generator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "كثافة الكلمات المفتاحية",
+      "h1": "ما معنى كثافة الكلمات المفتاحية؟",
+      "slug": "keyword-density",
+      "clean_url": "https://www.toolrar.com/knowledge/keyword-density",
+      "tool_url": "https://www.toolrar.com/seo/keyword-density",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة JSON",
+      "h1": "ما معنى صيغة JSON؟",
+      "slug": "json",
+      "clean_url": "https://www.toolrar.com/knowledge/json",
+      "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة XML",
+      "h1": "ما معنى صيغة XML؟",
+      "slug": "xml",
+      "clean_url": "https://www.toolrar.com/knowledge/xml",
+      "tool_url": "https://www.toolrar.com/Developer/xml-to-json",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملف CSV",
+      "h1": "ما معنى ملف CSV؟",
+      "slug": "csv",
+      "clean_url": "https://www.toolrar.com/knowledge/csv",
+      "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملفات Excel",
+      "h1": "ما معنى ملفات Excel؟",
+      "slug": "excel",
+      "clean_url": "https://www.toolrar.com/knowledge/excel",
+      "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "لغة HTML",
+      "h1": "ما معنى لغة HTML؟",
+      "slug": "html",
+      "clean_url": "https://www.toolrar.com/knowledge/html",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "لغة CSS",
+      "h1": "ما معنى لغة CSS؟",
+      "slug": "css",
+      "clean_url": "https://www.toolrar.com/knowledge/css",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "لغة JavaScript",
+      "h1": "ما معنى لغة JavaScript؟",
+      "slug": "javascript",
+      "clean_url": "https://www.toolrar.com/knowledge/javascript",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "واجهة API",
+      "h1": "ما معنى واجهة API؟",
+      "slug": "api",
+      "clean_url": "https://www.toolrar.com/knowledge/api",
+      "tool_url": "https://www.toolrar.com/General/gold_price/",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "بيانات User Agent",
+      "h1": "ما معنى بيانات User Agent؟",
+      "slug": "user-agent",
+      "clean_url": "https://www.toolrar.com/knowledge/user-agent",
+      "tool_url": "https://www.toolrar.com/Developer/browser-info",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "عنوان IP",
+      "h1": "ما معنى عنوان IP؟",
+      "slug": "ip-address",
+      "clean_url": "https://www.toolrar.com/knowledge/ip-address",
+      "tool_url": "https://www.toolrar.com/Developer/ip-checker",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "وسوم Meta Tags",
+      "h1": "ما معنى وسوم Meta Tags؟",
+      "slug": "meta-tags",
+      "clean_url": "https://www.toolrar.com/knowledge/meta-tags",
+      "tool_url": "https://www.toolrar.com/Developer/meta-tags-generator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "كود اللون HEX",
+      "h1": "ما معنى كود اللون HEX؟",
+      "slug": "hex",
+      "clean_url": "https://www.toolrar.com/knowledge/hex",
+      "tool_url": "https://www.toolrar.com/Developer/color-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نظام ألوان RGB",
+      "h1": "ما معنى نظام ألوان RGB؟",
+      "slug": "rgb",
+      "clean_url": "https://www.toolrar.com/knowledge/rgb",
+      "tool_url": "https://www.toolrar.com/Developer/color-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نظام ألوان HSL",
+      "h1": "ما معنى نظام ألوان HSL؟",
+      "slug": "hsl",
+      "clean_url": "https://www.toolrar.com/knowledge/hsl",
+      "tool_url": "https://www.toolrar.com/Developer/color-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نظام ألوان CMYK",
+      "h1": "ما معنى نظام ألوان CMYK؟",
+      "slug": "cmyk",
+      "clean_url": "https://www.toolrar.com/knowledge/cmyk",
+      "tool_url": "https://www.toolrar.com/Developer/color-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "أيقونة Favicon",
+      "h1": "ما معنى أيقونة Favicon؟",
+      "slug": "favicon",
+      "clean_url": "https://www.toolrar.com/knowledge/favicon",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/favicon-generator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة WebP",
+      "h1": "ما معنى صيغة WebP؟",
+      "slug": "webp",
+      "clean_url": "https://www.toolrar.com/knowledge/webp",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/to-webp",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة PNG",
+      "h1": "ما معنى صيغة PNG؟",
+      "slug": "png",
+      "clean_url": "https://www.toolrar.com/knowledge/png",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/png-to-jpg",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة JPG",
+      "h1": "ما معنى صيغة JPG؟",
+      "slug": "jpg",
+      "clean_url": "https://www.toolrar.com/knowledge/jpg",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/png-to-jpg",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "رسومات SVG",
+      "h1": "ما معنى رسومات SVG؟",
+      "slug": "svg",
+      "clean_url": "https://www.toolrar.com/knowledge/svg",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/image-to-vector",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "بيانات EXIF",
+      "h1": "ما معنى بيانات EXIF؟",
+      "slug": "exif",
+      "clean_url": "https://www.toolrar.com/knowledge/exif",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/exif-reader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "العلامة المائية",
+      "h1": "ما معنى العلامة المائية؟",
+      "slug": "watermark",
+      "clean_url": "https://www.toolrar.com/knowledge/watermark",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/watermark",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ضغط الصور",
+      "h1": "ما معنى ضغط الصور؟",
+      "slug": "image-compression",
+      "clean_url": "https://www.toolrar.com/knowledge/image-compression",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/compress-image",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "إزالة الخلفية",
+      "h1": "ما معنى إزالة الخلفية؟",
+      "slug": "background-removal",
+      "clean_url": "https://www.toolrar.com/knowledge/background-removal",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/background-remover",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر LCP",
+      "h1": "ما معنى مؤشر LCP؟",
+      "slug": "lcp",
+      "clean_url": "https://www.toolrar.com/knowledge/lcp",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/to-webp",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر FCP",
+      "h1": "ما معنى مؤشر FCP؟",
+      "slug": "fcp",
+      "clean_url": "https://www.toolrar.com/knowledge/fcp",
+      "tool_url": "https://www.toolrar.com/Photo-Editing/compress-image",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملف PDF",
+      "h1": "ما معنى ملف PDF؟",
+      "slug": "pdf",
+      "clean_url": "https://www.toolrar.com/knowledge/pdf",
+      "tool_url": "https://www.toolrar.com/docs-tools/merge-pdf",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "دمج ملفات PDF",
+      "h1": "ما معنى دمج ملفات PDF؟",
+      "slug": "merge-pdf",
+      "clean_url": "https://www.toolrar.com/knowledge/merge-pdf",
+      "tool_url": "https://www.toolrar.com/docs-tools/merge-pdf",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "تقسيم PDF",
+      "h1": "ما معنى تقسيم PDF؟",
+      "slug": "split-pdf",
+      "clean_url": "https://www.toolrar.com/knowledge/split-pdf",
+      "tool_url": "https://www.toolrar.com/docs-tools/split-pdf",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "حماية PDF",
+      "h1": "ما معنى حماية PDF؟",
+      "slug": "pdf-protection",
+      "clean_url": "https://www.toolrar.com/knowledge/pdf-protection",
+      "tool_url": "https://www.toolrar.com/docs-tools/protect-pdf",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملف ZIP",
+      "h1": "ما معنى ملف ZIP؟",
+      "slug": "zip",
+      "clean_url": "https://www.toolrar.com/knowledge/zip",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/zip-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملف RAR",
+      "h1": "ما معنى ملف RAR؟",
+      "slug": "rar",
+      "clean_url": "https://www.toolrar.com/knowledge/rar",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/rar-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة 7Z",
+      "h1": "ما معنى صيغة 7Z؟",
+      "slug": "7z",
+      "clean_url": "https://www.toolrar.com/knowledge/7z",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/7z-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "أرشيف TAR",
+      "h1": "ما معنى أرشيف TAR؟",
+      "slug": "tar",
+      "clean_url": "https://www.toolrar.com/knowledge/tar",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/tar-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ضغط GZIP",
+      "h1": "ما معنى ضغط GZIP؟",
+      "slug": "gzip",
+      "clean_url": "https://www.toolrar.com/knowledge/gzip",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/gz-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "بيانات الأرشيف",
+      "h1": "ما معنى بيانات الأرشيف؟",
+      "slug": "archive-metadata",
+      "clean_url": "https://www.toolrar.com/knowledge/archive-metadata",
+      "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/archive-metadata",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة الضغط",
+      "h1": "ما معنى نسبة الضغط؟",
+      "slug": "compression-ratio",
+      "clean_url": "https://www.toolrar.com/knowledge/compression-ratio",
+      "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/compression-ratio-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "تصغير الكود Minify",
+      "h1": "ما معنى تصغير الكود Minify؟",
+      "slug": "minify",
+      "clean_url": "https://www.toolrar.com/knowledge/minify",
+      "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/code-zip-minimizer",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملف ISO",
+      "h1": "ما معنى ملف ISO؟",
+      "slug": "iso",
+      "clean_url": "https://www.toolrar.com/knowledge/iso",
+      "tool_url": "https://www.toolrar.com/zip-tools/extract/iso-extractor",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "أرشيف SFX",
+      "h1": "ما معنى أرشيف SFX؟",
+      "slug": "sfx",
+      "clean_url": "https://www.toolrar.com/knowledge/sfx",
+      "tool_url": "https://www.toolrar.com/zip-tools/create-compress/sfx-to-zip",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ملفات CBR وCBZ",
+      "h1": "ما معنى ملفات CBR وCBZ؟",
+      "slug": "cbr-cbz",
+      "clean_url": "https://www.toolrar.com/knowledge/cbr-cbz",
+      "tool_url": "https://www.toolrar.com/zip-tools/create-compress/cbr-to-zip",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "تحسين محركات البحث SEO",
+      "h1": "ما معنى تحسين محركات البحث SEO؟",
+      "slug": "seo",
+      "clean_url": "https://www.toolrar.com/knowledge/seo",
+      "tool_url": "https://www.toolrar.com/seo/seo-checker",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "خريطة الموقع XML",
+      "h1": "ما معنى خريطة الموقع XML؟",
+      "slug": "sitemap-xml",
+      "clean_url": "https://www.toolrar.com/knowledge/sitemap-xml",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الرابط الخلفي Backlink",
+      "h1": "ما معنى الرابط الخلفي Backlink؟",
+      "slug": "backlink",
+      "clean_url": "https://www.toolrar.com/knowledge/backlink",
+      "tool_url": "https://www.toolrar.com/seo/backlink-checker",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الدومين والبيج أثورتي",
+      "h1": "ما معنى الدومين والبيج أثورتي؟",
+      "slug": "da-pa",
+      "clean_url": "https://www.toolrar.com/knowledge/da-pa",
+      "tool_url": "https://www.toolrar.com/seo/da-pa-checker",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "سبام سكور",
+      "h1": "ما معنى سبام سكور؟",
+      "slug": "spam-score",
+      "clean_url": "https://www.toolrar.com/knowledge/spam-score",
+      "tool_url": "https://www.toolrar.com/seo/spam-score-checker",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الرابط المعطل",
+      "h1": "ما معنى الرابط المعطل؟",
+      "slug": "broken-link",
+      "clean_url": "https://www.toolrar.com/knowledge/broken-link",
+      "tool_url": "https://www.toolrar.com/seo/broken-links",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "سرعة الصفحة PageSpeed",
+      "h1": "ما معنى سرعة الصفحة PageSpeed؟",
+      "slug": "pagespeed",
+      "clean_url": "https://www.toolrar.com/knowledge/pagespeed",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "رمز QR Code",
+      "h1": "ما معنى رمز QR Code؟",
+      "slug": "qr-code",
+      "clean_url": "https://www.toolrar.com/knowledge/qr-code",
+      "tool_url": "https://www.toolrar.com/General/qr-generator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "قارئ QR",
+      "h1": "ما معنى قارئ QR؟",
+      "slug": "qr-reader",
+      "clean_url": "https://www.toolrar.com/knowledge/qr-reader",
+      "tool_url": "https://www.toolrar.com/General/qr-reader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ساعة الإيقاف",
+      "h1": "ما معنى ساعة الإيقاف؟",
+      "slug": "stopwatch",
+      "clean_url": "https://www.toolrar.com/knowledge/stopwatch",
+      "tool_url": "https://www.toolrar.com/General/stopwatch",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "المؤقت التنازلي",
+      "h1": "ما معنى المؤقت التنازلي؟",
+      "slug": "countdown-timer",
+      "clean_url": "https://www.toolrar.com/knowledge/countdown-timer",
+      "tool_url": "https://www.toolrar.com/General/countdown-timer",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "التاريخ الهجري",
+      "h1": "ما معنى التاريخ الهجري؟",
+      "slug": "hijri-date",
+      "clean_url": "https://www.toolrar.com/knowledge/hijri-date",
+      "tool_url": "https://www.toolrar.com/General/hijri-date",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "المنطقة الزمنية",
+      "h1": "ما معنى المنطقة الزمنية؟",
+      "slug": "timezone",
+      "clean_url": "https://www.toolrar.com/knowledge/timezone",
+      "tool_url": "https://www.toolrar.com/Calculators/date-and-time/timezone-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "المعدل التراكمي GPA",
+      "h1": "ما معنى المعدل التراكمي GPA؟",
+      "slug": "gpa",
+      "clean_url": "https://www.toolrar.com/knowledge/gpa",
+      "tool_url": "https://www.toolrar.com/Calculators/educational/gpa-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ضريبة VAT",
+      "h1": "ما معنى ضريبة VAT؟",
+      "slug": "vat",
+      "clean_url": "https://www.toolrar.com/knowledge/vat",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/vat-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "العائد على الاستثمار ROI",
+      "h1": "ما معنى العائد على الاستثمار ROI؟",
+      "slug": "roi",
+      "clean_url": "https://www.toolrar.com/knowledge/roi",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/roi-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صافي القيمة الحالية NPV",
+      "h1": "ما معنى صافي القيمة الحالية NPV؟",
+      "slug": "npv",
+      "clean_url": "https://www.toolrar.com/knowledge/npv",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/npv-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معدل العائد الداخلي IRR",
+      "h1": "ما معنى معدل العائد الداخلي IRR؟",
+      "slug": "irr",
+      "clean_url": "https://www.toolrar.com/knowledge/irr",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/irr-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر EBITDA",
+      "h1": "ما معنى مؤشر EBITDA؟",
+      "slug": "ebitda",
+      "clean_url": "https://www.toolrar.com/knowledge/ebitda",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/ebitda-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة الدين إلى حقوق الملكية",
+      "h1": "ما معنى نسبة الدين إلى حقوق الملكية؟",
+      "slug": "debt-equity-ratio",
+      "clean_url": "https://www.toolrar.com/knowledge/debt-equity-ratio",
+      "tool_url": "https://www.toolrar.com/Calculators/finance/de-ratio-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر كتلة الجسم BMI",
+      "h1": "ما معنى مؤشر كتلة الجسم BMI؟",
+      "slug": "bmi",
+      "clean_url": "https://www.toolrar.com/knowledge/bmi",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bmi-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معدل الأيض الأساسي BMR",
+      "h1": "ما معنى معدل الأيض الأساسي BMR؟",
+      "slug": "bmr",
+      "clean_url": "https://www.toolrar.com/knowledge/bmr",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bmr-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "إجمالي الطاقة اليومية TDEE",
+      "h1": "ما معنى إجمالي الطاقة اليومية TDEE؟",
+      "slug": "tdee",
+      "clean_url": "https://www.toolrar.com/knowledge/tdee",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/tdee-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة الخصر إلى الورك WHR",
+      "h1": "ما معنى نسبة الخصر إلى الورك WHR؟",
+      "slug": "whr",
+      "clean_url": "https://www.toolrar.com/knowledge/whr",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/whr-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مخاطر ASCVD",
+      "h1": "ما معنى مخاطر ASCVD؟",
+      "slug": "ascvd",
+      "clean_url": "https://www.toolrar.com/knowledge/ascvd",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ascvd-risk-estimator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "حاسبة QRISK3",
+      "h1": "ما معنى حاسبة QRISK3؟",
+      "slug": "qrisk3",
+      "clean_url": "https://www.toolrar.com/knowledge/qrisk3",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/qrisk3-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة التفاعل",
+      "h1": "ما معنى نسبة التفاعل؟",
+      "slug": "engagement-rate",
+      "clean_url": "https://www.toolrar.com/knowledge/engagement-rate",
+      "tool_url": "https://www.toolrar.com/Social-media/engagement-rate-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "يوتيوب شورتس",
+      "h1": "ما معنى يوتيوب شورتس؟",
+      "slug": "youtube-shorts",
+      "clean_url": "https://www.toolrar.com/knowledge/youtube-shorts",
+      "tool_url": "https://www.toolrar.com/Social-media/youtube-shorts-downloader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    }
+  ]
+}
