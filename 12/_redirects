@@ -1,1 +1,6 @@
 /:name.html  /:name  301
+
+# Redirect old typing test page to the main typing speed page
+/text-tools/typing-test /General/typing-speed 301
+/text-tools/typing-test/ /General/typing-speed 301
+/text-tools/typing-test.html /General/typing-speed 301
