@@ -1,6 +1,6 @@
 document.querySelectorAll('.faq-question').forEach((btn)=>{btn.addEventListener('click',()=>btn.closest('.faq-item').classList.toggle('open'))});
 const search=document.querySelector('[data-concept-search]');
-if(search){const cards=[...document.querySelectorAll('[data-concept-card]')];search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();cards.forEach(card=>{card.style.display=card.textContent.toLowerCase().includes(q)?'block':'none'})})}
+if(search){const cards=[...document.querySelectorAll('[data-concept-card]')],sections=[...document.querySelectorAll('[data-concept-section]')];search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();cards.forEach(card=>{card.style.display=card.textContent.toLowerCase().includes(q)?'block':'none'});sections.forEach(section=>{section.style.display=[...section.querySelectorAll('[data-concept-card]')].some(card=>card.style.display!=='none')?'block':'none'})})}
 let catTimer,langTimer,isDark=false;
 function openCatDD(){document.getElementById('catDropdown')?.classList.add('open')}
 function closeCatDD(){document.getElementById('catDropdown')?.classList.remove('open')}

@@ -1,10 +1,11 @@
 {
-  "count": 73,
+  "count": 108,
   "items": [
     {
       "title": "ترميز Base64",
       "h1": "ما معنى ترميز Base64؟",
       "slug": "base64",
+      "category": "النصوص والمطورين",
       "clean_url": "https://www.toolrar.com/definitions/base64",
       "tool_url": "https://www.toolrar.com/text-tools/base64",
       "schema": [
@@ -19,6 +20,7 @@
       "title": "النظام الثنائي Binary",
       "h1": "ما معنى النظام الثنائي Binary؟",
       "slug": "binary",
+      "category": "النصوص",
       "clean_url": "https://www.toolrar.com/definitions/binary",
       "tool_url": "https://www.toolrar.com/text-tools/text-to-binary",
       "schema": [
@@ -33,6 +35,7 @@
       "title": "الرابط النصي Slug",
       "h1": "ما معنى الرابط النصي Slug؟",
       "slug": "slug",
+      "category": "السيو والنصوص",
       "clean_url": "https://www.toolrar.com/definitions/slug",
       "tool_url": "https://www.toolrar.com/text-tools/slug-generator",
       "schema": [
@@ -47,6 +50,7 @@
       "title": "كثافة الكلمات المفتاحية",
       "h1": "ما معنى كثافة الكلمات المفتاحية؟",
       "slug": "keyword-density",
+      "category": "SEO",
       "clean_url": "https://www.toolrar.com/definitions/keyword-density",
       "tool_url": "https://www.toolrar.com/seo/keyword-density",
       "schema": [
@@ -61,6 +65,7 @@
       "title": "صيغة JSON",
       "h1": "ما معنى صيغة JSON؟",
       "slug": "json",
+      "category": "المطورين",
       "clean_url": "https://www.toolrar.com/definitions/json",
       "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
       "schema": [
@@ -75,6 +80,7 @@
       "title": "صيغة XML",
       "h1": "ما معنى صيغة XML؟",
       "slug": "xml",
+      "category": "المطورين وSEO",
       "clean_url": "https://www.toolrar.com/definitions/xml",
       "tool_url": "https://www.toolrar.com/Developer/xml-to-json",
       "schema": [
@@ -89,6 +95,7 @@
       "title": "ملف CSV",
       "h1": "ما معنى ملف CSV؟",
       "slug": "csv",
+      "category": "البيانات",
       "clean_url": "https://www.toolrar.com/definitions/csv",
       "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
       "schema": [
@@ -103,6 +110,7 @@
       "title": "ملفات Excel",
       "h1": "ما معنى ملفات Excel؟",
       "slug": "excel",
+      "category": "البيانات والحاسبات",
       "clean_url": "https://www.toolrar.com/definitions/excel",
       "tool_url": "https://www.toolrar.com/Developer/json-to-excel-csv",
       "schema": [
@@ -117,6 +125,7 @@
       "title": "لغة HTML",
       "h1": "ما معنى لغة HTML؟",
       "slug": "html",
+      "category": "المطورين",
       "clean_url": "https://www.toolrar.com/definitions/html",
       "tool_url": "https://www.toolrar.com/Developer/code-formatter",
       "schema": [
@@ -131,6 +140,7 @@
       "title": "لغة CSS",
       "h1": "ما معنى لغة CSS؟",
       "slug": "css",
+      "category": "المطورين والتصميم",
       "clean_url": "https://www.toolrar.com/definitions/css",
       "tool_url": "https://www.toolrar.com/Developer/code-formatter",
       "schema": [
@@ -145,6 +155,7 @@
       "title": "لغة JavaScript",
       "h1": "ما معنى لغة JavaScript؟",
       "slug": "javascript",
+      "category": "المطورين",
       "clean_url": "https://www.toolrar.com/definitions/javascript",
       "tool_url": "https://www.toolrar.com/Developer/code-formatter",
       "schema": [
@@ -159,6 +170,7 @@
       "title": "واجهة API",
       "h1": "ما معنى واجهة API؟",
       "slug": "api",
+      "category": "المطورين والبيانات",
       "clean_url": "https://www.toolrar.com/definitions/api",
       "tool_url": "https://www.toolrar.com/General/gold_price/",
       "schema": [
@@ -173,6 +185,7 @@
       "title": "بيانات User Agent",
       "h1": "ما معنى بيانات User Agent؟",
       "slug": "user-agent",
+      "category": "المطورين",
       "clean_url": "https://www.toolrar.com/definitions/user-agent",
       "tool_url": "https://www.toolrar.com/Developer/browser-info",
       "schema": [
@@ -187,6 +200,7 @@
       "title": "عنوان IP",
       "h1": "ما معنى عنوان IP؟",
       "slug": "ip-address",
+      "category": "الشبكات",
       "clean_url": "https://www.toolrar.com/definitions/ip-address",
       "tool_url": "https://www.toolrar.com/Developer/ip-checker",
       "schema": [
@@ -201,6 +215,7 @@
       "title": "وسوم Meta Tags",
       "h1": "ما معنى وسوم Meta Tags؟",
       "slug": "meta-tags",
+      "category": "SEO",
       "clean_url": "https://www.toolrar.com/definitions/meta-tags",
       "tool_url": "https://www.toolrar.com/Developer/meta-tags-generator",
       "schema": [
@@ -215,6 +230,7 @@
       "title": "كود اللون HEX",
       "h1": "ما معنى كود اللون HEX؟",
       "slug": "hex",
+      "category": "التصميم",
       "clean_url": "https://www.toolrar.com/definitions/hex",
       "tool_url": "https://www.toolrar.com/Developer/color-converter",
       "schema": [
@@ -229,6 +245,7 @@
       "title": "نظام ألوان RGB",
       "h1": "ما معنى نظام ألوان RGB؟",
       "slug": "rgb",
+      "category": "التصميم",
       "clean_url": "https://www.toolrar.com/definitions/rgb",
       "tool_url": "https://www.toolrar.com/Developer/color-converter",
       "schema": [
@@ -243,6 +260,7 @@
       "title": "نظام ألوان HSL",
       "h1": "ما معنى نظام ألوان HSL؟",
       "slug": "hsl",
+      "category": "التصميم",
       "clean_url": "https://www.toolrar.com/definitions/hsl",
       "tool_url": "https://www.toolrar.com/Developer/color-converter",
       "schema": [
@@ -257,6 +275,7 @@
       "title": "نظام ألوان CMYK",
       "h1": "ما معنى نظام ألوان CMYK؟",
       "slug": "cmyk",
+      "category": "التصميم والطباعة",
       "clean_url": "https://www.toolrar.com/definitions/cmyk",
       "tool_url": "https://www.toolrar.com/Developer/color-converter",
       "schema": [
@@ -271,6 +290,7 @@
       "title": "أيقونة Favicon",
       "h1": "ما معنى أيقونة Favicon؟",
       "slug": "favicon",
+      "category": "التصميم وSEO",
       "clean_url": "https://www.toolrar.com/definitions/favicon",
       "tool_url": "https://www.toolrar.com/Photo-Editing/favicon-generator",
       "schema": [
@@ -285,6 +305,7 @@
       "title": "صيغة WebP",
       "h1": "ما معنى صيغة WebP؟",
       "slug": "webp",
+      "category": "الصور والأداء",
       "clean_url": "https://www.toolrar.com/definitions/webp",
       "tool_url": "https://www.toolrar.com/Photo-Editing/to-webp",
       "schema": [
@@ -299,6 +320,7 @@
       "title": "صيغة PNG",
       "h1": "ما معنى صيغة PNG؟",
       "slug": "png",
+      "category": "الصور",
       "clean_url": "https://www.toolrar.com/definitions/png",
       "tool_url": "https://www.toolrar.com/Photo-Editing/png-to-jpg",
       "schema": [
@@ -313,6 +335,7 @@
       "title": "صيغة JPG",
       "h1": "ما معنى صيغة JPG؟",
       "slug": "jpg",
+      "category": "الصور",
       "clean_url": "https://www.toolrar.com/definitions/jpg",
       "tool_url": "https://www.toolrar.com/Photo-Editing/png-to-jpg",
       "schema": [
@@ -327,6 +350,7 @@
       "title": "رسومات SVG",
       "h1": "ما معنى رسومات SVG؟",
       "slug": "svg",
+      "category": "التصميم",
       "clean_url": "https://www.toolrar.com/definitions/svg",
       "tool_url": "https://www.toolrar.com/Photo-Editing/image-to-vector",
       "schema": [
@@ -341,6 +365,7 @@
       "title": "بيانات EXIF",
       "h1": "ما معنى بيانات EXIF؟",
       "slug": "exif",
+      "category": "الصور والخصوصية",
       "clean_url": "https://www.toolrar.com/definitions/exif",
       "tool_url": "https://www.toolrar.com/Photo-Editing/exif-reader",
       "schema": [
@@ -355,6 +380,7 @@
       "title": "العلامة المائية",
       "h1": "ما معنى العلامة المائية؟",
       "slug": "watermark",
+      "category": "الصور والمستندات",
       "clean_url": "https://www.toolrar.com/definitions/watermark",
       "tool_url": "https://www.toolrar.com/Photo-Editing/watermark",
       "schema": [
@@ -369,6 +395,7 @@
       "title": "ضغط الصور",
       "h1": "ما معنى ضغط الصور؟",
       "slug": "image-compression",
+      "category": "الصور والأداء",
       "clean_url": "https://www.toolrar.com/definitions/image-compression",
       "tool_url": "https://www.toolrar.com/Photo-Editing/compress-image",
       "schema": [
@@ -383,6 +410,7 @@
       "title": "إزالة الخلفية",
       "h1": "ما معنى إزالة الخلفية؟",
       "slug": "background-removal",
+      "category": "الصور",
       "clean_url": "https://www.toolrar.com/definitions/background-removal",
       "tool_url": "https://www.toolrar.com/Photo-Editing/background-remover",
       "schema": [
@@ -397,6 +425,7 @@
       "title": "مؤشر LCP",
       "h1": "ما معنى مؤشر LCP؟",
       "slug": "lcp",
+      "category": "الأداء وSEO",
       "clean_url": "https://www.toolrar.com/definitions/lcp",
       "tool_url": "https://www.toolrar.com/Photo-Editing/to-webp",
       "schema": [
@@ -411,6 +440,7 @@
       "title": "مؤشر FCP",
       "h1": "ما معنى مؤشر FCP؟",
       "slug": "fcp",
+      "category": "الأداء",
       "clean_url": "https://www.toolrar.com/definitions/fcp",
       "tool_url": "https://www.toolrar.com/Photo-Editing/compress-image",
       "schema": [
@@ -425,6 +455,7 @@
       "title": "ملف PDF",
       "h1": "ما معنى ملف PDF؟",
       "slug": "pdf",
+      "category": "المستندات",
       "clean_url": "https://www.toolrar.com/definitions/pdf",
       "tool_url": "https://www.toolrar.com/docs-tools/merge-pdf",
       "schema": [
@@ -439,6 +470,7 @@
       "title": "دمج ملفات PDF",
       "h1": "ما معنى دمج ملفات PDF؟",
       "slug": "merge-pdf",
+      "category": "المستندات",
       "clean_url": "https://www.toolrar.com/definitions/merge-pdf",
       "tool_url": "https://www.toolrar.com/docs-tools/merge-pdf",
       "schema": [
@@ -453,6 +485,7 @@
       "title": "تقسيم PDF",
       "h1": "ما معنى تقسيم PDF؟",
       "slug": "split-pdf",
+      "category": "المستندات",
       "clean_url": "https://www.toolrar.com/definitions/split-pdf",
       "tool_url": "https://www.toolrar.com/docs-tools/split-pdf",
       "schema": [
@@ -467,6 +500,7 @@
       "title": "حماية PDF",
       "h1": "ما معنى حماية PDF؟",
       "slug": "pdf-protection",
+      "category": "الأمان والمستندات",
       "clean_url": "https://www.toolrar.com/definitions/pdf-protection",
       "tool_url": "https://www.toolrar.com/docs-tools/protect-pdf",
       "schema": [
@@ -481,6 +515,7 @@
       "title": "ملف ZIP",
       "h1": "ما معنى ملف ZIP؟",
       "slug": "zip",
+      "category": "الضغط",
       "clean_url": "https://www.toolrar.com/definitions/zip",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/zip-extractor",
       "schema": [
@@ -495,6 +530,7 @@
       "title": "ملف RAR",
       "h1": "ما معنى ملف RAR؟",
       "slug": "rar",
+      "category": "الضغط",
       "clean_url": "https://www.toolrar.com/definitions/rar",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/rar-extractor",
       "schema": [
@@ -509,6 +545,7 @@
       "title": "صيغة 7Z",
       "h1": "ما معنى صيغة 7Z؟",
       "slug": "7z",
+      "category": "الضغط",
       "clean_url": "https://www.toolrar.com/definitions/7z",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/7z-extractor",
       "schema": [
@@ -523,6 +560,7 @@
       "title": "أرشيف TAR",
       "h1": "ما معنى أرشيف TAR؟",
       "slug": "tar",
+      "category": "الضغط والأنظمة",
       "clean_url": "https://www.toolrar.com/definitions/tar",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/tar-extractor",
       "schema": [
@@ -537,6 +575,7 @@
       "title": "ضغط GZIP",
       "h1": "ما معنى ضغط GZIP؟",
       "slug": "gzip",
+      "category": "الضغط والأداء",
       "clean_url": "https://www.toolrar.com/definitions/gzip",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/gz-extractor",
       "schema": [
@@ -551,6 +590,7 @@
       "title": "بيانات الأرشيف",
       "h1": "ما معنى بيانات الأرشيف؟",
       "slug": "archive-metadata",
+      "category": "الضغط والبيانات",
       "clean_url": "https://www.toolrar.com/definitions/archive-metadata",
       "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/archive-metadata",
       "schema": [
@@ -565,6 +605,7 @@
       "title": "نسبة الضغط",
       "h1": "ما معنى نسبة الضغط؟",
       "slug": "compression-ratio",
+      "category": "الضغط",
       "clean_url": "https://www.toolrar.com/definitions/compression-ratio",
       "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/compression-ratio-calculator",
       "schema": [
@@ -579,6 +620,7 @@
       "title": "تصغير الكود Minify",
       "h1": "ما معنى تصغير الكود Minify؟",
       "slug": "minify",
+      "category": "المطورين والأداء",
       "clean_url": "https://www.toolrar.com/definitions/minify",
       "tool_url": "https://www.toolrar.com/zip-tools/data-analytics/code-zip-minimizer",
       "schema": [
@@ -593,6 +635,7 @@
       "title": "ملف ISO",
       "h1": "ما معنى ملف ISO؟",
       "slug": "iso",
+      "category": "الملفات",
       "clean_url": "https://www.toolrar.com/definitions/iso",
       "tool_url": "https://www.toolrar.com/zip-tools/extract/iso-extractor",
       "schema": [
@@ -607,6 +650,7 @@
       "title": "أرشيف SFX",
       "h1": "ما معنى أرشيف SFX؟",
       "slug": "sfx",
+      "category": "الضغط",
       "clean_url": "https://www.toolrar.com/definitions/sfx",
       "tool_url": "https://www.toolrar.com/zip-tools/create-compress/sfx-to-zip",
       "schema": [
@@ -621,6 +665,7 @@
       "title": "ملفات CBR وCBZ",
       "h1": "ما معنى ملفات CBR وCBZ؟",
       "slug": "cbr-cbz",
+      "category": "الملفات والقراءة",
       "clean_url": "https://www.toolrar.com/definitions/cbr-cbz",
       "tool_url": "https://www.toolrar.com/zip-tools/create-compress/cbr-to-zip",
       "schema": [
@@ -635,6 +680,7 @@
       "title": "تحسين محركات البحث SEO",
       "h1": "ما معنى تحسين محركات البحث SEO؟",
       "slug": "seo",
+      "category": "SEO",
       "clean_url": "https://www.toolrar.com/definitions/seo",
       "tool_url": "https://www.toolrar.com/seo/seo-checker",
       "schema": [
@@ -649,6 +695,7 @@
       "title": "خريطة الموقع XML",
       "h1": "ما معنى خريطة الموقع XML؟",
       "slug": "sitemap-xml",
+      "category": "SEO تقني",
       "clean_url": "https://www.toolrar.com/definitions/sitemap-xml",
       "tool_url": "https://www.toolrar.com/seo/page-speed",
       "schema": [
@@ -663,6 +710,7 @@
       "title": "الرابط الخلفي Backlink",
       "h1": "ما معنى الرابط الخلفي Backlink؟",
       "slug": "backlink",
+      "category": "SEO خارجي",
       "clean_url": "https://www.toolrar.com/definitions/backlink",
       "tool_url": "https://www.toolrar.com/seo/backlink-checker",
       "schema": [
@@ -677,6 +725,7 @@
       "title": "الدومين والبيج أثورتي",
       "h1": "ما معنى الدومين والبيج أثورتي؟",
       "slug": "da-pa",
+      "category": "SEO",
       "clean_url": "https://www.toolrar.com/definitions/da-pa",
       "tool_url": "https://www.toolrar.com/seo/da-pa-checker",
       "schema": [
@@ -691,6 +740,7 @@
       "title": "سبام سكور",
       "h1": "ما معنى سبام سكور؟",
       "slug": "spam-score",
+      "category": "SEO",
       "clean_url": "https://www.toolrar.com/definitions/spam-score",
       "tool_url": "https://www.toolrar.com/seo/spam-score-checker",
       "schema": [
@@ -705,6 +755,7 @@
       "title": "الرابط المعطل",
       "h1": "ما معنى الرابط المعطل؟",
       "slug": "broken-link",
+      "category": "SEO تقني",
       "clean_url": "https://www.toolrar.com/definitions/broken-link",
       "tool_url": "https://www.toolrar.com/seo/broken-links",
       "schema": [
@@ -719,6 +770,7 @@
       "title": "سرعة الصفحة PageSpeed",
       "h1": "ما معنى سرعة الصفحة PageSpeed؟",
       "slug": "pagespeed",
+      "category": "الأداء وSEO",
       "clean_url": "https://www.toolrar.com/definitions/pagespeed",
       "tool_url": "https://www.toolrar.com/seo/page-speed",
       "schema": [
@@ -733,6 +785,7 @@
       "title": "رمز QR Code",
       "h1": "ما معنى رمز QR Code؟",
       "slug": "qr-code",
+      "category": "الأدوات العامة",
       "clean_url": "https://www.toolrar.com/definitions/qr-code",
       "tool_url": "https://www.toolrar.com/General/qr-generator",
       "schema": [
@@ -747,6 +800,7 @@
       "title": "قارئ QR",
       "h1": "ما معنى قارئ QR؟",
       "slug": "qr-reader",
+      "category": "الأدوات العامة",
       "clean_url": "https://www.toolrar.com/definitions/qr-reader",
       "tool_url": "https://www.toolrar.com/General/qr-reader",
       "schema": [
@@ -761,6 +815,7 @@
       "title": "ساعة الإيقاف",
       "h1": "ما معنى ساعة الإيقاف؟",
       "slug": "stopwatch",
+      "category": "الوقت",
       "clean_url": "https://www.toolrar.com/definitions/stopwatch",
       "tool_url": "https://www.toolrar.com/General/stopwatch",
       "schema": [
@@ -775,6 +830,7 @@
       "title": "المؤقت التنازلي",
       "h1": "ما معنى المؤقت التنازلي؟",
       "slug": "countdown-timer",
+      "category": "الوقت",
       "clean_url": "https://www.toolrar.com/definitions/countdown-timer",
       "tool_url": "https://www.toolrar.com/General/countdown-timer",
       "schema": [
@@ -789,6 +845,7 @@
       "title": "التاريخ الهجري",
       "h1": "ما معنى التاريخ الهجري؟",
       "slug": "hijri-date",
+      "category": "التاريخ",
       "clean_url": "https://www.toolrar.com/definitions/hijri-date",
       "tool_url": "https://www.toolrar.com/General/hijri-date",
       "schema": [
@@ -803,6 +860,7 @@
       "title": "المنطقة الزمنية",
       "h1": "ما معنى المنطقة الزمنية؟",
       "slug": "timezone",
+      "category": "التاريخ والوقت",
       "clean_url": "https://www.toolrar.com/definitions/timezone",
       "tool_url": "https://www.toolrar.com/Calculators/date-and-time/timezone-converter",
       "schema": [
@@ -817,6 +875,7 @@
       "title": "المعدل التراكمي GPA",
       "h1": "ما معنى المعدل التراكمي GPA؟",
       "slug": "gpa",
+      "category": "التعليم",
       "clean_url": "https://www.toolrar.com/definitions/gpa",
       "tool_url": "https://www.toolrar.com/Calculators/educational/gpa-calculator",
       "schema": [
@@ -831,6 +890,7 @@
       "title": "ضريبة VAT",
       "h1": "ما معنى ضريبة VAT؟",
       "slug": "vat",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/vat",
       "tool_url": "https://www.toolrar.com/Calculators/finance/vat-calculator",
       "schema": [
@@ -845,6 +905,7 @@
       "title": "العائد على الاستثمار ROI",
       "h1": "ما معنى العائد على الاستثمار ROI؟",
       "slug": "roi",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/roi",
       "tool_url": "https://www.toolrar.com/Calculators/finance/roi-calculator",
       "schema": [
@@ -859,6 +920,7 @@
       "title": "صافي القيمة الحالية NPV",
       "h1": "ما معنى صافي القيمة الحالية NPV؟",
       "slug": "npv",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/npv",
       "tool_url": "https://www.toolrar.com/Calculators/finance/npv-calculator",
       "schema": [
@@ -873,6 +935,7 @@
       "title": "معدل العائد الداخلي IRR",
       "h1": "ما معنى معدل العائد الداخلي IRR؟",
       "slug": "irr",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/irr",
       "tool_url": "https://www.toolrar.com/Calculators/finance/irr-calculator",
       "schema": [
@@ -887,6 +950,7 @@
       "title": "مؤشر EBITDA",
       "h1": "ما معنى مؤشر EBITDA؟",
       "slug": "ebitda",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/ebitda",
       "tool_url": "https://www.toolrar.com/Calculators/finance/ebitda-calculator",
       "schema": [
@@ -901,6 +965,7 @@
       "title": "نسبة الدين إلى حقوق الملكية",
       "h1": "ما معنى نسبة الدين إلى حقوق الملكية؟",
       "slug": "debt-equity-ratio",
+      "category": "المالية",
       "clean_url": "https://www.toolrar.com/definitions/debt-equity-ratio",
       "tool_url": "https://www.toolrar.com/Calculators/finance/de-ratio-calculator",
       "schema": [
@@ -915,6 +980,7 @@
       "title": "مؤشر كتلة الجسم BMI",
       "h1": "ما معنى مؤشر كتلة الجسم BMI؟",
       "slug": "bmi",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/bmi",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bmi-calculator",
       "schema": [
@@ -929,6 +995,7 @@
       "title": "معدل الأيض الأساسي BMR",
       "h1": "ما معنى معدل الأيض الأساسي BMR؟",
       "slug": "bmr",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/bmr",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bmr-calculator",
       "schema": [
@@ -943,6 +1010,7 @@
       "title": "إجمالي الطاقة اليومية TDEE",
       "h1": "ما معنى إجمالي الطاقة اليومية TDEE؟",
       "slug": "tdee",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/tdee",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/tdee-calculator",
       "schema": [
@@ -957,6 +1025,7 @@
       "title": "نسبة الخصر إلى الورك WHR",
       "h1": "ما معنى نسبة الخصر إلى الورك WHR؟",
       "slug": "whr",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/whr",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/whr-calculator",
       "schema": [
@@ -971,6 +1040,7 @@
       "title": "مخاطر ASCVD",
       "h1": "ما معنى مخاطر ASCVD؟",
       "slug": "ascvd",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/ascvd",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ascvd-risk-estimator",
       "schema": [
@@ -985,6 +1055,7 @@
       "title": "حاسبة QRISK3",
       "h1": "ما معنى حاسبة QRISK3؟",
       "slug": "qrisk3",
+      "category": "الصحة",
       "clean_url": "https://www.toolrar.com/definitions/qrisk3",
       "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/qrisk3-calculator",
       "schema": [
@@ -999,6 +1070,7 @@
       "title": "نسبة التفاعل",
       "h1": "ما معنى نسبة التفاعل؟",
       "slug": "engagement-rate",
+      "category": "السوشيال ميديا",
       "clean_url": "https://www.toolrar.com/definitions/engagement-rate",
       "tool_url": "https://www.toolrar.com/Social-media/engagement-rate-calculator",
       "schema": [
@@ -1013,8 +1085,534 @@
       "title": "يوتيوب شورتس",
       "h1": "ما معنى يوتيوب شورتس؟",
       "slug": "youtube-shorts",
+      "category": "السوشيال ميديا",
       "clean_url": "https://www.toolrar.com/definitions/youtube-shorts",
       "tool_url": "https://www.toolrar.com/Social-media/youtube-shorts-downloader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معدل الكلمات في الدقيقة WPM",
+      "h1": "ما معنى معدل الكلمات في الدقيقة WPM؟",
+      "slug": "wpm",
+      "category": "النصوص والكتابة",
+      "clean_url": "https://www.toolrar.com/definitions/wpm",
+      "tool_url": "https://www.toolrar.com/General/typing-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر FFMI",
+      "h1": "ما معنى مؤشر FFMI؟",
+      "slug": "ffmi",
+      "category": "الصحة واللياقة",
+      "clean_url": "https://www.toolrar.com/definitions/ffmi",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ffmi-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة الكحول في الدم BAC",
+      "h1": "ما معنى نسبة الكحول في الدم BAC؟",
+      "slug": "bac",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/bac",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bac-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مساحة سطح الجسم BSA",
+      "h1": "ما معنى مساحة سطح الجسم BSA؟",
+      "slug": "bsa",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/bsa",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/bsa-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الوزن المعدل AjBW",
+      "h1": "ما معنى الوزن المعدل AjBW؟",
+      "slug": "ajbw",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/ajbw",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ajbw-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الوزن الفعلي ABW",
+      "h1": "ما معنى الوزن الفعلي ABW؟",
+      "slug": "abw",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/abw",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ideal-weight-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الوزن المثالي IBW",
+      "h1": "ما معنى الوزن المثالي IBW؟",
+      "slug": "ibw",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/ibw",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/ideal-weight-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نسبة الخصر إلى الطول WHtR",
+      "h1": "ما معنى نسبة الخصر إلى الطول WHtR؟",
+      "slug": "whtr",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/whtr",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/whtr-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "درجة خطر فرامنغهام",
+      "h1": "ما معنى درجة خطر فرامنغهام؟",
+      "slug": "framingham-risk-score",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/framingham-risk-score",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/framingham-risk-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "درجة خطر رينولدز",
+      "h1": "ما معنى درجة خطر رينولدز؟",
+      "slug": "reynolds-risk-score",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/reynolds-risk-score",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/reynolds-risk-score",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "متلازمة الأيض",
+      "h1": "ما معنى متلازمة الأيض؟",
+      "slug": "metabolic-syndrome",
+      "category": "الصحة",
+      "clean_url": "https://www.toolrar.com/definitions/metabolic-syndrome",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/metabolic-syndrome-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "المغذيات الكبرى Macros",
+      "h1": "ما معنى المغذيات الكبرى Macros؟",
+      "slug": "macros",
+      "category": "الصحة واللياقة",
+      "clean_url": "https://www.toolrar.com/definitions/macros",
+      "tool_url": "https://www.toolrar.com/Calculators/health-and-fitness/calorie-calculator",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة MP3",
+      "h1": "ما معنى صيغة MP3؟",
+      "slug": "mp3",
+      "category": "السوشيال ميديا والوسائط",
+      "clean_url": "https://www.toolrar.com/definitions/mp3",
+      "tool_url": "https://www.toolrar.com/Social-media/youtube-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "صيغة MP4",
+      "h1": "ما معنى صيغة MP4؟",
+      "slug": "mp4",
+      "category": "السوشيال ميديا والوسائط",
+      "clean_url": "https://www.toolrar.com/definitions/mp4",
+      "tool_url": "https://www.toolrar.com/Social-media/youtube-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ريلز إنستغرام",
+      "h1": "ما معنى ريلز إنستغرام؟",
+      "slug": "instagram-reels",
+      "category": "السوشيال ميديا",
+      "clean_url": "https://www.toolrar.com/definitions/instagram-reels",
+      "tool_url": "https://www.toolrar.com/Social-media/instagram-reels-downloader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ستوري إنستغرام",
+      "h1": "ما معنى ستوري إنستغرام؟",
+      "slug": "instagram-story",
+      "category": "السوشيال ميديا",
+      "clean_url": "https://www.toolrar.com/definitions/instagram-story",
+      "tool_url": "https://www.toolrar.com/Social-media/instagram-story-saver",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الرموز التعبيرية Emoji",
+      "h1": "ما معنى الرموز التعبيرية Emoji؟",
+      "slug": "emoji",
+      "category": "السوشيال ميديا والنصوص",
+      "clean_url": "https://www.toolrar.com/definitions/emoji",
+      "tool_url": "https://www.toolrar.com/Social-media/emoji-keyboard",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "منصة Threads",
+      "h1": "ما معنى منصة Threads؟",
+      "slug": "threads",
+      "category": "السوشيال ميديا",
+      "clean_url": "https://www.toolrar.com/definitions/threads",
+      "tool_url": "https://www.toolrar.com/Social-media/threads-downloader",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معرف UUID",
+      "h1": "ما معنى معرف UUID؟",
+      "slug": "uuid",
+      "category": "المطورين والبيانات",
+      "clean_url": "https://www.toolrar.com/definitions/uuid",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معرف UUID v4",
+      "h1": "ما معنى معرف UUID v4؟",
+      "slug": "uuid-v4",
+      "category": "المطورين والبيانات",
+      "clean_url": "https://www.toolrar.com/definitions/uuid-v4",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "عنوان URL",
+      "h1": "ما معنى عنوان URL؟",
+      "slug": "url",
+      "category": "المطورين والويب",
+      "clean_url": "https://www.toolrar.com/definitions/url",
+      "tool_url": "https://www.toolrar.com/Developer/url-encoder-decoder",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ترميز الروابط URL Encoding",
+      "h1": "ما معنى ترميز الروابط URL Encoding؟",
+      "slug": "url-encoding",
+      "category": "المطورين والويب",
+      "clean_url": "https://www.toolrar.com/definitions/url-encoding",
+      "tool_url": "https://www.toolrar.com/Developer/url-encoder-decoder",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "طابع Unix الزمني",
+      "h1": "ما معنى طابع Unix الزمني؟",
+      "slug": "unix-timestamp",
+      "category": "التاريخ والوقت والمطورين",
+      "clean_url": "https://www.toolrar.com/definitions/unix-timestamp",
+      "tool_url": "https://www.toolrar.com/Calculators/date-and-time/timezone-converter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "لغة SQL",
+      "h1": "ما معنى لغة SQL؟",
+      "slug": "sql",
+      "category": "المطورين والبيانات",
+      "clean_url": "https://www.toolrar.com/definitions/sql",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ترميز ASCII",
+      "h1": "ما معنى ترميز ASCII؟",
+      "slug": "ascii",
+      "category": "النصوص والمطورين",
+      "clean_url": "https://www.toolrar.com/definitions/ascii",
+      "tool_url": "https://www.toolrar.com/text-tools/text-to-binary",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "ترميز UTF-8",
+      "h1": "ما معنى ترميز UTF-8؟",
+      "slug": "utf-8",
+      "category": "النصوص والمطورين",
+      "clean_url": "https://www.toolrar.com/definitions/utf-8",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "معيار Unicode",
+      "h1": "ما معنى معيار Unicode؟",
+      "slug": "unicode",
+      "category": "النصوص والمطورين",
+      "clean_url": "https://www.toolrar.com/definitions/unicode",
+      "tool_url": "https://www.toolrar.com/Social-media/emoji-keyboard",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر CLS",
+      "h1": "ما معنى مؤشر CLS؟",
+      "slug": "cls",
+      "category": "الأداء وSEO",
+      "clean_url": "https://www.toolrar.com/definitions/cls",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشر INP",
+      "h1": "ما معنى مؤشر INP؟",
+      "slug": "inp",
+      "category": "الأداء وSEO",
+      "clean_url": "https://www.toolrar.com/definitions/inp",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "زمن TTFB",
+      "h1": "ما معنى زمن TTFB؟",
+      "slug": "ttfb",
+      "category": "الأداء وSEO",
+      "clean_url": "https://www.toolrar.com/definitions/ttfb",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نموذج DOM",
+      "h1": "ما معنى نموذج DOM؟",
+      "slug": "dom",
+      "category": "المطورين والويب",
+      "clean_url": "https://www.toolrar.com/definitions/dom",
+      "tool_url": "https://www.toolrar.com/Developer/code-formatter",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "مؤشرات Core Web Vitals",
+      "h1": "ما معنى مؤشرات Core Web Vitals؟",
+      "slug": "core-web-vitals",
+      "category": "الأداء وSEO",
+      "clean_url": "https://www.toolrar.com/definitions/core-web-vitals",
+      "tool_url": "https://www.toolrar.com/seo/page-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "الكتابة باللمس",
+      "h1": "ما معنى الكتابة باللمس؟",
+      "slug": "touch-typing",
+      "category": "النصوص والكتابة",
+      "clean_url": "https://www.toolrar.com/definitions/touch-typing",
+      "tool_url": "https://www.toolrar.com/General/typing-speed",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "نص Lorem Ipsum",
+      "h1": "ما معنى نص Lorem Ipsum؟",
+      "slug": "lorem-ipsum",
+      "category": "النصوص والتصميم",
+      "clean_url": "https://www.toolrar.com/definitions/lorem-ipsum",
+      "tool_url": "https://www.toolrar.com/text-tools/lorem-ipsum",
+      "schema": [
+        "Article",
+        "WebPage",
+        "DefinedTerm",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "title": "لوحة الألوان Color Palette",
+      "h1": "ما معنى لوحة الألوان Color Palette؟",
+      "slug": "color-palette",
+      "category": "التصميم والألوان",
+      "clean_url": "https://www.toolrar.com/definitions/color-palette",
+      "tool_url": "https://www.toolrar.com/Developer/image-color-extractor",
       "schema": [
         "Article",
         "WebPage",
