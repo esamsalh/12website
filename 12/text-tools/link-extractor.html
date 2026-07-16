@@ -176,6 +176,691 @@
 <link as="font" crossorigin="" href="../admin/assets/fonts/cairo/cairo-v31-arabic.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="../admin/assets/fonts/cairo/cairo-v31-latin.woff2" rel="preload" type="font/woff2"/>
 <style>
+
+/* ===== ToolRar Link Extractor — Professional Controls Styling ===== */
+
+/* حاوية إعداد النطاق / موقعك */
+.link-domain-control,
+.domain-control,
+.base-domain-control,
+.filter-domain-control,
+.tool-domain-control,
+.site-domain-control {
+  position: relative;
+  margin: 18px 0 16px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(20, 184, 166, 0.04)),
+    #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+}
+
+.link-domain-control label,
+.domain-control label,
+.base-domain-control label,
+.filter-domain-control label,
+.tool-domain-control label,
+.site-domain-control label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.link-domain-control label::before,
+.domain-control label::before,
+.base-domain-control label::before,
+.filter-domain-control label::before,
+.tool-domain-control label::before,
+.site-domain-control label::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background: #4f46e5;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Zm6.93 9h-3.02a15.2 15.2 0 0 0-1.08-5.02A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.83 1.2 1.62 3.08 1.88 6.96h-3.76C10.38 7.12 11.17 5.24 12 4.04ZM4.26 13h3.83c.12 1.93.42 3.57.87 4.88A8.03 8.03 0 0 1 4.26 13Zm3.83-2H4.26a8.03 8.03 0 0 1 4.7-4.88A15.44 15.44 0 0 0 8.09 11ZM12 19.96c-.83-1.2-1.62-3.08-1.88-6.96h3.76c-.26 3.88-1.05 5.76-1.88 6.96Zm3.04-2.08c.45-1.31.75-2.95.87-4.88h3.83a8.03 8.03 0 0 1-4.7 4.88Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Zm6.93 9h-3.02a15.2 15.2 0 0 0-1.08-5.02A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.83 1.2 1.62 3.08 1.88 6.96h-3.76C10.38 7.12 11.17 5.24 12 4.04ZM4.26 13h3.83c.12 1.93.42 3.57.87 4.88A8.03 8.03 0 0 1 4.26 13Zm3.83-2H4.26a8.03 8.03 0 0 1 4.7-4.88A15.44 15.44 0 0 0 8.09 11ZM12 19.96c-.83-1.2-1.62-3.08-1.88-6.96h3.76c-.26 3.88-1.05 5.76-1.88 6.96Zm3.04-2.08c.45-1.31.75-2.95.87-4.88h3.83a8.03 8.03 0 0 1-4.7 4.88Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* مربع إدخال موقعك */
+#baseDomain,
+#domainInput,
+#siteDomainInput,
+#filterDomain,
+#mainDomain,
+input[name="baseDomain"],
+input[name="domain"],
+input[name="siteDomain"],
+.domain-input,
+.base-domain-input,
+.site-domain-input,
+.filter-domain-input,
+.tool-domain-input {
+  width: 100%;
+  min-height: 50px;
+  display: block;
+  padding: 13px 46px 13px 16px;
+  border: 2px solid #dbe3f0;
+  border-radius: 14px;
+  outline: none;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 0 20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 0 0 20'/%3E%3C/svg%3E") right 15px center / 19px 19px no-repeat,
+    #f8fafc;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#baseDomain::placeholder,
+#domainInput::placeholder,
+#siteDomainInput::placeholder,
+#filterDomain::placeholder,
+#mainDomain::placeholder,
+input[name="baseDomain"]::placeholder,
+input[name="domain"]::placeholder,
+input[name="siteDomain"]::placeholder,
+.domain-input::placeholder,
+.base-domain-input::placeholder,
+.site-domain-input::placeholder,
+.filter-domain-input::placeholder,
+.tool-domain-input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+#baseDomain:focus,
+#domainInput:focus,
+#siteDomainInput:focus,
+#filterDomain:focus,
+#mainDomain:focus,
+input[name="baseDomain"]:focus,
+input[name="domain"]:focus,
+input[name="siteDomain"]:focus,
+.domain-input:focus,
+.base-domain-input:focus,
+.site-domain-input:focus,
+.filter-domain-input:focus,
+.tool-domain-input:focus {
+  border-color: #6366f1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12), 0 8px 22px rgba(99, 102, 241, 0.08);
+}
+
+/* بطاقات الإحصاءات */
+.link-stats,
+.stats-grid,
+.result-stats,
+.tool-stats,
+.url-stats,
+.extractor-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.stat-card,
+.stats-card,
+.stat-item,
+.url-stat,
+.extractor-stat,
+.metric-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 92px;
+  padding: 18px 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.055);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover,
+.stats-card:hover,
+.stat-item:hover,
+.url-stat:hover,
+.extractor-stat:hover,
+.metric-card:hover {
+  transform: translateY(-2px);
+  border-color: #c7d2fe;
+  box-shadow: 0 16px 34px rgba(99, 102, 241, 0.12);
+}
+
+.stat-card::before,
+.stats-card::before,
+.stat-item::before,
+.url-stat::before,
+.extractor-stat::before,
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.stat-card::after,
+.stats-card::after,
+.stat-item::after,
+.url-stat::after,
+.extractor-stat::after,
+.metric-card::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: #6366f1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10.59 13.41a1.996 1.996 0 0 1 0-2.82l3.17-3.18a2 2 0 0 1 2.83 2.83l-1.06 1.06a1 1 0 1 0 1.41 1.41L18 11.66a4 4 0 1 0-5.66-5.66L9.17 9.17a4 4 0 0 0 0 5.66 1 1 0 1 0 1.42-1.42Zm2.82-2.82a1 1 0 0 0 0 1.41 1.996 1.996 0 0 1 0 2.83l-3.17 3.17a2 2 0 0 1-2.83-2.83l1.06-1.06a1 1 0 0 0-1.41-1.41L6 13.76a4 4 0 0 0 5.66 5.66l3.17-3.17a4 4 0 0 0 0-5.66 1 1 0 0 0-1.42 0Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10.59 13.41a1.996 1.996 0 0 1 0-2.82l3.17-3.18a2 2 0 0 1 2.83 2.83l-1.06 1.06a1 1 0 1 0 1.41 1.41L18 11.66a4 4 0 1 0-5.66-5.66L9.17 9.17a4 4 0 0 0 0 5.66 1 1 0 1 0 1.42-1.42Zm2.82-2.82a1 1 0 0 0 0 1.41 1.996 1.996 0 0 1 0 2.83l-3.17 3.17a2 2 0 0 1-2.83-2.83l1.06-1.06a1 1 0 0 0-1.41-1.41L6 13.76a4 4 0 0 0 5.66 5.66l3.17-3.17a4 4 0 0 0 0-5.66 1 1 0 0 0-1.42 0Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.stat-card strong,
+.stats-card strong,
+.stat-item strong,
+.url-stat strong,
+.extractor-stat strong,
+.metric-card strong,
+.stat-card .stat-number,
+.stats-card .stat-number,
+.stat-item .stat-number,
+.url-stat .stat-number,
+.extractor-stat .stat-number,
+.metric-card .stat-number,
+.stat-card [data-count],
+.stats-card [data-count],
+.stat-item [data-count] {
+  display: block;
+  margin-bottom: 4px;
+  color: #0f172a;
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-card span,
+.stats-card span,
+.stat-item span,
+.url-stat span,
+.extractor-stat span,
+.metric-card span,
+.stat-card .stat-label,
+.stats-card .stat-label,
+.stat-item .stat-label,
+.url-stat .stat-label,
+.extractor-stat .stat-label,
+.metric-card .stat-label {
+  display: block;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* أزرار الفلاتر: الكل / HTTPS / HTTP / بدون بروتوكول / روابط نسبية / ملفات */
+.filter-tabs,
+.url-filters,
+.link-filters,
+.extractor-filters,
+.filter-buttons,
+.result-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 20px;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #f8fafc;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.filter-tabs button,
+.url-filters button,
+.link-filters button,
+.extractor-filters button,
+.filter-buttons button,
+.result-filters button,
+.filter-btn,
+.url-filter-btn,
+.link-filter-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  color: #475569;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.filter-tabs button::before,
+.url-filters button::before,
+.link-filters button::before,
+.extractor-filters button::before,
+.filter-buttons button::before,
+.result-filters button::before,
+.filter-btn::before,
+.url-filter-btn::before,
+.link-filter-btn::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  background: currentColor;
+  opacity: 0.82;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 .8 1.6L15 13.33V19a1 1 0 0 1-.55.89l-4 2A1 1 0 0 1 9 21v-7.67L3.2 5.6A1 1 0 0 1 3 5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 .8 1.6L15 13.33V19a1 1 0 0 1-.55.89l-4 2A1 1 0 0 1 9 21v-7.67L3.2 5.6A1 1 0 0 1 3 5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.filter-tabs button:hover,
+.url-filters button:hover,
+.link-filters button:hover,
+.extractor-filters button:hover,
+.filter-buttons button:hover,
+.result-filters button:hover,
+.filter-btn:hover,
+.url-filter-btn:hover,
+.link-filter-btn:hover {
+  color: #4f46e5;
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.filter-tabs button.active,
+.url-filters button.active,
+.link-filters button.active,
+.extractor-filters button.active,
+.filter-buttons button.active,
+.result-filters button.active,
+.filter-btn.active,
+.url-filter-btn.active,
+.link-filter-btn.active,
+.filter-tabs button[aria-pressed="true"],
+.url-filters button[aria-pressed="true"],
+.link-filters button[aria-pressed="true"],
+.extractor-filters button[aria-pressed="true"],
+.filter-buttons button[aria-pressed="true"],
+.result-filters button[aria-pressed="true"] {
+  color: #ffffff;
+  border-color: rgba(99, 102, 241, 0.25);
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  box-shadow: 0 10px 22px rgba(79, 70, 229, 0.24);
+}
+
+/* أزرار التصدير والنسخ */
+.export-actions,
+.download-actions,
+.result-actions,
+.extra-actions,
+.link-export-actions,
+.extractor-actions-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 6px;
+}
+
+.export-actions button,
+.download-actions button,
+.result-actions button,
+.extra-actions button,
+.link-export-actions button,
+.extractor-actions-secondary button,
+#downloadTxt,
+#downloadCsv,
+#downloadJson,
+#exportTxt,
+#exportCsv,
+#exportJson,
+#copyDomains,
+#copyDomainsBtn,
+.download-txt,
+.download-csv,
+.download-json,
+.export-txt,
+.export-csv,
+.export-json,
+.copy-domains-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.055);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.export-actions button:hover,
+.download-actions button:hover,
+.result-actions button:hover,
+.extra-actions button:hover,
+.link-export-actions button:hover,
+.extractor-actions-secondary button:hover,
+#downloadTxt:hover,
+#downloadCsv:hover,
+#downloadJson:hover,
+#exportTxt:hover,
+#exportCsv:hover,
+#exportJson:hover,
+#copyDomains:hover,
+#copyDomainsBtn:hover,
+.download-txt:hover,
+.download-csv:hover,
+.download-json:hover,
+.export-txt:hover,
+.export-csv:hover,
+.export-json:hover,
+.copy-domains-btn:hover {
+  transform: translateY(-2px);
+  border-color: #c7d2fe;
+  color: #4f46e5;
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.14);
+}
+
+.export-actions button:active,
+.download-actions button:active,
+.result-actions button:active,
+.extra-actions button:active,
+.link-export-actions button:active,
+.extractor-actions-secondary button:active {
+  transform: translateY(0);
+}
+
+/* أيقونة افتراضية لكل أزرار الإجراءات */
+.export-actions button::before,
+.download-actions button::before,
+.result-actions button::before,
+.extra-actions button::before,
+.link-export-actions button::before,
+.extractor-actions-secondary button::before,
+#downloadTxt::before,
+#downloadCsv::before,
+#downloadJson::before,
+#exportTxt::before,
+#exportCsv::before,
+#exportJson::before,
+#copyDomains::before,
+#copyDomainsBtn::before,
+.download-txt::before,
+.download-csv::before,
+.download-json::before,
+.export-txt::before,
+.export-csv::before,
+.export-json::before,
+.copy-domains-btn::before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* TXT */
+#downloadTxt,
+#exportTxt,
+.download-txt,
+.export-txt,
+button[data-export="txt"] {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+#downloadTxt::before,
+#exportTxt::before,
+.download-txt::before,
+.export-txt::before,
+button[data-export="txt"]::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm-1 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5ZM8 13h8a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2Zm0 4h5a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm-1 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5ZM8 13h8a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2Zm0 4h5a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* CSV */
+#downloadCsv,
+#exportCsv,
+.download-csv,
+.export-csv,
+button[data-export="csv"] {
+  color: #047857;
+}
+
+#downloadCsv::before,
+#exportCsv::before,
+.download-csv::before,
+.export-csv::before,
+button[data-export="csv"]::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm2 0v4h14V5H5Zm0 6v3h4v-3H5Zm6 0v3h8v-3h-8Zm-6 5v3h4v-3H5Zm6 0v3h8v-3h-8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm2 0v4h14V5H5Zm0 6v3h4v-3H5Zm6 0v3h8v-3h-8Zm-6 5v3h4v-3H5Zm6 0v3h8v-3h-8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* JSON */
+#downloadJson,
+#exportJson,
+.download-json,
+.export-json,
+button[data-export="json"] {
+  color: #7c3aed;
+}
+
+#downloadJson::before,
+#exportJson::before,
+.download-json::before,
+.export-json::before,
+button[data-export="json"]::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8.7 16.3a1 1 0 0 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 1.4L4.42 12l4.28 4.3Zm6.6 0L19.58 12 15.3 7.7a1 1 0 0 1 1.4-1.4l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4ZM13.96 4.28l-3 16a1 1 0 0 1-1.96-.36l3-16a1 1 0 0 1 1.96.36Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8.7 16.3a1 1 0 0 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 1.4L4.42 12l4.28 4.3Zm6.6 0L19.58 12 15.3 7.7a1 1 0 0 1 1.4-1.4l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4ZM13.96 4.28l-3 16a1 1 0 0 1-1.96-.36l3-16a1 1 0 0 1 1.96.36Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* نسخ النطاقات فقط */
+#copyDomains,
+#copyDomainsBtn,
+.copy-domains-btn,
+button[data-action="copy-domains"] {
+  color: #0369a1;
+}
+
+#copyDomains::before,
+#copyDomainsBtn::before,
+.copy-domains-btn::before,
+button[data-action="copy-domains"]::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8 3a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1h3a2 2 0 0 0 2-2V8.83a2 2 0 0 0-.59-1.42l-3.82-3.82A2 2 0 0 0 15.17 3H8Zm8 2.41L18.59 8H16V5.41ZM8 5h6v4a1 1 0 0 0 1 1h4v6h-3V8a2 2 0 0 0-2-2H8V5ZM5 8h9v11H5V8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8 3a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1h3a2 2 0 0 0 2-2V8.83a2 2 0 0 0-.59-1.42l-3.82-3.82A2 2 0 0 0 15.17 3H8Zm8 2.41L18.59 8H16V5.41ZM8 5h6v4a1 1 0 0 0 1 1h4v6h-3V8a2 2 0 0 0-2-2H8V5ZM5 8h9v11H5V8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* الوضع الليلي */
+.dark .link-domain-control,
+.dark .domain-control,
+.dark .base-domain-control,
+.dark .filter-domain-control,
+.dark .tool-domain-control,
+.dark .site-domain-control,
+.dark .stat-card,
+.dark .stats-card,
+.dark .stat-item,
+.dark .url-stat,
+.dark .extractor-stat,
+.dark .metric-card,
+.dark .filter-tabs,
+.dark .url-filters,
+.dark .link-filters,
+.dark .extractor-filters,
+.dark .filter-buttons,
+.dark .result-filters,
+.dark .export-actions button,
+.dark .download-actions button,
+.dark .result-actions button,
+.dark .extra-actions button,
+.dark .link-export-actions button,
+.dark .extractor-actions-secondary button {
+  border-color: #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark #baseDomain,
+.dark #domainInput,
+.dark #siteDomainInput,
+.dark #filterDomain,
+.dark #mainDomain,
+.dark input[name="baseDomain"],
+.dark input[name="domain"],
+.dark input[name="siteDomain"],
+.dark .domain-input,
+.dark .base-domain-input,
+.dark .site-domain-input,
+.dark .filter-domain-input,
+.dark .tool-domain-input {
+  border-color: #334155;
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .stat-card strong,
+.dark .stats-card strong,
+.dark .stat-item strong,
+.dark .url-stat strong,
+.dark .extractor-stat strong,
+.dark .metric-card strong,
+.dark .stat-card .stat-number,
+.dark .stats-card .stat-number,
+.dark .stat-item .stat-number {
+  color: #f8fafc;
+}
+
+.dark .stat-card span,
+.dark .stats-card span,
+.dark .stat-item span,
+.dark .url-stat span,
+.dark .extractor-stat span,
+.dark .metric-card span,
+.dark .stat-card .stat-label,
+.dark .stats-card .stat-label,
+.dark .stat-item .stat-label {
+  color: #94a3b8;
+}
+
+/* استجابة الموبايل */
+@media (max-width: 768px) {
+  .link-stats,
+  .stats-grid,
+  .result-stats,
+  .tool-stats,
+  .url-stats,
+  .extractor-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-tabs,
+  .url-filters,
+  .link-filters,
+  .extractor-filters,
+  .filter-buttons,
+  .result-filters,
+  .export-actions,
+  .download-actions,
+  .result-actions,
+  .extra-actions,
+  .link-export-actions,
+  .extractor-actions-secondary {
+    gap: 8px;
+  }
+
+  .filter-tabs button,
+  .url-filters button,
+  .link-filters button,
+  .extractor-filters button,
+  .filter-buttons button,
+  .result-filters button,
+  .filter-btn,
+  .url-filter-btn,
+  .link-filter-btn,
+  .export-actions button,
+  .download-actions button,
+  .result-actions button,
+  .extra-actions button,
+  .link-export-actions button,
+  .extractor-actions-secondary button {
+    flex: 1 1 auto;
+    min-width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .link-stats,
+  .stats-grid,
+  .result-stats,
+  .tool-stats,
+  .url-stats,
+  .extractor-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card,
+  .stats-card,
+  .stat-item,
+  .url-stat,
+  .extractor-stat,
+  .metric-card {
+    min-height: 82px;
+  }
+
+  .filter-tabs button,
+  .url-filters button,
+  .link-filters button,
+  .extractor-filters button,
+  .filter-buttons button,
+  .result-filters button,
+  .filter-btn,
+  .url-filter-btn,
+  .link-filter-btn,
+  .export-actions button,
+  .download-actions button,
+  .result-actions button,
+  .extra-actions button,
+  .link-export-actions button,
+  .extractor-actions-secondary button {
+    min-width: 100%;
+  }
+}
+  
         /* Cairo font - locally hosted WOFF2 variable font with full Arabic support */
         @font-face {
           font-family: 'Cairo';
