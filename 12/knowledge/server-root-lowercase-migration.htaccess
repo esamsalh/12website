@@ -1,0 +1,26 @@
+# Merge these rules into the main ToolRar document-root .htaccess before the
+# application routing rules. They cannot be activated from /knowledge/.htaccess
+# because Apache per-directory rules cannot rewrite sibling top-level routes.
+
+RewriteEngine On
+
+# Redirect legacy public requests to the lowercase canonical.
+RewriteCond %{THE_REQUEST} \s/+Calculators(?:[/\s?])
+RewriteRule ^Calculators(?:/(.*))?/?$ /calculators/$1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+Developer(?:[/\s?])
+RewriteRule ^Developer(?:/(.*))?/?$ /developer/$1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+Photo-Editing(?:[/\s?])
+RewriteRule ^Photo-Editing(?:/(.*))?/?$ /photo-editing/$1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+General(?:[/\s?])
+RewriteRule ^General(?:/(.*))?/?$ /general/$1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+Social-media(?:[/\s?])
+RewriteRule ^Social-media(?:/(.*))?/?$ /social-media/$1 [R=301,L,NE]
+
+# Resolve the new lowercase URL internally through the currently deployed route.
+# THE_REQUEST remains lowercase, so these internal rewrites do not loop into the
+# external redirects above.
+RewriteRule ^calculators(?:/(.*))?/?$ /Calculators/$1 [END,NE]
+RewriteRule ^developer(?:/(.*))?/?$ /Developer/$1 [END,NE]
+RewriteRule ^photo-editing(?:/(.*))?/?$ /Photo-Editing/$1 [END,NE]
+RewriteRule ^general(?:/(.*))?/?$ /General/$1 [END,NE]
+RewriteRule ^social-media(?:/(.*))?/?$ /Social-media/$1 [END,NE]

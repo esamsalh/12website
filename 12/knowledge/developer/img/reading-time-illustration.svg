@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
+<title id="title">حساب وقت القراءة</title><desc id="desc">مخطط عربي يحوّل عدد الكلمات إلى وقت قراءة مع احتساب الجداول والصور.</desc>
+<defs><linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6558e8"/><stop offset="1" stop-color="#4035b8"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#38306f" flood-opacity=".12"/></filter></defs>
+<style>
+  .t{font-family:'Cairo',Tahoma,Arial,sans-serif}
+  .h{font-size:25px;font-weight:900;fill:#282541}
+  .m{font-size:17px;font-weight:800;fill:#403a67}
+  .s{font-size:13px;font-weight:700;fill:#6d6881}
+  .w{fill:#fff}.line{stroke:#d9d4f3;stroke-width:2}.dash{stroke:#b8b0ec;stroke-width:2;stroke-dasharray:7 7}
+</style><rect width="760" height="520" rx="34" fill="#f7f5ff"/><circle cx="73" cy="73" r="48" fill="#ece8ff"/><circle cx="706" cy="445" r="66" fill="#eeeaff"/><path d="M37 427C146 347 209 468 317 411S512 331 716 378" fill="none" stroke="#e2ddfb" stroke-width="22" stroke-linecap="round"/>
+<text x="380" y="65" text-anchor="middle" class="t h">تقدير صادق لوقت القارئ</text><rect x="65" y="105" width="391" height="335" rx="27" class="w line" filter="url(#shadow)"/><text x="421" y="143" text-anchor="end" class="t m">مسودة المقال</text><g stroke="#d8d4e8" stroke-width="13" stroke-linecap="round"><path d="M105 181h309M105 217h266M105 253h297M105 289h241M105 325h309"/></g><rect x="105" y="356" width="142" height="52" rx="15" fill="#f0edff"/><text x="176" y="389" text-anchor="middle" class="t s">1200 كلمة</text><rect x="274" y="356" width="140" height="52" rx="15" fill="#eef8ff"/><text x="344" y="389" text-anchor="middle" class="t s">جدولان + صورة</text>
+<circle cx="586" cy="250" r="112" fill="#fff" stroke="#d9d4f3" stroke-width="3" filter="url(#shadow)"/><circle cx="586" cy="250" r="79" fill="#6558e8"/><path d="M586 207v48l34 21" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><text x="586" y="391" text-anchor="middle" class="t h">6 دقائق</text><text x="586" y="423" text-anchor="middle" class="t s">مع هامش للمحتوى المرئي</text></svg>

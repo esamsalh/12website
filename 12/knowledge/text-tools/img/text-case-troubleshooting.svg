@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">خريطة تشخيص مشكلات حالة الأحرف</title>
+  <desc id="desc">مسار قرار يوجّه المستخدم إلى مراجعة اللغة أو الأسماء والاختصارات أو القيم التقنية</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfaff"/><stop offset="1" stop-color="#efedff"/></linearGradient><linearGradient id="brand" x1="0" x2="1"><stop stop-color="#786cef"/><stop offset="1" stop-color="#5144c9"/></linearGradient></defs>
+  <rect x="8" y="8" width="944" height="344" rx="42" fill="url(#bg)" stroke="#dcd8f6" stroke-width="2"/>
+  <g fill="none" stroke="#b9b1f3" stroke-width="4" stroke-linecap="round"><path d="M480 114v42M480 156H194v42M480 156h286v42M480 156v42"/></g>
+  <g font-family="Cairo,Arial,sans-serif" text-anchor="middle">
+    <rect x="329" y="52" width="302" height="64" rx="22" fill="url(#brand)"/><text x="480" y="91" font-size="18" font-weight="800" fill="#fff">ما الذي لم يظهر كما توقعت؟</text>
+    <rect x="62" y="198" width="264" height="104" rx="26" fill="#fff" stroke="#dedaf4"/><circle cx="194" cy="198" r="24" fill="#efeaff"/><text x="194" y="205" font-size="18" font-weight="900" fill="#5d50d0">لغة</text><text x="194" y="250" font-size="15" font-weight="800" fill="#332e50">العربية لم تتغير؟</text><text x="194" y="278" font-size="12" fill="#746e87">سلوك طبيعي لنظام بلا حالة أحرف</text>
+    <rect x="348" y="198" width="264" height="104" rx="26" fill="#fff" stroke="#dedaf4"/><circle cx="480" cy="198" r="24" fill="#efeaff"/><text x="480" y="205" font-size="18" font-weight="900" fill="#5d50d0">اسم</text><text x="480" y="250" font-size="15" font-weight="800" fill="#332e50">اختصار أو علامة تشوّهت؟</text><text x="480" y="278" font-size="12" fill="#746e87">استعد الكتابة الرسمية يدويًا</text>
+    <rect x="634" y="198" width="264" height="104" rx="26" fill="#fff" stroke="#dedaf4"/><circle cx="766" cy="198" r="24" fill="#efeaff"/><text x="766" y="205" font-size="18" font-weight="900" fill="#5d50d0">كود</text><text x="766" y="250" font-size="15" font-weight="800" fill="#332e50">توقف رابط أو معرّف؟</text><text x="766" y="278" font-size="12" fill="#746e87">أعد الأصل واختبر حساسية الحالة</text>
+  </g>
+</svg>
