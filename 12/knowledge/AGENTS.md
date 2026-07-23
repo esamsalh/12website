@@ -20,6 +20,8 @@
 - Preserve the established ToolRar knowledge design, shapes, spacing, colors, illustrations, and icon language unless a redesign is explicitly requested.
 - Use the Cairo font throughout every page, including all footer headings, links, buttons, and labels.
 - Category landing pages show exactly eight knowledge cards per section on the main overview; use four cards per row on desktop and two cards per row on phones and narrow screens.
+- Every generated knowledge-card URL must preserve the lowercase category folder: `/knowledge/<category>/<article-slug>`. Never collapse a card URL to `/knowledge/<article-slug>` and never derive a knowledge path directly from mixed-case live tool folders such as `Developer`, `Photo-Editing`, `Calculators`, `General`, or `Social-media`.
+- Category landing pages rebuild cards from `toolCatalog` with JavaScript. After changing card links, audit both the static HTML and the post-JavaScript browser DOM; confirm every visible card path is lowercase, extensionless, includes its category folder, resolves to an existing article, and matches its structured-data URL.
 - Knowledge cards represent guides, not tools. Do not display the phrase `فتح الأداة` under knowledge cards.
 - Avoid oversized or repeated hero sections. Article heroes should be compact and distinct from category landing-page heroes.
 - The shared header must follow the ToolRar header used in the project: pencil logo, desktop navigation, language control, dark-mode control, and responsive mobile controls.
