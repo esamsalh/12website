@@ -25,9 +25,16 @@
 - Knowledge cards represent guides, not tools. Do not display the phrase `فتح الأداة` under knowledge cards.
 - Avoid oversized or repeated hero sections. Article heroes should be compact and distinct from category landing-page heroes.
 - The shared header must follow the ToolRar header used in the project: pencil logo, desktop navigation, language control, dark-mode control, and responsive mobile controls.
-- Preserve the core header links: `الرئيسية`, `جميع الأدوات`, `التصنيفات`, `المدونة`, `الأسعار`, and `من نحن`.
-- Add `مركز المعرفة` as a desktop hover/focus dropdown linking to all knowledge categories, and add `المصطلحات` as a direct link to `/definitions/`.
-- Use an accessible mobile menu containing the core links plus `مركز المعرفة` and `المصطلحات`.
+- Use this exact knowledge-header order on desktop and mobile: `الرئيسية`, `جميع الأدوات`, `التصنيفات`, `المدونة`, `مركز المعرفة`, `المصطلحات`, `من نحن`.
+- Add `مركز المعرفة` as an accessible hover/focus dropdown linking to all knowledge categories, and add `المصطلحات` as a direct link to `/definitions/`.
+- Never place the `الأسعار` link in knowledge-page headers.
+- Keep category labels semantically correct: `/Photo-Editing/` is `أدوات الصور والتصميم`, while calculator links are labeled `أدوات الحاسبة`.
+- Do not repeat a page-specific keyword phrase or profile sentence mechanically. Prefer pronouns, contextual anchors, precise synonyms, and fresh examples; an exact long phrase should normally appear no more than twice in visible article prose.
+- Reject generated prose when an eight-word sequence repeats five or more times in one article, except when a mathematical formula or legally necessary quotation requires exact wording.
+- Every article must carry a real `toolPath` from its source data. The hero button and closing CTA must point directly to the public tool route outside `/knowledge/`; never export `undefined`, `null`, a placeholder, or a knowledge-article URL as the tool action.
+- Validate CTA targets after rendering the final DOM, not only in source data, and live-check that ToolRar targets do not return 404 or 410.
+- Keep each meta description a complete 150–160-character sentence, and reject duplicated merge suffixes such as `بوضوح،بوضوح`.
+- Preserve explicit ownership, permission, privacy, platform-terms, and redistribution cautions on social-media download/conversion guides.
 - Footer section labels are text elements such as `<p class="footer-col-title">`, never `h2`. Footer social icons and the pencil logo must match the established ToolRar footer. Keep all footer text in Cairo.
 - Every footer must link Telegram to `https://t.me/toolrar`, Facebook to `https://www.facebook.com/Toolrar`, X to `https://x.com/toolrar`, and LinkedIn to `https://www.linkedin.com/in/toolrar`. Use LinkedIn instead of Instagram. External social links open in a new tab and use `rel="nofollow noopener noreferrer"`.
 
