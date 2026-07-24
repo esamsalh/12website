@@ -1,0 +1,11 @@
+name = "toolrar-knowledge-feedback"
+main = "worker.js"
+compatibility_date = "2026-07-24"
+
+[vars]
+ALLOWED_ORIGIN = "https://www.toolrar.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "toolrar-feedback"
+database_id = "ضع-معرف-قاعدة-D1-هنا"

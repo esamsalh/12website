@@ -55,7 +55,11 @@
 - Calculator SVGs must visually explain the calculation through its inputs, relationship or formula, change over time, comparison, or output. Do not fill them with unrelated icons or scattered labels; understand the calculator first and use one coherent diagram that can be interpreted without the surrounding paragraph.
 - Use a meta title no longer than 60 characters and a meta description of 150–160 characters containing the main keyword naturally.
 - Meta descriptions must be complete, natural sentences. Never end them with an ellipsis or cut a word or clause merely to hit the length target. Keep the visible meta description, Open Graph description, Twitter description, and the main page schema description consistent.
+- Keep every article hero lead as one or two complete, topic-specific sentences. Never cut hero copy at a fixed character count or leave it ending in the middle of a word or clause.
 - Include appropriate canonical, Open Graph, Twitter Card, Article, BreadcrumbList, HowTo, and FAQ structured data when supported by visible page content.
+- Every internal guide must include the shared `هل كان هذا الدليل مفيدًا؟` feedback component, loaded from `/knowledge/assets/feedback.css` and `/knowledge/assets/feedback.js`. Keep the controls keyboard-accessible, preserve their live Arabic status message, and do not add the component to category landing pages.
+- Feedback counts must come from the first-party D1 endpoint at `/api/knowledge-feedback`; never insert invented totals. Store no raw IP address. Use a salted one-way voter hash server-side, allow a visitor to update an existing vote, and treat D1 as authoritative while local storage is only a UI hint.
+- Represent real thumbs feedback in Article schema as dynamic `interactionStatistic` entries using `LikeAction` and `DislikeAction`. Do not convert thumbs into `AggregateRating` or star values because the site does not collect a 1–5 rating.
 - Demonstrate E-E-A-T through practical guidance, limitations, review notes, clear update dates, verifiable claims, and authoritative references. Do not make unverifiable claims.
 - Add 4–10 genuinely relevant internal definition/knowledge links. Use live ToolRar URLs from `https://www.toolrar.com/definitions/` or existing planned knowledge URLs that match the topic.
 - Distribute definition links according to reader need and paragraph context, not a fixed quota. Use descriptive, varied anchor text that explains what the reader will learn, avoid repeating the same anchor, and never insert two semantically unrelated definition links merely to increase link count.
@@ -113,5 +117,7 @@
 - Validate all local image references and confirm every image loads from its intended `img` directory.
 - Check desktop and mobile rendering, header dropdowns, mobile menu, dark mode, tables, and page-level horizontal overflow.
 - Confirm there are no browser console errors caused by page source, no missing local assets, one H1, and no H2 elements inside the footer.
+- Confirm every article has exactly one feedback component, its two buttons render on desktop and mobile, the D1 response updates the visible summary, and the same real counts update the Article interaction schema. Deploy the Worker route before publishing the feedback-enabled HTML so the endpoint does not return 404.
+- Scan all hero leads for incomplete final words or clauses, not only the pages originally reported by the user.
 - Recheck meta title/description lengths, headings, alt text, structured-data URLs, internal links, external `nofollow` attributes, article word count, and natural keyword distribution.
 - Keep source free of Cloudflare Beacon references and report separately when a remaining PageSpeed warning can only be resolved in the Cloudflare dashboard.
