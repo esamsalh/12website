@@ -805,6 +805,68 @@ body.dark .header .dropdown-item{color:#d6d6e3}
 .header .dropdown-item:hover,.header .dropdown-item:focus-visible{outline:0;background:#f7f6ff;color:#5653d5}
 body.dark .header .dropdown-item{color:#d6d6e3}
 </style>
+<style id="unified-site-chrome">
+.header{position:sticky;z-index:120;top:0;border-bottom:1px solid #e8e9ef;background:rgba(255,255,255,.96);backdrop-filter:blur(15px)}
+.header .header-inner{min-height:72px;display:flex;align-items:center;gap:22px}
+.header .logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;color:#111827;font-size:22px;font-weight:900;letter-spacing:-.6px}
+.header .logo-icon,.footer .logo-icon{width:40px;height:40px;display:grid;place-items:center;flex:0 0 auto;border-radius:13px;background:linear-gradient(145deg,#7472ed,#514fc8);color:#fff;box-shadow:0 9px 22px rgba(81,79,200,.23)}
+.header .logo-icon svg,.footer .logo-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.header .desktop-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex:1;min-width:0}
+.header .nav-links-center,.header .nav-controls{display:flex;align-items:center;gap:2px}
+.header .nav-link,.header .dark-toggle{min-height:40px;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px;border:0;border-radius:10px;background:transparent;color:#374151;cursor:pointer;font-size:11.5px;font-weight:700;white-space:nowrap}
+.header .nav-link:hover,.header .nav-link:focus-visible,.header .dark-toggle:hover,.header .dark-toggle:focus-visible{outline:0;background:#f5f4ff;color:#5653d5}
+.header .dark-toggle{border:1px solid #e5e7eb;background:#fff}
+.header .dark-toggle svg,.header .nav-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.header .dropdown-wrap{position:relative}
+.header .dropdown-menu{position:absolute;top:calc(100% + 9px);right:0;display:grid;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-5px);padding:10px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;box-shadow:0 20px 46px rgba(17,24,39,.12);transition:opacity .16s ease,transform .16s ease,visibility .16s}
+.header .dropdown-wrap:hover>.dropdown-menu,.header .dropdown-wrap:focus-within>.dropdown-menu{visibility:visible;opacity:1;pointer-events:auto;transform:none}
+.header .cat-dropdown,.header .knowledge-dropdown{width:330px;grid-template-columns:1fr 1fr;gap:5px}
+.header .dropdown-item{position:relative;display:flex;align-items:center;min-height:39px;padding:8px 31px 8px 9px;border-radius:10px;color:#4b5563;font-size:11.5px;font-weight:700}
+.header .dropdown-item:before{content:"";position:absolute;right:10px;width:10px;height:10px;border-radius:4px 50% 50%;background:var(--dot,#6366f1);box-shadow:0 0 0 5px color-mix(in srgb,var(--dot,#6366f1) 13%,transparent)}
+.header .dropdown-item:hover,.header .dropdown-item:focus-visible{outline:0;background:#f7f6ff;color:#5653d5}
+.header .nav-controls{margin-inline-start:auto}.header .language-button{border:1px solid #e5e7eb;background:#fff}
+.header .mobile-controls,.header .mobile-menu{display:none}
+.header .mobile-btn{width:40px;height:40px;place-items:center;padding:0;border:1px solid #e2e3ea;border-radius:11px;background:#fff;color:#424354;cursor:pointer}
+.header .mobile-btn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2}
+body.dark .header{background:rgba(18,18,27,.94);border-color:#303044}
+body.dark .header .logo{color:#f3f1fb}
+body.dark .header .nav-link,body.dark .header .dark-toggle{color:#eeeef7}
+body.dark .header .nav-link:hover,body.dark .header .dark-toggle:hover{background:#242338}
+body.dark .header .dark-toggle,body.dark .header .language-button,body.dark .header .dropdown-menu,body.dark .header .mobile-menu,body.dark .header .mobile-btn{background:#1d1d2b;border-color:#343449}
+body.dark .header .dropdown-item{color:#d6d6e3}
+.footer{margin-top:66px;padding:52px 0 22px;border-top:1px solid #e4e3f1;background:linear-gradient(180deg,#faf9ff 0%,#f3f2fb 100%);color:#24243b}
+.footer,.footer *,[class*="footer"],[class*="footer"] *{font-family:"Cairo",Tahoma,Arial,sans-serif!important}
+.footer .footer-grid{display:grid;grid-template-columns:minmax(220px,1.25fr) minmax(135px,.72fr) minmax(330px,1.55fr) minmax(150px,.78fr);gap:30px;align-items:start}
+.footer .footer-logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900}
+.footer .footer-desc{max-width:355px;margin:13px 0 17px;color:#69697b;font-size:12.5px;line-height:1.9}
+.footer .footer-social{display:flex;gap:8px}
+.footer .footer-social a{width:36px;height:36px;display:grid;place-items:center;border:1px solid #dddced;border-radius:11px;background:#fff;color:#6260d8}
+.footer .footer-social a:hover,.footer .footer-social a:focus-visible{outline:0;border-color:#aaa8ec;background:#eeedff}
+.footer .footer-social svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer .footer-col-title{margin:2px 0 12px;color:#24243b;font-size:14px;font-weight:900}
+.footer .footer-col ul{list-style:none;padding:0;margin:0}
+.footer .footer-category-list{display:grid;grid-template-rows:repeat(5,auto);grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);column-gap:22px}
+.footer .footer-link{display:block;width:max-content;max-width:100%;padding:3px 0;color:#6a6a7b;font-size:12px}
+.footer .footer-link:hover,.footer .footer-link:focus-visible{outline:0;color:#5653d5}
+.footer .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:35px;padding-top:18px;border-top:1px solid #deddec;color:#79798a;font-size:11px}
+.footer .footer-bottom-links{display:flex;flex-wrap:wrap;gap:15px}.footer .footer-bottom p{margin:0}
+body.dark .footer{background:#15151f;border-color:#303044;color:#f0f0f7}
+body.dark .footer .footer-col-title{color:#f0f0f7}
+body.dark .footer .footer-link,body.dark .footer .footer-desc,body.dark .footer .footer-bottom{color:#aaaabb}
+body.dark .footer .footer-social a{background:#202031;border-color:#38384e}
+@media(max-width:1080px){
+  .header .desktop-nav{display:none}.header .mobile-controls{display:flex;align-items:center;gap:7px;margin-inline-start:auto}.header .mobile-btn{display:grid}
+  .header.menu-open .mobile-menu,.header .mobile-menu.open{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:0 0 13px}
+  .header .mobile-menu a{padding:9px 10px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;color:#404152;text-align:center;font-size:11.5px;font-weight:700}
+  .footer .footer-grid{grid-template-columns:1.15fr .85fr;gap:32px}.footer .footer-sections{grid-column:1}.footer .footer-support{grid-column:2}
+}
+@media(max-width:620px){
+  .header .header-inner{min-height:64px;gap:10px}.header .logo{font-size:19px}.header .logo-icon{width:37px;height:37px}
+  .header.menu-open .mobile-menu,.header .mobile-menu.open{grid-template-columns:repeat(2,1fr)}
+  .footer .footer-grid{grid-template-columns:1fr}.footer .footer-sections,.footer .footer-support{grid-column:auto}
+  .footer .footer-bottom{align-items:flex-start;flex-direction:column}
+}
+</style>
 </head>
 <body data-catalog-section="seo">
   <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
@@ -1779,18 +1841,20 @@ body.dark .header .dropdown-item{color:#d6d6e3}
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-grid">
-          <div><div class="footer-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><span class="logo-text">ToolRar</span></div><p class="footer-desc">منصة عربية توفر أدوات ويب مجانية وسريعة، ومركز معرفة يشرح الاستخدام الصحيح ويحل المشكلات المرتبطة بكل أداة.</p><div class="footer-social" aria-label="الشبكات الاجتماعية"><a href="https://t.me/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على تيليجرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a><a href="https://x.com/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2Z"/></svg></a><a href="https://www.linkedin.com/in/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على لينكدإن"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a4 4 0 0 1 8 0v4"/></svg></a><a href="https://www.facebook.com/Toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على فيسبوك"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a></div></div>
-          <div class="footer-col"><p class="footer-col-title">روابط سريعة</p><ul><li><a href="/" class="footer-link">الرئيسية</a></li><li><a href="/all-tools" class="footer-link">جميع الأدوات</a></li><li><a href="/sitemap" class="footer-link">التصنيفات</a></li><li><a href="/blog" class="footer-link">المدونة</a></li><li><a href="/knowledge/" class="footer-link">المعرفة</a></li><li><a href="/about" class="footer-link">من نحن</a></li></ul></div>
-          <div class="footer-col"><p class="footer-col-title">أدوات</p><ul><li><a href="/text-tools/" class="footer-link">أدوات النصوص والكلمات</a></li><li><a href="/Developer/" class="footer-link">أدوات المطورين</a></li><li><a href="/Photo-Editing/" class="footer-link">أدوات الصور والتصميم</a></li><li><a href="/Calculators/" class="footer-link">أدوات الحاسبة</a></li><li><a href="/docs-tools/" class="footer-link">أدوات PDF</a></li></ul></div>
-          <div class="footer-col"><p class="footer-col-title">معلومات</p><ul><li><a href="/about" class="footer-link">من نحن</a></li><li><a href="/contact" class="footer-link">تواصل معنا</a></li><li><a href="/knowledge/" class="footer-link">المعرفة</a></li><li><a href="/blog" class="footer-link">المدونة</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><div class="footer-bottom-links"><a href="/terms">شروط الاستخدام</a><a href="/privacy">سياسة الخصوصية</a><a href="/sitemap">خريطة الموقع</a></div><p>ToolRar &copy; 2026 جميع الحقوق محفوظة</p></div>
-      </div>
-    </div>
-  </footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><span>ToolRar</span></a>
+<p class="footer-desc">أدوات ويب مجانية ومعرفة عملية تساعدك على إنجاز المهام اليومية بوضوح وسرعة.</p>
+<div class="footer-social" aria-label="الشبكات الاجتماعية"><a href="https://t.me/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على تيليجرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a><a href="https://x.com/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2Z"/></svg></a><a href="https://www.linkedin.com/in/toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على لينكدإن"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13a4 4 0 0 1 8 0v4"/></svg></a><a href="https://www.facebook.com/Toolrar" rel="nofollow noopener noreferrer" target="_blank" aria-label="ToolRar على فيسبوك"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a></div>
+</div>
+<div class="footer-col footer-quick"><p class="footer-col-title">روابط سريعة</p><ul><li><a class="footer-link" href="/">الرئيسية</a></li><li><a class="footer-link" href="/knowledge/">مركز المعرفة</a></li><li><a class="footer-link" href="/definitions/">قاموس التعريفات</a></li><li><a class="footer-link" href="/blog">المدونة</a></li><li><a class="footer-link" href="/contact">اتصل بنا</a></li></ul></div>
+<div class="footer-col footer-sections"><p class="footer-col-title">الأقسام</p><ul class="footer-category-list"><li><a class="footer-link" href="/knowledge/text-tools/">النصوص والكلمات</a></li><li><a class="footer-link" href="/knowledge/developer/">أدوات المطورين</a></li><li><a class="footer-link" href="/knowledge/photo-editing/">الصور والتصميم</a></li><li><a class="footer-link" href="/knowledge/calculators/">أدوات الحاسبة</a></li><li><a class="footer-link" href="/knowledge/docs-tools/">أدوات PDF والمستندات</a></li><li><a class="footer-link" href="/knowledge/zip-tools/">أدوات ZIP والضغط</a></li><li><a class="footer-link" href="/knowledge/seo/">تحسين محركات البحث</a></li><li><a class="footer-link" href="/knowledge/general/">أدوات عامة</a></li><li><a class="footer-link" href="/knowledge/social-media/">أدوات سوشيال ميديا</a></li></ul></div>
+<div class="footer-col footer-support"><p class="footer-col-title">الدعم والسياسات</p><ul><li><a class="footer-link" href="/about">من نحن</a></li><li><a class="footer-link" href="/contact">اتصل بنا</a></li><li><a class="footer-link" href="/privacy">سياسة الخصوصية</a></li><li><a class="footer-link" href="/terms">شروط الاستخدام</a></li><li><a class="footer-link" href="/sitemap.xml">خريطة الموقع</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2026 ToolRar. جميع الحقوق محفوظة.</p><div class="footer-bottom-links"><a href="/privacy">الخصوصية</a><a href="/terms">الشروط</a><a href="/contact">التواصل</a></div></div>
+</div>
+</footer>
 
   <script>
     (() => {
