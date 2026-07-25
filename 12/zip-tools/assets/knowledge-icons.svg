@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="book" viewBox="0 0 24 24">
+    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5z"/>
+    <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z"/>
+  </symbol>
+  <symbol id="guide" viewBox="0 0 24 24">
+    <path d="M5 3h14v18H5z"/>
+    <path d="M9 7h6M9 11h6M9 15h4"/>
+  </symbol>
+  <symbol id="compare" viewBox="0 0 24 24">
+    <path d="m8 3-4 4 4 4M4 7h16M16 21l4-4-4-4M20 17H4"/>
+  </symbol>
+  <symbol id="repair" viewBox="0 0 24 24">
+    <path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-2.3 2.3-3-3z"/>
+  </symbol>
+  <symbol id="verified" viewBox="0 0 24 24">
+    <path d="m9 12 2 2 4-4"/>
+    <circle cx="12" cy="12" r="9"/>
+  </symbol>
+</svg>
