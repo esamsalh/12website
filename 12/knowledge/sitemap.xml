@@ -1128,7 +1128,7 @@
   </url>
   <url>
     <loc>https://www.toolrar.com/knowledge/text-tools/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1557,5 +1557,35 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://www.toolrar.com/knowledge/zip-tools/zip-validator/img/zip-validator-illustration.svg</image:loc><image:title>رسم عربي يوضح فاحص سلامة ملفات ZIP أون لاين</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://www.toolrar.com/knowledge/text-tools/image-to-text</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.toolrar.com/knowledge/text-tools/img/image-to-text-illustration.svg</image:loc>
+      <image:title>كيف يقرأ OCR النص العربي من الصور؟</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.toolrar.com/knowledge/text-tools/remove-arabic-diacritics</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.toolrar.com/knowledge/text-tools/img/remove-arabic-diacritics-illustration.svg</image:loc>
+      <image:title>فهم الحركات العربية وما يبقى بعد إزالتها</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.toolrar.com/knowledge/text-tools/arabic-diacritizer</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.toolrar.com/knowledge/text-tools/img/arabic-diacritizer-illustration.svg</image:loc>
+      <image:title>كيف يختار النظام حركات الكلمات العربية؟</image:title>
+    </image:image>
   </url>
 </urlset>
