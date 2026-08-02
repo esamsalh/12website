@@ -1,6 +1,18 @@
 const ALLOWED_MEDIA_HOST = /^(?:i|v\d*)\.pinimg\.com$/i;
 const MAX_REDIRECTS = 3;
 
+function plainResponse(message, status, extraHeaders) {
+    return new Response(message, {
+        status,
+        headers: {
+            'Content-Type': 'text/plain; charset=UTF-8',
+            'Cache-Control': 'no-store',
+            'X-Content-Type-Options': 'nosniff',
+            ...(extraHeaders || {})
+        }
+    });
+}
+
 function isAllowedMediaUrl(value) {
     try {
         const url = value instanceof URL ? value : new URL(value);
@@ -25,12 +37,11 @@ function inferMediaType(url, upstreamType) {
 }
 
 function sanitizeFilename(value, contentType) {
-    const fallbackExtension = contentType === 'video/webm' ? '.webm' :
+    const extension = contentType === 'video/webm' ? '.webm' :
         contentType.startsWith('video/') ? '.mp4' :
         contentType === 'image/png' ? '.png' :
         contentType === 'image/webp' ? '.webp' :
         contentType === 'image/gif' ? '.gif' : '.jpg';
-
     let filename = String(value || 'Pinterest')
         .replace(/[\u0000-\u001f\u007f]/g, '')
         .replace(/[\\/:*?"<>|]/g, '_')
@@ -38,9 +49,8 @@ function sanitizeFilename(value, contentType) {
         .replace(/_+/g, '_')
         .replace(/^\.+|\.+$/g, '')
         .slice(0, 110);
-
     if (!filename) filename = 'Pinterest';
-    if (!/\.[a-z0-9]{2,5}$/i.test(filename)) filename += fallbackExtension;
+    if (!/\.[a-z0-9]{2,5}$/i.test(filename)) filename += extension;
     return filename;
 }
 
@@ -50,26 +60,11 @@ function encodeRfc5987(value) {
     });
 }
 
-function plainResponse(message, status, extraHeaders) {
-    return new Response(message, {
-        status,
-        headers: {
-            'Content-Type': 'text/plain; charset=UTF-8',
-            'Cache-Control': 'no-store',
-            'X-Content-Type-Options': 'nosniff',
-            'Content-Security-Policy': "default-src 'none'",
-            ...(extraHeaders || {})
-        }
-    });
-}
-
 async function fetchAllowedMedia(initialUrl, request) {
     let mediaUrl = initialUrl;
 
     for (let redirectCount = 0; redirectCount <= MAX_REDIRECTS; redirectCount++) {
-        if (!isAllowedMediaUrl(mediaUrl)) {
-            return { error: plainResponse('Invalid Pinterest media URL.', 400) };
-        }
+        if (!isAllowedMediaUrl(mediaUrl)) return { error: plainResponse('Invalid Pinterest media URL.', 400) };
 
         const headers = new Headers({
             'Accept': 'video/*, image/*;q=0.9, */*;q=0.8',
@@ -96,7 +91,6 @@ async function fetchAllowedMedia(initialUrl, request) {
             if (!location || redirectCount === MAX_REDIRECTS) {
                 return { error: plainResponse('Pinterest media redirect failed.', 502) };
             }
-
             let redirectedUrl;
             try {
                 redirectedUrl = new URL(location, mediaUrl);
@@ -116,8 +110,7 @@ async function fetchAllowedMedia(initialUrl, request) {
     return { error: plainResponse('Pinterest media request failed.', 502) };
 }
 
-export async function onRequest(context) {
-    const request = context.request;
+async function handlePinterestDownload(request) {
     if (request.method !== 'GET' && request.method !== 'HEAD') {
         return plainResponse('Method not allowed.', 405, { 'Allow': 'GET, HEAD' });
     }
@@ -132,13 +125,10 @@ export async function onRequest(context) {
     } catch (error) {
         return plainResponse('Invalid Pinterest media URL.', 400);
     }
-    if (!isAllowedMediaUrl(mediaUrl)) {
-        return plainResponse('Invalid Pinterest media URL.', 400);
-    }
+    if (!isAllowedMediaUrl(mediaUrl)) return plainResponse('Invalid Pinterest media URL.', 400);
 
     const result = await fetchAllowedMedia(mediaUrl, request);
     if (result.error) return result.error;
-
     const upstream = result.upstream;
     if (upstream.status !== 200 && upstream.status !== 206) {
         return plainResponse('Pinterest media is unavailable.', upstream.status === 404 ? 404 : 502);
@@ -148,24 +138,27 @@ export async function onRequest(context) {
     if (!contentType) return plainResponse('Unsupported Pinterest media type.', 415);
 
     const filename = sanitizeFilename(requestUrl.searchParams.get('filename'), contentType);
-    const asciiFallback = contentType.startsWith('video/') ? 'pinterest-video.mp4' : 'pinterest-image.jpg';
-    const responseHeaders = new Headers();
-
+    const fallback = contentType.startsWith('video/') ? 'pinterest-video.mp4' : 'pinterest-image.jpg';
+    const headers = new Headers();
     ['Accept-Ranges', 'Content-Length', 'Content-Range', 'ETag', 'Last-Modified'].forEach(function(name) {
         const value = upstream.headers.get(name);
-        if (value) responseHeaders.set(name, value);
+        if (value) headers.set(name, value);
     });
-    responseHeaders.set('Content-Type', contentType);
-    responseHeaders.set(
-        'Content-Disposition',
-        'attachment; filename="' + asciiFallback + '"; filename*=UTF-8\'\'' + encodeRfc5987(filename)
-    );
-    responseHeaders.set('Cache-Control', 'private, no-store, max-age=0');
-    responseHeaders.set('X-Content-Type-Options', 'nosniff');
-    responseHeaders.set('Content-Security-Policy', "default-src 'none'");
+    headers.set('Content-Type', contentType);
+    headers.set('Content-Disposition', 'attachment; filename="' + fallback + '"; filename*=UTF-8\'\'' + encodeRfc5987(filename));
+    headers.set('Cache-Control', 'private, no-store, max-age=0');
+    headers.set('X-Content-Type-Options', 'nosniff');
 
     return new Response(request.method === 'HEAD' ? null : upstream.body, {
         status: upstream.status,
-        headers: responseHeaders
+        headers
     });
 }
+
+export default {
+    async fetch(request, env) {
+        const pathname = new URL(request.url).pathname;
+        if (pathname === '/api/pinterest-download') return handlePinterestDownload(request);
+        return env.ASSETS.fetch(request);
+    }
+};

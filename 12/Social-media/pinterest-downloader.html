@@ -881,6 +881,10 @@
     gap: 8px;
 }
 
+.tool-pd-actions + .tool-pd-actions {
+    margin-top: 8px;
+}
+
 .tool-pd-actions .tool-pd-btn {
     flex: 1;
     padding: 10px 14px;
@@ -904,6 +908,15 @@
 
 .tool-pd-btn-download {
     background: linear-gradient(135deg, #6366F1, #8B5CF6);
+}
+
+.tool-pd-btn-open {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+}
+
+.tool-pd-btn-open:hover {
+    box-shadow: 0 8px 25px rgba(37,99,235,0.4);
 }
 
 /* Embed Section */
@@ -1134,14 +1147,20 @@
                 </div>
             </div>
 
-            <div class="tool-pd-actions">
+            <div class="tool-pd-actions tool-pd-download-actions">
+                <button class="tool-pd-btn tool-pd-btn-download" id="toolPdDownloadBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    تحميل مباشر
+                </button>
+                <button class="tool-pd-btn tool-pd-btn-open" id="toolPdOpenBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"></path><path d="M10 14 21 3"></path><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path></svg>
+                    <span id="toolPdOpenLabel">فتح الفيديو</span>
+                </button>
+            </div>
+            <div class="tool-pd-actions tool-pd-secondary-actions">
                 <button class="tool-pd-btn tool-pd-btn-preview" id="toolPdPreviewBtn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     معاينة
-                </button>
-                <button class="tool-pd-btn tool-pd-btn-download" id="toolPdDownloadBtn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    تحميل
                 </button>
                 <button class="tool-pd-btn tool-pd-btn-secondary" id="toolPdCopyUrlBtn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1453,6 +1472,8 @@
     const typeBadge = document.getElementById('toolPdTypeBadge');
     const resolutionEl = document.getElementById('toolPdRes');
     const downloadBtn = document.getElementById('toolPdDownloadBtn');
+    const openBtn = document.getElementById('toolPdOpenBtn');
+    const openLabel = document.getElementById('toolPdOpenLabel');
     const previewBtn = document.getElementById('toolPdPreviewBtn');
     const copyUrlBtn = document.getElementById('toolPdCopyUrlBtn');
     const embedCode = document.getElementById('toolPdEmbedCode');
@@ -1690,18 +1711,25 @@
         return (base || 'Pinterest') + extension;
     }
 
-    function triggerFileDownload(url, filename) {
+    function triggerLink(url, filename, openInNewTab) {
         var link = document.createElement('a');
         link.href = url;
-        link.download = filename;
+        if (filename) link.download = filename;
         link.rel = 'noopener noreferrer';
+        if (openInNewTab) link.target = '_blank';
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
         link.remove();
     }
 
-    function downloadCurrentMedia() {
+    function openCurrentMedia() {
+        var mediaUrl = safeMediaUrl(openBtn._url);
+        if (!mediaUrl) return;
+        triggerLink(mediaUrl, '', true);
+    }
+
+    async function downloadCurrentMedia() {
         var mediaUrl = safeMediaUrl(downloadBtn._url);
         if (!mediaUrl || downloadInProgress) return;
 
@@ -1712,13 +1740,25 @@
         var filename = downloadBtn._filename || 'Pinterest.mp4';
         var proxyUrl = downloadEndpoint + '?url=' + encodeURIComponent(mediaUrl) +
             '&filename=' + encodeURIComponent(filename);
-        triggerFileDownload(proxyUrl, filename);
 
-        setTimeout(function() {
+        try {
+            var response = await fetch(proxyUrl, {
+                method: 'HEAD',
+                credentials: 'same-origin',
+                cache: 'no-store'
+            });
+            var contentType = String(response.headers.get('Content-Type') || '').toLowerCase();
+            if (!response.ok || !/^(?:video|image)\//.test(contentType)) {
+                throw new Error('Download endpoint unavailable');
+            }
+            triggerLink(proxyUrl, filename, false);
+        } catch (err) {
+            showError('تعذر بدء التحميل المباشر. يمكنك استخدام زر فتح الفيديو ثم حفظه من المتصفح.');
+        } finally {
             downloadBtn.disabled = false;
             downloadBtn.removeAttribute('aria-busy');
             downloadInProgress = false;
-        }, 1200);
+        }
     }
 
     async function copyText(value) {
@@ -1779,7 +1819,10 @@
 
             downloadBtn._url = mediaUrl;
             downloadBtn._filename = makeFilename(title, isVideo ? '.mp4' : '.jpg');
+            openBtn._url = mediaUrl;
             downloadBtn.style.display = '';
+            openBtn.style.display = '';
+            openLabel.textContent = isVideo ? 'فتح الفيديو' : 'فتح الصورة';
             previewBtn.style.display = isVideo ? '' : 'none';
             embedCode.value = generateEmbedCode(mediaUrl, imageUrl, title, isVideo ? 'video' : 'image');
             resultSection.style.display = 'block';
@@ -1815,6 +1858,7 @@
     });
 
     downloadBtn.addEventListener('click', downloadCurrentMedia);
+    openBtn.addEventListener('click', openCurrentMedia);
     fetchBtn.addEventListener('click', handleDownload);
     urlInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' && !e.repeat) {
