@@ -1446,7 +1446,10 @@ body.dark-mode .tool-yt-downloader,
   var stages = { s1: document.getElementById('ytStage1'), s2: document.getElementById('ytStage2'), s3: document.getElementById('ytStage3') };
 
   var currentVideoData = null;
-  var aborter = null;
+  var analysisController = null;
+  var downloadController = null;
+  var streamCache = new Map();
+  var STREAM_CACHE_TTL = 90000;
 
   function showError(msg) {
     errorMsg.textContent = msg;
@@ -1486,11 +1489,113 @@ body.dark-mode .tool-yt-downloader,
     else { downloadBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> \u062A\u062D\u0645\u064A\u0644 \u0645\u0628\u0627\u0634\u0631'; downloadBtn.disabled = false; }
   }
 
-  function fetchWithTimeout(url, ms) {
-    if (aborter) aborter.abort();
-    aborter = new AbortController();
-    var timer = setTimeout(function() { if (aborter) aborter.abort(); }, ms || 10000);
-    return fetch(url, { signal: aborter.signal }).then(function(r) { clearTimeout(timer); return r; }).catch(function(e) { clearTimeout(timer); throw e; });
+  function fetchWithTimeout(url, ms, parentSignal, options) {
+    var controller = new AbortController();
+    var parentAbort = null;
+    if (parentSignal) {
+      if (parentSignal.aborted) controller.abort();
+      else {
+        parentAbort = function() { controller.abort(); };
+        parentSignal.addEventListener('abort', parentAbort, { once: true });
+      }
+    }
+    var timer = setTimeout(function() { controller.abort(); }, ms || 6000);
+    var fetchOptions = Object.assign({ cache: 'no-store' }, options || {}, { signal: controller.signal });
+    return fetch(url, fetchOptions).finally(function() {
+      clearTimeout(timer);
+      if (parentSignal && parentAbort) parentSignal.removeEventListener('abort', parentAbort);
+    });
+  }
+
+  function waitFor(ms, signal) {
+    return new Promise(function(resolve, reject) {
+      if (signal && signal.aborted) { reject(new DOMException('Aborted', 'AbortError')); return; }
+      var timer = setTimeout(done, ms);
+      function done() {
+        if (signal) signal.removeEventListener('abort', cancel);
+        resolve();
+      }
+      function cancel() {
+        clearTimeout(timer);
+        if (signal) signal.removeEventListener('abort', cancel);
+        reject(new DOMException('Aborted', 'AbortError'));
+      }
+      if (signal) signal.addEventListener('abort', cancel, { once: true });
+    });
+  }
+
+  function raceForValue(tasks, totalMs, parentSignal) {
+    return new Promise(function(resolve) {
+      if (!tasks.length || (parentSignal && parentSignal.aborted)) { resolve(null); return; }
+      var settled = false;
+      var pending = tasks.length;
+      var groupController = new AbortController();
+      var parentAbort = null;
+      var timer = setTimeout(function() { finish(null); }, totalMs || 6500);
+
+      function finish(value) {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        if (parentSignal && parentAbort) parentSignal.removeEventListener('abort', parentAbort);
+        groupController.abort();
+        resolve(value || null);
+      }
+
+      if (parentSignal) {
+        parentAbort = function() { finish(null); };
+        parentSignal.addEventListener('abort', parentAbort, { once: true });
+      }
+
+      tasks.forEach(function(task) {
+        Promise.resolve().then(function() {
+          return task(groupController.signal);
+        }).then(function(value) {
+          if (value) finish(value);
+          else if (--pending === 0) finish(null);
+        }).catch(function() {
+          if (--pending === 0) finish(null);
+        });
+      });
+    });
+  }
+
+  function delayedTask(delay, task) {
+    return function(signal) {
+      return waitFor(delay, signal).then(function() { return task(signal); });
+    };
+  }
+
+  function formatDuration(seconds) {
+    if (seconds === undefined || seconds === null || isNaN(parseInt(seconds, 10))) return '';
+    seconds = Math.max(0, parseInt(seconds, 10));
+    var h = Math.floor(seconds / 3600);
+    var m = Math.floor((seconds % 3600) / 60);
+    var s = seconds % 60;
+    return (h ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+  }
+
+  function normalizeFormats(formats) {
+    var seen = {};
+    var out = [];
+    for (var i = 0; i < (formats || []).length; i++) {
+      var item = formats[i];
+      if (!item || !item.url || seen[item.url] || /\/\/manifest/.test(item.url)) continue;
+      try {
+        var parsedUrl = new URL(item.url);
+        if (parsedUrl.protocol !== 'https:' && parsedUrl.protocol !== 'http:') continue;
+        item.url = parsedUrl.href;
+      } catch(e) { continue; }
+      seen[item.url] = true;
+      item.quality = item.quality || '360p';
+      item.ext = item.ext || (/webm/i.test(item.mimeType || '') ? 'webm' : 'mp4');
+      out.push(item);
+    }
+    out.sort(function(a, b) {
+      if (!!a.videoOnly !== !!b.videoOnly) return a.videoOnly ? 1 : -1;
+      return (parseInt(b.quality, 10) || 0) - (parseInt(a.quality, 10) || 0);
+    });
+    return out;
   }
 
   var proxyList = [
@@ -1500,144 +1605,173 @@ body.dark-mode .tool-yt-downloader,
     function(x) { return 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(x); }
   ];
 
-  async function scrapeVideoUrl(videoId) {
-    var invOut = await tryInvidiousApi(videoId);
-    if (invOut) return invOut;
-    var out = await tryPipedApi(videoId);
-    if (out) return out;
-    var ytUrls = [
-      'https://m.youtube.com/shorts/' + videoId,
-      'https://m.youtube.com/watch?v=' + videoId,
-      'https://www.youtube.com/shorts/' + videoId,
-      'https://www.youtube.com/watch?v=' + videoId
-    ];
-    var patterns = [
-      function(h) {
-        var m = h.match(/ytInitialPlayerResponse\s*=\s*({(?:[^{}]|{(?:[^{}]|{[^{}]*})*})*?});/);
-        if (m) try { return JSON.parse(m[1]); } catch(e) {}
-        return null;
-      },
-      function(h) {
-        var m = h.match(/player_response["']:\s*["']([^"']+)["']/);
-        if (m) try { return JSON.parse(decodeURIComponent(m[1])); } catch(e) {}
-        return null;
-      },
-      function(h) {
-        var m = h.match(/window\.__INITIAL_STATE__\s*=\s*({[\s\S]*?});/);
-        if (m) try {
-          var st = JSON.parse(m[1]);
-          var pr = st && st.player && st.player.playerResponse;
-          if (pr && pr.streamingData) return pr;
-          var rp = st && st.serverResponse && st.serverResponse.playerResponse;
-          if (rp && rp.streamingData) return rp;
-        } catch(e) {}
-        return null;
-      }
-    ];
-    for (var ui = 0; ui < ytUrls.length; ui++) {
-      for (var pi = 0; pi < proxyList.length; pi++) {
+  function parsePipedData(d) {
+    if (!d || !d.videoStreams) return null;
+    var streams = d.videoStreams.slice();
+    var mp4Streams = streams.filter(function(v) { return /mpeg_4|video\/mp4|mp4/i.test((v.format || '') + ' ' + (v.mimeType || '')); });
+    function mapStreams(list) { return normalizeFormats(list.map(function(v) {
+      return {
+        url: v.url,
+        quality: v.quality || v.qualityLabel || '360p',
+        videoOnly: v.videoOnly === true,
+        mimeType: v.mimeType || v.format || ''
+      };
+    })); }
+    var out = mapStreams(mp4Streams.length ? mp4Streams : streams);
+    if (!out.length && mp4Streams.length) out = mapStreams(streams);
+    if (!out.length) return null;
+    return {
+      urls: out,
+      title: d.title || '',
+      author: d.uploader || '',
+      duration: formatDuration(d.duration),
+      thumbnail: d.thumbnailUrl || ''
+    };
+  }
+
+  function parseInvidiousData(d) {
+    if (!d) return null;
+    function mapStreams(list, videoOnly) { return normalizeFormats((list || []).map(function(v) {
+      return {
+        url: v.url,
+        quality: v.qualityLabel || v.quality || '360p',
+        videoOnly: videoOnly,
+        mimeType: v.type || v.mimeType || ''
+      };
+    })); }
+    var out = mapStreams(d.formatStreams, false);
+    if (!out.length) out = mapStreams(d.adaptiveFormats, true);
+    if (!out.length) return null;
+    var thumbs = d.videoThumbnails || [];
+    return {
+      urls: out,
+      title: d.title || '',
+      author: d.author || '',
+      duration: formatDuration(d.lengthSeconds),
+      thumbnail: thumbs.length ? thumbs[thumbs.length - 1].url : ''
+    };
+  }
+
+  async function tryPipedApi(videoId, parentSignal) {
+    var tasks = pipedInstances.map(function(inst, index) {
+      return delayedTask(index * 250, async function(signal) {
         try {
-          var r = await fetchWithTimeout(proxyList[pi](ytUrls[ui]), 15000);
-          if (!r.ok) continue;
-          var html = await r.text();
-          if (html.length < 500) continue;
-          var gUrls = extractDirectGooglevideoUrls(html);
-          if (gUrls.length > 0) return { urls: gUrls };
-          var pr = null;
-          for (var pat = 0; pat < patterns.length; pat++) {
-            pr = patterns[pat](html);
-            if (pr && pr.streamingData) break;
-          }
-          if (!pr || !pr.streamingData) continue;
-          var allFormats = (pr.streamingData.formats || []).concat(pr.streamingData.adaptiveFormats || []);
-          var formatUrls = [];
-          for (var fi = 0; fi < allFormats.length; fi++) {
-            var f = allFormats[fi];
-            if (f.url && /video\/mp4/.test(f.mimeType || '') && !f.url.match(/\/\/manifest/)) {
-              formatUrls.push({ url: f.url, quality: f.qualityLabel || '360p' });
-            }
-          }
-          if (formatUrls.length === 0) {
-            for (var fi2 = 0; fi2 < allFormats.length; fi2++) {
-              if (allFormats[fi2].url && !allFormats[fi2].url.match(/\/\/manifest/)) {
-                formatUrls.push({ url: allFormats[fi2].url, quality: allFormats[fi2].qualityLabel || '360p' });
-              }
-            }
-          }
-          if (formatUrls.length > 0) {
-            formatUrls.sort(function(a, b) { return (parseInt(b.quality) || 0) - (parseInt(a.quality) || 0); });
-            return { urls: formatUrls, html: html };
-          }
-        } catch(e) {}
+          var r = await fetchWithTimeout(inst.base + '/streams/' + videoId, 4500, signal);
+          if (!r.ok) return null;
+          return parsePipedData(await r.json());
+        } catch(e) { return null; }
+      });
+    });
+    return raceForValue(tasks, 5600, parentSignal);
+  }
+
+  async function tryInvidiousApi(videoId, parentSignal) {
+    var tasks = invidiousInstances.map(function(inst, index) {
+      return delayedTask(index * 300, async function(signal) {
+        try {
+          var r = await fetchWithTimeout(inst + '/api/v1/videos/' + videoId, 4500, signal);
+          if (!r.ok) return null;
+          return parseInvidiousData(await r.json());
+        } catch(e) { return null; }
+      });
+    });
+    return raceForValue(tasks, 5800, parentSignal);
+  }
+
+  function extractJsonObjectAfter(html, marker) {
+    var markerIndex = html.indexOf(marker);
+    if (markerIndex < 0) return null;
+    var start = html.indexOf('{', markerIndex + marker.length);
+    if (start < 0) return null;
+    var depth = 0;
+    var inString = false;
+    var escaped = false;
+    for (var i = start; i < html.length; i++) {
+      var ch = html[i];
+      if (inString) {
+        if (escaped) escaped = false;
+        else if (ch === '\\') escaped = true;
+        else if (ch === '"') inString = false;
+        continue;
+      }
+      if (ch === '"') inString = true;
+      else if (ch === '{') depth++;
+      else if (ch === '}' && --depth === 0) {
+        try { return JSON.parse(html.slice(start, i + 1)); } catch(e) { return null; }
       }
     }
     return null;
   }
 
-  async function tryPipedApi(videoId) {
-    for (var ii = 0; ii < pipedInstances.length; ii++) {
-      var inst = pipedInstances[ii];
-      try {
-        var r = await fetch(inst.base + '/streams/' + videoId, { signal: AbortSignal.timeout(8000) });
-        if (!r.ok) continue;
-        var d = await r.json();
-        if (!d || !d.videoStreams) continue;
-        var out = [];
-        for (var si = 0; si < d.videoStreams.length; si++) {
-          var vs = d.videoStreams[si];
-          if (vs.url && vs.url.indexOf('googlevideo.com') > -1) {
-            var q = vs.quality || (vs.qualityLabel || '360p');
-            out.push({ url: vs.url, quality: q });
-          }
-        }
-        if (out.length === 0) {
-          for (var si2 = 0; si2 < d.videoStreams.length; si2++) {
-            if (d.videoStreams[si2].url) {
-              out.push({ url: d.videoStreams[si2].url, quality: d.videoStreams[si2].quality || '360p' });
-            }
-          }
-        }
-        if (out.length > 0) {
-          out.sort(function(a,b) { return (parseInt(b.quality)||0)-(parseInt(a.quality)||0); });
-          return { urls: out };
-        }
-      } catch(e) {}
-    }
-    return null;
+  function parsePlayerResponse(pr) {
+    if (!pr || !pr.streamingData) return null;
+    var regular = pr.streamingData.formats || [];
+    function mapStreams(list, videoOnly) { return normalizeFormats((list || []).map(function(f) {
+      return {
+        url: f.url,
+        quality: f.qualityLabel || '360p',
+        videoOnly: videoOnly,
+        mimeType: f.mimeType || ''
+      };
+    })); }
+    var out = mapStreams(regular, false);
+    if (!out.length) out = mapStreams(pr.streamingData.adaptiveFormats, true);
+    if (!out.length) return null;
+    var details = pr.videoDetails || {};
+    var thumbs = details.thumbnail && details.thumbnail.thumbnails ? details.thumbnail.thumbnails : [];
+    return {
+      urls: out,
+      title: details.title || '',
+      author: details.author || '',
+      duration: formatDuration(details.lengthSeconds),
+      thumbnail: thumbs.length ? thumbs[thumbs.length - 1].url : ''
+    };
   }
 
-  async function tryInvidiousApi(videoId) {
-    for (var ii = 0; ii < invidiousInstances.length; ii++) {
-      var inst = invidiousInstances[ii];
-      try {
-        var r = await fetch(inst + '/api/v1/videos/' + videoId, { signal: AbortSignal.timeout(8000) });
-        if (!r.ok) continue;
-        var d = await r.json();
-        if (!d) continue;
-        var out = [];
-        if (d.adaptiveFormats) {
-          for (var ai = 0; ai < d.adaptiveFormats.length; ai++) {
-            var af = d.adaptiveFormats[ai];
-            if (af.url && af.url.indexOf('googlevideo.com') > -1 && af.qualityLabel && af.type && af.type.indexOf('video') > -1) {
-              out.push({ url: af.url, quality: af.qualityLabel });
-            }
-          }
-        }
-        if (d.formatStreams) {
-          for (var fi = 0; fi < d.formatStreams.length; fi++) {
-            var fs = d.formatStreams[fi];
-            if (fs.url && fs.url.indexOf('googlevideo.com') > -1 && fs.qualityLabel) {
-              out.push({ url: fs.url, quality: fs.qualityLabel });
-            }
-          }
-        }
-        if (out.length > 0) {
-          out.sort(function(a,b) { return (parseInt(b.quality)||0)-(parseInt(a.quality)||0); });
-          return { urls: out };
-        }
-      } catch(e) {}
+  function parseYouTubeHtml(html) {
+    if (!html || html.length < 500) return null;
+    var pr = extractJsonObjectAfter(html, 'ytInitialPlayerResponse');
+    var parsed = parsePlayerResponse(pr);
+    if (parsed) return parsed;
+    var direct = extractDirectGooglevideoUrls(html);
+    return direct.length ? { urls: normalizeFormats(direct) } : null;
+  }
+
+  async function tryYouTubePages(videoId, parentSignal) {
+    var ytUrls = [
+      'https://www.youtube.com/watch?v=' + videoId,
+      'https://m.youtube.com/watch?v=' + videoId
+    ];
+    var tasks = [];
+    ytUrls.forEach(function(ytUrl, urlIndex) {
+      proxyList.forEach(function(makeProxy, proxyIndex) {
+        tasks.push(delayedTask((proxyIndex * 220) + (urlIndex * 100), async function(signal) {
+          try {
+            var r = await fetchWithTimeout(makeProxy(ytUrl), 4500, signal);
+            if (!r.ok) return null;
+            return parseYouTubeHtml(await r.text());
+          } catch(e) { return null; }
+        }));
+      });
+    });
+    return raceForValue(tasks, 6000, parentSignal);
+  }
+
+  async function scrapeVideoUrl(videoId, parentSignal) {
+    var cached = streamCache.get(videoId);
+    if (cached && Date.now() - cached.savedAt < STREAM_CACHE_TTL) return cached.data;
+    if (cached) streamCache.delete(videoId);
+
+    var result = await raceForValue([
+      function(signal) { return tryInvidiousApi(videoId, signal); },
+      delayedTask(120, function(signal) { return tryPipedApi(videoId, signal); }),
+      delayedTask(900, function(signal) { return tryYouTubePages(videoId, signal); })
+    ], 7000, parentSignal);
+
+    if (result && result.urls && result.urls.length) {
+      streamCache.set(videoId, { data: result, savedAt: Date.now() });
     }
-    return null;
+    return result;
   }
 
   function extractDirectGooglevideoUrls(html) {
@@ -1663,17 +1797,17 @@ body.dark-mode .tool-yt-downloader,
   }
 
   var invidiousInstances = [
-    'https://inv.thepixora.com',
-    'https://inv.riverside.rocks',
-    'https://invidious.snopyta.org'
+    'https://invidious.tiekoetter.com',
+    'https://yt.chocolatemoo53.com',
+    'https://invidious.nerdvpn.de',
+    'https://inv.nadeko.net'
   ];
 
   var pipedInstances = [
-    { base: 'https://pipedapi.kavin.rocks', weight: 1 },
-    { base: 'https://api.piped.privacydev.net', weight: 1 },
-    { base: 'https://pipedapi.r4fo.com', weight: 1 },
-    { base: 'https://piped-api.hikari.nosecurity.blog', weight: 1 },
-    { base: 'https://pipedapi.rhouns01.xyz', weight: 1 }
+    { base: 'https://pipedapi.kavin.rocks' },
+    { base: 'https://pipedapi.leptons.xyz' },
+    { base: 'https://pipedapi.adminforge.de' },
+    { base: 'https://api.piped.private.coffee' }
   ];
 
   var dlProxies = [
@@ -1683,17 +1817,81 @@ body.dark-mode .tool-yt-downloader,
     function(x) { return 'https://corsproxy.io/?url=' + encodeURIComponent(x); }
   ];
 
-  async function tryFetchBlob(videoUrl, ms) {
-    for (var pi = 0; pi < dlProxies.length; pi++) {
-      try {
-        var r = await fetchWithTimeout(dlProxies[pi](videoUrl), ms || 20000);
-        if (r.ok) {
-          var blob = await r.blob();
-          if (blob.size > 2048) return blob;
-        }
-      } catch(e) {}
+  function firstDownloadResponse(urls, totalMs, parentSignal) {
+    return new Promise(function(resolve) {
+      var controllers = [];
+      var launchTimers = [];
+      var pending = urls.length;
+      var settled = false;
+      var parentAbort = null;
+      var deadline = setTimeout(function() { finish(null, -1); }, totalMs || 9000);
+
+      function finish(response, winnerIndex) {
+        if (settled) return;
+        settled = true;
+        clearTimeout(deadline);
+        launchTimers.forEach(clearTimeout);
+        if (parentSignal && parentAbort) parentSignal.removeEventListener('abort', parentAbort);
+        controllers.forEach(function(controller, index) {
+          if (controller && index !== winnerIndex) controller.abort();
+        });
+        resolve(response || null);
+      }
+
+      function failed() {
+        pending--;
+        if (pending <= 0) finish(null, -1);
+      }
+
+      if (!urls.length || (parentSignal && parentSignal.aborted)) { finish(null, -1); return; }
+      if (parentSignal) {
+        parentAbort = function() { finish(null, -1); };
+        parentSignal.addEventListener('abort', parentAbort, { once: true });
+      }
+
+      urls.forEach(function(candidate, index) {
+        launchTimers[index] = setTimeout(function() {
+          if (settled) return;
+          var controller = new AbortController();
+          controllers[index] = controller;
+          var requestUrl = typeof candidate === 'string' ? candidate : candidate.url;
+          fetch(requestUrl, { signal: controller.signal, cache: 'no-store' }).then(function(response) {
+            var type = (response.headers.get('content-type') || '').toLowerCase();
+            if (response.ok && type.indexOf('text/html') === -1 && type.indexOf('application/json') === -1) {
+              finish({ response: response, candidate: candidate }, index);
+            } else {
+              if (response.body && response.body.cancel) response.body.cancel();
+              failed();
+            }
+          }).catch(function() { failed(); });
+        }, index * 180);
+      });
+    });
+  }
+
+  async function tryFetchBlob(formats, parentSignal) {
+    var candidates = [];
+    (formats || []).slice(0, 2).forEach(function(format) {
+      dlProxies.forEach(function(makeProxy) {
+        candidates.push({ url: makeProxy(format.url), format: format });
+      });
+    });
+    var cancelBody = null;
+    try {
+      var winner = await firstDownloadResponse(candidates, 9000, parentSignal);
+      if (!winner) return null;
+      var response = winner.response;
+      cancelBody = function() { if (response.body && response.body.cancel) response.body.cancel(); };
+      if (parentSignal) {
+        if (parentSignal.aborted) { cancelBody(); return null; }
+        parentSignal.addEventListener('abort', cancelBody, { once: true });
+      }
+      var blob = await response.blob();
+      return blob && blob.size > 2048 ? { blob: blob, format: winner.candidate.format } : null;
+    } catch(e) { return null; }
+    finally {
+      if (parentSignal && cancelBody) parentSignal.removeEventListener('abort', cancelBody);
     }
-    return null;
   }
 
   function triggerDownload(url, filename) {
@@ -1721,6 +1919,10 @@ body.dark-mode .tool-yt-downloader,
     var videoId = extractVideoId(url);
     if (!videoId) { showError('\u0627\u0644\u0631\u0627\u0628\u0637 \u063A\u064A\u0631 \u0635\u0627\u0644\u062D'); return; }
 
+    if (analysisController) analysisController.abort();
+    analysisController = new AbortController();
+    var requestController = analysisController;
+    var requestSignal = requestController.signal;
     setLoading(true);
     resetDlBtn();
     resultArea.classList.add('hidden');
@@ -1730,17 +1932,19 @@ body.dark-mode .tool-yt-downloader,
     try {
       setProgress(40, 2);
       var oembedUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/shorts/' + videoId + '&format=json';
-      var ores = await fetchWithTimeout(oembedUrl, 6000);
-      var realTitle = '';
-      var realAuthor = '';
-      if (ores && ores.ok) {
-        var od = await ores.json();
-        realTitle = od.title || '';
-        realAuthor = od.author_name || '';
-      }
+      var metadataPromise = fetchWithTimeout(oembedUrl, 3500, requestSignal).then(function(ores) {
+        if (!ores.ok) return null;
+        return ores.json();
+      }).catch(function() { return null; });
+      var streamsPromise = scrapeVideoUrl(videoId, requestSignal).catch(function() { return null; });
+      var results = await Promise.all([metadataPromise, streamsPromise]);
+      if (requestSignal.aborted) return;
 
       setProgress(65, 2);
-      var scraped = await scrapeVideoUrl(videoId);
+      var od = results[0] || {};
+      var scraped = results[1];
+      var realTitle = od.title || (scraped && scraped.title) || '';
+      var realAuthor = od.author_name || (scraped && scraped.author) || '';
       var formatUrls = [];
       var quality = '360p';
       if (scraped && scraped.urls) { formatUrls = scraped.urls; if (formatUrls[0]) quality = formatUrls[0].quality; }
@@ -1749,10 +1953,11 @@ body.dark-mode .tool-yt-downloader,
         id: videoId,
         title: realTitle || '\u064A\u0648\u062A\u064A\u0648\u0628 \u0634\u0648\u0631\u062A\u0633',
         author: realAuthor || '',
-        duration: '00:30',
-        thumbnail: 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg',
+        duration: (scraped && scraped.duration) || '00:30',
+        thumbnail: (scraped && scraped.thumbnail) || 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg',
         urls: formatUrls,
-        quality: quality
+        quality: quality,
+        resolvedAt: Date.now()
       };
 
       setProgress(80, 3);
@@ -1762,7 +1967,7 @@ body.dark-mode .tool-yt-downloader,
       durationEl.textContent = currentVideoData.duration;
       embedCodeArea.value = generateEmbedCode(videoId);
 
-      thumbImg.onerror = function() { this.src = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg'; };
+      thumbImg.onerror = function() { this.onerror = null; this.src = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg'; };
 
       var qOpts = qualitySelect.options;
       for (var qi = qOpts.length - 1; qi >= 0; qi--) qOpts.remove(qi);
@@ -1797,14 +2002,18 @@ body.dark-mode .tool-yt-downloader,
       }
       setTimeout(function() { if (progressSection) progressSection.classList.add('hidden'); }, 500);
     } catch(e) {
-      setLoading(false);
-      showError('\u0641\u0634\u0644 \u062C\u0644\u0628 \u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0641\u064A\u062F\u064A\u0648');
+      if (!requestSignal.aborted) showError('\u0641\u0634\u0644 \u062C\u0644\u0628 \u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0641\u064A\u062F\u064A\u0648');
+    } finally {
+      if (analysisController === requestController) setLoading(false);
     }
   });
 
   function resetDlBtn() {
+    if (downloadController) {
+      downloadController.abort();
+      downloadController = null;
+    }
     downloadBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> \u062A\u062D\u0645\u064A\u0644 \u0645\u0628\u0627\u0634\u0631';
-    downloadBtn.onclick = downloadClickHandler;
     downloadBtn.disabled = false;
     downloadBtn.style.display = '';
     var dl = document.getElementById('ytDlDirect');
@@ -1813,43 +2022,50 @@ body.dark-mode .tool-yt-downloader,
 
   var downloadClickHandler = async function() {
     if (!currentVideoData) return;
+    if (downloadController) downloadController.abort();
+    downloadController = new AbortController();
+    var downloadSignal = downloadController.signal;
     var vid = currentVideoData.id;
     var filename = 'YouTube_Short_' + vid;
     var urls = (currentVideoData.urls || []).slice();
-    if (urls.length === 0) {
-      var fresh = await scrapeVideoUrl(vid);
-      if (fresh && fresh.urls) urls = fresh.urls;
-    }
-    if (urls.length === 0) {
-      var inv = await tryInvidiousApi(vid);
-      if (inv && inv.urls) urls = inv.urls;
-    }
-    if (urls.length === 0) {
-      var piped = await tryPipedApi(vid);
-      if (piped && piped.urls) urls = piped.urls;
-    }
+    if (currentVideoData.resolvedAt && Date.now() - currentVideoData.resolvedAt > STREAM_CACHE_TTL) urls = [];
     setDlLoading(true);
-    for (var ui = 0; ui < urls.length; ui++) {
-      var vu = urls[ui].url;
-      for (var pi = 0; pi < dlProxies.length; pi++) {
-        try {
-          var r = await fetchWithTimeout(dlProxies[pi](vu), 15000);
-          if (r.ok) {
-            var blob = await r.blob();
-            if (blob && blob.size > 2048) {
-              var blobUrl = window.URL.createObjectURL(blob);
-              var a = document.createElement('a');
-              a.href = blobUrl; a.download = filename + '.mp4';
-              document.body.appendChild(a); a.click();
-              document.body.removeChild(a);
-              setTimeout(function() { window.URL.revokeObjectURL(blobUrl); }, 10000);
-              setDlLoading(false);
-              return;
-            }
-          }
-        } catch(e) {}
+    if (urls.length === 0) {
+      var fresh = await scrapeVideoUrl(vid, downloadSignal);
+      if (fresh && fresh.urls) {
+        urls = fresh.urls.slice();
+        currentVideoData.urls = urls.slice();
+        currentVideoData.resolvedAt = Date.now();
       }
     }
+    if (downloadSignal.aborted) return;
+
+    var wantedQuality = qualitySelect.value;
+    urls.sort(function(a, b) {
+      var aWanted = a.quality === wantedQuality ? 1 : 0;
+      var bWanted = b.quality === wantedQuality ? 1 : 0;
+      if (aWanted !== bWanted) return bWanted - aWanted;
+      if (!!a.videoOnly !== !!b.videoOnly) return a.videoOnly ? 1 : -1;
+      return (parseInt(b.quality, 10) || 0) - (parseInt(a.quality, 10) || 0);
+    });
+
+    var downloaded = await tryFetchBlob(urls, downloadSignal);
+
+    if (downloaded && downloaded.blob && downloaded.format) {
+      var selectedFormat = downloaded.format;
+      var blobUrl = window.URL.createObjectURL(downloaded.blob);
+      var a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = filename + '.' + (selectedFormat.ext || 'mp4');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function() { window.URL.revokeObjectURL(blobUrl); }, 10000);
+      setDlLoading(false);
+      return;
+    }
+
+    if (downloadSignal.aborted) return;
     setDlLoading(false);
     if (urls.length > 0) {
       downloadBtn.style.display = 'none';
