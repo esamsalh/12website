@@ -1461,6 +1461,7 @@
         'https://backend1.tioo.eu.org/api/downloader/pinterest?url=',
         'https://backend1.tioo.eu.org/pinterest?url='
     ];
+    const downloadEndpoint = '/api/pinterest-download';
 
     let errorTimer = null;
     let requestSerial = 0;
@@ -1689,52 +1690,35 @@
         return (base || 'Pinterest') + extension;
     }
 
-    function triggerFileDownload(url, filename, openInNewTab) {
+    function triggerFileDownload(url, filename) {
         var link = document.createElement('a');
         link.href = url;
         link.download = filename;
         link.rel = 'noopener noreferrer';
-        if (openInNewTab) link.target = '_blank';
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
         link.remove();
     }
 
-    async function downloadCurrentMedia() {
+    function downloadCurrentMedia() {
         var mediaUrl = safeMediaUrl(downloadBtn._url);
         if (!mediaUrl || downloadInProgress) return;
 
         downloadInProgress = true;
         downloadBtn.disabled = true;
         downloadBtn.setAttribute('aria-busy', 'true');
-        var controller = new AbortController();
-        var timeout = setTimeout(function() { controller.abort(); }, 60000);
 
-        try {
-            var response = await fetch(mediaUrl, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'omit',
-                cache: 'no-store',
-                signal: controller.signal
-            });
-            if (!response.ok) throw new Error('HTTP ' + response.status);
+        var filename = downloadBtn._filename || 'Pinterest.mp4';
+        var proxyUrl = downloadEndpoint + '?url=' + encodeURIComponent(mediaUrl) +
+            '&filename=' + encodeURIComponent(filename);
+        triggerFileDownload(proxyUrl, filename);
 
-            var blob = await response.blob();
-            if (!blob.size) throw new Error('Empty file');
-
-            var objectUrl = URL.createObjectURL(blob);
-            triggerFileDownload(objectUrl, downloadBtn._filename || 'Pinterest.mp4', false);
-            setTimeout(function() { URL.revokeObjectURL(objectUrl); }, 60000);
-        } catch (err) {
-            triggerFileDownload(mediaUrl, downloadBtn._filename || 'Pinterest.mp4', true);
-        } finally {
-            clearTimeout(timeout);
+        setTimeout(function() {
             downloadBtn.disabled = false;
             downloadBtn.removeAttribute('aria-busy');
             downloadInProgress = false;
-        }
+        }, 1200);
     }
 
     async function copyText(value) {
