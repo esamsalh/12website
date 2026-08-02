@@ -1451,16 +1451,30 @@
     const thumbImg = document.getElementById('toolPdThumb');
     const titleEl = document.getElementById('toolPdTitle');
     const typeBadge = document.getElementById('toolPdTypeBadge');
+    const resolutionEl = document.getElementById('toolPdRes');
     const downloadBtn = document.getElementById('toolPdDownloadBtn');
     const previewBtn = document.getElementById('toolPdPreviewBtn');
     const copyUrlBtn = document.getElementById('toolPdCopyUrlBtn');
     const embedCode = document.getElementById('toolPdEmbedCode');
     const copyBtn = document.getElementById('toolPdCopyBtn');
+    const apiEndpoints = [
+        'https://backend1.tioo.eu.org/api/downloader/pinterest?url=',
+        'https://backend1.tioo.eu.org/pinterest?url='
+    ];
+
+    let errorTimer = null;
+    let requestSerial = 0;
+    let pendingControllers = [];
+    let downloadInProgress = false;
 
     function showError(msg) {
+        if (errorTimer) clearTimeout(errorTimer);
         errorDiv.textContent = msg;
         errorDiv.style.display = 'flex';
-        setTimeout(function() { errorDiv.style.display = 'none'; }, 5000);
+        errorTimer = setTimeout(function() {
+            errorDiv.style.display = 'none';
+            errorTimer = null;
+        }, 5000);
     }
 
     function resetBtn() {
@@ -1468,17 +1482,285 @@
         fetchBtn.innerHTML = '<span class="btn-text">تحميل</span><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
     }
 
-    function generateEmbedCode(mediaUrl, thumbUrl, title, type) {
-        if (type === 'video') {
-            return '<div style="text-align:center;margin:10px auto;max-width:100%;">\n    <video controls style="max-width:100%;border-radius:8px;" poster="' + thumbUrl + '">\n        <source src="' + mediaUrl + '" type="video/mp4">\n    </video>\n    <br>\n    <small style="display:block;margin-top:5px;font-family:sans-serif;">\n        <a href="https://www.toolrar.com" target="_blank" style="color:#6366F1;text-decoration:none;">Powered by ToolRar.com</a>\n    </small>\n</div>';
+    function cancelPendingRequests() {
+        pendingControllers.forEach(function(controller) { controller.abort(); });
+        pendingControllers = [];
+    }
+
+    function normalizePinterestUrl(value) {
+        var candidate = String(value || '').trim();
+        if (!candidate) return '';
+        if (!/^https?:\/\//i.test(candidate)) candidate = 'https://' + candidate;
+
+        try {
+            var parsed = new URL(candidate);
+            var host = parsed.hostname.toLowerCase();
+            var isPinterest = host === 'pin.it' || host.endsWith('.pin.it') ||
+                host === 'pinterest.com' || host.endsWith('.pinterest.com') ||
+                host.indexOf('pinterest.') === 0 || host.indexOf('.pinterest.') !== -1;
+
+            if (!isPinterest || (parsed.protocol !== 'https:' && parsed.protocol !== 'http:')) return '';
+            return parsed.href;
+        } catch (err) {
+            return '';
         }
-        return '<div style="text-align:center;margin:10px auto;max-width:100%;">\n    <img src="' + mediaUrl + '" alt="' + title + '" style="max-width:100%;border-radius:8px;">\n    <br>\n    <small style="display:block;margin-top:5px;font-family:sans-serif;">\n        <a href="https://www.toolrar.com" target="_blank" style="color:#6366F1;text-decoration:none;">Powered by ToolRar.com</a>\n    </small>\n</div>';
+    }
+
+    function safeMediaUrl(value) {
+        if (typeof value !== 'string' || !value.trim()) return '';
+        try {
+            var parsed = new URL(value.trim());
+            return parsed.protocol === 'https:' ? parsed.href : '';
+        } catch (err) {
+            return '';
+        }
+    }
+
+    function escapeAttribute(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    function generateEmbedCode(mediaUrl, thumbUrl, title, type) {
+        var safeMedia = escapeAttribute(mediaUrl);
+        var safeThumb = escapeAttribute(thumbUrl);
+        var safeTitle = escapeAttribute(title);
+
+        if (type === 'video') {
+            return '<div style="text-align:center;margin:10px auto;max-width:100%;">\n    <video controls style="max-width:100%;border-radius:8px;" poster="' + safeThumb + '">\n        <source src="' + safeMedia + '" type="video/mp4">\n    </video>\n    <br>\n    <small style="display:block;margin-top:5px;font-family:sans-serif;">\n        <a href="https://www.toolrar.com" target="_blank" style="color:#6366F1;text-decoration:none;">Powered by ToolRar.com</a>\n    </small>\n</div>';
+        }
+        return '<div style="text-align:center;margin:10px auto;max-width:100%;">\n    <img src="' + safeMedia + '" alt="' + safeTitle + '" style="max-width:100%;border-radius:8px;">\n    <br>\n    <small style="display:block;margin-top:5px;font-family:sans-serif;">\n        <a href="https://www.toolrar.com" target="_blank" style="color:#6366F1;text-decoration:none;">Powered by ToolRar.com</a>\n    </small>\n</div>';
+    }
+
+    function qualityNumber(value) {
+        var match = String(value || '').match(/(\d{3,4})\s*p/i);
+        return match ? Number(match[1]) : 0;
+    }
+
+    function getBestVideo(result) {
+        var candidates = [];
+        var seen = Object.create(null);
+
+        function addCandidate(url, metadata, hint, priority) {
+            var cleanUrl = safeMediaUrl(url);
+            if (!cleanUrl || seen[cleanUrl] || /\.m3u8(?:$|[?#])/i.test(cleanUrl)) return;
+            if (/\.(?:jpe?g|png|gif|webp|svg)(?:$|[?#])/i.test(cleanUrl)) return;
+
+            metadata = metadata && typeof metadata === 'object' ? metadata : {};
+            var height = Number(metadata.height || metadata.h || 0) ||
+                qualityNumber(metadata.quality) || qualityNumber(hint) || qualityNumber(cleanUrl);
+            var width = Number(metadata.width || metadata.w || 0);
+            var quality = metadata.quality || (height ? height + 'p' : (hint || 'HD'));
+
+            seen[cleanUrl] = true;
+            candidates.push({
+                url: cleanUrl,
+                width: width,
+                height: height,
+                quality: String(quality),
+                priority: priority || 0,
+                mp4: /\.mp4(?:$|[?#])/i.test(cleanUrl) ? 1 : 0
+            });
+        }
+
+        function walk(value, hint) {
+            if (!value) return;
+            if (typeof value === 'string') {
+                addCandidate(value, null, hint, 0);
+                return;
+            }
+            if (Array.isArray(value)) {
+                value.forEach(function(item) { walk(item, hint); });
+                return;
+            }
+            if (typeof value !== 'object') return;
+
+            if (typeof value.url === 'string') addCandidate(value.url, value, hint, 0);
+            Object.keys(value).forEach(function(key) {
+                if (key !== 'url') walk(value[key], key);
+            });
+        }
+
+        addCandidate(result.video_url, result, 'HD', 2);
+        walk(result.videos, 'HD');
+
+        candidates.sort(function(a, b) {
+            var aPixels = (a.width || 1) * (a.height || qualityNumber(a.quality) || 1);
+            var bPixels = (b.width || 1) * (b.height || qualityNumber(b.quality) || 1);
+            return bPixels - aPixels || b.height - a.height || b.mp4 - a.mp4 || b.priority - a.priority;
+        });
+
+        return candidates.length ? candidates[0] : null;
+    }
+
+    function getBestImage(result) {
+        var candidates = [];
+        var seen = Object.create(null);
+
+        function addImage(url, metadata) {
+            var cleanUrl = safeMediaUrl(url);
+            if (!cleanUrl || seen[cleanUrl]) return;
+            metadata = metadata && typeof metadata === 'object' ? metadata : {};
+            seen[cleanUrl] = true;
+            candidates.push({
+                url: cleanUrl,
+                width: Number(metadata.width || 0),
+                height: Number(metadata.height || 0)
+            });
+        }
+
+        function walk(value) {
+            if (!value) return;
+            if (typeof value === 'string') {
+                addImage(value, null);
+                return;
+            }
+            if (Array.isArray(value)) {
+                value.forEach(walk);
+                return;
+            }
+            if (typeof value !== 'object') return;
+            if (typeof value.url === 'string') addImage(value.url, value);
+            Object.keys(value).forEach(function(key) {
+                if (key !== 'url') walk(value[key]);
+            });
+        }
+
+        addImage(result.image, result);
+        walk(result.images);
+        candidates.sort(function(a, b) {
+            return (b.width * b.height) - (a.width * a.height);
+        });
+        return candidates.length ? candidates[0] : null;
+    }
+
+    async function fetchEndpoint(endpoint, pinterestUrl) {
+        var controller = new AbortController();
+        pendingControllers.push(controller);
+        var timeout = setTimeout(function() { controller.abort(); }, 15000);
+
+        try {
+            var response = await fetch(endpoint + encodeURIComponent(pinterestUrl), {
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'omit',
+                cache: 'no-store',
+                headers: { 'Accept': 'application/json' },
+                signal: controller.signal
+            });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+
+            var data = await response.json();
+            if (!data || typeof data !== 'object') throw new Error('Invalid response');
+            return data;
+        } finally {
+            clearTimeout(timeout);
+            pendingControllers = pendingControllers.filter(function(item) { return item !== controller; });
+        }
+    }
+
+    async function requestPinterest(pinterestUrl, requestId) {
+        var lastError = null;
+
+        for (var i = 0; i < apiEndpoints.length; i++) {
+            if (requestId !== requestSerial) throw new Error('Request superseded');
+            try {
+                var data = await fetchEndpoint(apiEndpoints[i], pinterestUrl);
+                if (data.success && data.result) return data;
+                lastError = new Error('Empty result');
+            } catch (err) {
+                if (requestId !== requestSerial) throw err;
+                lastError = err;
+            }
+        }
+
+        throw lastError || new Error('No result');
+    }
+
+    function makeFilename(title, extension) {
+        var base = String(title || 'Pinterest')
+            .replace(/[^a-zA-Z0-9_\-\u0600-\u06FF]/g, '_')
+            .replace(/_+/g, '_')
+            .replace(/^_|_$/g, '')
+            .substring(0, 50);
+        return (base || 'Pinterest') + extension;
+    }
+
+    function triggerFileDownload(url, filename, openInNewTab) {
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        link.rel = 'noopener noreferrer';
+        if (openInNewTab) link.target = '_blank';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+
+    async function downloadCurrentMedia() {
+        var mediaUrl = safeMediaUrl(downloadBtn._url);
+        if (!mediaUrl || downloadInProgress) return;
+
+        downloadInProgress = true;
+        downloadBtn.disabled = true;
+        downloadBtn.setAttribute('aria-busy', 'true');
+        var controller = new AbortController();
+        var timeout = setTimeout(function() { controller.abort(); }, 60000);
+
+        try {
+            var response = await fetch(mediaUrl, {
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'omit',
+                cache: 'no-store',
+                signal: controller.signal
+            });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+
+            var blob = await response.blob();
+            if (!blob.size) throw new Error('Empty file');
+
+            var objectUrl = URL.createObjectURL(blob);
+            triggerFileDownload(objectUrl, downloadBtn._filename || 'Pinterest.mp4', false);
+            setTimeout(function() { URL.revokeObjectURL(objectUrl); }, 60000);
+        } catch (err) {
+            triggerFileDownload(mediaUrl, downloadBtn._filename || 'Pinterest.mp4', true);
+        } finally {
+            clearTimeout(timeout);
+            downloadBtn.disabled = false;
+            downloadBtn.removeAttribute('aria-busy');
+            downloadInProgress = false;
+        }
+    }
+
+    async function copyText(value) {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(value);
+            return;
+        }
+
+        var temp = document.createElement('textarea');
+        temp.value = value;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        var copied = document.execCommand('copy');
+        temp.remove();
+        if (!copied) throw new Error('Copy failed');
     }
 
     async function handleDownload() {
-        const url = urlInput.value.trim();
+        var url = normalizePinterestUrl(urlInput.value);
         if (!url) { showError('الرجاء إدخال رابط Pinterest.'); return; }
 
+        cancelPendingRequests();
+        var currentRequest = ++requestSerial;
         previewSection.style.display = 'none';
         videoPlayer.pause();
         videoPlayer.removeAttribute('src');
@@ -1490,58 +1772,46 @@
         errorDiv.style.display = 'none';
 
         try {
-            const resp = await fetch('https://backend1.tioo.eu.org/pinterest?url=' + encodeURIComponent(url));
-            const data = await resp.json();
+            var data = await requestPinterest(url, currentRequest);
+            if (currentRequest !== requestSerial) return;
 
-            loader.style.display = 'none';
+            var result = data.result;
+            var video = getBestVideo(result);
+            var image = getBestImage(result);
+            var isVideo = !!video;
+            var mediaUrl = video ? video.url : (image ? image.url : '');
+            var imageUrl = image ? image.url : mediaUrl;
+            var title = typeof result.title === 'string' && result.title.trim() ? result.title.trim() : 'Pinterest';
 
-            if (!data.success || !data.result) {
+            if (!mediaUrl) {
                 showError('عذراً، لم نتمكن من العثور على محتوى في هذا الرابط.');
-                resetBtn();
                 return;
             }
 
-            var r = data.result;
-            var videoUrl = r.video_url || '';
-            var videos = r.videos || [];
-            var imageUrl = r.image || '';
-            var title = r.title || 'Pinterest';
-
-            // Filter out HLS URLs, get first valid MP4
-            var mediaUrl = videoUrl;
-            if (!mediaUrl || mediaUrl.includes('.m3u8')) {
-                for (var i = 0; i < videos.length; i++) {
-                    if (videos[i].url && !videos[i].url.includes('.m3u8')) {
-                        mediaUrl = videos[i].url;
-                        break;
-                    }
-                }
-            }
-
-            var isVideo = !!mediaUrl;
-            thumbImg.src = imageUrl || mediaUrl;
+            thumbImg.src = imageUrl;
             titleEl.textContent = title;
             typeBadge.textContent = isVideo ? 'فيديو' : 'صورة';
+            resolutionEl.textContent = isVideo && video.height ? video.height + 'p' : 'HD';
 
-            downloadBtn._url = mediaUrl || imageUrl;
-            downloadBtn._filename = title.replace(/[^a-zA-Z0-9_\-\u0600-\u06FF]/g, '_').substring(0, 50) + (isVideo ? '.mp4' : '.jpg');
+            downloadBtn._url = mediaUrl;
+            downloadBtn._filename = makeFilename(title, isVideo ? '.mp4' : '.jpg');
             downloadBtn.style.display = '';
             previewBtn.style.display = isVideo ? '' : 'none';
-
-            embedCode.value = generateEmbedCode(mediaUrl || imageUrl, imageUrl, title, isVideo ? 'video' : 'image');
-
+            embedCode.value = generateEmbedCode(mediaUrl, imageUrl, title, isVideo ? 'video' : 'image');
             resultSection.style.display = 'block';
-            resetBtn();
-
         } catch (err) {
-            loader.style.display = 'none';
-            resetBtn();
+            if (currentRequest !== requestSerial) return;
             showError('حدث خطأ في الاتصال. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.');
+        } finally {
+            if (currentRequest === requestSerial) {
+                loader.style.display = 'none';
+                resetBtn();
+            }
         }
     }
 
     previewBtn.addEventListener('click', function() {
-        var itemUrl = downloadBtn._url;
+        var itemUrl = safeMediaUrl(downloadBtn._url);
         if (itemUrl) {
             videoPlayer.src = itemUrl;
             previewSection.style.display = 'block';
@@ -1550,41 +1820,37 @@
     });
 
     copyUrlBtn.addEventListener('click', function() {
-        var url = downloadBtn._url;
-        if (url) {
-            navigator.clipboard.writeText(url).then(function() {
-                var orig = copyUrlBtn.innerHTML;
-                copyUrlBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="20 6 9 17 4 12"></polyline></svg>\u00a0\u062a\u0645 \u0627\u0644\u0646\u0633\u062e';
-                setTimeout(function() { copyUrlBtn.innerHTML = orig; }, 2000);
-            });
+        var url = safeMediaUrl(downloadBtn._url);
+        if (!url) return;
+
+        copyText(url).then(function() {
+            var orig = copyUrlBtn.innerHTML;
+            copyUrlBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="20 6 9 17 4 12"></polyline></svg>\u00a0\u062a\u0645 \u0627\u0644\u0646\u0633\u062e';
+            setTimeout(function() { copyUrlBtn.innerHTML = orig; }, 2000);
+        }).catch(function() { showError('فشل النسخ التلقائي.'); });
+    });
+
+    downloadBtn.addEventListener('click', downloadCurrentMedia);
+    fetchBtn.addEventListener('click', handleDownload);
+    urlInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.repeat) {
+            e.preventDefault();
+            handleDownload();
         }
     });
 
-    downloadBtn.addEventListener('click', function() {
-        var url = downloadBtn._url;
-        if (!url) return;
-        window.open(url, '_blank');
-    });
-
-    fetchBtn.addEventListener('click', handleDownload);
-    urlInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleDownload(); });
-
     copyBtn.addEventListener('click', function() {
-        embedCode.select();
-        embedCode.setSelectionRange(0, 99999);
-        try {
-            navigator.clipboard.writeText(embedCode.value).then(function() {
-                var orig = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                copyBtn.style.color = '#10b981';
-                copyBtn.style.borderColor = '#10b981';
-                setTimeout(function() {
-                    copyBtn.innerHTML = orig;
-                    copyBtn.style.color = '';
-                    copyBtn.style.borderColor = '';
-                }, 2000);
-            });
-        } catch (err) { showError('فشل النسخ التلقائي.'); }
+        copyText(embedCode.value).then(function() {
+            var orig = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+            copyBtn.style.color = '#10b981';
+            copyBtn.style.borderColor = '#10b981';
+            setTimeout(function() {
+                copyBtn.innerHTML = orig;
+                copyBtn.style.color = '';
+                copyBtn.style.borderColor = '';
+            }, 2000);
+        }).catch(function() { showError('فشل النسخ التلقائي.'); });
     });
 });</script>
 </body>
