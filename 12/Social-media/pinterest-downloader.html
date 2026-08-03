@@ -17,7 +17,7 @@
     <meta property="og:description" content="قم بتحميل وتنزيل فيديوهات بنترست Pinterest بسهولة تامة باستخدام أفضل أداة مجانية. احصل على مقاطع الفيديو بجودة عالية Full HD بصيغة MP4 مباشرة إلى هاتفك أو حاسوبك بدون الحاجة لبرامج. ابدع بحفظ الإبداعات المفضلة لديك من بنترست الآن بسرعة وسهولة.">
     <meta property="og:url" content="https://www.toolrar.com/Social-media/pinterest-downloader">
     <meta property="og:site_name" content="ToolRar">
-    <meta property="og:updated_time" content="2026-08-03T03:47:06+02:00">
+    <meta property="og:updated_time" content="2026-08-03T04:09:24+02:00">
     <meta property="og:image" content="https://www.toolrar.com/knowledge/social-media/img/pinterest-downloader-result.png">
     <meta property="og:image:secure_url" content="https://www.toolrar.com/knowledge/social-media/img/pinterest-downloader-result.png">
     <meta property="og:image:width" content="878">
@@ -25,7 +25,7 @@
     <meta property="og:image:alt" content="واجهة أداة تحميل فيديوهات بنترست في ToolRar">
     <meta property="og:image:type" content="image/png">
     <meta property="article:published_time" content="2026-06-18T00:00:00+02:00">
-    <meta property="article:modified_time" content="2026-08-03T03:47:06+02:00">
+    <meta property="article:modified_time" content="2026-08-03T04:09:24+02:00">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@toolrar">
@@ -97,7 +97,7 @@
                 "name": "تحميل فيديوهات بنترست - Pinterest Video Downloader",
                 "description": "قم بتحميل وتنزيل فيديوهات بنترست Pinterest بسهولة تامة باستخدام أفضل أداة مجانية. احصل على مقاطع الفيديو بجودة عالية Full HD بصيغة MP4 مباشرة إلى هاتفك أو حاسوبك بدون الحاجة لبرامج.",
                 "datePublished": "2026-06-18T00:00:00+02:00",
-                "dateModified": "2026-08-03T03:47:06+02:00",
+                "dateModified": "2026-08-03T04:09:24+02:00",
                 "isPartOf": { "@id": "https://www.toolrar.com/#website" },
                 "primaryImageOfPage": { "@id": "https://www.toolrar.com/Social-media/pinterest-downloader#primaryimage" },
                 "breadcrumb": { "@id": "https://www.toolrar.com/Social-media/pinterest-downloader#breadcrumb" },
@@ -304,7 +304,7 @@
         "headline": "تحميل فيديوهات بنترست بجودة عالية بدون علامة مائية - Pinterest Video Downloader",
         "description": "قم بتحميل وتنزيل فيديوهات بنترست Pinterest بسهولة تامة باستخدام أفضل أداة مجانية. احصل على مقاطع الفيديو بجودة عالية Full HD بصيغة MP4 مباشرة إلى هاتفك أو حاسوبك بدون الحاجة لبرامج. ابدع بحفظ الإبداعات المفضلة لديك من بنترست الآن بسرعة وسهولة.",
         "datePublished": "2026-06-18",
-        "dateModified": "2026-08-03T03:47:06+02:00",
+        "dateModified": "2026-08-03T04:09:24+02:00",
         "author": { "@id": "https://www.toolrar.com/#organization" },
         "publisher": { "@id": "https://www.toolrar.com/#organization" },
         "isPartOf": { "@id": "https://www.toolrar.com/#website" },
@@ -1526,23 +1526,27 @@ body.dark .pdx-trust,body.dark .pdx-trust-badge,body.dark .tool-desc-text .pdx-c
                 <svg class="tool-pd-main-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
             </div>
             <h2 class="tool-pd-title">أداة تنزيل فيديوهات بنترست Pinterest Video Downloader</h2>
-            <p class="tool-pd-desc">افحص فيديوهات وصور وملفات GIF العامة من Pinterest واحفظ النسخة المتاحة من المصدر.</p>
+            <p class="tool-pd-desc" id="toolPdFormDescription">افحص فيديوهات وصور وملفات GIF العامة من Pinterest واحفظ النسخة المتاحة من المصدر.</p>
         </div>
 
         <!-- Input Section -->
-        <div class="tool-pd-input-wrapper">
+        <form class="tool-pd-input-wrapper" id="toolPdForm"
+              toolname="downloadPinterestMedia"
+              tooldescription="Analyze a public Pinterest Pin URL and show the available video, image, or GIF download options."
+              aria-describedby="toolPdFormDescription">
             <div class="tool-pd-input-group">
-                <input type="text" class="tool-pd-input" id="toolPdUrl" placeholder="الصق رابط Pin عام من Pinterest هنا..." autocomplete="off" inputmode="url">
+                <input type="url" class="tool-pd-input" id="toolPdUrl" name="pinterestUrl" aria-label="رابط Pin عام من Pinterest" placeholder="الصق رابط Pin عام من Pinterest هنا..." autocomplete="url" inputmode="url" required
+                       toolparamdescription="A public Pinterest Pin URL from pinterest.com or pin.it. Private, deleted, board, and profile URLs are not supported.">
                 <button class="tool-pd-btn tool-pd-paste-btn" id="toolPdPasteBtn" type="button" aria-label="لصق رابط Pinterest من الحافظة">
                     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>لصق</span>
                 </button>
-                <button class="tool-pd-btn" id="toolPdFetchBtn">
+                <button class="tool-pd-btn" id="toolPdFetchBtn" type="submit">
                     <span class="btn-text">تحميل</span>
                     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
             </div>
             <div class="tool-pd-error" id="toolPdError"></div>
-        </div>
+        </form>
 
         <!-- Loader -->
         <div class="tool-pd-loader" id="toolPdLoader">
@@ -1956,6 +1960,7 @@ body.dark .pdx-trust,body.dark .pdx-trust-badge,body.dark .tool-desc-text .pdx-c
 
     const EXTRACT_ENDPOINT = '/api/pinterest-extract';
     const DOWNLOAD_ENDPOINT = '/api/pinterest-download';
+    const downloaderForm = document.getElementById('toolPdForm');
     const urlInput = document.getElementById('toolPdUrl');
     const fetchBtn = document.getElementById('toolPdFetchBtn');
     const loader = document.getElementById('toolPdLoader');
@@ -2272,11 +2277,15 @@ body.dark .pdx-trust,body.dark .pdx-trust-badge,body.dark .tool-desc-text .pdx-c
             showError('تعذر قراءة الحافظة تلقائياً. اضغط Ctrl+V أو اختر «لصق» من قائمة الهاتف.');
         }
     });
-    fetchBtn.addEventListener('click', handleDownload);
-    urlInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            handleDownload();
+    downloaderForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const operation = handleDownload();
+        if (event.agentInvoked && typeof event.respondWith === 'function') {
+            event.respondWith(Promise.resolve(operation).then(function() {
+                return resultSection.style.display === 'block'
+                    ? { success: true, message: 'Available Pinterest media and download options are displayed to the user.' }
+                    : { success: false, message: errorDiv.textContent || 'The Pinterest URL could not be processed.' };
+            }));
         }
     });
 });</script>
