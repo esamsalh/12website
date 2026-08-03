@@ -1,6 +1,17 @@
 ﻿# ToolRar - دليل الموقع الشامل
 > https://toolrar.com | منصة أدوات ويب مجانية بالكامل | المعالجة في المتصفح لحماية الخصوصية
 
+## روابط ToolRar الأساسية
+
+- [الصفحة الرئيسية لموقع ToolRar](https://www.toolrar.com/): فئات الأدوات المجانية ونقطة البداية للموقع.
+- [دليل جميع الأدوات](https://www.toolrar.com/all-tools): فهرس شامل لأدوات ToolRar المتاحة.
+- [أداة تحميل فيديوهات بنترست](https://www.toolrar.com/Social-media/pinterest-downloader): تحليل روابط Pin العامة وعرض خيارات الوسائط المتاحة.
+- [الدليل المعرفي لأداة Pinterest](https://www.toolrar.com/knowledge/social-media/pinterest-downloader): شرح الاستخدام والجودة والخصوصية وحلول المشكلات.
+- [مركز معرفة السوشيال ميديا](https://www.toolrar.com/knowledge/social-media/): أدلة مترابطة لأدوات ومنصات التواصل الاجتماعي.
+- [سياسة الخصوصية](https://www.toolrar.com/privacy): معلومات التعامل مع البيانات وخصوصية المستخدم.
+- [شروط الاستخدام](https://www.toolrar.com/terms): شروط وضوابط استخدام أدوات الموقع.
+- [خريطة الموقع XML](https://www.toolrar.com/sitemap.xml): قائمة آلية بالصفحات المتاحة للفهرسة.
+
 ## 🏠 الصفحات الأساسية
 
 | الصفحة | الرابط |
