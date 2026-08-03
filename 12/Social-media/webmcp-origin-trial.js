@@ -6,4 +6,18 @@
     meta.httpEquiv = 'origin-trial';
     meta.content = token;
     document.head.appendChild(meta);
+
+    function refreshDeclarativeTool() {
+        const form = document.getElementById('toolPdForm');
+        if (!form) return;
+        const toolName = form.getAttribute('toolname');
+        form.removeAttribute('toolname');
+        queueMicrotask(() => form.setAttribute('toolname', toolName));
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', refreshDeclarativeTool, { once: true });
+    } else {
+        refreshDeclarativeTool();
+    }
 })();
