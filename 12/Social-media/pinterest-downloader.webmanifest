@@ -1,0 +1,27 @@
+{
+  "id": "/Social-media/pinterest-downloader",
+  "name": "ToolRar - تحميل محتوى Pinterest",
+  "short_name": "Pinterest ToolRar",
+  "description": "اختصار سريع لأداة ToolRar لفحص وتنزيل وسائط Pinterest العامة.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/Social-media/pinterest-downloader?source=pwa",
+  "scope": "/Social-media/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/12/admin/assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/12/admin/assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
