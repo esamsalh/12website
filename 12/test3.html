@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=5">
+  <meta name="theme-color" content="#07090d">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <title>Falling Sand Game – Play Free Online Physics Sandbox</title>
+  <meta name="description" content="Play Falling Sand Game online for free. Pour sand, water, lava and oil, grow plants, start fires and explore a fast interactive physics sandbox on mobile or desktop.">
+  <link rel="canonical" href="https://www.toolrar.com/test2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%23080b10'/%3E%3Cpath d='M14 13h36v7c0 9-7 14-12 17 5 3 12 8 12 17v1H14v-1c0-9 7-14 12-17-5-3-12-8-12-17z' fill='%23f7b955'/%3E%3Cpath d='M22 21h20c-2 6-6 8-10 11-4-3-8-5-10-11zm0 26c2-5 6-7 10-10 4 3 8 5 10 10z' fill='%23fff0b2'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Falling Sand Game – Free Online Physics Sandbox">
+  <meta property="og:description" content="Mix sand, water, fire, lava, oil, acid and living materials in a fast browser particle simulator.">
+  <meta property="og:url" content="https://www.toolrar.com/test2">
+  <meta property="og:site_name" content="Falling Sand Game">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Falling Sand Game">
+  <meta name="twitter:description" content="A free interactive sand game and physics sandbox for mobile and desktop browsers.">
+
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#06080c;--bg2:#090d14;--panel:#0d131d;--panel2:#121a26;
+      --text:#f4f7fb;--muted:#9aa8bb;--line:rgba(255,255,255,.105);
+      --gold:#f7b955;--orange:#ef7d43;--green:#65d99b;--cyan:#58ccef;
+      --red:#ff6f7e;--shadow:0 22px 70px rgba(0,0,0,.46);--radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    button,select,input{font:inherit;color:inherit}
+    button{border:0}
+    a{color:inherit}
+    .skip-link{position:fixed;left:12px;top:-80px;z-index:100000;padding:10px 14px;border-radius:10px;background:#fff;color:#000;text-decoration:none}.skip-link:focus{top:12px}
+
+    /* Full viewport game */
+    .game-shell{
+      position:relative;height:100dvh;min-height:580px;overflow:hidden;isolation:isolate;
+      background:radial-gradient(circle at 70% 5%,rgba(83,140,205,.11),transparent 32%),linear-gradient(180deg,#070a0f,#030509);
+      border-bottom:1px solid var(--line);overscroll-behavior:contain;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+    }
+    .game-shell.pseudo-fullscreen{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;min-height:0!important;z-index:99999!important}
+    html.game-fullscreen,html.game-fullscreen body{overflow:hidden!important;overscroll-behavior:none}
+    .game-stage{position:absolute;inset:0;overflow:hidden;background:#030508}
+    .game-stage::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(2,4,7,.35),transparent 24%,transparent 68%,rgba(1,2,4,.48));box-shadow:inset 0 0 100px rgba(0,0,0,.35)}
+    #world{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated;cursor:crosshair;background:#030508;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+    .grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+
+    .game-header{position:absolute;z-index:30;left:0;right:0;top:0;min-height:68px;padding:calc(10px + env(safe-area-inset-top)) clamp(12px,2vw,26px) 10px;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(4,7,11,.92),rgba(4,7,11,.62),transparent);pointer-events:none}
+    .game-header>*{pointer-events:auto}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+    .brand-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,var(--gold),#ff9f4d);color:#211506;font-weight:950;letter-spacing:-.03em;box-shadow:0 12px 28px rgba(241,151,65,.24)}
+    .brand-copy{min-width:0}.brand-copy strong{display:block;font-size:16px;white-space:nowrap}.brand-copy small{display:block;color:#9ca9ba;font-size:10px;margin-top:2px;white-space:nowrap}
+    .header-spacer{flex:1}
+    .scene-select{height:42px;max-width:180px;padding:0 34px 0 12px;border:1px solid var(--line);border-radius:13px;background:rgba(9,14,22,.78);backdrop-filter:blur(14px);outline:none;font-size:12px;cursor:pointer}
+    .head-actions{display:flex;align-items:center;gap:7px}
+    .icon-btn{width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:rgba(9,14,22,.76);backdrop-filter:blur(14px);display:grid;place-items:center;cursor:pointer;transition:.18s ease}
+    .icon-btn:hover{background:rgba(255,255,255,.10);transform:translateY(-1px)}
+    .icon-btn[aria-pressed="true"]{background:rgba(101,217,155,.13);border-color:rgba(101,217,155,.55);color:#8af0ba}
+    .icon-btn svg,.control-btn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+    .hero-copy{position:absolute;z-index:12;top:92px;left:clamp(14px,2vw,30px);max-width:560px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(5,9,14,.62);backdrop-filter:blur(14px);box-shadow:var(--shadow);transition:opacity .35s ease,transform .35s ease}
+    .hero-copy .eyebrow{display:flex;align-items:center;gap:8px;color:#c5cfdb;font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:800}.hero-copy .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(101,217,155,.8)}
+    .hero-copy h1{margin:7px 0 5px;font-size:clamp(28px,4vw,52px);line-height:1;letter-spacing:-.045em}.hero-copy p{margin:0;color:#b0bdcd;font-size:13px;line-height:1.55}
+    .game-shell.is-playing .hero-copy{opacity:0;transform:translateY(-8px);pointer-events:none}
+
+    .live-stats{position:absolute;z-index:16;right:clamp(14px,2vw,28px);top:88px;display:flex;gap:7px;align-items:center}
+    .stat-chip{min-width:77px;padding:8px 10px;border:1px solid var(--line);border-radius:13px;background:rgba(5,9,14,.70);backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.22)}
+    .stat-chip span{display:block;color:#8796aa;font-size:8px;text-transform:uppercase;letter-spacing:.13em}.stat-chip strong{display:block;margin-top:2px;font-size:13px;font-variant-numeric:tabular-nums}.stat-chip.fps-good strong{color:#86e8b2}.stat-chip.fps-mid strong{color:#ffd375}.stat-chip.fps-low strong{color:#ff8793}
+
+    .material-rail{position:absolute;z-index:25;left:18px;top:164px;bottom:92px;width:238px;padding:10px;border:1px solid var(--line);border-radius:20px;background:rgba(7,11,17,.74);backdrop-filter:blur(18px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px}
+    .rail-head{display:flex;align-items:center;gap:8px;padding:2px 3px 4px}.rail-head strong{font-size:12px}.rail-head span{margin-left:auto;color:#8492a5;font-size:9px;text-transform:uppercase;letter-spacing:.1em}
+    .material-list{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;overflow:auto;scrollbar-width:thin;padding-right:2px}
+    .material-btn{min-width:0;height:58px;padding:6px 3px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(255,255,255,.035);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:.16s ease}
+    .material-btn:hover{background:rgba(255,255,255,.09);transform:translateY(-1px)}.material-btn.active{border-color:rgba(247,185,85,.85);background:rgba(247,185,85,.10);box-shadow:0 0 0 2px rgba(247,185,85,.11)}
+    .material-btn i{width:25px;height:25px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 5px 12px rgba(0,0,0,.22)}.material-btn small{font-size:9px;color:#d4dce7;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    .settings-card{position:absolute;z-index:22;right:20px;top:154px;width:216px;padding:13px;border:1px solid var(--line);border-radius:18px;background:rgba(7,11,17,.72);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+    .settings-card h2{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#a9b4c3;margin:0 0 12px}
+    .range-row{display:grid;grid-template-columns:46px 1fr 30px;gap:8px;align-items:center;margin:10px 0}.range-row label{font-size:10px;color:#8f9eb1}.range-row input{width:100%;accent-color:var(--gold)}.range-row output{text-align:right;font-size:10px;font-variant-numeric:tabular-nums;color:#dbe2ec}
+    .quick-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:11px}.mini-tool{height:35px;border-radius:10px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04);font-size:10px;cursor:pointer}.mini-tool:hover,.mini-tool.active{background:rgba(247,185,85,.11);border-color:rgba(247,185,85,.35)}
+
+    .bottom-controls{position:absolute;z-index:28;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:7px;max-width:calc(100vw - 30px);padding:8px;border:1px solid var(--line);border-radius:18px;background:rgba(6,10,16,.82);backdrop-filter:blur(20px);box-shadow:var(--shadow)}
+    .selected-pill{height:44px;min-width:138px;padding:0 12px;display:flex;align-items:center;gap:9px;border-radius:12px;background:rgba(255,255,255,.045);color:#bdc7d4;font-size:11px}.selected-pill i{width:24px;height:24px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.23)}
+    .control-btn{height:44px;min-width:44px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.045);display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;white-space:nowrap;font-size:11px;transition:.16s ease}.control-btn:hover{background:rgba(255,255,255,.10)}.control-btn.primary{background:linear-gradient(145deg,var(--gold),var(--orange));color:#201407;font-weight:900;border-color:transparent}.control-btn.danger{color:#ff9ba7}.control-btn .label{display:inline}
+    .cursor-ring{position:absolute;z-index:40;border:1px solid rgba(255,255,255,.9);border-radius:50%;pointer-events:none;display:none;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 18px rgba(255,255,255,.16)}
+    .toast{position:fixed;z-index:100001;left:50%;bottom:24px;transform:translate(-50%,18px);padding:11px 15px;border:1px solid rgba(255,255,255,.15);border-radius:13px;background:#121925;box-shadow:var(--shadow);font-size:12px;opacity:0;pointer-events:none;transition:.2s ease}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+    /* Main content */
+    .content{position:relative;z-index:4;background:linear-gradient(180deg,#090c12,#07090d 58%,#05070a)}
+    .container{width:min(1160px,calc(100% - 34px));margin-inline:auto}
+    .section{padding:82px 0;border-top:1px solid rgba(255,255,255,.065)}
+    .section:first-child{border-top:0}
+    .intro{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:start}
+    .kicker{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.17em;font-weight:850;margin-bottom:13px}
+    .section h2{font-size:clamp(29px,4vw,52px);line-height:1.06;letter-spacing:-.04em;margin:0 0 17px}.section h3{letter-spacing:-.015em}
+    .lead{font-size:18px;line-height:1.75;color:#b5c0cf;margin:0 0 18px}.copy{font-size:15px;line-height:1.86;color:#9eacbf}.copy p{margin:0 0 15px}.copy strong{color:#e9eef5}
+    .feature-box{padding:22px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(145deg,rgba(255,255,255,.048),rgba(255,255,255,.017));box-shadow:0 20px 70px rgba(0,0,0,.20)}.feature-box h3{font-size:15px;margin:0 0 13px}.check-list{list-style:none;margin:0;padding:0;display:grid;gap:11px}.check-list li{display:flex;gap:10px;color:#a8b5c6;font-size:13px;line-height:1.55}.check-list i{width:23px;height:23px;border-radius:8px;display:grid;place-items:center;background:rgba(101,217,155,.11);color:#7ae7aa;font-style:normal;flex:0 0 auto}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}.card{min-height:188px;padding:22px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.026);transition:.18s ease}.card:hover{transform:translateY(-3px);background:rgba(255,255,255,.045)}.card-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:rgba(247,185,85,.10);color:var(--gold);font-size:19px;margin-bottom:18px}.card h3{font-size:16px;margin:0 0 8px}.card p{font-size:13px;line-height:1.72;color:#94a2b5;margin:0}
+    .mode-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}.mode-card{padding:19px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.043),rgba(255,255,255,.015));cursor:pointer;text-align:left}.mode-card:hover{border-color:rgba(247,185,85,.38)}.mode-card strong{display:block;font-size:14px;margin-bottom:6px}.mode-card span{display:block;color:#8f9db0;font-size:11px;line-height:1.5}
+    .steps{counter-reset:steps;display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:32px}.step{counter-increment:steps;padding:21px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.022)}.step::before{content:counter(steps,decimal-leading-zero);display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;margin-bottom:24px}.step h3{font-size:15px;margin:0 0 7px}.step p{font-size:12px;color:#91a0b3;line-height:1.65;margin:0}
+    .reaction-table{margin-top:30px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.02)}.reaction-row{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;padding:17px 20px;border-bottom:1px solid rgba(255,255,255,.06)}.reaction-row:last-child{border-bottom:0}.element{display:flex;align-items:center;gap:10px;font-size:13px}.element i{width:27px;height:27px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}.reaction-arrow{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#7f8da0}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:30px}.trust-card{padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.024)}.trust-card b{display:block;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:11px}.trust-card h3{font-size:15px;margin:0 0 7px}.trust-card p{font-size:12px;line-height:1.66;color:#92a0b2;margin:0}
+    .author-box{margin-top:18px;padding:18px 20px;border:1px solid rgba(88,204,239,.18);border-radius:18px;background:rgba(88,204,239,.045);display:flex;gap:15px;align-items:center}.author-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#5bd2f2,#5476df);display:grid;place-items:center;font-weight:950;color:#061018;flex:0 0 auto}.author-box strong{display:block;font-size:14px}.author-box p{margin:4px 0 0;color:#91a0b4;font-size:12px;line-height:1.55}.version{margin-left:auto;text-align:right;color:#8492a5;font-size:10px;line-height:1.6;white-space:nowrap}
+    .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}.cta-card{padding:25px;border:1px solid var(--line);border-radius:21px;background:radial-gradient(circle at 12% 10%,rgba(247,185,85,.10),transparent 48%),rgba(255,255,255,.025)}.cta-card:nth-child(2){background:radial-gradient(circle at 12% 10%,rgba(88,204,239,.10),transparent 48%),rgba(255,255,255,.025)}.cta-card h3{font-size:20px;margin:0 0 8px}.cta-card p{font-size:13px;color:#95a3b6;line-height:1.65;margin:0 0 18px}.cta-link{display:inline-flex;align-items:center;gap:8px;padding:11px 15px;border-radius:12px;background:#f3f6fa;color:#10151d;text-decoration:none;font-weight:850;font-size:12px}.cta-card:nth-child(2) .cta-link{background:var(--cyan)}
+    .faq{display:grid;gap:10px;max-width:920px;margin-top:30px}.faq details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.022);padding:0 18px}.faq summary{position:relative;cursor:pointer;list-style:none;padding:18px 30px 18px 0;font-size:14px;font-weight:800}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";position:absolute;right:0;top:13px;color:var(--gold);font-size:23px}.faq details[open] summary::after{content:"–"}.faq p{margin:0;padding:0 0 18px;color:#94a2b4;font-size:13px;line-height:1.75}
+    .final-cta{padding:35px;border:1px solid rgba(247,185,85,.22);border-radius:24px;background:radial-gradient(circle at 10% 20%,rgba(247,185,85,.13),transparent 45%),rgba(255,255,255,.025);display:flex;align-items:center;gap:25px}.final-cta h2{font-size:27px;margin:0 0 6px}.final-cta p{margin:0;color:#98a6b8;font-size:13px}.final-cta a{margin-left:auto;white-space:nowrap}
+    footer{padding:56px 0 24px;border-top:1px solid rgba(255,255,255,.07);background:#040609}.footer-grid{display:grid;grid-template-columns:1.45fr repeat(3,1fr);gap:40px;padding-bottom:44px}.footer-brand p{max-width:350px;color:#8492a5;font-size:12px;line-height:1.7}.footer-col h3{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#d1d8e2;margin:0 0 15px}.footer-col a{display:block;margin:9px 0;color:#8391a4;text-decoration:none;font-size:12px}.footer-col a:hover{color:#fff}.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;gap:18px;color:#69778a;font-size:11px}
+
+    @media(max-width:1000px){
+      .settings-card{display:none}.intro{grid-template-columns:1fr;gap:34px}.cards{grid-template-columns:repeat(2,1fr)}.mode-grid,.steps{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1.4fr 1fr 1fr}.footer-col:last-child{display:none}
+    }
+    @media(max-width:720px){
+      .game-shell{min-height:560px;height:100dvh}
+      .game-header{min-height:60px;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;gap:7px}.brand-icon{width:38px;height:38px;border-radius:12px}.brand-copy strong{font-size:14px}.brand-copy small{display:none}.scene-select{height:38px;max-width:118px;padding-left:9px;font-size:10px}.icon-btn{width:38px;height:38px;border-radius:12px}.head-actions{gap:5px}
+      .hero-copy{display:none}.hero-copy h1{font-size:21px;margin:5px 0 0}.hero-copy p{display:none}.hero-copy .eyebrow{font-size:8px;letter-spacing:.11em}
+      .live-stats{right:10px;top:calc(66px + env(safe-area-inset-top));gap:5px;flex-direction:column}.stat-chip{min-width:105px;padding:6px 8px;border-radius:11px;display:flex;align-items:center;justify-content:space-between;gap:10px}.stat-chip span,.stat-chip strong{display:inline;margin:0}.stat-chip:nth-child(3){display:none}
+      .material-rail{left:8px;right:8px;top:auto;bottom:calc(76px + env(safe-area-inset-bottom));width:auto;height:74px;padding:7px;border-radius:17px}.rail-head{display:none}.material-list{display:flex;grid-template-columns:none;overflow-x:auto;overflow-y:hidden;gap:6px;padding:0;scrollbar-width:none}.material-list::-webkit-scrollbar{display:none}.material-btn{flex:0 0 56px;width:56px;height:58px;border-radius:12px}.material-btn i{width:25px;height:25px}.material-btn small{font-size:8px}
+      .bottom-controls{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));transform:none;max-width:none;height:60px;padding:7px;justify-content:space-between;border-radius:17px}.selected-pill{min-width:92px;max-width:116px;height:44px;padding:0 9px}.selected-pill span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.control-btn{height:44px;min-width:44px;padding:0 10px}.control-btn .label{display:none}.control-btn:nth-of-type(4),.control-btn:nth-of-type(6),.control-btn:nth-of-type(7){display:none}
+      .cursor-ring{display:none!important}
+      .section{padding:62px 0}.container{width:min(100% - 24px,1160px)}.lead{font-size:16px}.cards{grid-template-columns:1fr}.mode-grid,.steps,.trust-grid,.cta-grid{grid-template-columns:1fr}.reaction-row{grid-template-columns:1fr;gap:8px}.reaction-arrow{text-align:left}.author-box{align-items:flex-start}.version{display:none}.final-cta{display:block}.final-cta a{margin:20px 0 0}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-col:last-child{display:block}.footer-bottom{display:block;line-height:1.8}
+    }
+    @media(max-width:430px){.scene-select{max-width:96px}.brand-copy strong{font-size:13px}.head-actions .icon-btn:first-child{display:grid}.hero-copy{right:114px}.stat-chip{min-width:94px}.selected-pill{min-width:80px;max-width:98px}.control-btn{min-width:42px;padding:0 9px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://www.toolrar.com/#organization",
+        "name":"ToolRar Labs",
+        "url":"https://www.toolrar.com/"
+      },
+      {
+        "@type":["VideoGame","WebApplication"],
+        "@id":"https://www.toolrar.com/test2#game",
+        "name":"Falling Sand Game",
+        "url":"https://www.toolrar.com/test2",
+        "description":"A free browser-based falling sand game and particle physics sandbox with powders, liquids, gases, heat, fire, plants and chemical reactions.",
+        "applicationCategory":"GameApplication",
+        "genre":["Simulation","Sandbox","Physics Game"],
+        "gamePlatform":"Web Browser",
+        "operatingSystem":"Any",
+        "playMode":"SinglePlayer",
+        "isAccessibleForFree":true,
+        "inLanguage":"en",
+        "creator":{"@id":"https://www.toolrar.com/#organization"},
+        "datePublished":"2026-08-04",
+        "dateModified":"2026-08-04",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://www.toolrar.com/test2#webpage",
+        "url":"https://www.toolrar.com/test2",
+        "name":"Falling Sand Game – Play Free Online Physics Sandbox",
+        "mainEntity":{"@id":"https://www.toolrar.com/test2#game"},
+        "author":{"@id":"https://www.toolrar.com/#organization"},
+        "dateModified":"2026-08-04"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is a falling sand game?","acceptedAnswer":{"@type":"Answer","text":"A falling sand game is a two-dimensional particle sandbox where powders, liquids, gases and solids follow simple rules for gravity, density, heat and material reactions."}},
+      {"@type":"Question","name":"Can I play Falling Sand Game on a phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. The game uses touch-friendly pointer controls, a compact mobile material rail and an immersive full-screen fallback for browsers that do not support the standard Fullscreen API."}},
+      {"@type":"Question","name":"Is this online sand game free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The complete game is free to play in a modern browser without an account or download."}},
+      {"@type":"Question","name":"Which materials can I mix?","acceptedAnswer":{"@type":"Answer","text":"You can combine sand, water, salt, soil, mud, oil, acid, lava, ice, fire, steam, smoke, wood, plants, seeds, stone, glass, metal, gunpowder, coal and sparks."}},
+      {"@type":"Question","name":"Does the simulator upload my creations?","acceptedAnswer":{"@type":"Answer","text":"No. The simulation runs locally in your browser. The optional save function uses local browser storage, and image export is generated on your device."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<section class="game-shell" id="play" aria-labelledby="game-title">
+  <div class="game-stage" id="gameStage">
+    <canvas id="world" aria-label="Interactive Falling Sand Game physics canvas"></canvas>
+    <div class="grain"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+  </div>
+
+  <header class="game-header">
+    <a class="brand" href="#play" aria-label="Falling Sand Game home">
+      <span class="brand-icon">FS</span>
+      <span class="brand-copy"><strong>Falling Sand Game</strong><small>Live particle physics sandbox</small></span>
+    </a>
+    <span class="header-spacer"></span>
+    <select class="scene-select" id="sceneSelect" aria-label="Choose a game scene">
+      <option value="showcase">Demo</option>
+      <option value="sandbox">Sandbox</option>
+      <option value="volcano">Volcano</option>
+      <option value="ecosystem">Plants</option>
+      <option value="laboratory">Lab</option>
+      <option value="fire">Fire</option>
+    </select>
+    <div class="head-actions">
+      <button class="icon-btn" id="soundBtn" type="button" aria-label="Enable game sound" aria-pressed="false" title="Sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+      </button>
+      <button class="icon-btn" id="fullscreenBtn" type="button" aria-label="Enter full screen" aria-pressed="false" title="Full screen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="hero-copy">
+    <span class="eyebrow"><i></i> Free online physics sandbox</span>
+    <h1 id="game-title">Falling Sand Game</h1>
+    <p>Pour, paint and mix interactive particles in a fast sand game built for touch screens and desktop browsers.</p>
+  </div>
+
+  <div class="live-stats" aria-label="Live performance statistics">
+    <div class="stat-chip fps-good" id="fpsChip"><span>Actual FPS</span><strong id="fpsStat">--</strong></div>
+    <div class="stat-chip"><span>Physics UPS</span><strong id="upsStat">--</strong></div>
+    <div class="stat-chip"><span>Particles</span><strong id="particleStat">0</strong></div>
+  </div>
+
+  <aside class="material-rail" aria-label="Game materials">
+    <div class="rail-head"><strong>Elements</strong><span>Tap and hold to pour</span></div>
+    <div class="material-list" id="materialList"></div>
+  </aside>
+
+  <aside class="settings-card" aria-label="Brush and simulation settings">
+    <h2>Simulation controls</h2>
+    <div class="range-row"><label for="brushRange">Brush</label><input id="brushRange" type="range" min="1" max="18" value="6"><output id="brushOut">6</output></div>
+    <div class="range-row"><label for="speedRange">Speed</label><input id="speedRange" type="range" min="1" max="3" value="1"><output id="speedOut">1×</output></div>
+    <div class="quick-tools">
+      <button class="mini-tool" id="heatTool" type="button">Heat</button>
+      <button class="mini-tool" id="coolTool" type="button">Cool</button>
+      <button class="mini-tool" id="eraseTool" type="button">Erase</button>
+    </div>
+  </aside>
+
+  <div class="bottom-controls" aria-label="Game actions">
+    <div class="selected-pill"><i id="selectedColor"></i><span id="selectedName">Sand</span></div>
+    <button class="control-btn primary" id="pauseBtn" type="button" aria-label="Pause simulation">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><span class="label">Pause</span>
+    </button>
+    <button class="control-btn" id="stepBtn" type="button" aria-label="Advance one physics step">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 9 7-9 7z"/></svg><span class="label">Step</span>
+    </button>
+    <button class="control-btn" id="undoBtn" type="button" aria-label="Undo last drawing action">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7 4 12l5 5"/><path d="M5 12h8a6 6 0 1 1 0 12"/></svg><span class="label">Undo</span>
+    </button>
+    <button class="control-btn danger" id="clearBtn" type="button" aria-label="Clear the simulation">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M8 10v8M12 10v8M16 10v8M6 7l1 14h10l1-14"/></svg><span class="label">Clear</span>
+    </button>
+    <button class="control-btn" id="saveBtn" type="button" aria-label="Save simulation locally">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l2 2v14H5zM8 4v6h8V4M8 20v-6h8v6"/></svg><span class="label">Save</span>
+    </button>
+    <button class="control-btn" id="loadBtn" type="button" aria-label="Load locally saved simulation">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg><span class="label">Load</span>
+    </button>
+    <button class="control-btn" id="exportBtn" type="button" aria-label="Export simulation image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span class="label">Image</span>
+    </button>
+  </div>
+</section>
+
+<main class="content" id="main-content">
+  <section class="section">
+    <div class="container intro">
+      <div>
+        <div class="kicker">Interactive particle sandbox</div>
+        <h2>Play the Falling Sand Game Online</h2>
+        <p class="lead">This free <strong>Falling Sand Game</strong> turns your browser into a living canvas made from thousands of tiny particles.</p>
+        <div class="copy">
+          <p>Drop sand into natural piles, pour water through tunnels, ignite wood, grow plants in wet soil and cool lava into stone. Every cell follows its own rules for gravity, density, temperature and reactions, so the same experiment can develop differently each time.</p>
+          <p>The result is more than a simple sand drop game. For anyone looking for a <strong>game with sand</strong>, it works as an <strong>online sand game</strong>, a creative <strong>physics sandbox</strong> and a lightweight chemistry playground in one page. Nothing needs to be installed, and the simulation is designed to respond equally well to a mouse, stylus or continuous touch.</p>
+        </div>
+      </div>
+      <aside class="feature-box">
+        <h3>Why this browser sand game is different</h3>
+        <ul class="check-list">
+          <li><i>✓</i><span>Responsive mobile controls with continuous press-to-pour drawing and no long-press text selection.</span></li>
+          <li><i>✓</i><span>Live, measured FPS and physics updates per second instead of a fixed performance label.</span></li>
+          <li><i>✓</i><span>Heat, density, fire, phase changes, corrosion, plant growth and explosive reactions.</span></li>
+          <li><i>✓</i><span>Local save, restore and image export without uploading your world to a server.</span></li>
+          <li><i>✓</i><span>Free play, volcano, ecosystem, laboratory and fire-test scenes.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="kicker">Sand physics, art and experiments</div>
+      <h2>A complete sand game and particle simulator</h2>
+      <div class="copy" style="max-width:820px"><p>Classic falling-sand games succeed because simple local rules create complex behavior. Unlike many <strong>physics sandbox games online</strong>, this version keeps the canvas immediately playable while adding the features expected from a modern physics sandbox game.</p></div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">◌</div><h3>Granular sand physics</h3><p>Sand, salt, soil, ash and gunpowder fall, settle, build slopes and sink through materials with lower density.</p></article>
+        <article class="card"><div class="card-icon">≈</div><h3>Liquid flow and density</h3><p>Water spreads quickly, oil floats and burns, acid corrodes surfaces, mud moves slowly and lava carries intense heat.</p></article>
+        <article class="card"><div class="card-icon">♨</div><h3>Heat and phase changes</h3><p>Ice melts, water becomes steam, steam condenses, lava hardens and extreme heat can transform sand into glass.</p></article>
+        <article class="card"><div class="card-icon">✦</div><h3>Living ecosystem</h3><p>Seeds grow in damp soil, plants spread toward moisture, and fire or acid can destroy the ecosystem you create.</p></article>
+        <article class="card"><div class="card-icon">✹</div><h3>Powder and chemistry sandbox</h3><p>Combine sparks, coal, metal and gunpowder to make controlled reactions inside a compact chemistry sandbox game.</p></article>
+        <article class="card"><div class="card-icon">✎</div><h3>Colored sand art game</h3><p>Use different materials as a pixel brush to create landscapes, layered sand art, machines and animated scenes in a responsive <strong>sand painting game</strong>.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="modes">
+    <div class="container">
+      <div class="kicker">Multiple ways to play</div>
+      <h2>From a sand pouring game to a full physics laboratory</h2>
+      <div class="copy" style="max-width:850px"><p>Start with an attractive demonstration world or choose a focused preset. Whether you are playing <strong>falling sand online</strong> for experiments or want a relaxing sand game, every mode uses the same particle engine. The experience expands naturally into a sand art game, powder sand game, online physics sandbox and element simulator.</p></div>
+      <div class="mode-grid">
+        <button class="mode-card content-scene" data-scene="sandbox"><strong>Open Sandbox</strong><span>A blank sand box game online with complete creative freedom.</span></button>
+        <button class="mode-card content-scene" data-scene="volcano"><strong>Volcano Simulator</strong><span>Control lava, water, steam, stone and heat inside a tall volcanic scene.</span></button>
+        <button class="mode-card content-scene" data-scene="ecosystem"><strong>Living Ecosystem</strong><span>Grow plants, move water and protect a small particle environment.</span></button>
+        <button class="mode-card content-scene" data-scene="laboratory"><strong>Physics Lab</strong><span>Compare liquids, powders, corrosion, heat conduction and explosions.</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-to">
+    <div class="container">
+      <div class="kicker">How to use the simulator</div>
+      <h2>How to play Falling Sand Game</h2>
+      <div class="steps">
+        <article class="step"><h3>Choose an element</h3><p>Select sand, water, fire, lava, plants or another material from the palette.</p></article>
+        <article class="step"><h3>Draw or hold</h3><p>Drag to paint a path, or hold your finger in one position to keep pouring particles.</p></article>
+        <article class="step"><h3>Mix and observe</h3><p>Combine materials, change brush size and watch density and temperature reshape the world.</p></article>
+        <article class="step"><h3>Save your result</h3><p>Save and restore the current world locally, or export a clean PNG image of the particle canvas.</p></article>
+      </div>
+      <div class="reaction-table" aria-label="Example material reactions">
+        <div class="reaction-row"><div class="element"><i style="background:#348bd8"></i>Water + Lava</div><div class="reaction-arrow">cools into</div><div class="element"><i style="background:#555f6c"></i>Stone + Steam</div></div>
+        <div class="reaction-row"><div class="element"><i style="background:#ff6d2d"></i>Fire + Wood</div><div class="reaction-arrow">creates</div><div class="element"><i style="background:#676d76"></i>Smoke + Ash</div></div>
+        <div class="reaction-row"><div class="element"><i style="background:#d6ae66"></i>Sand + Extreme Heat</div><div class="reaction-arrow">melts into</div><div class="element"><i style="background:#93d8e8"></i>Glass</div></div>
+        <div class="reaction-row"><div class="element"><i style="background:#785137"></i>Seed + Wet Soil</div><div class="reaction-arrow">grows into</div><div class="element"><i style="background:#3bbd6d"></i>Plant</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quality">
+    <div class="container">
+      <div class="kicker">Experience, expertise, authoritativeness and trustworthiness</div>
+      <h2>Transparent design behind the simulator</h2>
+      <div class="copy" style="max-width:860px"><p>The page explains what the model does, who maintains it and where its limits are. It is an entertainment and educational particle simulation—not laboratory software—and its rules are deliberately simplified to keep the game fast in a browser.</p></div>
+      <div class="trust-grid">
+        <article class="trust-card"><b>Experience</b><h3>Playable evidence</h3><p>The primary content is the working simulation itself, with presets that demonstrate liquids, heat, plants, fire and explosions.</p></article>
+        <article class="trust-card"><b>Expertise</b><h3>Documented model</h3><p>Material movement is explained through cellular particles, relative density, temperature transfer and defined reactions.</p></article>
+        <article class="trust-card"><b>Authoritativeness</b><h3>Clear ownership</h3><p>The game is developed and maintained by ToolRar Labs, with a visible version, update date and dedicated knowledge content.</p></article>
+        <article class="trust-card"><b>Trustworthiness</b><h3>Private by default</h3><p>The simulation runs on your device. Saving uses local browser storage; no account or particle-world upload is required.</p></article>
+      </div>
+      <div class="author-box">
+        <div class="author-mark">TR</div>
+        <div><strong>Developed and maintained by ToolRar Labs</strong><p>Built as a browser-first HTML5 particle sandbox with accessible controls, local processing and documented limitations.</p></div>
+        <div class="version">Version 2.2<br><time datetime="2026-08-04">Updated August 4, 2026</time></div>
+      </div>
+
+      <div class="cta-grid">
+        <article class="cta-card"><h3>Falling Sand Game Blog</h3><p>Read experiments, challenge ideas, updates and creative builds designed to attract returning players and long-tail search traffic.</p><a class="cta-link" href="/blog">Explore the Blog <span>→</span></a></article>
+        <article class="cta-card"><h3>Knowledge & How-to Guide</h3><p>Learn how each material behaves, discover reaction recipes and follow detailed tutorials for mobile and desktop play.</p><a class="cta-link" href="/knowledge/falling-sand-game">Open the Game Guide <span>→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="kicker">Frequently asked questions</div>
+      <h2>Falling Sand Game FAQ</h2>
+      <div class="faq">
+        <details><summary>What is a falling sand game?</summary><p>It is a two-dimensional sandbox made from many small particles. Each particle follows simple movement and reaction rules. Together they create flowing water, sand piles, fire, steam, growing plants and other emergent behavior.</p></details>
+        <details><summary>Is this the original Falling Sand Game?</summary><p>This is a modern, independently built browser interpretation of the falling-sand genre. It is not a copy of an older Java or Flash game and uses its own interface, scenes and simulation code.</p></details>
+        <details><summary>Can I play this free sand game on mobile?</summary><p>Yes. The material palette becomes a horizontal touch rail, holding one point continuously pours the selected material, and the game blocks browser long-press selection inside the canvas. The full-screen button also provides an immersive fallback where standard mobile full screen is unavailable.</p></details>
+        <details><summary>Why does the live FPS number change?</summary><p>The FPS counter measures real animation frames from your current browser session. Device speed, battery mode, open tabs, particle count and simulation speed can all change the number.</p></details>
+        <details><summary>Is this a scientific physics simulator?</summary><p>No. It uses simplified cellular rules inspired by gravity, density, heat and material reactions. It is useful for creative experiments and intuitive demonstrations, but it should not be used for scientific measurement.</p></details>
+        <details><summary>Does the game store or upload my work?</summary><p>The world runs locally. The Save button stores one copy in local browser storage, and the Image button creates a PNG on your device. The core simulation does not require an account.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="final-cta"><div><h2>Create a new particle world</h2><p>Return to the full-screen Falling Sand Game, choose a scene and start pouring.</p></div><a class="cta-link" href="#play">Play Falling Sand Game <span>↑</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="#play"><span class="brand-icon">FS</span><span class="brand-copy"><strong>Falling Sand Game</strong><small>Free online particle sandbox</small></span></a><p>Pour sand, mix elements and explore browser-based particle physics with no installation or account.</p></div>
+      <div class="footer-col"><h3>Game</h3><a href="#play">Play Online</a><a href="#how-to">How to Play</a><a href="#features">Materials & Physics</a><a href="#faq">FAQ</a></div>
+      <div class="footer-col"><h3>Explore</h3><a href="/blog">Blog</a><a href="/knowledge/falling-sand-game">Knowledge Guide</a><a href="#modes">Game Modes</a><a href="#quality">About the Simulator</a></div>
+      <div class="footer-col"><h3>Trust</h3><a href="/about">About</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year">2026</span> Falling Sand Game. Developed by ToolRar Labs.</span><span>Runs locally in modern desktop and mobile browsers.</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:20px;background:#fff;color:#111">JavaScript is required to play Falling Sand Game.</p></noscript>
+
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const canvas = $('world');
+  const ctx = canvas.getContext('2d', { alpha:false, desynchronized:true });
+  ctx.imageSmoothingEnabled = false;
+
+  const T={EMPTY:0,SAND:1,WATER:2,WALL:3,WOOD:4,FIRE:5,OIL:6,PLANT:7,ICE:8,LAVA:9,STONE:10,STEAM:11,SMOKE:12,ACID:13,SALT:14,SOIL:15,GUNPOWDER:16,GLASS:17,METAL:18,SEED:19,ASH:20,SPARK:21,MUD:22,COAL:23};
+  const mats=[
+    {id:T.SAND,name:'Sand',color:'#d6ae66',density:70,temp:20,kind:'powder'},
+    {id:T.WATER,name:'Water',color:'#348bd8',density:45,temp:20,kind:'liquid'},
+    {id:T.SALT,name:'Salt',color:'#ece7dc',density:76,temp:20,kind:'powder'},
+    {id:T.SOIL,name:'Soil',color:'#785137',density:74,temp:20,kind:'powder'},
+    {id:T.MUD,name:'Mud',color:'#604735',density:60,temp:20,kind:'liquid'},
+    {id:T.OIL,name:'Oil',color:'#776724',density:32,temp:20,kind:'liquid'},
+    {id:T.ACID,name:'Acid',color:'#91df32',density:48,temp:20,kind:'liquid'},
+    {id:T.ICE,name:'Ice',color:'#9ddcf1',density:42,temp:-18,kind:'solid'},
+    {id:T.LAVA,name:'Lava',color:'#ef4e24',density:82,temp:1250,kind:'liquid'},
+    {id:T.WOOD,name:'Wood',color:'#88542f',density:90,temp:20,kind:'solid'},
+    {id:T.PLANT,name:'Plant',color:'#3bbd6d',density:80,temp:20,kind:'solid'},
+    {id:T.SEED,name:'Seed',color:'#a67a45',density:73,temp:20,kind:'powder'},
+    {id:T.STONE,name:'Stone',color:'#555f6c',density:100,temp:20,kind:'solid'},
+    {id:T.GLASS,name:'Glass',color:'#8fd6e5',density:96,temp:20,kind:'solid'},
+    {id:T.METAL,name:'Metal',color:'#a8b1bf',density:110,temp:20,kind:'solid'},
+    {id:T.COAL,name:'Coal',color:'#34373e',density:82,temp:20,kind:'powder'},
+    {id:T.GUNPOWDER,name:'Powder',color:'#4f4b46',density:72,temp:20,kind:'powder'},
+    {id:T.FIRE,name:'Fire',color:'#ff6d2d',density:2,temp:720,kind:'gas'},
+    {id:T.SPARK,name:'Spark',color:'#ffe071',density:1,temp:950,kind:'gas'},
+    {id:T.STEAM,name:'Steam',color:'#d2e7ef',density:6,temp:125,kind:'gas'},
+    {id:T.SMOKE,name:'Smoke',color:'#686e77',density:4,temp:90,kind:'gas'},
+    {id:T.ASH,name:'Ash',color:'#8b8580',density:55,temp:35,kind:'powder'},
+    {id:T.WALL,name:'Wall',color:'#717b89',density:120,temp:20,kind:'solid'},
+    {id:T.EMPTY,name:'Eraser',color:'#111722',density:0,temp:20,kind:'tool'}
+  ];
+  const meta=new Map(mats.map(m=>[m.id,m]));
+  const colors=[];for(const m of mats){const h=m.color.slice(1);colors[m.id]=[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+  colors[T.EMPTY]=[3,5,8];
+
+  let W=0,H=0,N=0,grid,temp,life,moved,vx,image,px;
+  let selected=T.SAND,tool=null,brush=6,speed=1,paused=false,scene='showcase',drawing=false,pointer=null,undoState=null,frameNo=0;
+  let lastTime=performance.now(),accumulator=0,fpsEMA=60,upsCounter=0,upsStamp=performance.now(),upsValue=0;
+  let audioEnabled=false,audioCtx=null,masterGain=null,fireGain=null,waterGain=null,noiseSource=null,pseudoFullscreen=false;
+
+  const inside=(x,y)=>x>=0&&x<W&&y>=0&&y<H;
+  const idx=(x,y)=>x+y*W;
+  const chance=p=>Math.random()<p;
+  const rnd=n=>(Math.random()*n)|0;
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const density=t=>meta.get(t)?.density||0;
+  const isGas=t=>t===T.FIRE||t===T.SPARK||t===T.STEAM||t===T.SMOKE;
+  const isLiquid=t=>t===T.WATER||t===T.OIL||t===T.ACID||t===T.LAVA||t===T.MUD;
+  const isPowder=t=>t===T.SAND||t===T.SALT||t===T.SOIL||t===T.GUNPOWDER||t===T.ASH||t===T.SEED||t===T.COAL;
+  const flammable=t=>t===T.WOOD||t===T.PLANT||t===T.OIL||t===T.SEED||t===T.GUNPOWDER||t===T.COAL;
+
+  function showToast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>el.classList.remove('show'),1700)}
+  function setCell(x,y,t,heat){if(!inside(x,y))return;const i=idx(x,y);grid[i]=t;temp[i]=heat??(meta.get(t)?.temp||20);life[i]=0;vx[i]=0}
+  function replace(i,t,heat,l=0){grid[i]=t;temp[i]=heat??(meta.get(t)?.temp||20);life[i]=l;vx[i]=0;moved[i]=1}
+  function swap(i,j){let q=grid[i];grid[i]=grid[j];grid[j]=q;q=temp[i];temp[i]=temp[j];temp[j]=q;q=life[i];life[i]=life[j];life[j]=q;q=vx[i];vx[i]=vx[j];vx[j]=q;moved[i]=moved[j]=1}
+  function clearWorld(){grid.fill(T.EMPTY);temp.fill(20);life.fill(0);vx.fill(0);for(let x=0;x<W;x++)setCell(x,H-1,T.WALL)}
+  function rect(x,y,w,h,t,heat){for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)setCell(xx,yy,t,heat)}
+  function line(x0,y0,x1,y1,t,size=1,heat){const dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1;let err=dx+dy;for(;;){for(let yy=-size;yy<=size;yy++)for(let xx=-size;xx<=size;xx++)setCell(x0+xx,y0+yy,t,heat);if(x0===x1&&y0===y1)break;const e2=2*err;if(e2>=dy){err+=dy;x0+=sx}if(e2<=dx){err+=dx;y0+=sy}}}
+
+  function allocate(newW,newH,preserve=true){
+    const old={W,H,grid,temp,life,vx};W=newW;H=newH;N=W*H;
+    grid=new Uint8Array(N);temp=new Int16Array(N);life=new Uint16Array(N);moved=new Uint8Array(N);vx=new Int8Array(N);temp.fill(20);
+    canvas.width=W;canvas.height=H;image=ctx.createImageData(W,H);px=image.data;
+    if(preserve&&old.W&&old.grid){
+      for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+        const ox=Math.min(old.W-1,Math.floor(x/W*old.W)),oy=Math.min(old.H-1,Math.floor(y/H*old.H));
+        const ni=idx(x,y),oi=ox+oy*old.W;grid[ni]=old.grid[oi];temp[ni]=old.temp[oi];life[ni]=old.life[oi];vx[ni]=old.vx[oi];
+      }
+    }else clearWorld();
+  }
+  function resizeWorld(preserve=true){
+    const r=$('gameStage').getBoundingClientRect();if(r.width<100||r.height<100)return;
+    const cellSize=innerWidth<720?3.15:innerWidth<1100?2.9:2.7;
+    let nw=clamp(Math.round(r.width/cellSize),150,520),nh=clamp(Math.round(r.height/cellSize),150,390);
+    const cap=135000;if(nw*nh>cap){const s=Math.sqrt(cap/(nw*nh));nw=Math.floor(nw*s);nh=Math.floor(nh*s)}
+    if(nw===W&&nh===H)return;allocate(nw,nh,preserve);if(!preserve)loadScene(scene,false)
+  }
+
+  function snapshot(){undoState={W,H,grid:grid.slice(),temp:temp.slice(),life:life.slice(),vx:vx.slice()}}
+  function undo(){if(!undoState){showToast('Nothing to undo');return}if(undoState.W!==W||undoState.H!==H){showToast('Undo is unavailable after resizing');undoState=null;return}grid.set(undoState.grid);temp.set(undoState.temp);life.set(undoState.life);vx.set(undoState.vx);undoState=null;showToast('Last drawing restored')}
+
+  function canDisplace(moving,target){return target===T.EMPTY||((isLiquid(target)||isGas(target))&&density(moving)>density(target))}
+  function tryMove(i,x,y,nx,ny,t){if(!inside(nx,ny))return false;const j=idx(nx,ny),target=grid[j];if(canDisplace(t,target)){swap(i,j);return true}return false}
+  function thermal(i,x,y,t){
+    if((frameNo+i)%3)return;
+    const conductivity=t===T.METAL?.24:t===T.WATER||t===T.LAVA?.07:.025;
+    const dirs=[[1,0],[-1,0],[0,1],[0,-1]];const d=dirs[(i+frameNo)&3],nx=x+d[0],ny=y+d[1];
+    if(inside(nx,ny)){const j=idx(nx,ny),delta=temp[j]-temp[i],flow=delta*conductivity;temp[i]+=flow;temp[j]-=flow}
+    temp[i]+=Math.sign(20-temp[i])*Math.min(Math.abs(20-temp[i]),t===T.LAVA?.08:.025);
+  }
+  function phase(i,x,y,t){
+    const h=temp[i];
+    if(t===T.ICE&&h>3){replace(i,T.WATER,1);return true}
+    if(t===T.WATER&&h>106){replace(i,T.STEAM,120,70+rnd(60));return true}
+    if(t===T.STEAM&&h<78){replace(i,T.WATER,70);return true}
+    if(t===T.LAVA&&h<610){replace(i,T.STONE,420);return true}
+    if(t===T.SAND&&h>1420){replace(i,T.GLASS,1180);return true}
+    if(t===T.MUD&&h>130&&chance(.03)){replace(i,T.SOIL,80);return true}
+    if((t===T.WOOD||t===T.PLANT||t===T.COAL||t===T.OIL||t===T.GUNPOWDER)&&h>(t===T.OIL?175:260)){replace(i,T.FIRE,700,45+rnd(70));return true}
+    return false;
+  }
+  function neighbors(x,y){return [[x,y-1],[x+1,y],[x-1,y],[x,y+1],[x+1,y-1],[x-1,y-1],[x+1,y+1],[x-1,y+1]]}
+
+  function powder(i,x,y,t){
+    thermal(i,x,y,t);if(phase(i,x,y,t))return;
+    if(t===T.SEED){let wet=false,soil=false;for(const [nx,ny] of neighbors(x,y)){if(!inside(nx,ny))continue;const q=grid[idx(nx,ny)];wet||=q===T.WATER||q===T.MUD;soil||=q===T.SOIL||q===T.MUD}if(wet&&soil&&chance(.035)){replace(i,T.PLANT,22);return}}
+    if(t===T.GUNPOWDER||t===T.COAL){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)){const q=grid[idx(nx,ny)];if(q===T.FIRE||q===T.SPARK||q===T.LAVA){if(t===T.GUNPOWDER)explode(x,y,5+rnd(5));else replace(i,T.FIRE,720,70+rnd(90));return}}}}
+    if(t===T.SALT){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)&&grid[idx(nx,ny)]===T.WATER&&chance(.03)){replace(i,T.EMPTY);return}}}
+    if(t===T.SOIL){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)&&grid[idx(nx,ny)]===T.WATER&&chance(.012)){replace(i,T.MUD,18);return}}}
+    if(y+1<H&&tryMove(i,x,y,x,y+1,t))return;
+    const dir=chance(.5)?-1:1;if(tryMove(i,x,y,x+dir,y+1,t))return;tryMove(i,x,y,x-dir,y+1,t);
+  }
+
+  function liquid(i,x,y,t){
+    thermal(i,x,y,t);if(phase(i,x,y,t))return;
+    const near=neighbors(x,y);
+    if(t===T.WATER){for(const [nx,ny] of near){if(!inside(nx,ny))continue;const j=idx(nx,ny),q=grid[j];if(q===T.LAVA){replace(j,T.STONE,470);replace(i,T.STEAM,125,90+rnd(50));return}if(q===T.FIRE){replace(j,T.SMOKE,80,45+rnd(50));if(chance(.35))replace(i,T.STEAM,115,70+rnd(50));return}}}
+    if(t===T.LAVA){for(const [nx,ny] of near){if(!inside(nx,ny))continue;const j=idx(nx,ny),q=grid[j];if(q===T.WATER||q===T.ICE){replace(j,T.STEAM,135,90+rnd(60));replace(i,T.STONE,500);return}if(flammable(q)&&chance(.18))replace(j,T.FIRE,720,55+rnd(80))}}
+    if(t===T.ACID){for(const [nx,ny] of near){if(!inside(nx,ny))continue;const j=idx(nx,ny),q=grid[j];if((q===T.WOOD||q===T.PLANT||q===T.SEED||q===T.COAL)&&chance(.12)){replace(j,T.EMPTY);if(chance(.05))replace(i,T.SMOKE,60,25+rnd(30));return}if((q===T.STONE||q===T.SAND||q===T.SOIL)&&chance(.006)){replace(j,T.EMPTY);if(chance(.12))replace(i,T.EMPTY);return}if(q===T.WATER&&chance(.018)){replace(i,T.WATER,25);return}}}
+    if(t===T.OIL){for(const [nx,ny] of near){if(!inside(nx,ny))continue;const q=grid[idx(nx,ny)];if(q===T.FIRE||q===T.SPARK||q===T.LAVA){replace(i,T.FIRE,700,80+rnd(90));return}}}
+    if(t===T.MUD&&chance(.006)){for(const [nx,ny] of near){if(inside(nx,ny)&&grid[idx(nx,ny)]===T.PLANT){temp[i]-=1;break}}}
+    if(y+1<H&&tryMove(i,x,y,x,y+1,t))return;
+    const dir=vx[i]|| (chance(.5)?-1:1);vx[i]=dir;
+    if(tryMove(i,x,y,x+dir,y+1,t))return;if(tryMove(i,x,y,x-dir,y+1,t)){vx[i]=-dir;return}
+    const spread=t===T.LAVA?2:t===T.MUD?3:t===T.OIL?7:6;
+    for(let d=1;d<=spread;d++){const nx=x+dir*d;if(!inside(nx,y))break;const j=idx(nx,y);if(grid[j]===T.EMPTY){swap(i,j);return}if(!isGas(grid[j]))break}
+    vx[i]=-dir;
+  }
+
+  function gas(i,x,y,t){
+    thermal(i,x,y,t);if(phase(i,x,y,t))return;
+    let l=life[i]|| (t===T.FIRE?65:t===T.SPARK?20:90);if(--l<=0){replace(i,t===T.STEAM&&chance(.5)?T.WATER:T.EMPTY,t===T.STEAM?70:20);return}life[i]=l;
+    if(t===T.FIRE){
+      let fueled=false;for(const [nx,ny] of neighbors(x,y)){if(!inside(nx,ny))continue;const j=idx(nx,ny),q=grid[j];temp[j]=Math.min(1800,temp[j]+65);if(flammable(q)&&chance(q===T.GUNPOWDER?.5:.15)){if(q===T.GUNPOWDER){explode(nx,ny,5+rnd(5));return}replace(j,T.FIRE,730,60+rnd(90));fueled=true}if(q===T.WATER){replace(j,T.STEAM,120,70+rnd(50));replace(i,T.SMOKE,90,40+rnd(40));return}if(q===T.ICE&&chance(.22))replace(j,T.WATER,4)}
+      if(fueled)life[i]=Math.min(180,life[i]+22);if(chance(.055)){replace(i,T.SMOKE,90,45+rnd(60));return}
+    }
+    if(t===T.SPARK){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)){const j=idx(nx,ny);temp[j]=Math.min(1800,temp[j]+180);if(flammable(grid[j])&&chance(.28))replace(j,T.FIRE,750,65+rnd(80))}}}
+    const dir=vx[i]|| (chance(.5)?-1:1);vx[i]=dir;
+    if(tryMove(i,x,y,x,y-1,t))return;if(tryMove(i,x,y,x+dir,y-1,t))return;if(tryMove(i,x,y,x-dir,y-1,t)){vx[i]=-dir;return}if(tryMove(i,x,y,x+dir,y,t))return;vx[i]=-dir;
+  }
+
+  function solid(i,x,y,t){
+    thermal(i,x,y,t);if(phase(i,x,y,t))return;
+    if(t===T.METAL){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)&&grid[idx(nx,ny)]===T.SPARK&&chance(.18))temp[i]=Math.max(temp[i],800)}}
+    if(t===T.PLANT){let wet=false,soil=false;for(const [nx,ny] of neighbors(x,y)){if(!inside(nx,ny))continue;const q=grid[idx(nx,ny)];wet||=q===T.WATER||q===T.MUD;soil||=q===T.SOIL||q===T.MUD;if(q===T.FIRE||q===T.LAVA){replace(i,T.FIRE,680,55+rnd(65));return}}if(wet&&soil&&chance(.012)){const spots=neighbors(x,y).filter(([nx,ny])=>inside(nx,ny)&&grid[idx(nx,ny)]===T.EMPTY);if(spots.length){const [nx,ny]=spots[rnd(spots.length)];setCell(nx,ny,T.PLANT)}}}
+    if(t===T.WOOD){for(const [nx,ny] of neighbors(x,y)){if(inside(nx,ny)){const q=grid[idx(nx,ny)];if(q===T.FIRE||q===T.LAVA||q===T.SPARK){temp[i]+=90;if(chance(.09)){replace(i,T.FIRE,690,70+rnd(90));return}}}}}
+  }
+
+  function explode(cx,cy,r){
+    playBurst();for(let y=-r;y<=r;y++)for(let x=-r;x<=r;x++){const d=x*x+y*y;if(d>r*r||!inside(cx+x,cy+y))continue;const i=idx(cx+x,cy+y);if(d<r*r*.45){if(chance(.72))replace(i,chance(.35)?T.FIRE:T.EMPTY,700,40+rnd(50))}else if(grid[i]!==T.WALL&&grid[i]!==T.METAL&&chance(.45)){temp[i]=Math.min(1800,temp[i]+500);if(flammable(grid[i]))replace(i,T.FIRE,730,60+rnd(70))}}
+  }
+
+  function tick(){
+    moved.fill(0);frameNo++;
+    for(let y=H-2;y>=0;y--){const reverse=(y+frameNo)&1;for(let n=0;n<W;n++){const x=reverse?W-1-n:n,i=idx(x,y);if(moved[i])continue;const t=grid[i];if(t===T.EMPTY)continue;if(isPowder(t))powder(i,x,y,t);else if(isLiquid(t))liquid(i,x,y,t);else if(!isGas(t))solid(i,x,y,t)}}
+    for(let y=1;y<H;y++){const reverse=(y+frameNo)&1;for(let n=0;n<W;n++){const x=reverse?W-1-n:n,i=idx(x,y);if(moved[i])continue;const t=grid[i];if(isGas(t))gas(i,x,y,t)}}
+    for(let x=0;x<W;x++)if(grid[idx(x,H-1)]===T.EMPTY)setCell(x,H-1,T.WALL);
+    upsCounter++;
+  }
+
+  function render(){
+    let particles=0,fire=0,water=0,lava=0;const now=performance.now();
+    for(let i=0;i<N;i++){
+      const t=grid[i],base=colors[t]||colors[T.EMPTY],p=i*4;let r=base[0],g=base[1],b=base[2],v=((i*17+((i/W)|0)*11)%9)-4;
+      if(t!==T.EMPTY)particles++;if(t===T.FIRE)fire++;else if(t===T.WATER)water++;else if(t===T.LAVA)lava++;
+      if(t===T.FIRE){const q=(i+(now/70|0))%6;if(q===0){r=255;g=225;b=75}else if(q<4){r=255;g=110;b=30}else{r=214;g=43;b=20}}
+      else if(t===T.LAVA){const q=(i+(now/90|0))%8;if(q<2){r=255;g=187;b=42}else if(q<5){r=247;g=76;b=23}}
+      else if(t===T.SPARK){r=255;g=235;b=120;v=0}
+      else if(t===T.STEAM){const fade=Math.min(35,life[i]/4);r=195+fade;g=215+fade*.7;b=225+fade*.6}
+      else if(t===T.SMOKE){const fade=Math.min(34,life[i]/4);r=g=b=48+fade}
+      else if(t===T.GLASS){b+=12;g+=5;v=((i/W|0)%3)*4}
+      else if(t===T.WATER){b+=Math.min(16,((i/W)|0)%7)}
+      const glow=Math.max(0,(temp[i]-350)/18);r=Math.min(255,r+glow);g=Math.min(255,g+glow*.28);
+      px[p]=clamp(r+v,0,255);px[p+1]=clamp(g+v,0,255);px[p+2]=clamp(b+v,0,255);px[p+3]=255;
+    }
+    ctx.putImageData(image,0,0);$('particleStat').textContent=particles>999?(particles/1000).toFixed(1)+'k':String(particles);updateAmbientAudio(fire,water,lava);
+  }
+
+  function applyBrush(cx,cy,t,mode){
+    const r=brush;for(let oy=-r;oy<=r;oy++)for(let ox=-r;ox<=r;ox++){
+      if(ox*ox+oy*oy>r*r||!inside(cx+ox,cy+oy)||cy+oy>=H-1)continue;if(r>4&&chance(.06))continue;const i=idx(cx+ox,cy+oy);
+      if(mode==='heat'){temp[i]=Math.min(1800,temp[i]+110);continue}if(mode==='cool'){temp[i]=Math.max(-100,temp[i]-110);continue}
+      if(t===T.EMPTY){grid[i]=T.EMPTY;temp[i]=20;life[i]=0;vx[i]=0;continue}
+      if(grid[i]===T.EMPTY){grid[i]=t;temp[i]=meta.get(t)?.temp||20;life[i]=t===T.FIRE?55+rnd(75):t===T.STEAM||t===T.SMOKE?60+rnd(70):t===T.SPARK?18+rnd(18):0;vx[i]=chance(.5)?-1:1}
+    }
+  }
+  function drawLine(x0,y0,x1,y1){const dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1;let err=dx+dy;for(;;){applyBrush(x0,y0,selected,tool);if(x0===x1&&y0===y1)break;const e2=2*err;if(e2>=dy){err+=dy;x0+=sx}if(e2<=dx){err+=dx;y0+=sy}}}
+  function eventPoint(e){const r=canvas.getBoundingClientRect();return{x:clamp(Math.floor((e.clientX-r.left)/r.width*W),0,W-1),y:clamp(Math.floor((e.clientY-r.top)/r.height*H),0,H-1)}}
+  function updateCursor(e){if(innerWidth<=720)return;const r=$('gameStage').getBoundingClientRect(),ring=$('cursorRing'),p=e.clientX-r.left,q=e.clientY-r.top;ring.style.display='block';ring.style.left=p+'px';ring.style.top=q+'px';const scale=r.width/W,d=Math.max(10,brush*2*scale);ring.style.width=d+'px';ring.style.height=d+'px'}
+  function beginDraw(e){e.preventDefault();snapshot();drawing=true;const p=eventPoint(e);pointer={id:e.pointerId,x:p.x,y:p.y,lastX:p.x,lastY:p.y,lastPaint:0,erase:e.button===2};if(pointer.erase){tool=null;selected=T.EMPTY;selectMaterial(T.EMPTY)}canvas.setPointerCapture?.(e.pointerId);drawLine(p.x,p.y,p.x,p.y);$('play').classList.add('is-playing');playDrawSound()}
+  function moveDraw(e){e.preventDefault();updateCursor(e);if(!drawing||!pointer||e.pointerId!==pointer.id)return;const p=eventPoint(e);pointer.x=p.x;pointer.y=p.y;drawLine(pointer.lastX,pointer.lastY,p.x,p.y);pointer.lastX=p.x;pointer.lastY=p.y}
+  function endDraw(e){e?.preventDefault?.();drawing=false;pointer=null}
+  
+  ['selectstart','dragstart','contextmenu'].forEach(type=>{
+    $('play').addEventListener(type,e=>e.preventDefault());
+  });
+  document.addEventListener('gesturestart',e=>{
+    if($('play').contains(e.target))e.preventDefault();
+  },{passive:false});
+  canvas.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+
+  canvas.addEventListener('pointerdown',beginDraw,{passive:false});canvas.addEventListener('pointermove',moveDraw,{passive:false});canvas.addEventListener('pointerup',endDraw,{passive:false});canvas.addEventListener('pointercancel',endDraw,{passive:false});canvas.addEventListener('pointerleave',e=>{if(!drawing)$('cursorRing').style.display='none'});canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  $('play').addEventListener('selectstart',e=>e.preventDefault());$('play').addEventListener('dragstart',e=>e.preventDefault());$('play').addEventListener('contextmenu',e=>{if(e.target.closest('#gameStage'))e.preventDefault()});
+
+  function buildMaterials(){const list=$('materialList');list.innerHTML='';for(const m of mats){const b=document.createElement('button');b.type='button';b.className='material-btn'+(m.id===selected&&!tool?' active':'');b.dataset.id=m.id;b.title=m.name;b.setAttribute('aria-label','Select '+m.name);b.innerHTML=`<i style="background:${m.color}"></i><small>${m.name}</small>`;b.onclick=()=>selectMaterial(m.id);list.appendChild(b)}}
+  function selectMaterial(t){selected=t;tool=null;const m=meta.get(t);$('selectedName').textContent=m.name;$('selectedColor').style.background=m.color;document.querySelectorAll('.mini-tool').forEach(b=>b.classList.remove('active'));buildMaterials()}
+  function selectTool(name){tool=tool===name?null:name;document.querySelectorAll('.mini-tool').forEach(b=>b.classList.toggle('active',b.id.startsWith(name)));if(tool){$('selectedName').textContent=name[0].toUpperCase()+name.slice(1);$('selectedColor').style.background=name==='heat'?'#ff7a3d':name==='cool'?'#72d7ff':'#111722'}else selectMaterial(selected)}
+
+  function loadScene(name,notify=true){
+    scene=name;$('sceneSelect').value=name;clearWorld();undoState=null;const ground=Math.floor(H*.82);
+    if(name==='showcase'){
+      rect(0,ground,W,H-ground,T.STONE);rect(0,ground-16,W,16,T.SOIL);
+      // waterfall and pool
+      rect(Math.floor(W*.06),Math.floor(H*.18),Math.max(3,Math.floor(W*.025)),Math.floor(H*.48),T.WATER);rect(0,ground-34,Math.floor(W*.27),18,T.WATER);
+      line(Math.floor(W*.25),ground-16,Math.floor(W*.45),Math.floor(H*.48),T.SAND,5);line(Math.floor(W*.45),Math.floor(H*.48),Math.floor(W*.58),ground-16,T.SAND,5);
+      // plants
+      for(let x=Math.floor(W*.1);x<Math.floor(W*.34);x+=Math.max(5,Math.floor(W*.025)))setCell(x,ground-17,T.SEED);
+      // volcano
+      const cx=Math.floor(W*.78),top=Math.floor(H*.38);for(let y=top;y<ground;y++){const half=Math.floor((y-top)*.42)+4;rect(cx-half,y,half*2,1,T.STONE)}rect(cx-8,top-5,16,14,T.LAVA,1250);line(cx,top,cx+Math.floor(W*.09),ground-18,T.LAVA,3,1250);
+      // small fire test
+      rect(Math.floor(W*.55),ground-34,7,18,T.WOOD);rect(Math.floor(W*.55)-10,ground-21,28,5,T.WOOD);setCell(Math.floor(W*.55),ground-37,T.FIRE,720);
+    }else if(name==='sandbox'){
+      rect(0,H-10,W,9,T.STONE);rect(Math.floor(W*.04),H-34,Math.floor(W*.22),24,T.SAND);rect(Math.floor(W*.31),H-48,Math.floor(W*.18),38,T.WATER);rect(Math.floor(W*.56),H-31,Math.floor(W*.22),21,T.SOIL);for(let x=Math.floor(W*.58);x<Math.floor(W*.75);x+=8)setCell(x,H-32,T.SEED);rect(Math.floor(W*.84),H-38,Math.floor(W*.1),28,T.WOOD);setCell(Math.floor(W*.88),H-41,T.FIRE,720);
+    }else if(name==='volcano'){
+      rect(0,H-8,W,7,T.STONE);const cx=W>>1,top=Math.floor(H*.25);for(let y=top;y<H-8;y++){const half=Math.floor((y-top)*.5)+4;rect(cx-half,y,half*2,1,T.STONE)}rect(cx-10,top-8,20,18,T.LAVA,1270);line(cx,top,cx+Math.floor(W*.18),H-14,T.LAVA,4,1270);rect(Math.floor(W*.04),H-Math.floor(H*.34),Math.floor(W*.18),Math.floor(H*.34)-8,T.WATER);rect(Math.floor(W*.78),H-42,Math.floor(W*.16),34,T.SAND);
+    }else if(name==='ecosystem'){
+      rect(0,H-8,W,7,T.STONE);rect(0,H-Math.floor(H*.28),W,Math.floor(H*.28)-8,T.SOIL);rect(Math.floor(W*.04),H-Math.floor(H*.52),Math.floor(W*.24),Math.floor(H*.24),T.WATER);for(let x=Math.floor(W*.34);x<W-15;x+=Math.max(7,Math.floor(W*.035)))setCell(x,H-Math.floor(H*.28)-1,T.SEED);rect(Math.floor(W*.76),H-Math.floor(H*.45),7,Math.floor(H*.17),T.WOOD);rect(Math.floor(W*.73),H-Math.floor(H*.48),Math.floor(W*.09),6,T.PLANT);
+    }else if(name==='laboratory'){
+      rect(0,H-7,W,6,T.STONE);const start=Math.floor(W*.08),gap=Math.floor(W*.17),base=H-12,jarH=Math.floor(H*.31);const fills=[T.WATER,T.OIL,T.ACID,T.SAND,T.GUNPOWDER];for(let k=0;k<5;k++){const x=start+k*gap;rect(x,base-jarH,3,jarH,T.GLASS);rect(x+Math.floor(W*.11),base-jarH,3,jarH,T.GLASS);rect(x,base-4,Math.floor(W*.11)+3,4,T.GLASS);rect(x+4,base-Math.floor(jarH*.56),Math.floor(W*.1)-5,Math.floor(jarH*.56)-4,fills[k])}setCell(start+4*gap+Math.floor(W*.055),base-Math.floor(jarH*.6),T.SPARK,950);
+    }else if(name==='fire'){
+      rect(0,H-8,W,7,T.STONE);const y0=H-8;for(const x of [Math.floor(W*.16),Math.floor(W*.37),Math.floor(W*.58)])rect(x,y0-Math.floor(H*.48),7,Math.floor(H*.48),T.WOOD);rect(Math.floor(W*.16),y0-Math.floor(H*.48),Math.floor(W*.43),6,T.WOOD);rect(Math.floor(W*.16),y0-Math.floor(H*.27),Math.floor(W*.43),5,T.WOOD);rect(Math.floor(W*.22),y0-Math.floor(H*.24),Math.floor(W*.11),Math.floor(H*.24),T.WOOD);rect(Math.floor(W*.42),y0-Math.floor(H*.24),Math.floor(W*.11),Math.floor(H*.24),T.WOOD);rect(Math.floor(W*.71),y0-Math.floor(H*.18),Math.floor(W*.12),Math.floor(H*.18),T.OIL);rect(Math.floor(W*.03),y0-Math.floor(H*.3),Math.floor(W*.09),Math.floor(H*.3),T.WATER);for(let i=0;i<28;i++)setCell(Math.floor(W*.25)+rnd(Math.floor(W*.22)),y0-Math.floor(H*.52)+rnd(12),T.FIRE,720);
+    }
+    render();if(notify)showToast(name[0].toUpperCase()+name.slice(1)+' scene loaded')
+  }
+
+  async function initAudio(){
+    if(audioCtx){await audioCtx.resume();return}
+    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw new Error('Audio unavailable');audioCtx=new AC();masterGain=audioCtx.createGain();masterGain.gain.value=.16;masterGain.connect(audioCtx.destination);
+    const length=audioCtx.sampleRate*2,buffer=audioCtx.createBuffer(1,length,audioCtx.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<length;i++)data[i]=Math.random()*2-1;
+    noiseSource=audioCtx.createBufferSource();noiseSource.buffer=buffer;noiseSource.loop=true;
+    const fireFilter=audioCtx.createBiquadFilter();fireFilter.type='bandpass';fireFilter.frequency.value=1050;fireFilter.Q.value=.6;fireGain=audioCtx.createGain();fireGain.gain.value=0;
+    const waterFilter=audioCtx.createBiquadFilter();waterFilter.type='lowpass';waterFilter.frequency.value=430;waterGain=audioCtx.createGain();waterGain.gain.value=0;
+    noiseSource.connect(fireFilter).connect(fireGain).connect(masterGain);noiseSource.connect(waterFilter).connect(waterGain).connect(masterGain);noiseSource.start();await audioCtx.resume();
+  }
+  function tone(freq,duration=.08,type='sine',gain=.12){if(!audioEnabled||!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(gain,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);o.connect(g).connect(masterGain);o.start();o.stop(audioCtx.currentTime+duration)}
+  function playDrawSound(){if(!audioEnabled)return;tone(selected===T.WATER?260:selected===T.FIRE?120:190,.035,'sine',.035)}
+  function playBurst(){if(!audioEnabled||!audioCtx)return;tone(70,.22,'sawtooth',.18)}
+  function updateAmbientAudio(fire,water,lava){if(!audioEnabled||!audioCtx||!fireGain)return;const now=audioCtx.currentTime;fireGain.gain.setTargetAtTime(Math.min(.11,(fire+lava*1.8)/2200),now,.09);waterGain.gain.setTargetAtTime(Math.min(.055,water/7000),now,.15)}
+  async function toggleSound(){try{if(!audioEnabled){await initAudio();audioEnabled=true;$('soundBtn').setAttribute('aria-pressed','true');$('soundBtn').setAttribute('aria-label','Mute game sound');tone(520,.09,'sine',.16);setTimeout(()=>tone(700,.09,'sine',.12),90);showToast('Sound enabled')}else{audioEnabled=false;$('soundBtn').setAttribute('aria-pressed','false');$('soundBtn').setAttribute('aria-label','Enable game sound');if(masterGain)masterGain.gain.setTargetAtTime(0,audioCtx.currentTime,.04);setTimeout(()=>{if(masterGain)masterGain.gain.value=.16},130);showToast('Sound muted')}}catch{showToast('Audio is not supported in this browser')}}
+
+  function actualFullscreenElement(){return document.fullscreenElement||document.webkitFullscreenElement}
+  function enterPseudoFullscreen(){pseudoFullscreen=true;$('play').classList.add('pseudo-fullscreen');document.documentElement.classList.add('game-fullscreen');$('fullscreenBtn').setAttribute('aria-pressed','true');$('fullscreenBtn').setAttribute('aria-label','Exit full screen');scrollTo(0,0);setTimeout(()=>resizeWorld(true),180);showToast('Immersive game mode enabled')}
+  function exitPseudoFullscreen(){pseudoFullscreen=false;$('play').classList.remove('pseudo-fullscreen');document.documentElement.classList.remove('game-fullscreen');$('fullscreenBtn').setAttribute('aria-pressed','false');$('fullscreenBtn').setAttribute('aria-label','Enter full screen');setTimeout(()=>resizeWorld(true),180)}
+  async function toggleFullscreen(){
+    if(actualFullscreenElement()){const exit=document.exitFullscreen||document.webkitExitFullscreen;try{await exit.call(document)}catch{}return}
+    if(pseudoFullscreen){exitPseudoFullscreen();return}
+    const el=$('play'),request=el.requestFullscreen||el.webkitRequestFullscreen;
+    if(request){try{await request.call(el);return}catch{}}
+    enterPseudoFullscreen();
+  }
+  function syncFullscreen(){const active=!!actualFullscreenElement();$('fullscreenBtn').setAttribute('aria-pressed',String(active||pseudoFullscreen));$('fullscreenBtn').setAttribute('aria-label',active||pseudoFullscreen?'Exit full screen':'Enter full screen');setTimeout(()=>resizeWorld(true),180)}
+
+  function togglePause(){paused=!paused;$('pauseBtn').classList.toggle('primary',!paused);$('pauseBtn').setAttribute('aria-label',paused?'Resume simulation':'Pause simulation');$('pauseBtn').querySelector('.label').textContent=paused?'Resume':'Pause';showToast(paused?'Simulation paused':'Simulation resumed')}
+  function save(){try{localStorage.setItem('falling-sand-game-v21',JSON.stringify({W,H,g:Array.from(grid),t:Array.from(temp),l:Array.from(life),v:Array.from(vx),scene}));showToast('World saved locally')}catch{showToast('Unable to save this world')}}
+  function load(){try{const d=JSON.parse(localStorage.getItem('falling-sand-game-v21'));if(!d||!d.g)throw 0;if(d.W!==W||d.H!==H){showToast('Saved world uses another screen size');return}grid.set(d.g);temp.set(d.t);life.set(d.l);vx.set(d.v);scene=d.scene||'sandbox';$('sceneSelect').value=scene;render();showToast('Saved world loaded')}catch{showToast('No saved world found')}}
+  function exportImage(){render();const a=document.createElement('a');a.download='falling-sand-game.png';a.href=canvas.toDataURL('image/png');a.click();showToast('Image exported')}
+
+  function loop(now){
+    const delta=Math.min(100,now-lastTime||16.67);lastTime=now;fpsEMA=fpsEMA*.88+(1000/Math.max(1,delta))*.12;accumulator+=delta;
+    const stepMs=1000/60;let ticks=0;if(!paused){while(accumulator>=stepMs&&ticks<4*speed){for(let s=0;s<speed;s++)tick();accumulator-=stepMs;ticks++}}
+    else accumulator=0;
+    if(drawing&&pointer&&now-pointer.lastPaint>28){drawLine(pointer.x,pointer.y,pointer.x,pointer.y);pointer.lastPaint=now}
+    render();
+    if(now-upsStamp>=500){upsValue=Math.round(upsCounter*1000/(now-upsStamp));upsCounter=0;upsStamp=now;$('upsStat').textContent=upsValue;$('fpsStat').textContent=Math.round(fpsEMA);const chip=$('fpsChip');chip.className='stat-chip '+(fpsEMA>=52?'fps-good':fpsEMA>=35?'fps-mid':'fps-low')}
+    requestAnimationFrame(loop);
+  }
+
+  $('brushRange').addEventListener('input',e=>{brush=+e.target.value;$('brushOut').textContent=brush});$('speedRange').addEventListener('input',e=>{speed=+e.target.value;$('speedOut').textContent=speed+'×'});
+  $('heatTool').onclick=()=>selectTool('heat');$('coolTool').onclick=()=>selectTool('cool');$('eraseTool').onclick=()=>selectMaterial(T.EMPTY);
+  $('pauseBtn').onclick=togglePause;$('stepBtn').onclick=()=>{if(paused){tick();render()}};$('undoBtn').onclick=undo;$('clearBtn').onclick=()=>{snapshot();clearWorld();render();showToast('Simulation cleared')};$('saveBtn').onclick=save;$('loadBtn').onclick=load;$('exportBtn').onclick=exportImage;$('soundBtn').onclick=toggleSound;$('fullscreenBtn').onclick=toggleFullscreen;
+  $('sceneSelect').addEventListener('change',e=>loadScene(e.target.value));document.querySelectorAll('.content-scene').forEach(b=>b.addEventListener('click',()=>{loadScene(b.dataset.scene);location.hash='play'}));
+  document.addEventListener('fullscreenchange',syncFullscreen);document.addEventListener('webkitfullscreenchange',syncFullscreen);
+  addEventListener('keydown',e=>{if(e.target.matches('input,select,button,summary'))return;if(e.code==='Space'){e.preventDefault();togglePause()}else if(e.key.toLowerCase()==='c')$('clearBtn').click();else if(e.key.toLowerCase()==='r')loadScene(scene);else if(e.key==='Escape'&&pseudoFullscreen)exitPseudoFullscreen();else if(e.key==='['){brush=Math.max(1,brush-1);$('brushRange').value=brush;$('brushOut').textContent=brush}else if(e.key===']'){brush=Math.min(18,brush+1);$('brushRange').value=brush;$('brushOut').textContent=brush}});
+  let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>resizeWorld(true),180)},{passive:true});
+  document.addEventListener('visibilitychange',()=>{lastTime=performance.now();accumulator=0});
+
+  $('year').textContent=new Date().getFullYear();buildMaterials();selectMaterial(T.SAND);resizeWorld(false);loadScene('showcase',false);requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
