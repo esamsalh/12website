@@ -1,0 +1,1373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1320">
+  <meta name="color-scheme" content="dark">
+  <title>Falling Sand Game Online – Free Interactive Sand Physics Sandbox</title>
+  <meta name="description" content="Play a free falling sand game online with sand, water, soil, trees, fire, lava, wind and reactive birds. Build, pour, burn, freeze and experiment instantly in your browser.">
+  <meta name="keywords" content="falling sand game, falling sand, dropping sand game, falling sand 2, falling sand 3, falling sand game 2, falling sand game 3, 3d falling sand game, artsology sand game, best falling sand game, falling sand art game, falling sand game download, falling sand game google, falling sand game online, falling sand game original, falling sand game unblocked, falling sand game with people, falling sand game with stick figures, falling sand online, falling sand with wind, falling sands fast, free falling sand game, new sand falling game, pyro sand game, pyro sand game 2, falling sand game with zombies">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://www.example.com/">
+  <link rel="alternate" hreflang="x-default" href="https://www.example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Falling Sand Game Online – Free Physics Sandbox">
+  <meta property="og:description" content="Create a living sandbox with sand, water, trees, fire, wind and reactive wildlife directly in your browser.">
+  <meta property="og:url" content="https://www.example.com/">
+  <meta property="og:image" content="https://www.example.com/og-falling-sand-game.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Falling Sand Game Online">
+  <meta name="twitter:description" content="Play a fast browser-based falling sand sandbox with a house, trees, water, birds and reactive materials.">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://www.example.com/#website",
+        "url":"https://www.example.com/",
+        "name":"Falling Sand Game",
+        "inLanguage":"en"
+      },
+      {
+        "@type":["WebApplication","VideoGame"],
+        "@id":"https://www.example.com/#game",
+        "url":"https://www.example.com/",
+        "name":"Falling Sand Game Online",
+        "description":"A free browser-based cellular physics sandbox with sand, water, soil, trees, fire, lava, wind and reactive birds.",
+        "applicationCategory":"GameApplication",
+        "operatingSystem":"Any modern web browser",
+        "browserRequirements":"Requires JavaScript and HTML5 Canvas",
+        "genre":["Sandbox","Simulation","Physics game"],
+        "playMode":"SinglePlayer",
+        "isAccessibleForFree":true,
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "publisher":{"@type":"Organization","name":"Falling Sand Game"},
+        "inLanguage":"en"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.example.com/"},
+          {"@type":"ListItem","position":2,"name":"Falling Sand Game","item":"https://www.example.com/#game"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What is a falling sand game?",
+            "acceptedAnswer":{"@type":"Answer","text":"A falling sand game is a cellular physics sandbox in which tiny material cells follow simple rules. Powders fall, liquids flow, gases rise, plants grow and heat creates reactions."}
+          },
+          {
+            "@type":"Question",
+            "name":"Is this falling sand game free and unblocked?",
+            "acceptedAnswer":{"@type":"Answer","text":"The game is free, requires no account and runs locally in a modern browser. Access can still depend on the network policies of a school, workplace or internet provider."}
+          },
+          {
+            "@type":"Question",
+            "name":"Can I play the falling sand game on mobile?",
+            "acceptedAnswer":{"@type":"Answer","text":"Yes. The canvas supports touch, pen and mouse input, while the internal simulation resolution adapts to the available screen size."}
+          },
+          {
+            "@type":"Question",
+            "name":"Does this version include people or zombies?",
+            "acceptedAnswer":{"@type":"Answer","text":"No. This main sandbox focuses on natural materials, a house, trees, water and birds. Separate people, stick-figure and zombie modes can be developed as dedicated versions later."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#07101a;
+      --surface:#0e1927;
+      --surface-2:#142235;
+      --surface-3:#1a2b40;
+      --line:#26394f;
+      --line-soft:rgba(255,255,255,.08);
+      --text:#f2f7ff;
+      --muted:#9fb0c5;
+      --brand:#ffbd4a;
+      --brand-2:#ff7442;
+      --aqua:#64d9ff;
+      --good:#62e5a8;
+      --danger:#ff6f82;
+      --radius:20px;
+      --shadow:0 22px 70px rgba(0,0,0,.34);
+      --header-h:66px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;background:
+      radial-gradient(circle at 15% -8%,rgba(255,189,74,.12),transparent 32rem),
+      radial-gradient(circle at 92% 12%,rgba(100,217,255,.08),transparent 30rem),
+      var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+    button,input,select{font:inherit}
+    button{color:inherit}
+    a{color:inherit;text-decoration:none}
+    svg,canvas{display:block}
+    :focus-visible{outline:3px solid rgba(255,189,74,.68);outline-offset:3px}
+    .skip-link{position:fixed;left:12px;top:-80px;z-index:1000;background:#fff;color:#111;padding:10px 14px;border-radius:9px}
+    .skip-link:focus{top:10px}
+    .svg-icon{width:1.2em;height:1.2em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+    .site-header{position:sticky;top:0;z-index:100;height:var(--header-h);border-bottom:1px solid var(--line-soft);background:rgba(7,16,26,.88);backdrop-filter:blur(18px) saturate(135%)}
+    .header-inner{height:100%;max-width:1700px;margin:auto;padding:0 clamp(14px,2.4vw,38px);display:flex;align-items:center;gap:28px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:-.04em;white-space:nowrap}
+    .brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#ffd56d,#ff8048);color:#172030;box-shadow:0 10px 30px rgba(255,116,66,.24)}
+    .brand-mark svg{width:25px;height:25px}
+    .main-nav{margin-left:auto;display:flex;align-items:center;gap:3px}
+    .main-nav>a,.language-toggle{border:0;background:transparent;padding:9px 12px;border-radius:10px;color:#dbe7f5;cursor:pointer;font-weight:750;font-size:.9rem}
+    .main-nav>a:hover,.language-toggle:hover{background:rgba(255,255,255,.07)}
+    .language{position:relative}
+    .language-toggle{display:flex;align-items:center;gap:7px}
+    .language-menu{position:absolute;right:0;top:calc(100% + 12px);width:270px;padding:10px;display:none;grid-template-columns:1fr 1fr;gap:4px;background:#132033;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}
+    .language.open .language-menu{display:grid}
+    .language-menu button{background:transparent;border:0;text-align:left;padding:8px 10px;border-radius:8px;cursor:pointer;color:#dce7f4}
+    .language-menu button:hover{background:#1d3048}
+    .mobile-toggle{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);border-radius:11px;background:var(--surface);cursor:pointer;place-items:center}
+
+    .hero-game{max-width:1840px;margin:auto;padding:clamp(10px,1.45vw,24px);display:grid;grid-template-columns:minmax(0,70%) minmax(260px,20%);justify-content:space-between;gap:clamp(14px,2vw,36px);min-height:calc(100svh - var(--header-h))}
+    .game-card{min-width:0;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.1);background:#09111c;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .game-topbar{min-height:58px;padding:9px 11px 9px 15px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#18273a,#101b2a)}
+    .game-title{min-width:0}
+    .game-title h1{font-size:clamp(1rem,1.7vw,1.34rem);line-height:1.15;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .game-title p{font-size:.73rem;color:var(--muted);margin:3px 0 0}
+    .game-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
+    .icon-btn,.action-btn{border:1px solid var(--line);background:#1a2a3f;border-radius:10px;min-height:36px;padding:7px 10px;cursor:pointer;font-size:.78rem;font-weight:850;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.18s}
+    .icon-btn{width:38px;padding:0}
+    .icon-btn:hover,.action-btn:hover{background:#243a55;border-color:#405a78;transform:translateY(-1px)}
+    .action-btn.primary{background:linear-gradient(135deg,#ffc75b,#ff7843);border:0;color:#18130d;box-shadow:0 8px 25px rgba(255,120,67,.18)}
+
+    .game-workspace{position:relative;flex:1;min-height:510px;background:#8fd0ee;isolation:isolate;overflow:hidden}
+    #sandCanvas{width:100%;height:100%;min-height:510px;image-rendering:pixelated;touch-action:none;cursor:crosshair;background:
+      radial-gradient(circle at 82% 15%,rgba(255,242,166,.92) 0 2.4%,rgba(255,230,117,.32) 2.6% 6%,transparent 6.2%),
+      linear-gradient(180deg,#75c4ed 0%,#aadcf1 52%,#d8edf3 100%)}
+    .canvas-overlay{pointer-events:none;position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:28px 28px;mix-blend-mode:soft-light;opacity:.18}
+    .game-hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);pointer-events:none;background:rgba(6,13,22,.72);border:1px solid rgba(255,255,255,.13);padding:7px 12px;border-radius:999px;color:#e4edf8;font-size:.76rem;backdrop-filter:blur(8px);transition:.3s;white-space:nowrap}
+    .game-hint.hidden{opacity:0;transform:translate(-50%,-8px)}
+    .status-cluster{position:absolute;right:10px;top:10px;display:flex;gap:6px;pointer-events:none}
+    .status-pill{background:rgba(6,13,22,.72);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 9px;font:750 .68rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#d8e8f7;backdrop-filter:blur(8px)}
+    .status-pill.good{color:#8cf0bd}
+    .toast{position:absolute;left:50%;bottom:16px;z-index:5;transform:translate(-50%,18px);opacity:0;background:#f2f7ff;color:#111c2b;padding:9px 13px;border-radius:10px;font-size:.8rem;font-weight:850;box-shadow:0 12px 40px rgba(0,0,0,.35);transition:.22s;pointer-events:none}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    .toolbar{position:relative;z-index:4;border-top:1px solid var(--line);background:#0f1a29;padding:9px;display:grid;gap:9px}
+    .materials{display:flex;align-items:center;gap:7px;overflow-x:auto;scrollbar-width:thin;padding:1px 1px 4px}
+    .material{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:43px;padding:6px 10px 6px 7px;border:1px solid #293e57;background:#17273a;border-radius:11px;cursor:pointer;font-size:.76rem;font-weight:850;white-space:nowrap;transition:.16s}
+    .material:hover{background:#223851;border-color:#3c5774;transform:translateY(-1px)}
+    .material.active{border-color:#ffc255;background:#392b18;box-shadow:inset 0 0 0 1px rgba(255,194,85,.22),0 6px 20px rgba(0,0,0,.15)}
+    .material-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--material-color,#fff);background:color-mix(in srgb,var(--material-color,#fff) 15%,#101b2a);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--material-color,#fff) 25%,transparent)}
+    .material-icon svg{width:20px;height:20px}
+    .tool-settings{display:flex;align-items:center;gap:13px;padding:1px 4px;flex-wrap:wrap}
+    .range-wrap{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.72rem;font-weight:850;white-space:nowrap}
+    input[type="range"]{width:112px;accent-color:var(--brand)}
+    .wind-control{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#142338}
+    .wind-control button{border:0;background:transparent;width:34px;height:35px;cursor:pointer;display:grid;place-items:center}
+    .wind-control button:hover{background:#27405d}
+    .wind-value{width:38px;text-align:center;font:850 .72rem ui-monospace,monospace;color:#c4d3e5}
+    .shortcut-hint{margin-left:auto;color:#7f93aa;font-size:.68rem;white-space:nowrap}
+
+    .side-rail{display:flex;flex-direction:column;gap:15px;min-width:0}
+    .ad-slot{min-height:300px;flex:1;border:1px dashed #3b536e;background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(255,255,255,.01));border-radius:var(--radius);display:grid;place-items:center;text-align:center;padding:22px;color:#7f91a8;position:relative;overflow:hidden}
+    .ad-slot::before{content:"Advertisement";position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#697d95}
+    .ad-placeholder{max-width:240px}
+    .ad-placeholder svg{width:38px;height:38px;margin:0 auto 10px;color:#6f849c}
+    .ad-placeholder strong{display:block;color:#aab8c9;margin-bottom:5px;font-size:.9rem}
+    .ad-placeholder span{font-size:.75rem}
+    .world-card{border:1px solid var(--line);background:linear-gradient(145deg,#17273a,#101b2a);border-radius:15px;padding:15px}
+    .world-card h2{font-size:.82rem;margin:0 0 11px;color:#dce8f5;display:flex;align-items:center;gap:7px}
+    .world-stat{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.74rem}
+    .world-stat:last-child{border:0}
+    .world-stat span{color:#8498af}
+    .world-stat strong{color:#dce7f4;text-align:right}
+    .version-links{display:grid;gap:9px}
+    .version-card{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,#17273a,#101b2a);border-radius:14px;padding:13px 42px 13px 14px;overflow:hidden;transition:.18s}
+    .version-card:hover{transform:translateY(-2px);border-color:#49637f}
+    .version-card .arrow{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--brand)}
+    .version-card small{display:block;color:var(--brand);font-weight:900;text-transform:uppercase;letter-spacing:.09em;font-size:.59rem}
+    .version-card strong{display:block;margin-top:2px;font-size:.88rem}
+    .version-card span{font-size:.69rem;color:var(--muted)}
+
+    main.content{max-width:1200px;margin:auto;padding:clamp(58px,8vw,108px) clamp(18px,4vw,42px)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--brand);text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:900}
+    .eyebrow::before{content:"";width:28px;height:2px;background:var(--brand)}
+    .intro-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:clamp(30px,6vw,82px);align-items:start}
+    .intro h2,.section-title{font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;letter-spacing:-.045em;margin:12px 0 20px}
+    .intro p{font-size:1.03rem;color:#b7c5d6;max-width:770px}
+    .quick-facts{border:1px solid var(--line);background:rgba(14,25,39,.78);border-radius:var(--radius);padding:22px}
+    .quick-facts h3{margin:0 0 15px;font-size:1rem}
+    .fact{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.85rem}
+    .fact:last-child{border:0}
+    .fact span{color:var(--muted)}
+    .fact strong{color:#e7eef8;text-align:right}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+    .feature{border:1px solid var(--line);background:linear-gradient(145deg,rgba(24,39,58,.88),rgba(11,21,33,.88));border-radius:17px;padding:22px}
+    .feature-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:13px;background:#2d2417;color:var(--brand);margin-bottom:15px}
+    .feature-icon svg{width:25px;height:25px}
+    .feature h3{margin:0 0 6px;font-size:1.03rem}
+    .feature p{margin:0;color:var(--muted);font-size:.87rem}
+    .content-section{padding-top:94px}
+    .content-section p{color:#b5c3d4}
+    .game-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .game-list article{border:1px solid var(--line);border-radius:16px;padding:22px;background:#0e1927}
+    .game-list h3{margin:0 0 8px}
+    .game-list p{font-size:.86rem;margin:0}
+    .badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(98,229,168,.1);color:var(--good);font-weight:900;font-size:.63rem;margin-bottom:10px}
+    .guide{display:grid;grid-template-columns:.76fr 1.24fr;gap:52px;align-items:start}
+    .steps{counter-reset:steps;display:grid;gap:14px}
+    .step{position:relative;border:1px solid var(--line);background:#0e1927;border-radius:14px;padding:18px 18px 18px 64px}
+    .step::before{counter-increment:steps;content:counter(steps);position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,var(--brand),var(--brand-2));color:#17110b;font-weight:950}
+    .step h3{font-size:.94rem;margin:0 0 4px}
+    .step p{font-size:.83rem;margin:0}
+    .engine-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+    .engine-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:#0e1927}
+    .engine-card h3{display:flex;align-items:center;gap:9px;margin:0 0 8px;font-size:.98rem}
+    .engine-card h3 svg{color:var(--brand);width:21px;height:21px}
+    .engine-card p{font-size:.84rem;margin:0}
+    .faq-list{display:grid;gap:10px;margin-top:28px}
+    details{border:1px solid var(--line);background:#0e1927;border-radius:14px;padding:0 18px}
+    summary{cursor:pointer;padding:17px 34px 17px 0;font-weight:850;position:relative;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(--brand)}
+    details[open] summary::after{content:"−"}
+    details p{margin:0 0 18px;font-size:.87rem}
+    .rating-box{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border:1px solid var(--line);background:linear-gradient(145deg,#17273a,#0d1826);border-radius:20px;padding:clamp(22px,4vw,34px)}
+    .rating-box h2{margin:0 0 7px;font-size:clamp(1.35rem,3vw,2rem)}
+    .rating-box p{margin:0;color:var(--muted)}
+    .stars{display:flex;gap:5px}
+    .star{border:0;background:transparent;color:#586a7e;padding:3px;cursor:pointer;transition:.15s}
+    .star svg{width:31px;height:31px;fill:currentColor;stroke:currentColor}
+    .star:hover,.star.active{color:#ffc34f;transform:translateY(-2px)}
+    .rating-meta{text-align:right;color:#8fa2b8;font-size:.72rem;margin-top:6px}
+    .contact-card{border:1px solid var(--line);background:#0e1927;border-radius:18px;padding:25px;display:flex;justify-content:space-between;gap:24px;align-items:center}
+    .contact-card h2{margin:0 0 5px;font-size:1.35rem}
+    .contact-card p{margin:0;color:var(--muted)}
+    .contact-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#1a2a3f;padding:10px 14px;border-radius:11px;font-weight:850;white-space:nowrap}
+    .site-footer{border-top:1px solid var(--line-soft);padding:30px 20px;color:#8497ad;text-align:center;font-size:.79rem}
+
+    @media (max-width:1120px){
+      .hero-game{grid-template-columns:minmax(0,1fr) 270px}
+      .game-actions .label{display:none}
+      .action-btn{width:38px;padding:0}
+      .shortcut-hint{display:none}
+    }
+    @media (max-width:880px){
+      .hero-game{grid-template-columns:1fr;min-height:auto}
+      .side-rail{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+      .ad-slot{min-height:220px;grid-row:span 2}
+      .world-card,.version-links{min-width:0}
+      .game-workspace,#sandCanvas{min-height:68svh}
+      .intro-grid,.guide{grid-template-columns:1fr}
+      .feature-grid,.game-list{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .mobile-toggle{display:grid}
+      .main-nav{position:fixed;left:12px;right:12px;top:calc(var(--header-h) + 8px);display:none;flex-direction:column;align-items:stretch;background:#101c2b;border:1px solid var(--line);border-radius:15px;padding:9px;box-shadow:var(--shadow)}
+      .main-nav.open{display:flex}
+      .main-nav>a,.language-toggle{text-align:left;width:100%}
+      .language-menu{position:static;width:100%;margin-top:5px;box-shadow:none}
+      .side-rail{grid-template-columns:1fr}
+      .ad-slot{grid-row:auto;min-height:250px}
+      .feature-grid,.game-list,.engine-grid{grid-template-columns:1fr}
+      .rating-box{grid-template-columns:1fr;text-align:left}
+      .rating-meta{text-align:left}
+      .contact-card{align-items:flex-start;flex-direction:column}
+      .game-hint{max-width:84%;overflow:hidden;text-overflow:ellipsis}
+    }
+    @media (max-width:520px){
+      :root{--header-h:60px}
+      .brand-mark{width:34px;height:34px}
+      .header-inner{padding:0 12px}
+      .hero-game{padding:8px}
+      .game-card{border-radius:15px}
+      .game-title p{display:none}
+      .game-topbar{padding:8px}
+      .game-workspace,#sandCanvas{min-height:64svh}
+      .material{font-size:.7rem;padding-right:8px}
+      .material-icon{width:28px;height:28px}
+      .tool-settings{gap:8px}
+      input[type="range"]{width:78px}
+      .status-cluster{top:8px;right:8px}
+      .status-pill:nth-child(2){display:none}
+    }
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#game">Skip to game</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#game" aria-label="Falling Sand Game home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 6h18M9 9c1 5 4 6 7 8 3-2 6-3 7-8M9 23c1-5 4-6 7-8 3 2 6 3 7 8M7 26h18"/>
+            <path d="M12 11h8l-4 4-4-4Zm0 10h8l-4-4-4 4Z" fill="currentColor" stroke="none" opacity=".8"/>
+          </svg>
+        </span>
+        <span>Falling Sand Game</span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+        <a href="#game">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <div class="language" id="languagePicker">
+          <button class="language-toggle" id="languageToggle" aria-haspopup="true" aria-expanded="false">
+            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4.5 6 4.5 9S15 18 12 21M12 3c-3 3-4.5 6-4.5 9S9 18 12 21"/></svg>
+            English
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+          </button>
+          <div class="language-menu" role="menu" aria-label="Languages">
+            <button role="menuitem" data-lang="en">English</button><button role="menuitem" data-lang="es">Español</button>
+            <button role="menuitem" data-lang="de">Deutsch</button><button role="menuitem" data-lang="fr">Français</button>
+            <button role="menuitem" data-lang="it">Italiano</button><button role="menuitem" data-lang="pt">Português</button>
+            <button role="menuitem" data-lang="ar">العربية</button><button role="menuitem" data-lang="tr">Türkçe</button>
+            <button role="menuitem" data-lang="ru">Русский</button><button role="menuitem" data-lang="ja">日本語</button>
+            <button role="menuitem" data-lang="ko">한국어</button><button role="menuitem" data-lang="zh">中文</button>
+            <button role="menuitem" data-lang="hi">हिन्दी</button><button role="menuitem" data-lang="nl">Nederlands</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-game" id="game" aria-labelledby="gameHeading">
+    <div class="game-card">
+      <div class="game-topbar">
+        <div class="game-title">
+          <h1 id="gameHeading">Falling Sand Game Online</h1>
+          <p>A living landscape made from reactive particles.</p>
+        </div>
+        <div class="game-actions" aria-label="Game actions">
+          <button class="icon-btn" id="undoBtn" title="Undo last action" aria-label="Undo last action">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m9 7-5 5 5 5"/><path d="M5 12h8a6 6 0 0 1 6 6"/></svg>
+          </button>
+          <button class="action-btn" id="sceneBtn" title="Reset the living landscape">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 20h16M6 20v-8l6-5 6 5v8M9 20v-5h6v5"/><path d="M3 10 12 3l9 7"/></svg>
+            <span class="label">Reset world</span>
+          </button>
+          <button class="action-btn" id="flockBtn" title="Add a new flock of birds">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 15c3-4 6-4 9 0 3-4 6-4 9 0"/><path d="M7 10c2-2 4-2 6 0"/></svg>
+            <span class="label">Flock</span>
+          </button>
+          <button class="action-btn" id="saveBtn" title="Save the canvas as a PNG image">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 20h14"/></svg>
+            <span class="label">Save</span>
+          </button>
+          <button class="action-btn" id="clearBtn" title="Clear the sandbox">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>
+            <span class="label">Clear</span>
+          </button>
+          <button class="action-btn primary" id="pauseBtn" aria-pressed="false">
+            <svg class="svg-icon pause-icon" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg>
+            <span class="label">Pause</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="game-workspace" id="workspace">
+        <canvas id="sandCanvas" width="520" height="340" aria-label="Interactive falling sand simulation with a house, trees, pond and birds"></canvas>
+        <div class="canvas-overlay" aria-hidden="true"></div>
+        <div class="game-hint" id="gameHint">Drag to draw · Right-click erases · Shift draws a line · Ctrl draws a box</div>
+        <div class="status-cluster" aria-hidden="true">
+          <div class="status-pill good" id="fpsPill">60 FPS</div>
+          <div class="status-pill" id="particlePill">0 particles</div>
+        </div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="toolbar" aria-label="Falling sand tools">
+        <div class="materials" id="materials"></div>
+        <div class="tool-settings">
+          <label class="range-wrap" for="brushSize">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20c3 0 5-1 5-4 0-1.7 1.3-3 3-3l7-7-4-4-7 7c0 1.7-1.3 3-3 3-3 0-4 2-4 5 0 1.7 1.3 3 3 3Z"/></svg>
+            Brush <span id="brushValue">6</span>
+            <input id="brushSize" type="range" min="1" max="24" value="6" aria-label="Brush size">
+          </label>
+          <div class="wind-control" aria-label="Wind control">
+            <button id="windLeft" title="Wind left" aria-label="Wind left"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 8H7m0 0 3-3M7 8l3 3M4 15h12a3 3 0 1 0-3-3"/></svg></button>
+            <span class="wind-value" id="windValue">0</span>
+            <button id="windRight" title="Wind right" aria-label="Wind right"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 8h13m0 0-3-3m3 3-3 3M20 15H8a3 3 0 1 1 3-3"/></svg></button>
+          </div>
+          <span class="shortcut-hint">Space: pause · N: reset · Z: undo · [ ]: brush</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side-rail" aria-label="Advertisement, world information and game versions">
+      <div class="ad-slot" id="adSlot">
+        <!-- Replace this placeholder with your responsive Google AdSense unit. Keep the container dimensions to prevent layout shift. -->
+        <div class="ad-placeholder">
+          <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h4M7 16h7"/></svg>
+          <strong>Responsive Ad Space</strong>
+          <span>Recommended desktop size: 300 × 600. Use a responsive display unit on smaller screens.</span>
+        </div>
+      </div>
+      <div class="world-card">
+        <h2><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 18h16M6 18V9l6-5 6 5v9M9 18v-5h6v5"/></svg> Living world status</h2>
+        <div class="world-stat"><span>Selected material</span><strong id="selectedStat">Sand</strong></div>
+        <div class="world-stat"><span>Birds in the sky</span><strong id="birdStat">5</strong></div>
+        <div class="world-stat"><span>Wind strength</span><strong id="windStat">Calm</strong></div>
+        <div class="world-stat"><span>Simulation mode</span><strong id="modeStat">Running</strong></div>
+      </div>
+      <div class="version-links" id="games">
+        <a class="version-card" href="#falling-sand-2">
+          <small>Next sandbox</small><strong>Falling Sand Game 2</strong><span>More chemistry and chain reactions</span>
+          <svg class="svg-icon arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+        <a class="version-card" href="#falling-sand-3">
+          <small>Future world</small><strong>Falling Sand Game 3</strong><span>Large maps and experimental depth</span>
+          <svg class="svg-icon arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <main class="content" id="about">
+    <section class="intro intro-grid" aria-labelledby="introTitle">
+      <div>
+        <span class="eyebrow">Interactive particle sandbox</span>
+        <h2 id="introTitle">A living falling sand game where every material changes the world</h2>
+        <p>This <strong>falling sand game</strong> begins with more than an empty canvas. A small house stands between trees, a pond rests inside the terrain and birds cross the open sky. Pour sand onto the roof, flood the ground, grow new plants, freeze the water or start a fire and watch the environment respond cell by cell.</p>
+        <p>The simulation is a modern <strong>dropping sand game</strong> built with an original cellular-physics engine. Powders settle into slopes, liquids search for lower spaces, gases rise with the wind and heat spreads through nearby materials. The result feels alive without requiring an account, plugin or <strong>falling sand game download</strong>.</p>
+      </div>
+      <aside class="quick-facts" aria-label="Game facts">
+        <h3>Game at a glance</h3>
+        <div class="fact"><span>Price</span><strong>Free</strong></div>
+        <div class="fact"><span>Installation</span><strong>Not required</strong></div>
+        <div class="fact"><span>Controls</span><strong>Mouse, pen & touch</strong></div>
+        <div class="fact"><span>World</span><strong>House, trees, pond & birds</strong></div>
+        <div class="fact"><span>Processing</span><strong>Runs in your browser</strong></div>
+      </aside>
+    </section>
+
+    <section class="feature-grid" aria-label="Game features">
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19h16M5 16c3-5 5-2 7-6 2 4 4 1 7 6"/><circle cx="8" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="5" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Granular physics</h3>
+        <p>Sand, soil, ash and gunpowder form natural piles, slide down slopes and displace lighter fluids.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c4 5 7 8 7 12a7 7 0 0 1-14 0c0-4 3-7 7-12Z"/><path d="M8 16c1 2 2 3 4 3"/></svg></div>
+        <h3>Flowing liquids</h3>
+        <p>Water, oil, acid and lava move at different speeds and create distinct reactions when they meet.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 8h13m0 0-3-3m3 3-3 3M20 15H8a3 3 0 1 1 3-3"/></svg></div>
+        <h3>Falling sand with wind</h3>
+        <p>Wind changes the movement of smoke, steam, fire and loose particles while birds adjust their flight.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 21V9M12 13 7 9M12 16l5-4"/><path d="M5 9c0-3 2-5 5-5 1-2 5-2 6 1 3 0 4 2 3 5-1 2-3 2-5 1-2 2-6 1-6-2-1 1-2 1-3 0Z"/></svg></div>
+        <h3>Growing nature</h3>
+        <p>Seeds can settle on damp soil and grow into new trunks, branches and leafy canopies.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 15c3-4 6-4 9 0 3-4 6-4 9 0"/><path d="M7 10c2-2 4-2 6 0"/></svg></div>
+        <h3>Reactive birds</h3>
+        <p>The flock avoids hazards and reacts when falling sand, water, fire or debris reaches its flight path.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 20h14"/></svg></div>
+        <h3>Save sand art</h3>
+        <p>Export a PNG of the current world after building a landscape, reaction or detailed falling sand art game scene.</p>
+      </article>
+    </section>
+
+    <section class="content-section" aria-labelledby="engineTitle">
+      <span class="eyebrow">Original simulation engine</span>
+      <h2 class="section-title" id="engineTitle">How this falling sand online world behaves</h2>
+      <p>The world is divided into thousands of small cells. Each cell stores a material, lifespan and reaction state. During every simulation step, the engine processes cells in alternating directions to reduce unnatural bias. It then renders only simple pixel data and a lightweight bird layer, helping keep the <strong>falling sands fast</strong> across desktop and mobile devices.</p>
+      <div class="engine-grid">
+        <article class="engine-card"><h3><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19h16M5 16c3-5 5-2 7-6 2 4 4 1 7 6"/></svg>Powder rules</h3><p>Powders try to move down first, then diagonally. Dense grains can sink through liquids and produce natural-looking slopes.</p></article>
+        <article class="engine-card"><h3><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c4 5 7 8 7 12a7 7 0 0 1-14 0c0-4 3-7 7-12Z"/></svg>Liquid rules</h3><p>Liquids search downward, diagonally and sideways. Density allows water to settle below oil while lava moves more slowly.</p></article>
+        <article class="engine-card"><h3><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c1 4-2 5-2 8 0 2 1 3 2 4 0-2 2-3 3-5 2 2 3 4 3 6a6 6 0 0 1-12 0c0-4 2-7 6-13Z"/></svg>Heat and reactions</h3><p>Fire burns wood, leaves, oil and powder. Water cools lava into rock, steam rises and intense heat turns sand into glass.</p></article>
+        <article class="engine-card"><h3><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 15c3-4 6-4 9 0 3-4 6-4 9 0"/></svg>Wildlife response</h3><p>Birds are separate lightweight entities. They sample nearby cells, avoid threats, struggle in water and lose flight when overwhelmed.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="falling-sand-2" aria-labelledby="versionsTitle">
+      <span class="eyebrow">Planned game sections</span>
+      <h2 class="section-title" id="versionsTitle">Falling Sand 2, Falling Sand 3 and focused future editions</h2>
+      <p>People search for <strong>falling sand 2</strong>, <strong>falling sand 3</strong>, <strong>falling sand game 2</strong> and <strong>falling sand game 3</strong> when they want a deeper version of the familiar sandbox. This main page remains focused on a polished nature simulation, while future sections can introduce separate mechanics without overcrowding the original game.</p>
+      <div class="game-list">
+        <article><span class="badge">Playable now</span><h3>Original Nature Sandbox</h3><p>A modern interpretation of the <strong>falling sand game original</strong>, with an immediate world, reactive materials, trees, water and birds.</p></article>
+        <article><span class="badge">Planned</span><h3>Falling Sand Game 2</h3><p>A chemistry-heavy mode influenced by the expectations around <strong>pyro sand game</strong> and <strong>pyro sand game 2</strong>, with additional fuels and reactions.</p></article>
+        <article id="falling-sand-3"><span class="badge">Planned</span><h3>Falling Sand Game 3</h3><p>A larger creative world prepared for layered terrain, missions and a future pseudo-<strong>3d falling sand game</strong> presentation.</p></article>
+        <article><span class="badge">Separate future mode</span><h3>People Edition</h3><p>The phrases <strong>falling sand game with people</strong> and <strong>falling sand game with stick figures</strong> describe a planned standalone edition, not the current nature sandbox.</p></article>
+        <article><span class="badge">Separate future mode</span><h3>Zombie Edition</h3><p>A dedicated <strong>falling sand game with zombies</strong> can later focus on survival, structures and hazards without adding characters to this page.</p></article>
+        <article><span class="badge">Research topic</span><h3>Classic Sand Games</h3><p>Players also compare the <strong>artsology sand game</strong>, older Google-era sand games and the newest browser simulations when searching for the <strong>best falling sand game</strong>.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section guide" aria-labelledby="guideTitle">
+      <div>
+        <span class="eyebrow">Controls</span>
+        <h2 class="section-title" id="guideTitle">Build and experiment in seconds</h2>
+        <p>The game supports quick drawing on touch screens and more precise construction controls on desktop browsers.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><h3>Select a material</h3><p>Choose sand, water, soil, wood, fire or another tool from the SVG material toolbar.</p></article>
+        <article class="step"><h3>Draw naturally</h3><p>Drag on the world to paint. Use the brush slider to create fine details or pour large amounts quickly.</p></article>
+        <article class="step"><h3>Use precision controls</h3><p>Hold Shift for a straight line, Ctrl for a rectangle, Shift + Ctrl for a filled box and Alt to preserve occupied cells.</p></article>
+        <article class="step"><h3>Change the environment</h3><p>Adjust wind, add another flock, pause the simulation, undo the last drawing action or restore the complete living world.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="searchTitle">
+      <span class="eyebrow">Play instantly</span>
+      <h2 class="section-title" id="searchTitle">A free falling sand game online with no installation</h2>
+      <p>This page is designed for players looking for a <strong>free falling sand game</strong>, a <strong>new sand falling game</strong>, a <strong>falling sand game online</strong> or a <strong>falling sand game unblocked</strong> in a standard browser. There is no app package, installer or required account. The game processes the sandbox locally and can also work as a compact <strong>falling sand art game</strong> for landscapes and pixel experiments.</p>
+      <p>Some users search for a <strong>falling sand game Google</strong> experience because classic browser sand games were often discovered through search engines, school computers and early web-game directories. This edition keeps the instant-play idea while adding a responsive interface, touch controls, wind, a prepared environment and more detailed reactions.</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="faqTitle">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h2 class="section-title" id="faqTitle">Falling sand game questions</h2>
+      <div class="faq-list">
+        <details><summary>What is a falling sand game?</summary><p>It is a cellular simulation where each small cell represents a material. Simple local rules make sand fall, water flow, smoke rise, plants grow and fire spread.</p></details>
+        <details><summary>Is the game free and unblocked?</summary><p>The game is free and requires no account. Whether a website is accessible on a particular network depends on that network's filtering rules.</p></details>
+        <details><summary>Why do the birds react to falling materials?</summary><p>Every bird samples the nearby particle grid. Heavy debris, deep water, acid, fire and lava influence its direction, speed and health.</p></details>
+        <details><summary>Does this version contain people, stick figures or zombies?</summary><p>No. Those phrases are covered as future dedicated editions in the page content. The current playable sandbox contains natural materials and birds only.</p></details>
+        <details><summary>Can the game work on a phone?</summary><p>Yes. Touch drawing is supported, and the internal grid automatically uses a practical resolution for the available screen.</p></details>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="ratingTitle">
+      <div class="rating-box">
+        <div><h2 id="ratingTitle">Rate the falling sand game</h2><p>Your rating is stored only on this device and is not submitted to a server.</p></div>
+        <div>
+          <div class="stars" id="stars" role="radiogroup" aria-label="Rate this game from one to five stars">
+            <button class="star" data-rating="1" role="radio" aria-checked="false" aria-label="1 star"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+            <button class="star" data-rating="2" role="radio" aria-checked="false" aria-label="2 stars"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+            <button class="star" data-rating="3" role="radio" aria-checked="false" aria-label="3 stars"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+            <button class="star" data-rating="4" role="radio" aria-checked="false" aria-label="4 stars"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+            <button class="star" data-rating="5" role="radio" aria-checked="false" aria-label="5 stars"><svg class="svg-icon" viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+          </div>
+          <div class="rating-meta" id="ratingMeta">Choose a rating from 1 to 5.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact" aria-labelledby="contactTitle">
+      <div class="contact-card">
+        <div><h2 id="contactTitle">Contact and game feedback</h2><p>Replace the placeholder address with your support email before publishing the site.</p></div>
+        <a class="contact-link" href="mailto:hello@example.com"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>hello@example.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> Falling Sand Game. Original interface and simulation code. All rights reserved.</footer>
+
+  <script>
+  (() => {
+    'use strict';
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    const ICONS = Object.freeze({
+      sand:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19h16M5 16c3-5 5-2 7-6 2 4 4 1 7 6"/><circle cx="8" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="5" r="1" fill="currentColor" stroke="none"/></svg>',
+      water:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c4 5 7 8 7 12a7 7 0 0 1-14 0c0-4 3-7 7-12Z"/><path d="M8 16c1 2 2 3 4 3"/></svg>',
+      soil:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 7h16M5 12h14M7 17h10"/><circle cx="8" cy="9.5" r=".8" fill="currentColor" stroke="none"/><circle cx="15" cy="14.5" r=".8" fill="currentColor" stroke="none"/></svg>',
+      stone:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="m7 5 9-1 4 6-2 8-9 2-5-6 3-9Z"/><path d="m7 5 5 5 8 0M12 10l-3 10"/></svg>',
+      wood:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M5 7h14v10H5z"/><path d="M8 7c2 3 2 7 0 10M12 7c2 3 2 7 0 10M16 7c2 3 2 7 0 10"/></svg>',
+      leaf:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 5C9 5 5 9 5 15c0 3 2 4 4 4 6 0 10-4 10-14Z"/><path d="M6 18c3-4 6-6 10-9"/></svg>',
+      fire:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c1 4-2 5-2 8 0 2 1 3 2 4 0-2 2-3 3-5 2 2 3 4 3 6a6 6 0 0 1-12 0c0-4 2-7 6-13Z"/></svg>',
+      oil:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3c4 5 7 8 7 12a7 7 0 0 1-14 0c0-4 3-7 7-12Z"/><path d="M9 15h6"/></svg>',
+      seed:'<svg class="svg-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="5" ry="8" transform="rotate(35 12 13)"/><path d="M9 17c2-4 4-7 8-10"/></svg>',
+      lava:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 19h18L15 8l-3 4-3-4-6 11Z"/><path d="M9 8 12 3l3 5M8 16c2-2 3-2 4 0 1-2 2-2 4 0"/></svg>',
+      ice:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9 5l3 2 3-2M9 19l3-2 3 2M5 11l3 1-1 3M19 11l-3 1 1 3"/></svg>',
+      metal:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 6h16v4H4zM7 10v8m10-8v8M4 18h16"/><circle cx="7" cy="8" r=".7" fill="currentColor" stroke="none"/><circle cx="17" cy="8" r=".7" fill="currentColor" stroke="none"/></svg>',
+      powder:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M6 18h12l-2-7H8l-2 7Z"/><path d="m10 7 2-3 2 3M12 7v4"/><circle cx="8" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>',
+      glass:'<svg class="svg-icon" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="1"/><path d="m8 17 8-10M8 11l4-4"/></svg>',
+      acid:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 8c-1 2 0 4 3 4h8c3 0 4-2 3-4l-5-8V3"/><path d="M7 16h10M9 13h6"/></svg>',
+      ash:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M5 18c2-3 4-4 7-2 3-2 5-1 7 2H5Z"/><path d="M9 12c-2-2 1-3-1-5M14 12c-2-2 2-3 0-6"/></svg>',
+      eraser:'<svg class="svg-icon" viewBox="0 0 24 24"><path d="m8 18-4-4L14 4l6 6-8 8H8Z"/><path d="m11 7 6 6M8 18h12"/></svg>'
+    });
+
+    const mobileToggle = $('#mobileToggle');
+    const mainNav = $('#mainNav');
+    const languagePicker = $('#languagePicker');
+    const languageToggle = $('#languageToggle');
+    mobileToggle.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+    languageToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const open = languagePicker.classList.toggle('open');
+      languageToggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', () => {
+      languagePicker.classList.remove('open');
+      languageToggle.setAttribute('aria-expanded', 'false');
+    });
+    $('#year').textContent = new Date().getFullYear();
+
+    const canvas = $('#sandCanvas');
+    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+    const workspace = $('#workspace');
+    const materialsEl = $('#materials');
+    const brushInput = $('#brushSize');
+    const brushValue = $('#brushValue');
+    const windValue = $('#windValue');
+    const pauseBtn = $('#pauseBtn');
+    const fpsPill = $('#fpsPill');
+    const particlePill = $('#particlePill');
+    const gameHint = $('#gameHint');
+    const toast = $('#toast');
+    const selectedStat = $('#selectedStat');
+    const birdStat = $('#birdStat');
+    const windStat = $('#windStat');
+    const modeStat = $('#modeStat');
+
+    const M = Object.freeze({
+      EMPTY:0,SAND:1,WATER:2,SOIL:3,STONE:4,WOOD:5,LEAF:6,FIRE:7,SMOKE:8,STEAM:9,
+      OIL:10,SEED:11,LAVA:12,ICE:13,METAL:14,GUNPOWDER:15,GLASS:16,ACID:17,ASH:18
+    });
+
+    const definitions = [
+      {id:M.SAND,name:'Sand',color:'#dcb35d',icon:'sand'},
+      {id:M.WATER,name:'Water',color:'#218cda',icon:'water'},
+      {id:M.SOIL,name:'Soil',color:'#8b603b',icon:'soil'},
+      {id:M.STONE,name:'Stone',color:'#7c8795',icon:'stone'},
+      {id:M.WOOD,name:'Wood',color:'#9b6238',icon:'wood'},
+      {id:M.LEAF,name:'Leaves',color:'#46aa57',icon:'leaf'},
+      {id:M.SEED,name:'Seed',color:'#b67c35',icon:'seed'},
+      {id:M.FIRE,name:'Fire',color:'#ff6f2c',icon:'fire'},
+      {id:M.OIL,name:'Oil',color:'#524435',icon:'oil'},
+      {id:M.LAVA,name:'Lava',color:'#ff451c',icon:'lava'},
+      {id:M.ICE,name:'Ice',color:'#9ce9ff',icon:'ice'},
+      {id:M.METAL,name:'Metal',color:'#92a5b8',icon:'metal'},
+      {id:M.GUNPOWDER,name:'Powder',color:'#4a4d55',icon:'powder'},
+      {id:M.GLASS,name:'Glass',color:'#7cc7dc',icon:'glass'},
+      {id:M.ACID,name:'Acid',color:'#a8ea42',icon:'acid'},
+      {id:M.ASH,name:'Ash',color:'#77767a',icon:'ash'},
+      {id:99,name:'Eraser',color:'#ff7286',icon:'eraser'}
+    ];
+
+    const palette = {
+      [M.SAND]:[220,180,94],[M.WATER]:[34,135,216],[M.SOIL]:[132,88,52],[M.STONE]:[114,126,141],
+      [M.WOOD]:[146,88,48],[M.LEAF]:[55,159,72],[M.FIRE]:[255,103,27],[M.SMOKE]:[73,82,94],
+      [M.STEAM]:[205,230,238],[M.OIL]:[70,57,43],[M.SEED]:[170,112,42],[M.LAVA]:[245,58,15],
+      [M.ICE]:[151,226,248],[M.METAL]:[134,151,169],[M.GUNPOWDER]:[63,65,72],[M.GLASS]:[117,194,211],
+      [M.ACID]:[151,229,54],[M.ASH]:[113,111,115]
+    };
+
+    const density = {
+      [M.WATER]:20,[M.OIL]:13,[M.ACID]:23,[M.LAVA]:28,[M.SAND]:34,[M.SOIL]:36,[M.GUNPOWDER]:32,[M.ASH]:27,[M.SEED]:31
+    };
+
+    let W = 520;
+    let H = 340;
+    let size = W * H;
+    let cells = new Uint8Array(size);
+    let life = new Uint16Array(size);
+    let state = new Uint8Array(size);
+    let moved = new Uint16Array(size);
+    let imageData = ctx.createImageData(W,H);
+    let selected = M.SAND;
+    let brush = 6;
+    let wind = 0;
+    let paused = false;
+    let drawing = false;
+    let gesture = null;
+    let undoState = null;
+    let frame = 0;
+    let moveStamp = 1;
+    let lastTimestamp = performance.now();
+    let fpsSmoothed = 60;
+    let activeParticles = 0;
+    let toastTimer;
+    let seeded = false;
+    const birds = [];
+    let shockwave = null;
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    $$('.language-menu button').forEach((button) => button.addEventListener('click', () => {
+      showToast(`${button.textContent.trim()} translation can be connected later.`);
+    }));
+
+    function buildMaterialButtons(){
+      const fragment = document.createDocumentFragment();
+      definitions.forEach((mat) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `material${mat.id === selected ? ' active' : ''}`;
+        button.dataset.material = String(mat.id);
+        button.setAttribute('aria-pressed', String(mat.id === selected));
+        button.title = mat.name;
+        button.style.setProperty('--material-color', mat.color);
+        button.innerHTML = `<span class="material-icon" aria-hidden="true">${ICONS[mat.icon]}</span><span>${mat.name}</span>`;
+        button.addEventListener('click', () => selectMaterial(mat.id));
+        fragment.appendChild(button);
+      });
+      materialsEl.replaceChildren(fragment);
+    }
+
+    function selectMaterial(id){
+      selected = id;
+      const def = definitions.find((item) => item.id === id);
+      selectedStat.textContent = def ? def.name : 'Eraser';
+      $$('.material',materialsEl).forEach((button) => {
+        const active = Number(button.dataset.material) === selected;
+        button.classList.toggle('active',active);
+        button.setAttribute('aria-pressed',String(active));
+      });
+    }
+    buildMaterialButtons();
+
+    function idx(x,y){return x + y * W;}
+    function inside(x,y){return x >= 0 && x < W && y >= 0 && y < H;}
+    function get(x,y){return inside(x,y) ? cells[idx(x,y)] : M.STONE;}
+    function setCell(x,y,type,lifeValue=0,stateValue=0){
+      if(!inside(x,y)) return;
+      const i = idx(x,y);
+      cells[i] = type;
+      life[i] = lifeValue;
+      state[i] = stateValue;
+    }
+    function clearCell(i){cells[i]=M.EMPTY;life[i]=0;state[i]=0;}
+    function swap(i,j){
+      let t=cells[i];cells[i]=cells[j];cells[j]=t;
+      t=life[i];life[i]=life[j];life[j]=t;
+      t=state[i];state[i]=state[j];state[j]=t;
+      moved[j]=moveStamp;
+    }
+    function rand(max){return Math.floor(Math.random()*max);}
+    function chance(value){return Math.random()<value;}
+    function isGas(type){return type===M.SMOKE||type===M.STEAM||type===M.FIRE;}
+    function isLiquid(type){return type===M.WATER||type===M.OIL||type===M.ACID||type===M.LAVA;}
+    function isPowder(type){return type===M.SAND||type===M.SOIL||type===M.GUNPOWDER||type===M.ASH||type===M.SEED;}
+    function isFlammable(type){return type===M.WOOD||type===M.LEAF||type===M.OIL||type===M.SEED||type===M.GUNPOWDER;}
+    function isSolid(type){return type===M.STONE||type===M.WOOD||type===M.LEAF||type===M.ICE||type===M.METAL||type===M.GLASS;}
+    function emptyLike(type){return type===M.EMPTY||isGas(type);}
+
+    function resizeSimulation(force=false){
+      const rect = workspace.getBoundingClientRect();
+      const mobile = rect.width < 650;
+      const targetW = Math.max(260,Math.min(mobile?390:650,Math.floor(rect.width/(mobile?1.5:1.72))));
+      const targetH = Math.max(250,Math.min(470,Math.floor(targetW*rect.height/Math.max(1,rect.width))));
+      if(!force && Math.abs(targetW-W)<28 && Math.abs(targetH-H)<28) return;
+
+      const oldW=W,oldH=H,oldCells=cells,oldLife=life,oldState=state;
+      W=targetW;H=targetH;size=W*H;
+      cells=new Uint8Array(size);life=new Uint16Array(size);state=new Uint8Array(size);moved=new Uint16Array(size);
+      canvas.width=W;canvas.height=H;imageData=ctx.createImageData(W,H);
+
+      if(seeded && oldCells.length){
+        for(let y=0;y<H;y++){
+          const oy=Math.min(oldH-1,Math.floor(y*oldH/H));
+          for(let x=0;x<W;x++){
+            const ox=Math.min(oldW-1,Math.floor(x*oldW/W));
+            const ni=idx(x,y),oi=ox+oy*oldW;
+            cells[ni]=oldCells[oi];life[ni]=oldLife[oi];state[ni]=oldState[oi];
+          }
+        }
+        birds.forEach((bird)=>{bird.x=bird.x*W/oldW;bird.y=bird.y*H/oldH;bird.homeY=bird.homeY*H/oldH;});
+      }
+    }
+
+    function forNeighbors(x,y,callback){
+      for(let dy=-1;dy<=1;dy++){
+        for(let dx=-1;dx<=1;dx++){
+          if(!dx&&!dy) continue;
+          const nx=x+dx,ny=y+dy;
+          if(inside(nx,ny)) callback(idx(nx,ny),nx,ny);
+        }
+      }
+    }
+
+    function canPowderEnter(target,source){
+      return target===M.EMPTY||isGas(target)||(isLiquid(target)&&(density[source]||30)>(density[target]||0));
+    }
+
+    function movePowder(x,y,i,mobility=1){
+      if(y+1>=H) return false;
+      const below=i+W;
+      if(canPowderEnter(cells[below],cells[i])){swap(i,below);return true;}
+      const first=chance(.5)?-1:1;
+      if(chance(mobility)){
+        for(const dx of [first,-first]){
+          const nx=x+dx;
+          if(nx<0||nx>=W) continue;
+          const ni=below+dx;
+          if(canPowderEnter(cells[ni],cells[i])){swap(i,ni);return true;}
+        }
+      }
+      return false;
+    }
+
+    function moveLiquid(x,y,i,spread){
+      if(y+1<H){
+        const below=i+W;
+        const bt=cells[below];
+        if(bt===M.EMPTY||isGas(bt)||(isLiquid(bt)&&(density[cells[i]]||0)>(density[bt]||0))){swap(i,below);return true;}
+        const first=chance(.5)?-1:1;
+        for(const dx of [first,-first]){
+          const nx=x+dx;
+          if(nx<0||nx>=W) continue;
+          const ni=below+dx,nt=cells[ni];
+          if(nt===M.EMPTY||isGas(nt)||(isLiquid(nt)&&(density[cells[i]]||0)>(density[nt]||0))){swap(i,ni);return true;}
+        }
+      }
+      const first=chance(.5)?-1:1;
+      for(const dir of [first,-first]){
+        for(let distance=1;distance<=spread;distance++){
+          const nx=x+dir*distance;
+          if(nx<0||nx>=W) break;
+          const ni=i+dir*distance,nt=cells[ni];
+          if(nt===M.EMPTY||isGas(nt)){swap(i,ni);return true;}
+          if(nt!==cells[i]) break;
+        }
+      }
+      return false;
+    }
+
+    function moveGas(x,y,i,spread=2){
+      const drift=wind===0?(chance(.5)?-1:1):Math.sign(wind);
+      const strength=Math.max(1,Math.min(3,Math.abs(wind)));
+      const choices=[[drift,-1],[-drift,-1],[0,-1],[drift*strength,0],[-drift,0]];
+      for(const [dx,dy] of choices){
+        const nx=x+dx,ny=y+dy;
+        if(!inside(nx,ny)) continue;
+        const ni=idx(nx,ny);
+        if(cells[ni]===M.EMPTY){swap(i,ni);return true;}
+      }
+      if(spread>1&&chance(.22)){
+        const nx=x+drift*spread;
+        if(inside(nx,y)&&cells[idx(nx,y)]===M.EMPTY){swap(i,idx(nx,y));return true;}
+      }
+      return false;
+    }
+
+    function wetNearby(x,y,radius=2){
+      for(let yy=Math.max(0,y-radius);yy<=Math.min(H-1,y+radius);yy++){
+        for(let xx=Math.max(0,x-radius);xx<=Math.min(W-1,x+radius);xx++) if(cells[idx(xx,yy)]===M.WATER) return true;
+      }
+      return false;
+    }
+
+    function growTree(x,y){
+      const height=12+rand(12);
+      for(let step=0;step<height;step++){
+        const ty=y-step;
+        if(!inside(x,ty)||cells[idx(x,ty)]!==M.EMPTY) break;
+        setCell(x,ty,M.WOOD);
+        if(step>height*.45&&step%4===0){
+          const length=3+rand(5);
+          const dir=chance(.5)?-1:1;
+          for(let n=1;n<=length;n++) if(inside(x+dir*n,ty-Math.floor(n*.35))&&get(x+dir*n,ty-Math.floor(n*.35))===M.EMPTY) setCell(x+dir*n,ty-Math.floor(n*.35),M.WOOD);
+        }
+      }
+      const topY=Math.max(3,y-height);
+      const radius=5+rand(4);
+      for(let yy=-radius;yy<=radius;yy++) for(let xx=-radius;xx<=radius;xx++){
+        if(xx*xx+yy*yy>radius*radius*1.08||!chance(.78)) continue;
+        const px=x+xx,py=topY+yy;
+        if(inside(px,py)&&cells[idx(px,py)]===M.EMPTY) setCell(px,py,M.LEAF);
+      }
+    }
+
+    function explode(cx,cy,radius){
+      shockwave={x:cx,y:cy,power:radius*1.8,life:18};
+      for(let y=Math.max(0,cy-radius);y<=Math.min(H-1,cy+radius);y++){
+        for(let x=Math.max(0,cx-radius);x<=Math.min(W-1,cx+radius);x++){
+          const distance=Math.hypot(x-cx,y-cy);
+          if(distance>radius||Math.random()>1-distance/(radius*1.3)) continue;
+          const i=idx(x,y),type=cells[i];
+          if([M.STONE,M.METAL,M.GLASS].includes(type)){
+            if(distance<radius*.42&&chance(type===M.METAL?.08:.32)) clearCell(i);
+          }else{
+            cells[i]=distance<radius*.58?M.FIRE:(chance(.62)?M.SMOKE:M.EMPTY);
+            life[i]=75+rand(150);state[i]=0;
+          }
+        }
+      }
+    }
+
+    function processCell(x,y){
+      const i=idx(x,y),type=cells[i];
+      if(type===M.EMPTY||moved[i]===moveStamp) return;
+      moved[i]=moveStamp;
+
+      switch(type){
+        case M.SAND:
+          forNeighbors(x,y,(ni)=>{if((cells[ni]===M.LAVA||cells[ni]===M.FIRE)&&chance(.015)) cells[i]=M.GLASS;});
+          if(cells[i]===M.SAND) movePowder(x,y,i,1);
+          break;
+        case M.SOIL:
+          if(wetNearby(x,y,1)) state[i]=Math.min(255,state[i]+1); else if(state[i]>0&&chance(.02)) state[i]--;
+          movePowder(x,y,i,state[i]>20?.26:.52);
+          break;
+        case M.SEED:
+          if(movePowder(x,y,i,.8)) break;
+          if(y+1<H&&[M.SOIL,M.SAND].includes(cells[i+W])&&wetNearby(x,y,5)){
+            life[i]++;
+            if(life[i]>80+rand(100)){clearCell(i);growTree(x,y);}
+          }
+          break;
+        case M.ASH:
+          movePowder(x,y,i,.9);
+          break;
+        case M.GUNPOWDER:
+          forNeighbors(x,y,(ni)=>{if((cells[ni]===M.FIRE||cells[ni]===M.LAVA)&&chance(.36)) explode(x,y,8+rand(5));});
+          if(cells[i]===M.GUNPOWDER) movePowder(x,y,i,.95);
+          break;
+        case M.WATER:
+          forNeighbors(x,y,(ni)=>{
+            if(cells[ni]===M.FIRE){cells[ni]=M.STEAM;life[ni]=100+rand(90);if(chance(.12)){cells[i]=M.STEAM;life[i]=90;}}
+            else if(cells[ni]===M.LAVA){cells[ni]=M.STONE;cells[i]=M.STEAM;life[i]=140;}
+            else if(cells[ni]===M.ICE&&chance(.0018)) cells[i]=M.ICE;
+          });
+          if(cells[i]===M.WATER) moveLiquid(x,y,i,6);
+          break;
+        case M.OIL:
+          forNeighbors(x,y,(ni)=>{if(cells[ni]===M.FIRE||cells[ni]===M.LAVA){cells[i]=M.FIRE;life[i]=170+rand(100);}});
+          if(cells[i]===M.OIL) moveLiquid(x,y,i,8);
+          break;
+        case M.ACID:
+          forNeighbors(x,y,(ni)=>{
+            const target=cells[ni];
+            if([M.WOOD,M.LEAF,M.SOIL,M.SAND,M.SEED,M.METAL].includes(target)&&chance(target===M.METAL?.01:.045)){
+              clearCell(ni);
+              if(chance(.12)){cells[i]=M.SMOKE;life[i]=90+rand(70);}
+            }
+          });
+          if(cells[i]===M.ACID) moveLiquid(x,y,i,5);
+          break;
+        case M.LAVA:
+          forNeighbors(x,y,(ni)=>{
+            const target=cells[ni];
+            if(target===M.WATER||target===M.ICE){cells[ni]=M.STEAM;life[ni]=150;state[ni]=0;if(chance(.22)) cells[i]=M.STONE;}
+            else if(isFlammable(target)){cells[ni]=M.FIRE;life[ni]=170+rand(100);}
+            else if(target===M.SAND&&chance(.028)) cells[ni]=M.GLASS;
+          });
+          if(chance(.0006)) cells[i]=M.STONE;
+          if(cells[i]===M.LAVA) moveLiquid(x,y,i,2);
+          break;
+        case M.ICE:
+          forNeighbors(x,y,(ni)=>{if((cells[ni]===M.FIRE||cells[ni]===M.LAVA)&&chance(.18)) cells[i]=M.WATER;else if(cells[ni]===M.WATER&&chance(.0007)) cells[ni]=M.ICE;});
+          break;
+        case M.LEAF:
+          forNeighbors(x,y,(ni)=>{if((cells[ni]===M.FIRE||cells[ni]===M.LAVA)&&chance(.075)){cells[i]=M.FIRE;life[i]=110+rand(100);}});
+          break;
+        case M.WOOD:
+          forNeighbors(x,y,(ni)=>{if((cells[ni]===M.FIRE||cells[ni]===M.LAVA)&&chance(.032)){cells[i]=M.FIRE;life[i]=150+rand(110);}});
+          break;
+        case M.METAL:
+          forNeighbors(x,y,(ni)=>{
+            if(cells[ni]===M.FIRE||cells[ni]===M.LAVA) life[i]=Math.min(255,life[i]+12);
+            if(life[i]>120&&isFlammable(cells[ni])&&chance(.012)){cells[ni]=M.FIRE;life[ni]=110+rand(90);}
+          });
+          if(life[i]>0) life[i]--;
+          break;
+        case M.FIRE:
+          if(life[i]===0) life[i]=90+rand(110);
+          forNeighbors(x,y,(ni)=>{
+            const target=cells[ni];
+            if(isFlammable(target)&&chance(target===M.GUNPOWDER?.68:.055)){cells[ni]=M.FIRE;life[ni]=110+rand(150);}
+            if(target===M.WATER&&chance(.04)){cells[ni]=M.STEAM;life[ni]=110;life[i]=Math.min(life[i],18);}
+            if(target===M.ICE&&chance(.13)) cells[ni]=M.WATER;
+          });
+          life[i]--;
+          if(life[i]===0||chance(.016)){cells[i]=chance(.62)?M.SMOKE:M.ASH;life[i]=cells[i]===M.SMOKE?90+rand(130):0;}
+          else moveGas(x,y,i,1);
+          break;
+        case M.SMOKE:
+          if(life[i]===0) life[i]=100+rand(150);
+          life[i]--;
+          if(life[i]===0||chance(.0035)) clearCell(i); else moveGas(x,y,i,3);
+          break;
+        case M.STEAM:
+          if(life[i]===0) life[i]=100+rand(130);
+          life[i]--;
+          if(life[i]===0||chance(.0025)){cells[i]=M.WATER;life[i]=0;} else moveGas(x,y,i,3);
+          break;
+      }
+    }
+
+    function updateParticles(){
+      frame++;
+      moveStamp=(moveStamp+1)&65535;
+      if(moveStamp===0){moved.fill(0);moveStamp=1;}
+      for(let y=H-2;y>=0;y--){
+        if((y+frame)&1){for(let x=0;x<W;x++) processCell(x,y);}
+        else{for(let x=W-1;x>=0;x--) processCell(x,y);}
+      }
+    }
+
+    function addBirds(count=5){
+      for(let n=0;n<count;n++){
+        const direction=chance(.5)?1:-1;
+        birds.push({
+          x:direction>0?rand(Math.max(1,Math.floor(W*.35))):W-rand(Math.max(1,Math.floor(W*.35))),
+          y:H*(.11+Math.random()*.2),homeY:H*(.12+Math.random()*.22),vx:direction*(.35+Math.random()*.35),vy:(Math.random()-.5)*.2,
+          dir:direction,phase:Math.random()*Math.PI*2,health:100,state:'alive',rotation:0,rest:0
+        });
+      }
+      birdStat.textContent=String(birds.filter((bird)=>bird.state==='alive').length);
+    }
+
+    function sampleBirdEnvironment(bird){
+      let hazardX=0,hazardY=0,hazard=0,heavy=0,water=0;
+      const radius=4;
+      for(let yy=-radius;yy<=radius;yy++) for(let xx=-radius;xx<=radius;xx++){
+        if(xx*xx+yy*yy>radius*radius) continue;
+        const px=Math.round(bird.x+xx),py=Math.round(bird.y+yy);
+        if(!inside(px,py)) continue;
+        const type=cells[idx(px,py)];
+        if(type===M.FIRE||type===M.LAVA||type===M.ACID){hazard++;hazardX-=xx;hazardY-=yy;}
+        else if(type===M.WATER) water++;
+        else if(type!==M.EMPTY&&type!==M.SMOKE&&type!==M.STEAM) heavy++;
+      }
+      return {hazardX,hazardY,hazard,heavy,water};
+    }
+
+    function updateBirds(){
+      if(shockwave){
+        shockwave.life--;
+        if(shockwave.life<=0) shockwave=null;
+      }
+      for(const bird of birds){
+        bird.phase+=.17;
+        if(bird.state==='alive'){
+          const env=sampleBirdEnvironment(bird);
+          if(env.hazard){bird.health-=env.hazard*.8;bird.vx+=Math.sign(env.hazardX||bird.dir)*.12;bird.vy+=Math.sign(env.hazardY||-1)*.1;}
+          if(env.water){bird.health-=env.water*.05;bird.vy+=.09;bird.vx*=.96;}
+          if(env.heavy){bird.health-=env.heavy*.16;bird.vy+=.13;bird.vx+=(Math.random()-.5)*.22;}
+          if(shockwave){
+            const dx=bird.x-shockwave.x,dy=bird.y-shockwave.y,d=Math.max(1,Math.hypot(dx,dy));
+            if(d<shockwave.power*3){bird.vx+=dx/d*.22;bird.vy+=dy/d*.22;bird.health-=Math.max(0,(shockwave.power*2-d))*.08;}
+          }
+          const targetY=bird.homeY+Math.sin(bird.phase*.55)*4;
+          bird.vy+=(targetY-bird.y)*.0045;
+          bird.vx+=bird.dir*.006+wind*.0008;
+          bird.vx=Math.max(-1.25,Math.min(1.25,bird.vx));
+          bird.vy=Math.max(-.95,Math.min(.95,bird.vy));
+          bird.x+=bird.vx;bird.y+=bird.vy;
+          if(bird.x<5){bird.x=5;bird.dir=1;bird.vx=Math.abs(bird.vx)+.15;}
+          if(bird.x>W-5){bird.x=W-5;bird.dir=-1;bird.vx=-Math.abs(bird.vx)-.15;}
+          if(bird.y<5){bird.y=5;bird.vy=Math.abs(bird.vy);}
+          if(bird.y>H*.58){bird.vy-=.12;bird.homeY=Math.min(bird.homeY,H*.35);}
+          if(chance(.006)&&!env.hazard&&!env.heavy) bird.dir*=-1;
+          if(bird.health<=0){bird.state='falling';bird.vy=.35;bird.rotation=0;}
+        }else if(bird.state==='falling'){
+          bird.vy=Math.min(2.5,bird.vy+.08);bird.x+=bird.vx*.35;bird.y+=bird.vy;bird.rotation+=.1;
+          const below=get(Math.round(bird.x),Math.round(bird.y+4));
+          if(below!==M.EMPTY&&below!==M.SMOKE&&below!==M.STEAM){bird.state='resting';bird.rest=240;bird.vx=0;bird.vy=0;}
+          if(bird.y>H+10){bird.state='gone';}
+        }else if(bird.state==='resting'){
+          bird.rest--;
+          if(bird.rest<=0) bird.state='gone';
+        }
+      }
+      for(let i=birds.length-1;i>=0;i--) if(birds[i].state==='gone') birds.splice(i,1);
+      birdStat.textContent=String(birds.filter((bird)=>bird.state==='alive').length);
+    }
+
+    function renderBird(bird){
+      if(bird.state==='gone') return;
+      ctx.save();
+      ctx.translate(bird.x,bird.y);
+      ctx.rotate(bird.rotation||0);
+      if(bird.dir<0) ctx.scale(-1,1);
+      const flap=Math.sin(bird.phase)*2.1;
+      const alpha=bird.state==='resting'?.55:1;
+      ctx.globalAlpha=alpha;
+      ctx.fillStyle=bird.health<35?'#8f6c5e':'#25384c';
+      ctx.strokeStyle='rgba(255,255,255,.5)';
+      ctx.lineWidth=.55;
+      ctx.beginPath();ctx.ellipse(0,0,3.6,2.1,0,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.moveTo(3.1,-.35);ctx.lineTo(6.2,.2);ctx.lineTo(3.2,.95);ctx.closePath();ctx.fillStyle='#e7ad48';ctx.fill();
+      ctx.fillStyle=bird.health<35?'#74554b':'#334d65';
+      ctx.beginPath();ctx.moveTo(-.5,0);ctx.quadraticCurveTo(-3.5,-5-flap,-6.5,-1.2);ctx.quadraticCurveTo(-3.5,-1.7,-.2,.7);ctx.closePath();ctx.fill();
+      ctx.beginPath();ctx.moveTo(.3,.2);ctx.quadraticCurveTo(2.5,-4+flap,5.1,-1.3);ctx.quadraticCurveTo(3.2,-1.3,.2,.9);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#f4f7fb';ctx.beginPath();ctx.arc(2.2,-.65,.45,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#111923';ctx.beginPath();ctx.arc(2.3,-.66,.2,0,Math.PI*2);ctx.fill();
+      ctx.restore();
+    }
+
+    function renderPreview(){
+      if(!gesture||gesture.mode==='free'||!gesture.current) return;
+      const {start,current,mode}=gesture;
+      ctx.save();
+      ctx.strokeStyle='rgba(255,255,255,.9)';ctx.fillStyle='rgba(255,189,74,.17)';ctx.lineWidth=1.2;ctx.setLineDash([4,3]);
+      if(mode==='line'){
+        ctx.beginPath();ctx.moveTo(start.x,start.y);ctx.lineTo(current.x,current.y);ctx.stroke();
+      }else{
+        const x=Math.min(start.x,current.x),y=Math.min(start.y,current.y),w=Math.abs(current.x-start.x),h=Math.abs(current.y-start.y);
+        if(mode==='fill') ctx.fillRect(x,y,w,h);
+        ctx.strokeRect(x,y,w,h);
+      }
+      ctx.restore();
+    }
+
+    function render(){
+      const data=imageData.data;
+      let count=0;
+      for(let i=0,p=0;i<size;i++,p+=4){
+        const type=cells[i];
+        if(type===M.EMPTY){data[p]=0;data[p+1]=0;data[p+2]=0;data[p+3]=0;continue;}
+        count++;
+        let rgb=palette[type]||[255,0,255];
+        let r=rgb[0],g=rgb[1],b=rgb[2],a=255;
+        const y=(i/W)|0;
+        const noise=((i*17+y*13)%11)-5;
+        if([M.SAND,M.SOIL,M.STONE,M.WOOD,M.LEAF,M.GUNPOWDER,M.ASH].includes(type)){r+=noise;g+=noise;b+=noise;}
+        if(type===M.SOIL&&state[i]>12){r-=12;g-=9;b-=5;}
+        if(type===M.FIRE){const f=Math.min(1,life[i]/180);r=255;g=75+150*f;b=12+35*f;a=235;}
+        if(type===M.LAVA){const pulse=35+25*Math.sin((i+frame)*.13);r=255;g=55+pulse;b=7;}
+        if(type===M.WATER){a=205;b=Math.min(255,b+18);}
+        if(type===M.GLASS){a=150;r+=15;g+=15;b+=15;}
+        if(type===M.SMOKE){a=120;}
+        if(type===M.STEAM){a=145;}
+        if(type===M.METAL&&life[i]>0){r=Math.min(255,r+life[i]/2);g=Math.max(70,g-life[i]/4);}
+        data[p]=Math.max(0,Math.min(255,r));data[p+1]=Math.max(0,Math.min(255,g));data[p+2]=Math.max(0,Math.min(255,b));data[p+3]=a;
+      }
+      activeParticles=count;
+      ctx.clearRect(0,0,W,H);
+      ctx.putImageData(imageData,0,0);
+      birds.forEach(renderBird);
+      renderPreview();
+    }
+
+    function saveUndo(){
+      undoState={cells:cells.slice(),life:life.slice(),state:state.slice(),birds:birds.map((bird)=>({...bird}))};
+    }
+
+    function restoreUndo(){
+      if(!undoState){showToast('Nothing to undo yet');return;}
+      cells.set(undoState.cells);life.set(undoState.life);state.set(undoState.state);
+      birds.length=0;birds.push(...undoState.birds.map((bird)=>({...bird})));
+      undoState=null;showToast('Last action undone');
+    }
+
+    function canvasPoint(event){
+      const rect=canvas.getBoundingClientRect();
+      return {
+        x:Math.max(0,Math.min(W-1,Math.floor((event.clientX-rect.left)*W/rect.width))),
+        y:Math.max(0,Math.min(H-1,Math.floor((event.clientY-rect.top)*H/rect.height)))
+      };
+    }
+
+    function paintCircle(cx,cy,type,preserve=false){
+      const radius=brush;
+      for(let y=-radius;y<=radius;y++) for(let x=-radius;x<=radius;x++){
+        if(x*x+y*y>radius*radius) continue;
+        const px=cx+x,py=cy+y;
+        if(!inside(px,py)) continue;
+        const i=idx(px,py);
+        if(type===99){clearCell(i);continue;}
+        if(preserve&&cells[i]!==M.EMPTY) continue;
+        const structural=[M.STONE,M.WOOD,M.LEAF,M.ICE,M.METAL,M.GLASS].includes(type);
+        if(!structural&&chance(.08)) continue;
+        cells[i]=type;life[i]=type===M.FIRE?130+rand(130):0;state[i]=0;
+      }
+    }
+
+    function drawLine(a,b,type,preserve=false){
+      const dx=b.x-a.x,dy=b.y-a.y;
+      const steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)/Math.max(1,brush*.42)));
+      for(let step=0;step<=steps;step++) paintCircle(Math.round(a.x+dx*step/steps),Math.round(a.y+dy*step/steps),type,preserve);
+    }
+
+    function drawRectangle(a,b,type,filled=false,preserve=false){
+      const x1=Math.min(a.x,b.x),x2=Math.max(a.x,b.x),y1=Math.min(a.y,b.y),y2=Math.max(a.y,b.y);
+      if(filled){
+        for(let y=y1;y<=y2;y+=Math.max(1,brush)) drawLine({x:x1,y},{x:x2,y},type,preserve);
+      }else{
+        drawLine({x:x1,y:y1},{x:x2,y:y1},type,preserve);drawLine({x:x2,y:y1},{x:x2,y:y2},type,preserve);
+        drawLine({x:x2,y:y2},{x:x1,y:y2},type,preserve);drawLine({x:x1,y:y2},{x:x1,y:y1},type,preserve);
+      }
+    }
+
+    canvas.addEventListener('pointerdown',(event)=>{
+      event.preventDefault();canvas.setPointerCapture(event.pointerId);saveUndo();drawing=true;gameHint.classList.add('hidden');
+      const start=canvasPoint(event);const type=event.button===2?99:selected;
+      let mode='free';if(event.shiftKey&&event.ctrlKey) mode='fill';else if(event.shiftKey) mode='line';else if(event.ctrlKey) mode='rect';
+      gesture={start,current:start,last:start,type,mode,preserve:event.altKey};
+      if(mode==='free') drawLine(start,start,type,event.altKey);
+    });
+    canvas.addEventListener('pointermove',(event)=>{
+      if(!drawing||!gesture) return;
+      const point=canvasPoint(event);gesture.current=point;
+      if(gesture.mode==='free'){drawLine(gesture.last,point,(event.buttons===2)?99:gesture.type,gesture.preserve);gesture.last=point;}
+    });
+    function finishGesture(){
+      if(!drawing||!gesture) return;
+      if(gesture.mode==='line') drawLine(gesture.start,gesture.current,gesture.type,gesture.preserve);
+      else if(gesture.mode==='rect') drawRectangle(gesture.start,gesture.current,gesture.type,false,gesture.preserve);
+      else if(gesture.mode==='fill') drawRectangle(gesture.start,gesture.current,gesture.type,true,gesture.preserve);
+      drawing=false;gesture=null;
+    }
+    canvas.addEventListener('pointerup',finishGesture);canvas.addEventListener('pointercancel',finishGesture);canvas.addEventListener('contextmenu',(event)=>event.preventDefault());
+
+    function terrainHeight(x){
+      const base=H*.73;
+      return Math.floor(base+Math.sin(x*.035)*3+Math.sin(x*.011+1.7)*4);
+    }
+
+    function fillRect(x,y,w,h,type){
+      for(let yy=Math.max(0,Math.floor(y));yy<Math.min(H,Math.ceil(y+h));yy++) for(let xx=Math.max(0,Math.floor(x));xx<Math.min(W,Math.ceil(x+w));xx++) setCell(xx,yy,type);
+    }
+
+    function lineCells(x1,y1,x2,y2,type,thickness=1){
+      const old=brush;brush=thickness;drawLine({x:Math.round(x1),y:Math.round(y1)},{x:Math.round(x2),y:Math.round(y2)},type,false);brush=old;
+    }
+
+    function leafCluster(cx,cy,radius){
+      for(let y=-radius;y<=radius;y++) for(let x=-radius;x<=radius;x++){
+        const d=x*x+y*y;
+        if(d>radius*radius*1.12||!chance(.84)) continue;
+        const px=cx+x,py=cy+y;
+        if(inside(px,py)&&get(px,py)===M.EMPTY) setCell(px,py,M.LEAF);
+      }
+    }
+
+    function plantTreeAt(x,ground,scale=1){
+      const height=Math.max(14,Math.floor(H*.15*scale));
+      const trunk=Math.max(2,Math.floor(W*.006*scale));
+      fillRect(x-trunk/2,ground-height,trunk,height+2,M.WOOD);
+      lineCells(x,ground-height*.56,x-height*.25,ground-height*.78,M.WOOD,Math.max(1,trunk-1));
+      lineCells(x,ground-height*.48,x+height*.23,ground-height*.72,M.WOOD,Math.max(1,trunk-1));
+      const r=Math.max(7,Math.floor(height*.28));
+      leafCluster(Math.round(x),Math.round(ground-height),r);
+      leafCluster(Math.round(x-r*.62),Math.round(ground-height+r*.28),Math.floor(r*.8));
+      leafCluster(Math.round(x+r*.62),Math.round(ground-height+r*.28),Math.floor(r*.8));
+    }
+
+    function buildHouse(x,ground,width,height){
+      const left=Math.floor(x),right=Math.floor(x+width),top=Math.floor(ground-height);
+      fillRect(left-2,ground-2,width+4,4,M.STONE);
+      fillRect(left,top,width,height,M.WOOD);
+      fillRect(left+4,top+4,width-8,height-5,M.EMPTY);
+      const roofPeakX=Math.floor(left+width/2),roofPeakY=Math.floor(top-height*.38);
+      lineCells(left-4,top+2,roofPeakX,roofPeakY,M.WOOD,3);
+      lineCells(roofPeakX,roofPeakY,right+4,top+2,M.WOOD,3);
+      lineCells(left-2,top,right+2,top,M.WOOD,2);
+      const doorW=Math.max(5,Math.floor(width*.18)),doorH=Math.max(10,Math.floor(height*.48));
+      fillRect(Math.floor(left+width*.42),ground-doorH,doorW,doorH,M.EMPTY);
+      const windowW=Math.max(5,Math.floor(width*.17)),windowH=Math.max(5,Math.floor(height*.22));
+      fillRect(left+Math.floor(width*.13),top+Math.floor(height*.32),windowW,windowH,M.GLASS);
+      fillRect(right-Math.floor(width*.13)-windowW,top+Math.floor(height*.32),windowW,windowH,M.GLASS);
+      const chimneyX=Math.floor(right-width*.17);
+      fillRect(chimneyX,roofPeakY+2,Math.max(3,Math.floor(width*.08)),Math.max(8,Math.floor(height*.35)),M.STONE);
+      for(let n=0;n<8;n++) setCell(chimneyX+rand(3)-1,roofPeakY-rand(12),M.SMOKE,90+rand(90));
+    }
+
+    function seedLivingWorld(){
+      saveUndo();cells.fill(0);life.fill(0);state.fill(0);birds.length=0;shockwave=null;
+      const pondStart=Math.floor(W*.60),pondEnd=Math.floor(W*.82),waterTop=Math.floor(H*.74);
+      const heights=new Int16Array(W);
+      for(let x=0;x<W;x++){
+        let ground=terrainHeight(x);
+        if(x>=pondStart&&x<=pondEnd){
+          const t=(x-pondStart)/Math.max(1,pondEnd-pondStart);
+          ground+=Math.floor(Math.sin(Math.PI*t)*H*.11);
+        }
+        heights[x]=ground;
+        for(let y=ground;y<H;y++) setCell(x,y,y<ground+Math.max(5,H*.024)?M.SOIL:M.STONE);
+      }
+      for(let x=pondStart+2;x<pondEnd-2;x++){
+        for(let y=waterTop;y<heights[x]-1;y++) setCell(x,y,M.WATER);
+      }
+      for(let x=pondStart;x<=pondEnd;x++){
+        const gy=heights[x];
+        if(inside(x,gy)) setCell(x,gy,M.STONE);
+        if(inside(x,gy+1)) setCell(x,gy+1,M.STONE);
+      }
+
+      const houseX=Math.floor(W*.25),houseW=Math.floor(W*.21),houseGround=heights[Math.floor(houseX+houseW/2)];
+      buildHouse(houseX,houseGround,houseW,Math.floor(H*.18));
+      plantTreeAt(Math.floor(W*.10),heights[Math.floor(W*.10)],1.05);
+      plantTreeAt(Math.floor(W*.51),heights[Math.floor(W*.51)],.9);
+      plantTreeAt(Math.floor(W*.89),heights[Math.floor(W*.89)],1.12);
+      for(let n=0;n<45;n++){
+        const x=rand(W),ground=heights[x];
+        if(x>pondStart-4&&x<pondEnd+4) continue;
+        if(chance(.6)&&inside(x,ground-1)) setCell(x,ground-1,M.LEAF);
+      }
+      addBirds(5);
+      seeded=true;showToast('Living landscape restored');
+    }
+
+    brushInput.addEventListener('input',()=>{brush=Number(brushInput.value);brushValue.textContent=String(brush);});
+    function updateWindUI(){
+      windValue.textContent=String(wind);windStat.textContent=wind===0?'Calm':`${Math.abs(wind)} ${wind<0?'left':'right'}`;
+    }
+    $('#windLeft').addEventListener('click',()=>{wind=Math.max(-5,wind-1);updateWindUI();});
+    $('#windRight').addEventListener('click',()=>{wind=Math.min(5,wind+1);updateWindUI();});
+    pauseBtn.addEventListener('click',()=>{
+      paused=!paused;pauseBtn.setAttribute('aria-pressed',String(paused));modeStat.textContent=paused?'Paused':'Running';
+      pauseBtn.innerHTML=paused?'<svg class="svg-icon" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></svg><span class="label">Play</span>':'<svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg><span class="label">Pause</span>';
+      showToast(paused?'Simulation paused':'Simulation resumed');
+    });
+    $('#clearBtn').addEventListener('click',()=>{saveUndo();cells.fill(0);life.fill(0);state.fill(0);birds.length=0;showToast('Sandbox cleared');});
+    $('#undoBtn').addEventListener('click',restoreUndo);
+    $('#sceneBtn').addEventListener('click',seedLivingWorld);
+    $('#flockBtn').addEventListener('click',()=>{saveUndo();addBirds(4);showToast('A new flock entered the sky');});
+    $('#saveBtn').addEventListener('click',()=>{
+      render();const link=document.createElement('a');link.download=`falling-sand-world-${Date.now()}.png`;link.href=canvas.toDataURL('image/png');link.click();showToast('World saved as PNG');
+    });
+
+    document.addEventListener('keydown',(event)=>{
+      if(event.target.matches('input,button,select,textarea')) return;
+      if(event.code==='Space'){event.preventDefault();pauseBtn.click();}
+      else if(event.key==='n'||event.key==='N') seedLivingWorld();
+      else if(event.key==='c'||event.key==='C') $('#clearBtn').click();
+      else if(event.key==='z'||event.key==='Z') restoreUndo();
+      else if(event.key==='['){brush=Math.max(1,brush-1);brushInput.value=String(brush);brushValue.textContent=String(brush);}
+      else if(event.key===']'){brush=Math.min(24,brush+1);brushInput.value=String(brush);brushValue.textContent=String(brush);}
+    });
+
+    const safeStorage={
+      get(key){try{return window.localStorage.getItem(key);}catch(_){return null;}},
+      set(key,value){try{window.localStorage.setItem(key,value);return true;}catch(_){return false;}}
+    };
+    const stars=$$('.star');const ratingMeta=$('#ratingMeta');
+    function paintStars(value){stars.forEach((star,index)=>{const active=index<value;star.classList.toggle('active',active);star.setAttribute('aria-checked',String(index+1===value));});}
+    const storedRating=Number(safeStorage.get('fallingSandRating')||0);
+    if(storedRating){paintStars(storedRating);ratingMeta.textContent=`Your saved rating: ${storedRating} out of 5.`;}
+    stars.forEach((star)=>{
+      star.addEventListener('mouseenter',()=>paintStars(Number(star.dataset.rating)));
+      star.addEventListener('focus',()=>paintStars(Number(star.dataset.rating)));
+      star.addEventListener('click',()=>{const value=Number(star.dataset.rating);safeStorage.set('fallingSandRating',String(value));paintStars(value);ratingMeta.textContent=`Thanks! Your ${value}-star rating is saved on this device.`;});
+    });
+    $('#stars').addEventListener('mouseleave',()=>paintStars(Number(safeStorage.get('fallingSandRating')||0)));
+
+    function tick(now){
+      const delta=Math.max(1,now-lastTimestamp);lastTimestamp=now;fpsSmoothed=fpsSmoothed*.92+(1000/delta)*.08;
+      if(!paused){updateParticles();updateBirds();}
+      render();
+      if((frame&15)===0){fpsPill.textContent=`${Math.min(99,Math.round(fpsSmoothed))} FPS`;particlePill.textContent=`${activeParticles.toLocaleString()} particles`;}
+      requestAnimationFrame(tick);
+    }
+
+    const resizeObserver=new ResizeObserver(()=>resizeSimulation(false));
+    resizeObserver.observe(workspace);
+    resizeSimulation(true);
+    seedLivingWorld();
+    requestAnimationFrame(tick);
+  })();
+  </script>
+</body>
+</html>
