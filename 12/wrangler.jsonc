@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "12website",
+
+  "main": "worker.js",
+
+  "compatibility_date": "2026-08-05",
+
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+
+  "observability": {
+    "enabled": true
+  },
+
+  "assets": {
+    "directory": "12",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+
+  "d1_databases": [
+    {
+      "binding": "RATINGS_DB",
+      "database_name": "toolrar-ratings",
+      "database_id": "ab105d2d-3be4-45d7-9c98-cdeaf6d3e67a"
+    }
+  ]
+}
