@@ -35,7 +35,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Falling Sand Game physics sandbox with sand, water, fire, a house and birds">
 <meta property="og:locale" content="en_US">
-<meta property="og:updated_time" content="2026-08-05T05:22:00+02:00">
+<meta property="og:updated_time" content="2026-08-05T08:06:00+02:00">
 
 <!-- X / Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -57,9 +57,15 @@
 -->
 <!-- Add the approved AdSense loader once, after replacing the placeholder publisher ID. -->
 
-<!-- Replace these two values only after connecting a real public rating source.
-     The same values update both visible counters and AggregateRating schema. -->
-<script>window.FSG_PUBLIC_RATING={ratingValue:null,ratingCount:0};</script>
+<!-- Live ratings are loaded from ToolRar's Cloudflare Worker + D1 API. -->
+<script>
+window.FSG_RATING_CONFIG={
+  endpoint:"/api/ratings/falling-sand-game",
+  pageKey:"falling-sand-game",
+  visitorStorageKey:"fsg-rating-visitor-v1",
+  voteStorageKey:"falling-sand-rating"
+};
+</script>
 
 <!-- ============ Structured Data ============ -->
 <script id="fsgStructuredData" type="application/ld+json">
@@ -114,7 +120,7 @@
         "@id": "https://www.toolrar.com/en/games/falling-sand-game#breadcrumb"
       },
       "datePublished": "2026-08-05T00:00:00+02:00",
-      "dateModified": "2026-08-05T05:22:00+02:00",
+      "dateModified": "2026-08-05T08:06:00+02:00",
       "inLanguage": "en"
     },
     {
@@ -155,7 +161,7 @@
         "@id": "https://www.toolrar.com/#organization"
       },
       "datePublished": "2026-08-05T00:00:00+02:00",
-      "dateModified": "2026-08-05T05:22:00+02:00",
+      "dateModified": "2026-08-05T08:06:00+02:00",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -627,6 +633,126 @@ body{background:radial-gradient(circle at 15% -10%,rgba(243,179,77,.11),transpar
   .rating-count-badge{padding-inline:6px}
 }
 
+
+/* ===== Live D1 rating presentation ===== */
+.rating-lede{max-width:760px}
+.rating-summary-live{
+  position:relative;
+  min-width:280px;
+  padding:28px 30px 26px;
+  overflow:hidden;
+  border-color:rgba(243,179,77,.24);
+  background:
+    radial-gradient(circle at 50% -20%,rgba(243,179,77,.16),transparent 46%),
+    linear-gradient(155deg,#172238,#101827);
+  box-shadow:0 18px 46px rgba(0,0,0,.24);
+}
+.rating-summary-live::after{
+  content:"";
+  position:absolute;
+  inset:auto -55px -70px auto;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(79,209,197,.05);
+  pointer-events:none;
+}
+.rating-live-label{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:14px;
+  color:#cbd5e1;
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.rating-live-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#34d399;
+  box-shadow:0 0 0 5px rgba(52,211,153,.1);
+}
+.rating-score-line{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:7px;
+  margin-bottom:12px;
+}
+.rating-summary-live .big{
+  font-size:3.7rem;
+  font-weight:800;
+  letter-spacing:-.055em;
+  text-shadow:0 8px 24px rgba(243,179,77,.15);
+}
+.rating-out-of{
+  padding-bottom:7px;
+  color:#94a3b8;
+  font-size:1rem;
+  font-weight:700;
+}
+.rating-summary-live .stars{
+  display:flex;
+  justify-content:center;
+  margin:0 auto 16px;
+}
+.rating-summary-live .star{
+  color:#526078;
+}
+.rating-summary-live .star.active{
+  color:var(--sand);
+}
+.rating-count-panel{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:8px;
+  margin:2px auto 10px;
+  padding:11px 14px;
+  max-width:220px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  background:rgba(3,7,18,.28);
+}
+.rating-count-panel strong{
+  color:#fff3cf;
+  font-family:var(--font-display);
+  font-size:1.45rem;
+  line-height:1;
+}
+.rating-count-panel span{
+  color:#a9b6c8;
+  font-size:.76rem;
+  font-weight:700;
+}
+.rating-summary-live.is-loading{opacity:.82}
+.rating-summary-live.is-saving .star{cursor:progress}
+.rating-summary-live.is-success{
+  animation:ratingPulse .5s var(--ease);
+}
+.rating-summary-live.is-error{
+  border-color:rgba(255,107,74,.42);
+}
+#rateNote{
+  max-width:255px;
+  margin:10px auto 0;
+  line-height:1.45;
+}
+@keyframes ratingPulse{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.018)}
+  100%{transform:scale(1)}
+}
+@media(max-width:620px){
+  .ratings-block{gap:22px}
+  .rating-summary-live{width:100%;min-width:0;padding:24px 16px}
+  .rating-summary-live .big{font-size:3.25rem}
+  .rating-trust-card{padding:20px}
+}
+
 </style>
 </head>
 <body>
@@ -895,18 +1021,35 @@ body{background:radial-gradient(circle at 15% -10%,rgba(243,179,77,.11),transpar
 </section>
 
 <!-- ============ RATINGS / REVIEWS ============ -->
-<section class="bg-a">
+<section class="bg-a" id="player-rating">
   <div class="wrap">
-    <span class="eyebrow">Player feedback</span>
+    <span class="eyebrow">Live player feedback</span>
     <h2>Rate this falling sand game</h2>
+    <p class="lede rating-lede">Choose from one to five stars. Your vote is stored in ToolRar's rating database and the public average updates from real player ratings.</p>
     <div class="ratings-block">
-      <div class="rating-summary">
-        <div class="big" id="ratingBig">—</div>
-        <div class="stars" id="starRow" role="radiogroup" aria-label="Rate this game out of 5 stars"></div>
-        <span class="rating-count-badge rating-count-bottom" id="ratingCount" aria-live="polite">0 ratings</span>
-        <div id="rateNote">Tap a star to rate — thanks for playing!</div>
+      <div class="rating-summary rating-summary-live" id="ratingSummary" aria-busy="true">
+        <div class="rating-live-label"><span class="rating-live-dot" aria-hidden="true"></span>Live player rating</div>
+        <div class="rating-score-line">
+          <strong class="big" id="ratingBig">—</strong>
+          <span class="rating-out-of">/ 5</span>
+        </div>
+        <div class="stars" id="starRow" role="radiogroup" aria-label="Rate Falling Sand Game from 1 to 5 stars"></div>
+        <div class="rating-count-panel" aria-live="polite">
+          <strong id="ratingCountNumber">0</strong>
+          <span id="ratingCountLabel">verified ratings</span>
+        </div>
+        <span class="rating-count-badge rating-count-bottom" id="ratingCount">Loading ratings…</span>
+        <div id="rateNote" role="status" aria-live="polite">Loading the current player rating…</div>
       </div>
-      <div class="rating-trust-card"><strong>A transparent rating control</strong><p>Your selection is saved only in this browser. The page does not publish a fabricated global score or display invented player testimonials.</p><div class="rating-points"><span>✓ No account</span><span>✓ No server submission</span><span>✓ Change your rating anytime</span></div></div>
+      <div class="rating-trust-card">
+        <strong>Real ratings, updated from Cloudflare D1</strong>
+        <p>The displayed average and rating count come directly from ToolRar's live database. A browser can submit one vote for this game and can change that vote later without increasing the count again.</p>
+        <div class="rating-points">
+          <span>✓ Live database count</span>
+          <span>✓ One vote per browser</span>
+          <span>✓ Change your rating anytime</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1123,35 +1266,78 @@ document.addEventListener('click', function(e){
   if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) langMenu.setAttribute('hidden','');
 });
 
-/* ================= Synchronized star rating ================= */
+/* ================= Live D1 synchronized star rating ================= */
 (function(){
-  var STORAGE_KEY='falling-sand-rating';
-  var publicRating=window.FSG_PUBLIC_RATING||{ratingValue:null,ratingCount:0};
-  var rows=[document.getElementById('heroStars'),document.getElementById('starRow')].filter(Boolean);
+  'use strict';
+
+  var config=window.FSG_RATING_CONFIG||{};
+  var API_URL=config.endpoint||'/api/ratings/falling-sand-game';
+  var VOTE_KEY=config.voteStorageKey||'falling-sand-rating';
+  var VISITOR_KEY=config.visitorStorageKey||'fsg-rating-visitor-v1';
+
+  var rows=[
+    document.getElementById('heroStars'),
+    document.getElementById('starRow')
+  ].filter(Boolean);
+
+  var ratingSummary=document.getElementById('ratingSummary');
   var ratingBig=document.getElementById('ratingBig');
   var rateNote=document.getElementById('rateNote');
-  var countNodes=[document.getElementById('heroRatingCount'),document.getElementById('ratingCount')].filter(Boolean);
+  var heroRatingCount=document.getElementById('heroRatingCount');
+  var ratingCount=document.getElementById('ratingCount');
+  var ratingCountNumber=document.getElementById('ratingCountNumber');
+  var ratingCountLabel=document.getElementById('ratingCountLabel');
+
   var savedVote=0;
-  try{savedVote=parseInt(localStorage.getItem(STORAGE_KEY)||'0',10)||0;}catch(e){}
+  var publicRating={ratingValue:null,ratingCount:0,updatedAt:null};
+  var busy=false;
+
+  try{
+    savedVote=parseInt(localStorage.getItem(VOTE_KEY)||'0',10)||0;
+    if(savedVote<1||savedVote>5)savedVote=0;
+  }catch(e){savedVote=0;}
+
   var starSvg='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1z"/></svg>';
 
-  function validPublicRating(){
-    return Number(publicRating.ratingCount)>0&&Number(publicRating.ratingValue)>=1&&Number(publicRating.ratingValue)<=5;
+  function formatCount(count){
+    return Number(count||0).toLocaleString('en-US');
   }
-  function countText(){
-    if(validPublicRating())return Number(publicRating.ratingCount).toLocaleString('en-US')+' rating'+(Number(publicRating.ratingCount)===1?'':'s');
-    return savedVote?'1 local rating':'0 ratings';
+
+  function countLabel(count){
+    return Number(count)===1?'verified rating':'verified ratings';
   }
-  function updateSummary(){
-    countNodes.forEach(function(node){node.textContent=countText();});
-    if(ratingBig){
-      if(validPublicRating())ratingBig.textContent=Number(publicRating.ratingValue).toFixed(1);
-      else ratingBig.textContent=savedVote?savedVote+'/5':'—';
+
+  function hasPublicRating(){
+    return Number(publicRating.ratingCount)>0&&
+      Number(publicRating.ratingValue)>=1&&
+      Number(publicRating.ratingValue)<=5;
+  }
+
+  function getVisitorId(){
+    var existing='';
+    try{existing=localStorage.getItem(VISITOR_KEY)||'';}catch(e){}
+    if(/^[a-zA-Z0-9_-]{20,100}$/.test(existing))return existing;
+
+    var generated='';
+    if(window.crypto&&typeof window.crypto.randomUUID==='function'){
+      generated=window.crypto.randomUUID();
+    }else{
+      generated='fsg_'+Date.now().toString(36)+'_'+
+        Math.random().toString(36).slice(2)+
+        Math.random().toString(36).slice(2);
     }
-    if(rateNote){
-      rateNote.textContent=savedVote?'Your rating is synchronized across both star controls and saved in this browser.':'Tap a star to rate — both controls use the same rating.';
-    }
+
+    try{localStorage.setItem(VISITOR_KEY,generated);}catch(e){}
+    return generated;
   }
+
+  function setState(state){
+    if(!ratingSummary)return;
+    ratingSummary.classList.remove('is-loading','is-saving','is-success','is-error');
+    if(state)ratingSummary.classList.add('is-'+state);
+    ratingSummary.setAttribute('aria-busy',String(state==='loading'||state==='saving'));
+  }
+
   function paint(value){
     rows.forEach(function(row){
       row.querySelectorAll('button').forEach(function(button){
@@ -1160,56 +1346,240 @@ document.addEventListener('click', function(e){
         button.classList.toggle('active',n<=value);
         button.setAttribute('aria-checked',String(selected));
         button.tabIndex=selected||(!value&&n===1)?0:-1;
+        button.disabled=busy;
       });
     });
   }
-  function choose(value){
-    savedVote=Math.max(1,Math.min(5,Number(value)||0));
-    try{localStorage.setItem(STORAGE_KEY,String(savedVote));}catch(e){}
-    paint(savedVote);updateSummary();
-    if(typeof playUiSound==='function')playUiSound(400+savedVote*65);
+
+  function updateVisibleRating(){
+    var count=Number(publicRating.ratingCount)||0;
+    var countText=formatCount(count)+' rating'+(count===1?'':'s');
+
+    if(heroRatingCount){
+      heroRatingCount.textContent=count>0?countText:'No ratings yet';
+      heroRatingCount.title=count>0?'Based on '+countText:'Be the first to rate';
+    }
+
+    if(ratingCount){
+      ratingCount.textContent=count>0
+        ?'Based on '+countText
+        :'Be the first player to rate';
+    }
+
+    if(ratingCountNumber)ratingCountNumber.textContent=formatCount(count);
+    if(ratingCountLabel)ratingCountLabel.textContent=countLabel(count);
+
+    if(ratingBig){
+      ratingBig.textContent=hasPublicRating()
+        ?Number(publicRating.ratingValue).toFixed(1)
+        :'—';
+    }
   }
-  function preview(value){paint(value);}
-  function restore(){paint(savedVote);}
+
+  function updateAggregateRatingSchema(){
+    var schemaNode=document.getElementById('fsgStructuredData');
+    if(!schemaNode)return;
+
+    try{
+      var schema=JSON.parse(schemaNode.textContent);
+      var graph=schema['@graph']||[];
+      var game=graph.find(function(item){
+        return item['@id']==='https://www.toolrar.com/en/games/falling-sand-game#game';
+      });
+
+      if(!game)return;
+
+      if(hasPublicRating()){
+        game.aggregateRating={
+          '@type':'AggregateRating',
+          'ratingValue':Number(Number(publicRating.ratingValue).toFixed(2)),
+          'ratingCount':Number(publicRating.ratingCount),
+          'bestRating':5,
+          'worstRating':1
+        };
+      }else{
+        delete game.aggregateRating;
+      }
+
+      schemaNode.textContent=JSON.stringify(schema);
+    }catch(error){
+      console.error('Unable to update rating structured data:',error);
+    }
+  }
+
+  function applyApiData(data){
+    publicRating={
+      ratingValue:data&&data.ratingValue!==null?Number(data.ratingValue):null,
+      ratingCount:Number(data&&data.ratingCount)||0,
+      updatedAt:data&&data.updatedAt||null
+    };
+    updateVisibleRating();
+    updateAggregateRatingSchema();
+  }
+
+  function showNote(message){
+    if(rateNote)rateNote.textContent=message;
+  }
+
+  function preview(value){
+    if(!busy)paint(value);
+  }
+
+  function restore(){
+    paint(savedVote);
+  }
+
+  async function loadRatings(){
+    setState('loading');
+    showNote('Loading the current player rating…');
+
+    try{
+      var response=await fetch(API_URL,{
+        method:'GET',
+        headers:{'Accept':'application/json'},
+        credentials:'same-origin',
+        cache:'no-store'
+      });
+
+      var data=await response.json();
+      if(!response.ok||!data.ok)throw new Error(data.error||'rating_load_failed');
+
+      applyApiData(data);
+      paint(savedVote);
+      showNote(savedVote
+        ?'Your saved vote is '+savedVote+' out of 5. Choose another star to update it.'
+        :'Choose a star to add your rating.');
+      setState('');
+    }catch(error){
+      console.error('Rating load failed:',error);
+      updateVisibleRating();
+      paint(savedVote);
+      showNote('Ratings are temporarily unavailable. Please try again shortly.');
+      setState('error');
+    }
+  }
+
+  async function submitRating(value){
+    if(busy)return;
+
+    value=Math.max(1,Math.min(5,Number(value)||0));
+    if(!value)return;
+
+    var previousVote=savedVote;
+    busy=true;
+    paint(value);
+    setState('saving');
+    showNote('Saving your rating…');
+
+    try{
+      var response=await fetch(API_URL,{
+        method:'POST',
+        headers:{
+          'Accept':'application/json',
+          'Content-Type':'application/json'
+        },
+        credentials:'same-origin',
+        cache:'no-store',
+        body:JSON.stringify({
+          rating:value,
+          visitorId:getVisitorId()
+        })
+      });
+
+      var data=await response.json();
+      if(!response.ok||!data.ok)throw new Error(data.error||'rating_save_failed');
+
+      savedVote=value;
+      try{localStorage.setItem(VOTE_KEY,String(savedVote));}catch(e){}
+
+      applyApiData(data);
+      busy=false;
+      paint(savedVote);
+      setState('success');
+      showNote(previousVote
+        ?'Your rating was updated to '+savedVote+' out of 5.'
+        :'Thank you — your '+savedVote+' out of 5 rating is now included.');
+
+      if(typeof playUiSound==='function')playUiSound(400+savedVote*65);
+      window.setTimeout(function(){setState('');},650);
+    }catch(error){
+      console.error('Rating save failed:',error);
+      busy=false;
+      savedVote=previousVote;
+      paint(savedVote);
+      setState('error');
+      showNote('Your rating could not be saved. Please check your connection and try again.');
+    }
+  }
 
   rows.forEach(function(row){
     for(var n=1;n<=5;n++){
       var button=document.createElement('button');
-      button.type='button';button.className=row.id==='starRow'?'star':'hero-star';
-      button.dataset.value=String(n);button.setAttribute('role','radio');button.setAttribute('aria-checked','false');
-      button.setAttribute('aria-label','Rate '+n+' out of 5 stars');button.innerHTML=starSvg;
-      button.addEventListener('mouseenter',function(e){preview(Number(e.currentTarget.dataset.value));});
-      button.addEventListener('focus',function(e){preview(Number(e.currentTarget.dataset.value));});
-      button.addEventListener('click',function(e){choose(Number(e.currentTarget.dataset.value));});
-      button.addEventListener('keydown',function(e){
-        var value=Number(e.currentTarget.dataset.value);
-        if(e.key==='ArrowRight'||e.key==='ArrowUp'){e.preventDefault();value=Math.min(5,value+1);choose(value);row.querySelector('[data-value="'+value+'"]').focus();}
-        else if(e.key==='ArrowLeft'||e.key==='ArrowDown'){e.preventDefault();value=Math.max(1,value-1);choose(value);row.querySelector('[data-value="'+value+'"]').focus();}
-        else if(e.key==='Home'){e.preventDefault();choose(1);row.querySelector('[data-value="1"]').focus();}
-        else if(e.key==='End'){e.preventDefault();choose(5);row.querySelector('[data-value="5"]').focus();}
+      button.type='button';
+      button.className=row.id==='starRow'?'star':'hero-star';
+      button.dataset.value=String(n);
+      button.setAttribute('role','radio');
+      button.setAttribute('aria-checked','false');
+      button.setAttribute('aria-label','Rate '+n+' out of 5 stars');
+      button.innerHTML=starSvg;
+
+      button.addEventListener('mouseenter',function(event){
+        preview(Number(event.currentTarget.dataset.value));
       });
+      button.addEventListener('focus',function(event){
+        preview(Number(event.currentTarget.dataset.value));
+      });
+      button.addEventListener('click',function(event){
+        submitRating(Number(event.currentTarget.dataset.value));
+      });
+      button.addEventListener('keydown',function(event){
+        var value=Number(event.currentTarget.dataset.value);
+        if(event.key==='ArrowRight'||event.key==='ArrowUp'){
+          event.preventDefault();
+          value=Math.min(5,value+1);
+          submitRating(value);
+          row.querySelector('[data-value="'+value+'"]').focus();
+        }else if(event.key==='ArrowLeft'||event.key==='ArrowDown'){
+          event.preventDefault();
+          value=Math.max(1,value-1);
+          submitRating(value);
+          row.querySelector('[data-value="'+value+'"]').focus();
+        }else if(event.key==='Home'){
+          event.preventDefault();
+          submitRating(1);
+          row.querySelector('[data-value="1"]').focus();
+        }else if(event.key==='End'){
+          event.preventDefault();
+          submitRating(5);
+          row.querySelector('[data-value="5"]').focus();
+        }
+      });
+
       row.appendChild(button);
     }
+
     row.addEventListener('mouseleave',restore);
-    row.addEventListener('focusout',function(e){if(!row.contains(e.relatedTarget))restore();});
+    row.addEventListener('focusout',function(event){
+      if(!row.contains(event.relatedTarget))restore();
+    });
   });
 
-  function syncAggregateRatingSchema(){
-    var schemaNode=document.getElementById('fsgStructuredData');
-    if(!schemaNode)return;
-    try{
-      var graph=JSON.parse(schemaNode.textContent);
-      var game=(graph['@graph']||[]).find(function(item){return item['@id']==='https://www.toolrar.com/en/games/falling-sand-game#game';});
-      if(game){
-        if(validPublicRating())game.aggregateRating={'@type':'AggregateRating','ratingValue':Number(publicRating.ratingValue).toFixed(1),'ratingCount':String(Number(publicRating.ratingCount)),'bestRating':'5','worstRating':'1'};
-        else delete game.aggregateRating;
-        schemaNode.textContent=JSON.stringify(graph);
-      }
-    }catch(e){}
-  }
+  paint(savedVote);
+  updateVisibleRating();
+  updateAggregateRatingSchema();
+  loadRatings();
 
-  paint(savedVote);updateSummary();syncAggregateRatingSchema();
-  window.FSGRating={setPublicRating:function(value,count){publicRating={ratingValue:Number(value),ratingCount:Number(count)};updateSummary();syncAggregateRatingSchema();},getLocalRating:function(){return savedVote;}};
+  window.FSGRating={
+    reload:loadRatings,
+    getLocalRating:function(){return savedVote;},
+    getPublicRating:function(){
+      return {
+        ratingValue:publicRating.ratingValue,
+        ratingCount:publicRating.ratingCount,
+        updatedAt:publicRating.updatedAt
+      };
+    }
+  };
 })();
 
 var audioCtx=null,soundOn=false,audioUnlocked=false,lastDrawSound=0;
