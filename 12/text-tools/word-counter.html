@@ -12,6 +12,7 @@
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
     <meta property="og:image:alt" content="رسم إبداعي لمستند نصي يمر عبر عداد للكلمات والحروف">
+    <script>try{if(localStorage.getItem('toolrar-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
     <title>عداد الكلمات والحروف أون لاين - حساب كلمات وأحرف النص | ToolRar</title>
     <link rel="canonical" href="https://www.toolrar.com/text-tools/word-counter">
     <meta name="description" content="عداد الكلمات والحروف المجاني لحساب كلمات النص والأحرف مع المسافات وبدونها، والجمل والفقرات والأسطر ووقت القراءة وتكرار الكلمات فورياً وبدون تسجيل.">
@@ -884,7 +885,15 @@
 <link rel="icon" type="image/png" sizes="512x512" href="/12/admin/assets/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/12/admin/assets/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="../admin/assets/css/tool-knowledge-hub.css">
+    <style id="tool-knowledge-hub-css">
+      .tr-knowledge{--tr-kh-accent:#6366f1;--tr-kh-accent-2:#818cf8;--tr-kh-accent-deep:#4338ca;--tr-kh-accent-rgb:99,102,241;--tr-kh-soft:#eef2ff;--tr-kh-ink:#0f172a;--tr-kh-muted:#475569;margin:18px 0 24px;padding:14px 16px;border:1px solid rgba(var(--tr-kh-accent-rgb),.22);border-radius:16px;background:radial-gradient(circle at 100% 0,rgba(var(--tr-kh-accent-rgb),.1),transparent 30%),linear-gradient(145deg,#fff,#f8fafc);box-shadow:0 8px 24px rgba(15,23,42,.055);color:var(--tr-kh-ink)}
+      .tr-knowledge__head{display:flex;align-items:center;gap:10px;margin-bottom:10px}.tr-knowledge__mark{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:11px;color:#fff;background:linear-gradient(135deg,var(--tr-kh-accent-deep),var(--tr-kh-accent-2));box-shadow:0 6px 16px rgba(var(--tr-kh-accent-rgb),.22)}.tr-knowledge__eyebrow{display:block;margin-bottom:1px;color:var(--tr-kh-accent-deep);font-size:.69rem;font-weight:800}.tr-knowledge h2{margin:0 0 2px;font-size:clamp(.98rem,1.7vw,1.14rem);line-height:1.35}.tr-knowledge p{margin:0;color:var(--tr-kh-muted);font-size:.8rem;line-height:1.55}
+      .tr-knowledge__actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:10px 0}.tr-knowledge__action{display:flex;align-items:center;gap:7px;min-height:42px;padding:7px 10px;border:1px solid #dbe4ee;border-radius:11px;background:rgba(255,255,255,.9);color:var(--tr-kh-ink);text-decoration:none;font-size:.82rem;font-weight:800;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.tr-knowledge__action:hover,.tr-knowledge__action:focus-visible{transform:translateY(-1px);border-color:var(--tr-kh-accent);box-shadow:0 6px 16px rgba(var(--tr-kh-accent-rgb),.13);outline:none}.tr-knowledge__action:focus-visible{outline:2px solid rgba(var(--tr-kh-accent-rgb),.25);outline-offset:2px}
+      .tr-knowledge__terms{display:flex;align-items:center;gap:8px;min-width:0;padding-top:9px;border-top:1px solid #e2e8f0;overflow:hidden}.tr-knowledge__terms strong{display:block;flex:0 0 auto;margin:0;font-size:.72rem;white-space:nowrap}.tr-knowledge__terms-list{display:flex;flex:1 1 auto;flex-wrap:nowrap;gap:6px;min-width:0;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none}.tr-knowledge__terms-list::-webkit-scrollbar{display:none}.tr-knowledge__terms a{flex:0 0 auto;padding:4px 8px;border-radius:999px;background:var(--tr-kh-soft);color:var(--tr-kh-accent-deep);font-size:.7rem;font-weight:750;line-height:1.35;text-decoration:none;white-space:nowrap}
+      .tr-knowledge__icon{--tr-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z'/%3E%3C/svg%3E");display:inline-block;width:17px;height:17px;flex:0 0 17px;background:currentColor;-webkit-mask:var(--tr-icon) center/contain no-repeat;mask:var(--tr-icon) center/contain no-repeat}.tr-knowledge__icon--guide{--tr-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 3h14v18H5zM9 7h6M9 11h6M9 15h4'/%3E%3C/svg%3E")}.tr-knowledge__icon--compare{--tr-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8 3-4 4 4 4M4 7h16M16 21l4-4-4-4M20 17H4'/%3E%3C/svg%3E")}.tr-knowledge__icon--repair{--tr-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-2.3 2.3-3-3z'/%3E%3C/svg%3E")}.tr-knowledge__mark .tr-knowledge__icon{width:20px;height:20px}.tr-knowledge__action .tr-knowledge__icon{color:var(--tr-kh-accent)}
+      .dark .tr-knowledge{--tr-kh-ink:#f8fafc;--tr-kh-muted:#cbd5e1;border-color:rgba(var(--tr-kh-accent-rgb),.3);background:radial-gradient(circle at 100% 0,rgba(var(--tr-kh-accent-rgb),.14),transparent 30%),linear-gradient(145deg,#0f172a,#111827)}.dark .tr-knowledge__eyebrow,.dark .tr-knowledge__terms a{color:var(--tr-kh-accent-2)}.dark .tr-knowledge__terms a{background:rgba(var(--tr-kh-accent-rgb),.14)}.dark .tr-knowledge__action{border-color:#334155;background:rgba(30,41,59,.84)}.dark .tr-knowledge__terms{border-color:#334155}
+      @media(max-width:820px){.tr-knowledge__actions{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.tr-knowledge{margin:14px 0 20px;padding:12px;border-radius:14px}.tr-knowledge__head{align-items:flex-start}.tr-knowledge p{display:none}.tr-knowledge__action{min-height:39px;padding:6px 8px;font-size:.77rem}.tr-knowledge__terms{gap:6px}}@media(prefers-reduced-motion:reduce){.tr-knowledge__action{transition:none}}
+    </style>
 </head>
 <body>
     <header class="header">
@@ -987,7 +996,7 @@
                     <div class="tool-interface">
                         <div class="tool-keyword-density">
   <div class="tool-header">
-    <img class="tool-primary-image" src="word-counter.webp" alt="رسم إبداعي لمستند نصي يمر عبر عداد للكلمات والحروف" width="800" height="800" decoding="async" fetchpriority="high">
+    <img class="tool-primary-image" src="word-counter-96.webp" srcset="word-counter-48.webp 48w, word-counter-96.webp 96w, word-counter-144.webp 144w, word-counter.webp 800w" sizes="48px" alt="رسم إبداعي لمستند نصي يمر عبر عداد للكلمات والحروف" width="800" height="800" decoding="async" fetchpriority="high">
     <h2>أداة عداد الكلمات والحروف</h2>
   </div>
   <div class="tool-input-area">
@@ -1025,8 +1034,8 @@
     </div>
     <div class="tool-keyword-section">
       <div class="tool-section-toolbar"><h3>تكرار الكلمات والعبارات</h3><input class="tool-filter" id="tool-keyword-filter" type="search" placeholder="تصفية النتائج" aria-label="تصفية الكلمات المتكررة"></div>
-      <div class="tool-keyword-tabs" role="tablist" aria-label="طول العبارة"><button type="button" class="tool-tab active" data-ngram="1">كلمة</button><button type="button" class="tool-tab" data-ngram="2">كلمتان</button><button type="button" class="tool-tab" data-ngram="3">3 كلمات</button><button type="button" class="tool-tab" data-ngram="4">4 كلمات</button><button type="button" class="tool-tab" data-ngram="5">5 كلمات</button></div>
-      <div class="tool-keyword-list" id="tool-keyword-list"><p class="tool-placeholder">ابدأ الكتابة لعرض الكلمات الأكثر تكراراً</p></div>
+      <div class="tool-keyword-tabs" role="tablist" aria-label="طول العبارة"><button type="button" class="tool-tab active" id="tool-tab-1" role="tab" aria-selected="true" aria-controls="tool-keyword-list" tabindex="0" data-ngram="1">كلمة</button><button type="button" class="tool-tab" id="tool-tab-2" role="tab" aria-selected="false" aria-controls="tool-keyword-list" tabindex="-1" data-ngram="2">كلمتان</button><button type="button" class="tool-tab" id="tool-tab-3" role="tab" aria-selected="false" aria-controls="tool-keyword-list" tabindex="-1" data-ngram="3">3 كلمات</button><button type="button" class="tool-tab" id="tool-tab-4" role="tab" aria-selected="false" aria-controls="tool-keyword-list" tabindex="-1" data-ngram="4">4 كلمات</button><button type="button" class="tool-tab" id="tool-tab-5" role="tab" aria-selected="false" aria-controls="tool-keyword-list" tabindex="-1" data-ngram="5">5 كلمات</button></div>
+      <div class="tool-keyword-list" id="tool-keyword-list" role="tabpanel" aria-labelledby="tool-tab-1" tabindex="0"><p class="tool-placeholder">ابدأ الكتابة لعرض الكلمات الأكثر تكراراً</p></div>
     </div>
   </div>
 </div>
@@ -1219,19 +1228,19 @@
 
     <script>
         let isDark = false;
-        function updateDarkUI() {
+        function updateDarkUI(persist = true) {
             const darkIcon = document.getElementById('darkIcon');
             const darkLabel = document.getElementById('darkLabel');
             const mobileDarkIcon = document.getElementById('mobileDarkIcon');
             if (isDark) {
                 document.documentElement.classList.add('dark');
-                localStorage.setItem('toolrar-theme', 'dark');
+                if (persist) localStorage.setItem('toolrar-theme', 'dark');
                 darkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
                 mobileDarkIcon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
                 darkLabel.textContent = 'الوضع النهاري';
             } else {
                 document.documentElement.classList.remove('dark');
-                localStorage.setItem('toolrar-theme', 'light');
+                if (persist) localStorage.setItem('toolrar-theme', 'light');
                 darkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
                 mobileDarkIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
                 darkLabel.textContent = 'الوضع الليلي';
@@ -1268,8 +1277,8 @@
         document.getElementById('mobileDarkToggle').addEventListener('click', toggleDark);
         document.getElementById('hamburgerBtn').addEventListener('click', toggleMobileMenu);
         (function init() {
-            if (localStorage.getItem('toolrar-theme') === 'dark') { isDark = true; }
-            updateDarkUI();
+            isDark = document.documentElement.classList.contains('dark');
+            if (isDark) updateDarkUI(false);
         })();
     </script>
     <script>(function(){
@@ -1288,7 +1297,7 @@ ngramData=generateNgrams(clean);renderKeywordList();updateGoal(words.length);$('
 function generateNgrams(words){const data={};for(let n=1;n<=5;n++){const map=new Map();for(let i=0;i<=words.length-n;i++){const phrase=words.slice(i,i+n).join(' ');map.set(phrase,(map.get(phrase)||0)+1);}data[n]=Array.from(map.entries()).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ar')).slice(0,250);}return data;}
 function renderKeywordList(){const query=filter.value.trim().toLocaleLowerCase('ar'), items=(ngramData[currentNgram]||[]).filter(([p])=>!query||p.includes(query)), total=Math.max(1,lastStats?lastStats.words:1);if(!items.length){keywordList.innerHTML='<p class="tool-placeholder">لا توجد نتائج مطابقة</p>';return;}keywordList.innerHTML=items.map(([phrase,count])=>`<div class="tool-keyword-item"><span class="tool-keyword-phrase">${escapeHtml(phrase)}</span><span class="tool-keyword-meta"><span class="tool-keyword-percent">${((count/total)*100).toFixed(1)}%</span><span class="tool-keyword-count">${count}</span></span></div>`).join('');}
 function updateGoal(count){const target=Math.max(1,parseInt(goal.value,10)||500), percent=Math.min(100,Math.round(count/target*100));$('tool-progress-bar').style.width=percent+'%';const p=document.querySelector('.tool-progress');p.setAttribute('aria-valuenow',percent);$('tool-message').textContent=count?`${count} من ${target} كلمة (${percent}%)`:'';}
-function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
+function escapeHtml(str){const entities={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};return str.replace(/[&<>"']/g,c=>entities[c]);}
 function schedule(){clearTimeout(timer);timer=setTimeout(()=>analyze(false),90);}
 function selectionStats(){const selected=textarea.value.slice(textarea.selectionStart,textarea.selectionEnd);$('tool-selection-status').textContent=`المحدد: ${getWords(selected).length} كلمة، ${Array.from(selected).length} حرف`;}
 async function pasteText(){try{const t=await navigator.clipboard.readText();textarea.value+=t;schedule();textarea.focus();}catch(e){$('tool-message').textContent='تعذر الوصول إلى الحافظة. استخدم أمر اللصق في جهازك.';}}
@@ -1296,8 +1305,9 @@ async function copyText(){try{await navigator.clipboard.writeText(textarea.value
 async function copyStats(){if(!lastStats)analyze(false);const x=lastStats||{};const report=`إحصاءات النص - ToolRar\nالكلمات: ${x.words||0}\nالأحرف مع المسافات: ${x.charsAll||0}\nالأحرف بدون المسافات: ${x.charsNoSpace||0}\nالجمل: ${x.sentences||0}\nالفقرات: ${x.paragraphs||0}\nالأسطر: ${x.lines||0}\nالكلمات الفريدة: ${x.unique||0}\nمتوسط طول الكلمة: ${x.avg||0}`;try{await navigator.clipboard.writeText(report);$('tool-message').textContent='تم نسخ الإحصاءات.';}catch(e){$('tool-message').textContent='تعذر نسخ الإحصاءات تلقائياً.';}}
 function cleanText(){textarea.value=textarea.value.replace(/[\t\u00A0]+/g,' ').replace(/ {2,}/g,' ').replace(/\n{3,}/g,'\n\n').trim();analyze(false);$('tool-message').textContent='تم تنظيف المسافات الزائدة.';}
 function downloadText(){const blob=new Blob([textarea.value],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='toolrar-text.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
-function clearAll(){textarea.value='';filter.value='';lastStats=null;ngramData={};tabs.forEach(t=>t.classList.toggle('active',t.dataset.ngram==='1'));currentNgram=1;analyze(false);textarea.focus();$('tool-message').textContent='';}
-textarea.addEventListener('input',schedule);textarea.addEventListener('select',selectionStats);textarea.addEventListener('keyup',selectionStats);analyzeBtn.addEventListener('click',()=>analyze(true));clearBtn.addEventListener('click',clearAll);$('tool-paste-btn').addEventListener('click',pasteText);$('tool-copy-btn').addEventListener('click',copyText);$('tool-clean-btn').addEventListener('click',cleanText);$('tool-download-btn').addEventListener('click',downloadText);$('tool-copy-stats-btn').addEventListener('click',copyStats);goal.addEventListener('input',()=>updateGoal(lastStats?lastStats.words:0));filter.addEventListener('input',renderKeywordList);tabs.forEach(tab=>tab.addEventListener('click',function(){tabs.forEach(t=>t.classList.remove('active'));this.classList.add('active');currentNgram=parseInt(this.dataset.ngram,10);renderKeywordList();}));analyze(false);
+function activateTab(tab,moveFocus){tabs.forEach(t=>{const selected=t===tab;t.classList.toggle('active',selected);t.setAttribute('aria-selected',selected?'true':'false');t.tabIndex=selected?0:-1;});currentNgram=parseInt(tab.dataset.ngram,10);keywordList.setAttribute('aria-labelledby',tab.id);renderKeywordList();if(moveFocus)tab.focus();}
+function clearAll(){textarea.value='';filter.value='';lastStats=null;ngramData={};activateTab(tabs[0],false);analyze(false);textarea.focus();$('tool-message').textContent='';}
+textarea.addEventListener('input',schedule);textarea.addEventListener('select',selectionStats);textarea.addEventListener('keyup',selectionStats);analyzeBtn.addEventListener('click',()=>analyze(true));clearBtn.addEventListener('click',clearAll);$('tool-paste-btn').addEventListener('click',pasteText);$('tool-copy-btn').addEventListener('click',copyText);$('tool-clean-btn').addEventListener('click',cleanText);$('tool-download-btn').addEventListener('click',downloadText);$('tool-copy-stats-btn').addEventListener('click',copyStats);goal.addEventListener('input',()=>updateGoal(lastStats?lastStats.words:0));filter.addEventListener('input',renderKeywordList);tabs.forEach((tab,index)=>{tab.addEventListener('click',function(){activateTab(this,false)});tab.addEventListener('keydown',function(event){let next=index;if(event.key==='ArrowLeft'||event.key==='ArrowDown')next=(index+1)%tabs.length;else if(event.key==='ArrowRight'||event.key==='ArrowUp')next=(index-1+tabs.length)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();activateTab(tabs[next],true);});});if(textarea.value) schedule();
 })();</script>
 </body>
 </html>

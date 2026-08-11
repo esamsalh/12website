@@ -1,0 +1,5 @@
+<IfModule mod_headers.c>
+  <FilesMatch "^word-counter(?:-(?:48|96|144))?\.webp$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
